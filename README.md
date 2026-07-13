@@ -123,10 +123,14 @@ Enterprise RAG Support Automation Platform/
       ci.yml
   k8s/
     api-deployment.yaml
+    api-service.yaml
     configmap.yaml
     ingress.yaml
     secret.example.yaml
+    namespace.yaml
+    persistent-volume-claims.yaml
     streamlit-deployment.yaml
+    streamlit-service.yaml
   Dockerfile
   docker-compose.yml
   Makefile
@@ -255,6 +259,7 @@ Available endpoints:
 ```text
 GET  /
 GET  /health
+POST /auth/login
 POST /ask
 GET  /logs
 POST /feedback
@@ -594,6 +599,8 @@ Completed:
 - escalation decisions
 - ticket draft generation
 - API key authentication
+- JWT role-based authentication
+- domain-aware retrieval
 - feedback logging
 - metrics endpoint
 - analytics UI
