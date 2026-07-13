@@ -49,8 +49,7 @@ Beyond basic RAG, the platform adds support automation:
 - Docker, Docker Compose, Kubernetes manifests, Makefile, and GitHub Actions CI
 
 ## System Architecture
-
-![System Architecture](https://github.com/user-attachments/assets/b2c2557f-4724-4253-9962-df8f552a4d25)
+<img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
 
 ## Current Knowledge Base
 
