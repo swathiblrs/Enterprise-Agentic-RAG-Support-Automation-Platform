@@ -1,81 +1,97 @@
-# ***Enterprise RAG Support Platform***
+# Enterprise RAG Support Automation Platform
 
-A production-style Retrieval-Augmented Generation platform for enterprise IT support automation. The system retrieves relevant knowledge-base content, generates source-backed support answers, classifies user issues, predicts ticket priority, recommends the correct support team, and logs query activity for observability.
+A production-style Retrieval-Augmented Generation platform for enterprise IT support automation.
+
+The system retrieves relevant internal knowledge-base content, generates grounded support answers, classifies IT issues, predicts ticket priority, recommends the right support team, creates ticket drafts, tracks confidence, collects feedback, and exposes metrics for observability.
 
 ## Project Overview
 
-This project simulates an enterprise IT service desk assistant powered by Retrieval-Augmented Generation. Instead of answering only from general model knowledge, the assistant searches a local knowledge base, retrieves relevant document chunks, and generates grounded support responses with source references.
+This project simulates an enterprise IT service desk assistant powered by RAG and agentic workflow orchestration. Instead of answering only from general model knowledge, the assistant searches a local enterprise knowledge base, retrieves relevant document chunks, and uses those chunks to produce source-backed support responses.
 
-The platform is designed to demonstrate backend engineering, semantic search, vector databases, API design, ticket automation, routing logic, evaluation, and observability.
+Beyond basic RAG, the platform adds support automation:
+
+- issue classification
+- priority prediction
+- team routing
+- confidence scoring
+- escalation decisions
+- ticket draft generation
+- feedback logging
+- metrics and evaluation
+- Docker and CI/CD readiness
 
 ## Key Features
 
-* Synthetic enterprise IT knowledge-base documents
-* Document ingestion from Markdown, text, and PDF files
-* Text chunking with metadata
-* Embedding generation using SentenceTransformers
-* Vector storage using ChromaDB
-* Semantic retrieval over knowledge-base chunks
-* RAG-style answer generation with source references
-* Ticket classification
-* Priority prediction
-* Support team routing
-* Agent-style support workflow orchestration
-* Confidence scoring and escalation decisions
-* Structured ticket draft generation
-* User feedback capture for answer, source, routing, and priority quality
-* Metrics endpoint for latency, fallback rate, confidence, and agent decisions
-* Optional LLM-based grounded answer generation
-* Configurable API key authentication
-* Document upload workflow
-* FastAPI backend
-* Streamlit web interface
-* Query logging using JSONL logs
-* Swagger API documentation
-* Evaluation pipeline for retrieval and routing quality
+- Markdown, text, and PDF document ingestion
+- Text chunking with metadata
+- Embedding generation using SentenceTransformers
+- ChromaDB vector storage
+- BM25 keyword retrieval
+- Hybrid retrieval with reranking
+- Optional LLM-based grounded answer generation
+- Deterministic fallback answer generation for local/offline use
+- Source-backed responses
+- Ticket classification
+- Priority prediction
+- Support team routing
+- Agent-style workflow orchestration
+- Confidence scoring and escalation decisions
+- Structured ticket draft generation
+- User feedback capture
+- Metrics endpoint for latency, fallback rate, confidence, categories, and agent decisions
+- Configurable API key authentication
+- Streamlit UI with Ask, Analytics, and Upload tabs
+- FastAPI backend with Swagger docs
+- JSONL query and feedback logging
+- Evaluation pipeline with retrieval, routing, confidence, and faithfulness metrics
+- Docker, Docker Compose, Makefile, and GitHub Actions CI
 
 ## System Architecture
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b2c2557f-4724-4253-9962-df8f552a4d25" />
+![System Architecture](https://github.com/user-attachments/assets/b2c2557f-4724-4253-9962-df8f552a4d25)
 
 ## Current Knowledge Base
 
-The project currently uses synthetic enterprise IT support documents:
+The project uses synthetic enterprise IT support documents:
 
+```text
 data/
   password_reset_kb.md
   vpn_troubleshooting_kb.md
   mfa_duo_kb.md
   ticket_routing_rules.md
   priority_matrix.md
+```
 
 These documents cover:
 
-* Password reset
-* Account lockout
-* VPN troubleshooting
-* Duo MFA issues
-* Ticket routing rules
-* Ticket priority rules
+- password reset
+- account lockout
+- VPN troubleshooting
+- Duo/MFA issues
+- ticket routing rules
+- ticket priority rules
 
 No private company, university, or personal user data is used.
 
 ## Tech Stack
 
-* Python
-* FastAPI
-* Streamlit
-* ChromaDB
-* SentenceTransformers
-* LangChain
-* Pydantic
-* Requests
-* JSONL logging
-* Docker
-* GitHub Actions CI
+- Python
+- FastAPI
+- Streamlit
+- ChromaDB
+- SentenceTransformers
+- BM25
+- LangChain / LangChain OpenAI
+- Pydantic
+- pypdf
+- Docker
+- GitHub Actions
+- JSONL logging
 
 ## Project Structure
 
+```text
 Enterprise RAG Support Automation Platform/
   app/
     streamlit_app.py
@@ -85,124 +101,149 @@ Enterprise RAG Support Automation Platform/
     mfa_duo_kb.md
     ticket_routing_rules.md
     priority_matrix.md
-  logs/
-    query_logs.jsonl
   src/
-    __init__.py
     api.py
     config.py
+    document_store.py
     evaluator.py
     generator.py
     ingest.py
     logger.py
     orchestrator.py
     retriever.py
+    security.py
     ticket_classifier.py
   tests/
     eval_questions.json
+    test_api.py
   .github/
     workflows/
       ci.yml
   Dockerfile
   docker-compose.yml
   Makefile
-  vectorstore/
-    chroma/
-  README.md
   requirements.txt
   .env.example
-  .gitignore
+  README.md
+```
 
-Note: logs/, vectorstore/, and .venv/ are excluded from GitHub using .gitignore.
+`logs/`, `vectorstore/`, and `.venv/` are excluded from GitHub.
 
-How It Works
+## How It Works
 
-1. Document Ingestion
+### 1. Document Ingestion
 
-The ingestion script reads Markdown, text, and PDF files from the data/ folder.
+The ingestion pipeline reads Markdown, text, and PDF files from the `data/` folder.
 
-Markdown, text, and PDF files → text extraction → chunks → metadata
+```text
+Documents -> text extraction -> chunks -> embeddings -> ChromaDB
+```
 
 Run:
 
+```bash
 python src/ingest.py
+```
 
-This creates embeddings and stores them in ChromaDB.
+### 2. Hybrid Retrieval
 
-2. Semantic Retrieval
+The retriever narrows the knowledge base using:
 
-The retriever converts a user question into an embedding and searches ChromaDB for the most relevant document chunks.
+- vector similarity search through ChromaDB
+- BM25 keyword search
+- result merging
+- lightweight reranking
 
 Example:
 
+```text
 Question:
 My VPN is not working after I reset my password
-Retrieved sources:
+
+Likely retrieved sources:
 - vpn_troubleshooting_kb.md
 - password_reset_kb.md
+```
 
-Run:
+### 3. Grounded Answer Generation
 
-python src/retriever.py
+The generator uses retrieved chunks to produce an answer.
 
-3. Answer Generation
+By default, the project uses deterministic rule-based generation so it can run locally without external API access.
 
-The generator uses retrieved context and returns a support answer with source references.
+To enable LLM-based grounded generation:
 
-By default, the project uses deterministic rule-based generation so it can run without external API access. To enable LLM-based grounded generation, set:
-
+```env
 USE_LLM_GENERATION=true
 OPENAI_API_KEY=your_api_key
 LLM_MODEL_NAME=gpt-4o-mini
+```
 
-Run:
+The LLM prompt instructs the model to answer only from retrieved context and cite source files.
 
-python src/generator.py
-
-4. Agent Workflow Orchestration
-
-The orchestrator coordinates answer generation, confidence scoring, confusion detection, next-action decisions, escalation recommendations, and ticket draft creation.
+### 4. Agent Workflow Orchestration
 
 The API calls:
 
+```python
 run_support_workflow(question)
+```
 
-This creates a structured workflow state for every support request.
+The orchestrator coordinates:
 
-5. Ticket Classification and Routing
+- retrieval
+- answer generation
+- ticket classification
+- confidence scoring
+- confusion detection
+- next-action decisions
+- escalation recommendations
+- ticket draft generation
+
+Example agent decisions:
+
+- `answer_and_create_ticket_draft`
+- `ask_clarifying_question`
+- `create_urgent_ticket_draft`
+- `escalate_to_human`
+
+### 5. Ticket Intelligence
 
 The classifier predicts:
 
-* Ticket summary
-* Category
-* Priority
-* Assigned support team
+- ticket summary
+- category
+- priority
+- assigned support team
 
-Example output:
+Example:
 
+```json
 {
   "summary": "My VPN is not working after I reset my password",
   "category": "VPN Connectivity",
   "priority": "Medium",
   "assigned_team": "Network Support"
 }
+```
 
-Run:
+## API Endpoints
 
-python src/ticket_classifier.py
+Start the backend:
 
-6. FastAPI Backend
-
-Start the API server:
-
+```bash
 uvicorn src.api:app --reload
+```
 
-Open Swagger docs:
+Swagger docs:
 
+```text
 http://127.0.0.1:8000/docs
+```
 
 Available endpoints:
 
+```text
 GET  /
 GET  /health
 POST /ask
@@ -211,15 +252,19 @@ POST /feedback
 GET  /feedback
 GET  /metrics
 POST /documents/upload
+```
 
-Example /ask request:
+Example request:
 
+```json
 {
   "question": "My VPN is not working after I reset my password"
 }
+```
 
 Example response:
 
+```json
 {
   "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
   "question": "My VPN is not working after I reset my password",
@@ -234,8 +279,8 @@ Example response:
     "priority": "Medium",
     "assigned_team": "Network Support"
   },
+  "answer_generation_mode": "rule_based",
   "fallback_triggered": false,
-  "answer_generation_mode": "llm",
   "confidence": {
     "retrieval_confidence": 0.87,
     "classification_confidence": 0.75,
@@ -254,480 +299,260 @@ Example response:
   },
   "latency_ms": 1749.13
 }
+```
 
-7. Streamlit UI
+## Security
 
-Start FastAPI first:
+API key authentication is optional and controlled through environment configuration.
 
-uvicorn src.api:app --reload
-
-Then open a second terminal and run:
-
-streamlit run app/streamlit_app.py
-
-The UI allows users to enter support questions and view:
-
-* Generated answer
-* Source documents
-* Ticket category
-* Priority
-* Assigned team
-* Agent next action
-* Confidence scores
-* Structured ticket draft
-* Latency
-* Fallback status
-* Feedback form
-* Analytics dashboard
-* Document upload workflow
-
-8. Query Logging, Feedback, and Metrics
-
-Every API query is logged to:
-
-logs/query_logs.jsonl
-
-User feedback is logged to:
-
-logs/feedback_logs.jsonl
-
-Each log stores:
-
-* Request ID
-* Timestamp
-* Question
-* Answer
-* Sources
-* Ticket recommendation
-* Fallback status
-* Confidence scores
-* Agent decision
-* Latency
-
-The metrics endpoint summarizes:
-
-* Total queries
-* Total feedback submissions
-* Fallback rate
-* Average latency
-* Average confidence
-* Agent decision counts
-* Ticket category counts
-* Helpful feedback rate
-
-9. Security
-
-API key authentication is configurable through:
-
+```env
 SUPPORT_API_KEY=your_api_key
+```
 
-When this value is empty, local development endpoints remain open. When it is set, protected endpoints require:
+When `SUPPORT_API_KEY` is empty, local development endpoints remain open. When it is set, protected endpoints require:
 
+```text
 x-api-key: your_api_key
+```
 
-10. Document Upload
+Protected endpoints include:
 
-The platform supports uploading Markdown, text, and PDF documents. Uploaded documents are saved under data/uploads/. The upload endpoint can optionally reindex the vector store after a document is saved.
+- `POST /ask`
+- `GET /logs`
+- `POST /feedback`
+- `GET /feedback`
+- `GET /metrics`
+- `POST /documents/upload`
 
-Example log entry:
+## Streamlit UI
 
-{
-  "timestamp": "2026-06-15T17:51:07.894699Z",
-  "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
-  "question": "My VPN is not working after I reset my password",
-  "sources": ["vpn_troubleshooting_kb.md", "password_reset_kb.md"],
-  "ticket": {
-    "category": "VPN Connectivity",
-    "priority": "Medium",
-    "assigned_team": "Network Support"
-  },
-  "fallback_triggered": false,
-  "agent_decision": {
-    "next_action": "answer_and_create_ticket_draft"
-  },
-  "latency_ms": 1749.13
-}
+Start the backend first:
 
-Setup Instructions
+```bash
+uvicorn src.api:app --reload
+```
 
-1. Clone the repository
+Then start the frontend:
 
+```bash
+streamlit run app/streamlit_app.py
+```
+
+The UI includes three tabs:
+
+- `Ask`: ask support questions and view answer, sources, ticket recommendation, confidence, and ticket draft
+- `Analytics`: view latency, fallback rate, helpful feedback rate, category counts, and agent decision counts
+- `Upload Documents`: upload Markdown, text, or PDF documents into the knowledge base
+
+## Document Upload
+
+Supported upload types:
+
+- `.md`
+- `.txt`
+- `.pdf`
+
+Uploaded documents are saved under:
+
+```text
+data/uploads/
+```
+
+The upload endpoint can optionally reindex the vector store after saving a document.
+
+## Logging and Metrics
+
+Query logs:
+
+```text
+logs/query_logs.jsonl
+```
+
+Feedback logs:
+
+```text
+logs/feedback_logs.jsonl
+```
+
+Metrics include:
+
+- total queries
+- total feedback submissions
+- fallback rate
+- average latency
+- average confidence
+- ticket category counts
+- agent decision counts
+- helpful feedback rate
+
+## Evaluation
+
+Run:
+
+```bash
+python -m src.evaluator
+```
+
+The evaluator measures:
+
+- retrieval accuracy
+- category accuracy
+- team routing accuracy
+- priority accuracy
+- Precision@K
+- Recall@K
+- grounded answer rate
+- faithfulness heuristic rate
+- safe agent decision rate
+- average confidence
+- average latency
+
+Current local evaluation result:
+
+```text
+Retrieval Accuracy: 100.00%
+Category Accuracy: 100.00%
+Team Routing Accuracy: 100.00%
+Priority Accuracy: 100.00%
+Average Recall@K: 100.00%
+Grounded Answer Rate: 100.00%
+Faithfulness Heuristic Rate: 100.00%
+Safe Agent Decision Rate: 100.00%
+```
+
+## Setup
+
+Clone the repository:
+
+```bash
 git clone https://github.com/swathiblrs/Enterprise-Rag-Support-Platform.git
 cd Enterprise-Rag-Support-Platform
+```
 
-2. Create a virtual environment
+Create and activate a virtual environment:
 
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-3. Install dependencies
+Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Ingest documents
+Ingest documents:
 
+```bash
 python src/ingest.py
+```
 
-5. Start FastAPI backend
+Run API:
 
+```bash
 uvicorn src.api:app --reload
+```
 
-6. Start Streamlit frontend
+Run UI:
 
-Open a second terminal:
-
-source .venv/bin/activate
+```bash
 streamlit run app/streamlit_app.py
+```
 
-7. Run tests and evaluation
+## Makefile Commands
 
+```bash
+make install
 make test
 make evaluate
+make run-api
+make run-ui
+make docker-build
+make docker-up
+make docker-down
+```
 
-8. Run with Docker Compose
+## Docker
 
+Run the full stack:
+
+```bash
 docker compose up --build
+```
 
-FastAPI will be available at:
+FastAPI:
 
+```text
 http://127.0.0.1:8000
+```
 
-Streamlit will be available at:
+Streamlit:
 
+```text
 http://127.0.0.1:8501
+```
 
-CI/CD
+## CI/CD
 
 GitHub Actions runs on push and pull request.
 
 The CI workflow validates:
 
-* Dependency installation
-* API tests
-* Workflow evaluation
+- dependency installation
+- API tests
+- workflow evaluation
 
-Sample Questions
+## Sample Questions
 
-Try these questions:
-
+```text
 My VPN is not working after I reset my password.
 I cannot approve Duo push notifications.
 My account is locked.
 Company-wide authentication failure.
 Multiple users cannot access VPN.
+Production VPN outage for many users.
+Duo MFA app stopped sending push requests.
+```
 
-Current Status
+## Current Status
 
 Completed:
 
-- Project setup
-- Synthetic knowledge-base documents
-- Document ingestion
-- Chunking
-- Embedding generation
+- synthetic enterprise knowledge base
+- Markdown, text, and PDF ingestion
 - ChromaDB vector store
-- Semantic retriever
-- RAG-style answer generation
-- Source references
-- Ticket classification
-- Priority prediction
-- Team routing
-- Agent workflow orchestration
-- Confidence scoring
-- Ticket draft generation
-- Feedback logging
-- Metrics endpoint
-- Optional LLM grounded generation
+- hybrid retrieval with BM25
+- lightweight reranking
+- optional LLM grounded generation
+- source-backed answers
+- ticket classification
+- priority prediction
+- team routing
+- agent workflow orchestration
+- confidence scoring
+- escalation decisions
+- ticket draft generation
 - API key authentication
-- PDF/document upload support
-- Expanded RAG evaluation metrics
-- Dockerfile
-- Docker Compose
+- feedback logging
+- metrics endpoint
+- analytics UI
+- document upload UI
+- evaluation pipeline
+- API tests
+- Docker and Docker Compose
 - Makefile
 - GitHub Actions CI
-- FastAPI backend
-- Streamlit UI
-- Query logging
-- GitHub repository setup
 
-In progress / planned:
+Remaining future improvements:
 
-- More knowledge-base documents
-- Improved unsupported-question fallback
-- Metadata-aware retrieval
-- Stronger LLM answer-quality evaluation
-- Authentication roles and user management
-- External ITSM integration
-- README screenshots and architecture diagram
+- role-based authentication
+- external ITSM integration such as ServiceNow or Jira Service Management
+- metadata-aware retrieval filters
+- stronger LLM answer-quality evaluation
+- larger enterprise knowledge base
+- production monitoring stack such as Prometheus and Grafana
 
-Production-Ready Project Roadmap
+## Project Positioning
 
-This project is currently an MVP version of an enterprise RAG support automation platform. The current implementation demonstrates the core workflow: document ingestion, vector search, answer generation, source reference generation, ticket classification, routing, API access, Streamlit UI, and query logging.
-
-The long-term goal is to evolve this into a production-style enterprise project that demonstrates scalable retrieval architecture, evaluation, observability, automation, testing, and deployment readiness.
-
-Current Completion Estimate
-
-Beginner/Intermediate RAG project: 90% complete
-Production-style enterprise project: 65–70% complete
-
-The current version proves the end-to-end RAG workflow. The remaining work focuses on making the system more measurable, scalable, reliable, and closer to real enterprise engineering standards.
-
-Roadmap to Production-Ready Version
-
-Phase 1: Evaluation and Quality Metrics
-
-Add an evaluation pipeline to measure the quality of retrieval, routing, and system behavior.
-
-Planned metrics:
-
-- Retrieval accuracy
-- Source reference correctness
-- Ticket category accuracy
-- Team routing accuracy
-- Priority prediction accuracy
-- Fallback detection accuracy
-- Average response latency
-
-Expected outcome:
-
-The project should not only generate answers, but also measure whether the answers, retrieved sources, and routing decisions are correct.
-
-Phase 2: Expanded Knowledge Base
-
-Increase the size and diversity of the knowledge base.
-
-Planned additions:
-
-- Wi-Fi troubleshooting
-- Email access issues
-- Software installation requests
-- Laptop hardware support
-- Printer troubleshooting
-- Production outage handling
-- Security incident escalation
-- Access request workflows
-
-Expected outcome:
-
-The assistant should handle a wider range of realistic enterprise IT support issues.
-
-Phase 3: PDF and Document Upload Support
-
-Add support for more document formats beyond Markdown.
-
-Planned additions:
-
-- PDF ingestion using pypdf
-- Text extraction from uploaded files
-- Metadata extraction
-- Document source tracking
-- Admin upload workflow
-
-Expected outcome:
-
-The platform should support realistic enterprise knowledge sources such as PDFs, manuals, internal docs, and FAQ files.
-
-Phase 4: Hybrid Retrieval
-
-Improve retrieval quality by combining semantic search and keyword search.
-
-Planned additions:
-
-- Vector search using ChromaDB
-- Keyword search using BM25
-- Hybrid retrieval scoring
-- Top-k result merging
-- Metadata-based filtering
-
-Expected outcome:
-
-The retriever should handle both meaning-based questions and exact keyword-based queries.
-
-Phase 5: Reranking
-
-Add a reranking layer after retrieval.
-
-Planned additions:
-
-- Retrieve more candidate chunks
-- Rerank top results based on relevance
-- Improve final context quality
-- Reduce irrelevant source references
-
-Expected outcome:
-
-The system should return more accurate context before generating answers.
-
-Phase 6: LLM-Based Answer Generation
-
-Replace the current rule-based answer generator with an LLM-based generation layer.
-
-Planned additions:
-
-- Prompt template for grounded answers
-- Context-aware answer generation
-- Source-backed responses
-- Guardrails against unsupported answers
-- Fallback response when context is insufficient
-
-Expected outcome:
-
-The assistant should generate more natural and flexible answers while staying grounded in retrieved documents.
-
-Phase 7: Improved Ticket Intelligence
-
-Make ticket automation more advanced.
-
-Planned additions:
-
-- Better intent classification
-- Improved priority prediction
-- Confidence scores
-- Recommended next actions
-- Escalation detection
-- Multi-user impact detection
-
-Expected outcome:
-
-The system should behave more like an intelligent ITSM assistant, not just a basic classifier.
-
-Phase 8: Monitoring and Analytics Dashboard
-
-Expand logging into a monitoring layer.
-
-Planned additions:
-
-- Query history dashboard
-- Latency trends
-- Most common ticket categories
-- Fallback rate
-- Source usage frequency
-- User feedback tracking
-
-Expected outcome:
-
-The project should demonstrate observability and operational awareness.
-
-Phase 9: Testing
-
-Add automated tests for the backend and core logic.
-
-Planned additions:
-
-- Unit tests for classifier
-- Unit tests for retriever
-- API tests for FastAPI endpoints
-- Evaluation test set
-- Regression tests for routing behavior
-
-Expected outcome:
-
-The project should demonstrate software engineering quality and maintainability.
-
-Phase 10: Infrastructure and DevOps
-
-Add deployment-ready tooling.
-
-Planned additions:
-
-- Dockerfile
-- Docker Compose
-- GitHub Actions CI
-- Environment-based configuration
-- Secrets handling
-- Makefile or run scripts
-
-Expected outcome:
-
-The project should be easy to run, test, and deploy in a clean environment.
-
-Phase 11: Multi-Domain RAG
-
-Add a second knowledge domain to show scalability.
-
-Possible addition:
-
-- Enterprise IT support domain
-- Public university student-services domain
-
-Example public-information domain:
-
-- CPT policy
-- On-campus employment rules
-- Graduate assistantship information
-- Enrollment requirements
-
-Expected outcome:
-
-The project should demonstrate domain routing and metadata-aware retrieval across multiple knowledge areas.
-
-Final Target Architecture
-
-The final version aims to include the following layers:
-
-1. Data Ingestion Layer
-2. Document Processing Pipeline
-3. Indexing and Storage Layer
-4. Hybrid Retrieval Layer
-5. RAG and Generation Layer
-6. Automation and Ticket Intelligence Layer
-7. Evaluation and Monitoring Layer
-8. Observability and Logging Layer
-9. Infrastructure and DevOps Layer
-10. Security, Privacy, and Access Control Considerations
-
-Definition of Production-Ready Completion
-
-This project will be considered production-ready when it demonstrates:
-
-- End-to-end RAG workflow
-- Multi-format document ingestion
-- Hybrid retrieval
-- Source-grounded LLM answers
-- Ticket automation and routing
-- Measurable evaluation metrics
-- API and UI layers
-- Logging and monitoring
-- Automated tests
-- Dockerized deployment
-- Clean GitHub documentation
-- Clear system design explanation
-
-Estimated Remaining Work
-
-Current MVP completion: 40%
-Remaining for strong resume-ready version: 30–40%
-Remaining for production-ready version: 60–65%
-
-The next recommended implementation step is the evaluation pipeline because it proves the system can be measured and improved objectively.
-
-Planned Evaluation Metrics
-
-The evaluation module will measure:
-
-* Retrieval accuracy
-* Routing accuracy
-* Priority prediction accuracy
-* Fallback accuracy
-* Average response latency
-* Source reference correctness
-
-Future Improvements
-
-* Add public student-services documents as a second knowledge domain
-* Add support for PDF ingestion using pypdf
-* Add hybrid retrieval using semantic search and BM25
-* Add LLM integration for more natural answer generation
-* Add admin upload page for new documents
-* Add Docker and Docker Compose
-* Add GitHub Actions CI
-* Add richer dashboard for query analytics
-* Add user feedback collection
-* Add role-based access control design notes
-
-
-
-Disclaimer
-
-This project uses synthetic support documents for demonstration purposes. It is not connected to any real enterprise ITSM system and does not use private company, university, or personal data.
+This project started as a RAG support assistant and has evolved into an agentic enterprise support automation platform. It demonstrates not only retrieval and answer generation, but also workflow orchestration, ticket intelligence, observability, feedback loops, evaluation, security configuration, document upload, and deployment readiness.
