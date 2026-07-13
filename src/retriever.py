@@ -1,7 +1,9 @@
+import os
 from pathlib import Path
 from typing import Dict, List, Optional
 
 import chromadb
+from pypdf import PdfReader
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 
@@ -12,6 +14,7 @@ CHROMA_DIR = BASE_DIR / "vectorstore" / "chroma"
 
 COLLECTION_NAME = "support_kb"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_DOMAIN = os.getenv("DEFAULT_DOMAIN", "it_support")
 
 
 embedding_model = None
@@ -36,19 +39,29 @@ def get_embedding_model() -> Optional[SentenceTransformer]:
     return embedding_model
 
 
-def load_knowledge_base_documents() -> List[Dict]:
+def load_knowledge_base_documents(domain: str = DEFAULT_DOMAIN) -> List[Dict]:
     """
-    Loads markdown knowledge base files from the data folder.
+    Loads knowledge base files from the data folder.
     These documents are used for keyword/BM25 retrieval.
     """
     documents = []
 
-    for file_path in DATA_DIR.glob("*.md"):
-        text = file_path.read_text(encoding="utf-8")
+    for file_path in DATA_DIR.rglob("*"):
+        if not file_path.is_file() or file_path.suffix.lower() not in [".md", ".txt", ".pdf"]:
+            continue
+
+        document_domain = infer_domain(file_path)
+
+        if domain and domain != "all" and document_domain != domain:
+            continue
+
+        text = extract_text(file_path)
 
         documents.append(
             {
-                "source": file_path.name,
+                "source": str(file_path.relative_to(DATA_DIR)),
+                "domain": document_domain,
+                "source_type": infer_source_type(file_path),
                 "text": text,
             }
         )
@@ -56,11 +69,47 @@ def load_knowledge_base_documents() -> List[Dict]:
     return documents
 
 
+def extract_text(file_path: Path) -> str:
+    if file_path.suffix.lower() == ".pdf":
+        reader = PdfReader(str(file_path))
+        return "\n\n".join(page.extract_text() or "" for page in reader.pages)
+
+    return file_path.read_text(encoding="utf-8")
+
+
+def infer_domain(file_path: Path) -> str:
+    relative_path = file_path.relative_to(DATA_DIR)
+
+    if len(relative_path.parts) > 1:
+        return relative_path.parts[0]
+
+    return DEFAULT_DOMAIN
+
+
+def infer_source_type(file_path: Path) -> str:
+    extension = file_path.suffix.lower()
+
+    if extension == ".pdf":
+        return "pdf"
+
+    if extension == ".md":
+        return "markdown"
+
+    if extension == ".txt":
+        return "text"
+
+    return "unknown"
+
+
 def tokenize(text: str) -> List[str]:
     """
     Simple tokenizer for BM25 keyword retrieval.
     """
-    return text.lower().replace("\n", " ").split()
+    normalized = text.lower()
+    for character in ["\n", "_", "-", ".", "/", "(", ")", ",", ":"]:
+        normalized = normalized.replace(character, " ")
+
+    return normalized.split()
 
 
 def get_chroma_collection():
@@ -72,7 +121,7 @@ def get_chroma_collection():
     return collection
 
 
-def dense_retrieve(question: str, top_k: int = 5) -> List[Dict]:
+def dense_retrieve(question: str, top_k: int = 5, domain: str = DEFAULT_DOMAIN) -> List[Dict]:
     """
     Retrieves relevant chunks using vector similarity search from ChromaDB.
     """
@@ -84,11 +133,16 @@ def dense_retrieve(question: str, top_k: int = 5) -> List[Dict]:
     collection = get_chroma_collection()
     query_embedding = model.encode(question).tolist()
 
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=top_k,
-        include=["documents", "metadatas", "distances"],
-    )
+    query_kwargs = {
+        "query_embeddings": [query_embedding],
+        "n_results": top_k,
+        "include": ["documents", "metadatas", "distances"],
+    }
+
+    if domain and domain != "all":
+        query_kwargs["where"] = {"domain": domain}
+
+    results = collection.query(**query_kwargs)
 
     retrieved_chunks = []
 
@@ -101,6 +155,8 @@ def dense_retrieve(question: str, top_k: int = 5) -> List[Dict]:
             {
                 "text": document,
                 "source": metadata.get("source", "unknown"),
+                "domain": metadata.get("domain", domain),
+                "source_type": metadata.get("source_type", "unknown"),
                 "retrieval_method": "dense",
                 "score": 1 / (1 + distance),
             }
@@ -109,11 +165,11 @@ def dense_retrieve(question: str, top_k: int = 5) -> List[Dict]:
     return retrieved_chunks
 
 
-def bm25_retrieve(question: str, top_k: int = 5) -> List[Dict]:
+def bm25_retrieve(question: str, top_k: int = 5, domain: str = DEFAULT_DOMAIN) -> List[Dict]:
     """
     Retrieves relevant documents using BM25 keyword search.
     """
-    documents = load_knowledge_base_documents()
+    documents = load_knowledge_base_documents(domain=domain)
 
     if not documents:
         return []
@@ -140,6 +196,8 @@ def bm25_retrieve(question: str, top_k: int = 5) -> List[Dict]:
             {
                 "text": document["text"],
                 "source": document["source"],
+                "domain": document["domain"],
+                "source_type": document["source_type"],
                 "retrieval_method": "bm25",
                 "score": float(score),
             }
@@ -176,9 +234,11 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
 
     for result in results:
         chunk_tokens = set(tokenize(result["text"]))
+        source_tokens = set(tokenize(result.get("source", "")))
         keyword_overlap = len(question_tokens.intersection(chunk_tokens))
+        source_overlap = len(question_tokens.intersection(source_tokens))
 
-        rerank_score = result["score"] + keyword_overlap
+        rerank_score = result["score"] + keyword_overlap + (source_overlap * 2)
 
         reranked.append(
             {
@@ -192,7 +252,7 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
     return reranked[:top_k]
 
 
-def retrieve_relevant_chunks(question: str, top_k: int = 3) -> List[Dict]:
+def retrieve_relevant_chunks(question: str, top_k: int = 3, domain: str = DEFAULT_DOMAIN) -> List[Dict]:
     """
     Main retrieval function used by the RAG pipeline.
 
@@ -202,8 +262,8 @@ def retrieve_relevant_chunks(question: str, top_k: int = 3) -> List[Dict]:
     3. Result merging
     4. Lightweight reranking
     """
-    dense_results = dense_retrieve(question, top_k=5)
-    bm25_results = bm25_retrieve(question, top_k=5)
+    dense_results = dense_retrieve(question, top_k=5, domain=domain)
+    bm25_results = bm25_retrieve(question, top_k=5, domain=domain)
 
     merged_results = merge_results(dense_results + bm25_results)
     reranked_results = rerank_results(question, merged_results, top_k=top_k)

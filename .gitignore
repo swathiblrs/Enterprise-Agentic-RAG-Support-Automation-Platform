@@ -10,3 +10,4 @@ vectorstore/
 
 *.sqlite3
 *.bin
+k8s/secret.yaml

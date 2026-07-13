@@ -19,6 +19,7 @@ Beyond basic RAG, the platform adds support automation:
 - feedback logging
 - metrics and evaluation
 - Docker and CI/CD readiness
+- Kubernetes deployment readiness
 
 ## Key Features
 
@@ -28,6 +29,7 @@ Beyond basic RAG, the platform adds support automation:
 - ChromaDB vector storage
 - BM25 keyword retrieval
 - Hybrid retrieval with reranking
+- Domain-aware retrieval for configurable knowledge domains
 - Optional LLM-based grounded answer generation
 - Deterministic fallback answer generation for local/offline use
 - Source-backed responses
@@ -39,12 +41,12 @@ Beyond basic RAG, the platform adds support automation:
 - Structured ticket draft generation
 - User feedback capture
 - Metrics endpoint for latency, fallback rate, confidence, categories, and agent decisions
-- Configurable API key authentication
+- Configurable API key and JWT role-based authentication
 - Streamlit UI with Ask, Analytics, and Upload tabs
 - FastAPI backend with Swagger docs
 - JSONL query and feedback logging
 - Evaluation pipeline with retrieval, routing, confidence, and faithfulness metrics
-- Docker, Docker Compose, Makefile, and GitHub Actions CI
+- Docker, Docker Compose, Kubernetes manifests, Makefile, and GitHub Actions CI
 
 ## System Architecture
 
@@ -119,6 +121,12 @@ Enterprise RAG Support Automation Platform/
   .github/
     workflows/
       ci.yml
+  k8s/
+    api-deployment.yaml
+    configmap.yaml
+    ingress.yaml
+    secret.example.yaml
+    streamlit-deployment.yaml
   Dockerfile
   docker-compose.yml
   Makefile
@@ -151,6 +159,7 @@ The retriever narrows the knowledge base using:
 
 - vector similarity search through ChromaDB
 - BM25 keyword search
+- domain metadata filtering
 - result merging
 - lightweight reranking
 
@@ -186,7 +195,7 @@ The LLM prompt instructs the model to answer only from retrieved context and cit
 The API calls:
 
 ```python
-run_support_workflow(question)
+run_support_workflow(question, domain="it_support")
 ```
 
 The orchestrator coordinates:
@@ -258,7 +267,8 @@ Example request:
 
 ```json
 {
-  "question": "My VPN is not working after I reset my password"
+  "question": "My VPN is not working after I reset my password",
+  "domain": "it_support"
 }
 ```
 
@@ -268,6 +278,7 @@ Example response:
 {
   "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
   "question": "My VPN is not working after I reset my password",
+  "domain": "it_support",
   "answer": "Based on the knowledge base...",
   "sources": [
     "vpn_troubleshooting_kb.md",
@@ -324,6 +335,35 @@ Protected endpoints include:
 - `GET /metrics`
 - `POST /documents/upload`
 
+JWT authentication is also supported when `JWT_SECRET_KEY` is configured:
+
+```env
+JWT_SECRET_KEY=replace-with-secret
+JWT_EXPIRATION_MINUTES=60
+AUTH_DEMO_ADMIN_USERNAME=admin
+AUTH_DEMO_ADMIN_PASSWORD=replace-admin-password
+AUTH_DEMO_AGENT_USERNAME=agent
+AUTH_DEMO_AGENT_PASSWORD=replace-agent-password
+```
+
+Login endpoint:
+
+```text
+POST /auth/login
+```
+
+Roles:
+
+- `admin`: can upload documents, view logs, view feedback, and view metrics
+- `support_agent`: can ask questions and submit feedback
+- `viewer`: reserved for future read-only workflows
+
+JWT requests use:
+
+```text
+Authorization: Bearer <access_token>
+```
+
 ## Streamlit UI
 
 Start the backend first:
@@ -342,7 +382,7 @@ The UI includes three tabs:
 
 - `Ask`: ask support questions and view answer, sources, ticket recommendation, confidence, and ticket draft
 - `Analytics`: view latency, fallback rate, helpful feedback rate, category counts, and agent decision counts
-- `Upload Documents`: upload Markdown, text, or PDF documents into the knowledge base
+- `Upload Documents`: upload Markdown, text, or PDF documents into a selected knowledge domain
 
 ## Document Upload
 
@@ -355,7 +395,7 @@ Supported upload types:
 Uploaded documents are saved under:
 
 ```text
-data/uploads/
+data/<domain>/uploads/
 ```
 
 The upload endpoint can optionally reindex the vector store after saving a document.
@@ -493,6 +533,26 @@ Streamlit:
 http://127.0.0.1:8501
 ```
 
+## Kubernetes
+
+Kubernetes manifests are provided under:
+
+```text
+k8s/
+```
+
+They include:
+
+- namespace
+- config map
+- secret template
+- API deployment and service
+- Streamlit deployment and service
+- persistent volume claims for logs and vectorstore
+- ingress template
+
+See [k8s/README.md](k8s/README.md) for deployment steps.
+
 ## CI/CD
 
 GitHub Actions runs on push and pull request.
@@ -541,14 +601,13 @@ Completed:
 - evaluation pipeline
 - API tests
 - Docker and Docker Compose
+- Kubernetes manifests
 - Makefile
 - GitHub Actions CI
 
 Remaining future improvements:
 
-- role-based authentication
 - external ITSM integration such as ServiceNow or Jira Service Management
-- metadata-aware retrieval filters
 - stronger LLM answer-quality evaluation
 - larger enterprise knowledge base
 - production monitoring stack such as Prometheus and Grafana

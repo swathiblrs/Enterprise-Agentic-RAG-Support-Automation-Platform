@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from typing import List, Dict
 
@@ -10,6 +11,7 @@ DATA_DIR = Path("data")
 VECTOR_DB_DIR = "vectorstore/chroma"
 COLLECTION_NAME = "support_kb"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_DOMAIN = os.getenv("DEFAULT_DOMAIN", "it_support")
 
 
 def load_documents() -> List[Dict]:
@@ -30,6 +32,8 @@ def load_documents() -> List[Dict]:
         documents.append(
             {
                 "source": str(file_path.relative_to(DATA_DIR)),
+                "domain": infer_domain(file_path),
+                "source_type": infer_source_type(file_path),
                 "text": text,
             }
         )
@@ -52,6 +56,30 @@ def extract_pdf_text(file_path: Path) -> str:
         pages.append(page.extract_text() or "")
 
     return "\n\n".join(pages)
+
+
+def infer_domain(file_path: Path) -> str:
+    relative_path = file_path.relative_to(DATA_DIR)
+
+    if len(relative_path.parts) > 1:
+        return relative_path.parts[0]
+
+    return DEFAULT_DOMAIN
+
+
+def infer_source_type(file_path: Path) -> str:
+    extension = file_path.suffix.lower()
+
+    if extension == ".pdf":
+        return "pdf"
+
+    if extension == ".md":
+        return "markdown"
+
+    if extension == ".txt":
+        return "text"
+
+    return "unknown"
 
 
 def chunk_text(text: str, chunk_size: int = 700, overlap: int = 100) -> List[str]:
@@ -101,6 +129,8 @@ def ingest_documents() -> None:
 
     for document in documents:
         source = document["source"]
+        domain = document["domain"]
+        source_type = document["source_type"]
         chunks = chunk_text(document["text"])
 
         for index, chunk in enumerate(chunks):
@@ -109,6 +139,8 @@ def ingest_documents() -> None:
             metadatas.append(
                 {
                     "source": source,
+                    "domain": domain,
+                    "source_type": source_type,
                     "chunk_index": index,
                 }
             )

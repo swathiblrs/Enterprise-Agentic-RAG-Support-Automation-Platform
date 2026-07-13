@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: enterprise-rag-config
+  namespace: enterprise-rag
+data:
+  DEFAULT_DOMAIN: "it_support"
+  RETRIEVAL_TOP_K: "3"
+  LOW_CONFIDENCE_THRESHOLD: "0.60"
+  CLARIFY_CONFIDENCE_THRESHOLD: "0.72"
+  USE_LLM_GENERATION: "false"
+  LLM_MODEL_NAME: "gpt-4o-mini"
+  SUPPORT_API_BASE_URL: "http://enterprise-rag-api:8000"

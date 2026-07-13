@@ -5,20 +5,21 @@ from src.retriever import retrieve_relevant_chunks
 from src.ticket_classifier import classify_ticket
 
 
-def answer_question(question: str) -> Dict:
+def answer_question(question: str, domain: str = "it_support") -> Dict:
     """
     Generates a grounded support answer using retrieved knowledge chunks
     and adds ticket classification metadata.
     """
-    retrieved_chunks = retrieve_relevant_chunks(question, top_k=3)
+    retrieved_chunks = retrieve_relevant_chunks(question, top_k=3, domain=domain)
     ticket = classify_ticket(question)
 
     if not retrieved_chunks:
         return {
             "answer": (
-                "I could not find enough information in the knowledge base to answer this question. "
+                f"I could not find enough information in the {domain} knowledge base to answer this question. "
                 "Please contact the Service Desk for further assistance."
             ),
+            "domain": domain,
             "sources": [],
             "retrieved_chunks": [],
             "ticket": ticket,
@@ -35,6 +36,7 @@ def answer_question(question: str) -> Dict:
 
     return {
         "answer": answer,
+        "domain": domain,
         "sources": sources,
         "retrieved_chunks": retrieved_chunks,
         "ticket": ticket,

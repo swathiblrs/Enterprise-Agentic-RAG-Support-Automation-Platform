@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: enterprise-rag-ui
+  namespace: enterprise-rag
+spec:
+  selector:
+    app: enterprise-rag-ui
+  ports:
+    - name: http
+      port: 8501
+      targetPort: 8501

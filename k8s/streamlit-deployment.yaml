@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enterprise-rag-ui
+  namespace: enterprise-rag
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enterprise-rag-ui
+  template:
+    metadata:
+      labels:
+        app: enterprise-rag-ui
+    spec:
+      containers:
+        - name: streamlit
+          image: enterprise-rag-support-platform:latest
+          imagePullPolicy: IfNotPresent
+          command:
+            - streamlit
+            - run
+            - app/streamlit_app.py
+            - --server.address
+            - 0.0.0.0
+            - --server.port
+            - "8501"
+          ports:
+            - containerPort: 8501
+          envFrom:
+            - configMapRef:
+                name: enterprise-rag-config
+            - secretRef:
+                name: enterprise-rag-secrets
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8501
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"

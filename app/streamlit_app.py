@@ -8,12 +8,16 @@ import streamlit as st
 BASE_API_URL = os.getenv("SUPPORT_API_BASE_URL", "http://127.0.0.1:8000")
 SUPPORT_API_KEY = os.getenv("SUPPORT_API_KEY", "")
 ASK_API_URL = f"{BASE_API_URL}/ask"
+LOGIN_API_URL = f"{BASE_API_URL}/auth/login"
 FEEDBACK_API_URL = f"{BASE_API_URL}/feedback"
 METRICS_API_URL = f"{BASE_API_URL}/metrics"
 UPLOAD_API_URL = f"{BASE_API_URL}/documents/upload"
 
 
 def auth_headers() -> dict:
+    if "access_token" in st.session_state:
+        return {"Authorization": f"Bearer {st.session_state['access_token']}"}
+
     if not SUPPORT_API_KEY:
         return {}
 
@@ -29,6 +33,38 @@ st.set_page_config(
 
 st.title("Enterprise RAG Support Assistant")
 
+with st.sidebar:
+    st.header("Access")
+
+    if "access_token" in st.session_state:
+        st.write(f"Signed in as `{st.session_state.get('auth_role', 'unknown')}`")
+        if st.button("Sign Out"):
+            del st.session_state["access_token"]
+            st.session_state.pop("auth_role", None)
+    else:
+        with st.form("login_form"):
+            username = st.text_input("Username")
+            password = st.text_input("Password", type="password")
+            login_submitted = st.form_submit_button("Sign In")
+
+        if login_submitted:
+            try:
+                login_response = requests.post(
+                    LOGIN_API_URL,
+                    json={"username": username, "password": password},
+                    timeout=30,
+                )
+
+                if login_response.status_code == 200:
+                    login_data = login_response.json()
+                    st.session_state["access_token"] = login_data["access_token"]
+                    st.session_state["auth_role"] = login_data["role"]
+                    st.success("Signed in.")
+                else:
+                    st.error(f"Login failed: {login_response.status_code}")
+            except Exception as error:
+                st.error(f"Could not sign in: {error}")
+
 ask_tab, analytics_tab, upload_tab = st.tabs(["Ask", "Analytics", "Upload Documents"])
 
 
@@ -43,6 +79,7 @@ with ask_tab:
         placeholder="Example: My VPN is not working after I reset my password",
         height=120,
     )
+    domain = st.text_input("Knowledge domain", value="it_support")
 
     if st.button("Ask Assistant"):
         if not question.strip():
@@ -52,7 +89,7 @@ with ask_tab:
                 try:
                     response = requests.post(
                         ASK_API_URL,
-                        json={"question": question},
+                        json={"question": question, "domain": domain},
                         headers=auth_headers(),
                         timeout=60,
                     )
@@ -131,6 +168,7 @@ with ask_tab:
 
         st.subheader("System Metadata")
         st.write(f"Request ID: `{data['request_id']}`")
+        st.write(f"Domain: `{data.get('domain', 'it_support')}`")
         st.write(f"Latency: `{data['latency_ms']} ms`")
 
         st.subheader("Feedback")
@@ -214,6 +252,8 @@ with upload_tab:
     st.write("Upload Markdown, text, or PDF documents into the knowledge base.")
 
     uploaded_file = st.file_uploader("Choose a document", type=["md", "txt", "pdf"])
+    upload_domain = st.text_input("Document domain", value="it_support")
+    source_type = st.text_input("Source type", value="upload")
     reindex = st.checkbox("Reindex vector store after upload", value=False)
 
     if st.button("Upload Document"):
@@ -223,6 +263,8 @@ with upload_tab:
             payload = {
                 "filename": uploaded_file.name,
                 "content_base64": base64.b64encode(uploaded_file.getvalue()).decode("utf-8"),
+                "domain": upload_domain,
+                "source_type": source_type,
                 "reindex": reindex,
             }
 

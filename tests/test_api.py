@@ -2,6 +2,7 @@ import base64
 from pathlib import Path
 
 from fastapi.testclient import TestClient
+from src import security
 
 from src.api import app
 
@@ -32,6 +33,7 @@ def test_ask_endpoint_vpn_question():
     data = response.json()
 
     assert data["question"] == payload["question"]
+    assert data["domain"] == "it_support"
     assert "request_id" in data
     assert "answer" in data
     assert "sources" in data
@@ -48,6 +50,21 @@ def test_ask_endpoint_vpn_question():
     assert data["ticket"]["assigned_team"] == "Network Support"
     assert data["ticket_draft"]["assigned_team"] == "Network Support"
     assert data["agent_decision"]["assigned_team"] == "Network Support"
+
+
+def test_ask_endpoint_accepts_domain_filter():
+    payload = {
+        "question": "My VPN is not working",
+        "domain": "it_support",
+    }
+
+    response = client.post("/ask", json=payload)
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["domain"] == "it_support"
 
 
 def test_ask_endpoint_mfa_question():
@@ -137,6 +154,8 @@ def test_document_upload_endpoint_accepts_text_documents():
     payload = {
         "filename": "temporary_test_kb.md",
         "content_base64": content,
+        "domain": "hr_policy",
+        "source_type": "manual",
         "reindex": False,
     }
 
@@ -148,6 +167,8 @@ def test_document_upload_endpoint_accepts_text_documents():
 
     assert data["status"] == "uploaded"
     assert data["document"]["filename"] == payload["filename"]
+    assert data["document"]["domain"] == "hr_policy"
+    assert data["document"]["source_type"] == "manual"
     assert data["reindexed"] is False
 
     uploaded_path = Path(data["document"]["path"])
@@ -166,3 +187,23 @@ def test_document_upload_endpoint_rejects_unsupported_files():
     response = client.post("/documents/upload", json=payload)
 
     assert response.status_code == 400
+
+
+def test_login_endpoint_returns_jwt_when_configured(monkeypatch):
+    monkeypatch.setattr(security, "JWT_SECRET_KEY", "test-secret")
+
+    response = client.post(
+        "/auth/login",
+        json={
+            "username": "admin",
+            "password": "admin123",
+        },
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["token_type"] == "bearer"
+    assert data["role"] == "admin"
+    assert data["access_token"]

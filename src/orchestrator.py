@@ -11,16 +11,16 @@ SUPPORT_SIGNALS = {
 }
 
 
-def run_support_workflow(question: str) -> Dict:
+def run_support_workflow(question: str, domain: str = "it_support") -> Dict:
     """
     Coordinates the support workflow around the RAG answer.
 
     The API calls this orchestrator instead of directly calling the generator so
     the project can track confidence, decisions, escalation, and ticket drafts.
     """
-    state = build_initial_state(question)
+    state = build_initial_state(question, domain)
 
-    response = answer_question(question)
+    response = answer_question(question, domain=domain)
     state.update(
         {
             "answer": response.get("answer", ""),
@@ -40,9 +40,10 @@ def run_support_workflow(question: str) -> Dict:
     return state
 
 
-def build_initial_state(question: str) -> Dict:
+def build_initial_state(question: str, domain: str) -> Dict:
     return {
         "question": question,
+        "domain": domain,
         "answer": "",
         "sources": [],
         "retrieved_chunks": [],

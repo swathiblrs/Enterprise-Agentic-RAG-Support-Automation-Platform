@@ -9,7 +9,8 @@ from src.document_store import save_uploaded_document
 from src.ingest import ingest_documents
 from src.logger import calculate_metrics, log_feedback, log_query, read_feedback, read_logs
 from src.orchestrator import run_support_workflow
-from src.security import require_api_key
+from src.config import DEFAULT_DOMAIN
+from src.security import ROLE_ADMIN, ROLE_SUPPORT_AGENT, authenticate_user, create_access_token, require_auth
 
 
 app = FastAPI(
@@ -21,6 +22,7 @@ app = FastAPI(
 
 class AskRequest(BaseModel):
     question: str
+    domain: str = DEFAULT_DOMAIN
 
 
 class FeedbackRequest(BaseModel):
@@ -36,7 +38,14 @@ class FeedbackRequest(BaseModel):
 class DocumentUploadRequest(BaseModel):
     filename: str
     content_base64: str
+    domain: str = DEFAULT_DOMAIN
+    source_type: str = "upload"
     reindex: bool = False
+
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
 
 
 @app.get("/")
@@ -55,18 +64,38 @@ def health_check() -> Dict:
     }
 
 
+@app.post("/auth/login")
+def login(request: LoginRequest) -> Dict:
+    user = authenticate_user(request.username, request.password)
+
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username or password.")
+
+    token = create_access_token(user["sub"], user["role"])
+
+    return {
+        "access_token": token,
+        "token_type": "bearer",
+        "role": user["role"],
+    }
+
+
 @app.post("/ask")
-def ask_question(request: AskRequest, _: None = Depends(require_api_key)) -> Dict:
+def ask_question(
+    request: AskRequest,
+    _: Dict = Depends(require_auth([ROLE_SUPPORT_AGENT])),
+) -> Dict:
     request_id = str(uuid4())
     start_time = time()
 
-    response = run_support_workflow(request.question)
+    response = run_support_workflow(request.question, domain=request.domain)
 
     latency_ms = round((time() - start_time) * 1000, 2)
 
     api_response = {
         "request_id": request_id,
         "question": request.question,
+        "domain": request.domain,
         "answer": response.get("answer", ""),
         "sources": response.get("sources", []),
         "ticket": response.get("ticket", {}),
@@ -85,7 +114,7 @@ def ask_question(request: AskRequest, _: None = Depends(require_api_key)) -> Dic
 
 
 @app.get("/logs")
-def get_logs(_: None = Depends(require_api_key)) -> Dict:
+def get_logs(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
     logs = read_logs()
 
     return {
@@ -95,7 +124,10 @@ def get_logs(_: None = Depends(require_api_key)) -> Dict:
 
 
 @app.post("/feedback")
-def submit_feedback(request: FeedbackRequest, _: None = Depends(require_api_key)) -> Dict:
+def submit_feedback(
+    request: FeedbackRequest,
+    _: Dict = Depends(require_auth([ROLE_SUPPORT_AGENT])),
+) -> Dict:
     if hasattr(request, "model_dump"):
         feedback_entry = request.model_dump()
     else:
@@ -110,7 +142,7 @@ def submit_feedback(request: FeedbackRequest, _: None = Depends(require_api_key)
 
 
 @app.get("/feedback")
-def get_feedback(_: None = Depends(require_api_key)) -> Dict:
+def get_feedback(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
     feedback = read_feedback()
 
     return {
@@ -120,14 +152,22 @@ def get_feedback(_: None = Depends(require_api_key)) -> Dict:
 
 
 @app.get("/metrics")
-def get_metrics(_: None = Depends(require_api_key)) -> Dict:
+def get_metrics(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
     return calculate_metrics()
 
 
 @app.post("/documents/upload")
-def upload_document(request: DocumentUploadRequest, _: None = Depends(require_api_key)) -> Dict:
+def upload_document(
+    request: DocumentUploadRequest,
+    _: Dict = Depends(require_auth([ROLE_ADMIN])),
+) -> Dict:
     try:
-        document = save_uploaded_document(request.filename, request.content_base64)
+        document = save_uploaded_document(
+            request.filename,
+            request.content_base64,
+            domain=request.domain,
+            source_type=request.source_type,
+        )
     except ValueError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error
 
