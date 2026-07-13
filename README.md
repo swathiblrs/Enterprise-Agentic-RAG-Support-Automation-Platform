@@ -20,11 +20,14 @@ The platform is designed to demonstrate backend engineering, semantic search, ve
 * Ticket classification
 * Priority prediction
 * Support team routing
+* Agent-style support workflow orchestration
+* Confidence scoring and escalation decisions
+* Structured ticket draft generation
 * FastAPI backend
 * Streamlit web interface
 * Query logging using JSONL logs
 * Swagger API documentation
-* Planned evaluation pipeline for retrieval and routing quality
+* Evaluation pipeline for retrieval and routing quality
 
 ## System Architecture
 
@@ -80,10 +83,12 @@ Enterprise RAG Support Automation Platform/
   src/
     __init__.py
     api.py
+    config.py
     evaluator.py
     generator.py
     ingest.py
     logger.py
+    orchestrator.py
     retriever.py
     ticket_classifier.py
   tests/
@@ -135,7 +140,17 @@ Run:
 
 python src/generator.py
 
-4. Ticket Classification and Routing
+4. Agent Workflow Orchestration
+
+The orchestrator coordinates answer generation, confidence scoring, confusion detection, next-action decisions, escalation recommendations, and ticket draft creation.
+
+The API calls:
+
+run_support_workflow(question)
+
+This creates a structured workflow state for every support request.
+
+5. Ticket Classification and Routing
 
 The classifier predicts:
 

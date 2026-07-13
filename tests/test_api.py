@@ -33,11 +33,15 @@ def test_ask_endpoint_vpn_question():
     assert "sources" in data
     assert "ticket" in data
     assert "fallback_triggered" in data
+    assert "confidence" in data
+    assert "agent_decision" in data
+    assert "ticket_draft" in data
     assert "latency_ms" in data
 
     assert data["ticket"]["category"] == "VPN Connectivity"
     assert data["ticket"]["priority"] == "Medium"
     assert data["ticket"]["assigned_team"] == "Network Support"
+    assert data["ticket_draft"]["assigned_team"] == "Network Support"
 
 
 def test_ask_endpoint_mfa_question():
@@ -85,3 +89,4 @@ def test_ask_endpoint_critical_question():
 
     assert data["ticket"]["priority"] == "Critical"
     assert data["ticket"]["assigned_team"] == "Identity and Access Management"
+    assert data["agent_decision"]["next_action"] == "create_urgent_ticket_draft"

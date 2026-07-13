@@ -4,8 +4,8 @@ from typing import Dict, List
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from src.generator import answer_question
 from src.logger import log_query
+from src.orchestrator import run_support_workflow
 
 
 app = FastAPI(
@@ -39,7 +39,7 @@ def health_check() -> Dict:
 def ask_question(request: AskRequest) -> Dict:
     start_time = time()
 
-    response = answer_question(request.question)
+    response = run_support_workflow(request.question)
 
     latency_ms = round((time() - start_time) * 1000, 2)
 
@@ -49,6 +49,10 @@ def ask_question(request: AskRequest) -> Dict:
         "sources": response.get("sources", []),
         "ticket": response.get("ticket", {}),
         "fallback_triggered": response.get("fallback_triggered", False),
+        "confidence": response.get("confidence", {}),
+        "confusion_analysis": response.get("confusion_analysis", {}),
+        "agent_decision": response.get("agent_decision", {}),
+        "ticket_draft": response.get("ticket_draft", {}),
         "latency_ms": latency_ms,
     }
 

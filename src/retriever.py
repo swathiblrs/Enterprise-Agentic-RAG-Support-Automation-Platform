@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import chromadb
 from rank_bm25 import BM25Okapi
@@ -14,7 +14,26 @@ COLLECTION_NAME = "support_kb"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 
-embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+embedding_model = None
+
+
+def get_embedding_model() -> Optional[SentenceTransformer]:
+    """
+    Lazily loads the embedding model so API imports and unit tests do not
+    require network/model initialization before a retrieval request runs.
+    """
+    global embedding_model
+
+    if embedding_model is not None:
+        return embedding_model
+
+    try:
+        embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME, local_files_only=True)
+    except Exception as error:
+        print(f"Dense retrieval unavailable: {error}")
+        return None
+
+    return embedding_model
 
 
 def load_knowledge_base_documents() -> List[Dict]:
@@ -57,8 +76,13 @@ def dense_retrieve(question: str, top_k: int = 5) -> List[Dict]:
     """
     Retrieves relevant chunks using vector similarity search from ChromaDB.
     """
+    model = get_embedding_model()
+
+    if model is None:
+        return []
+
     collection = get_chroma_collection()
-    query_embedding = embedding_model.encode(question).tolist()
+    query_embedding = model.encode(question).tolist()
 
     results = collection.query(
         query_embeddings=[query_embedding],
