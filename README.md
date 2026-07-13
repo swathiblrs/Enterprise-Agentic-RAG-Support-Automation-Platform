@@ -1,4 +1,4 @@
-# Enterprise RAG Support Automation Platform
+# Enterprise Agentic RAG Support Automation Platform
 
 A production-style Retrieval-Augmented Generation platform for enterprise IT support automation.
 
