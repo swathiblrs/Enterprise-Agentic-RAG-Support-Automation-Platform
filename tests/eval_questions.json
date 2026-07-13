@@ -33,5 +33,40 @@
     "expected_category": "Multi-Factor Authentication",
     "expected_team": "Identity and Access Management",
     "expected_priority": "Critical"
+  },
+  {
+    "question": "VPN connection keeps dropping during remote work",
+    "expected_sources": ["vpn_troubleshooting_kb.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "Low"
+  },
+  {
+    "question": "I forgot my password and cannot login",
+    "expected_sources": ["password_reset_kb.md"],
+    "expected_category": "Account Access",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "Duo MFA app stopped sending push requests",
+    "expected_sources": ["mfa_duo_kb.md"],
+    "expected_category": "Multi-Factor Authentication",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "Production VPN outage for many users",
+    "expected_sources": ["vpn_troubleshooting_kb.md", "priority_matrix.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "Critical"
+  },
+  {
+    "question": "Our department cannot access VPN",
+    "expected_sources": ["vpn_troubleshooting_kb.md", "priority_matrix.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "High"
   }
 ]

@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import List, Dict
 
 import chromadb
+from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
 
 
@@ -14,17 +15,43 @@ EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 def load_documents() -> List[Dict]:
     documents = []
 
-    for file_path in DATA_DIR.glob("*.md"):
-        text = file_path.read_text(encoding="utf-8")
+    for file_path in DATA_DIR.rglob("*"):
+        if not file_path.is_file():
+            continue
+
+        if file_path.suffix.lower() not in [".md", ".txt", ".pdf"]:
+            continue
+
+        text = extract_text(file_path)
+
+        if not text.strip():
+            continue
 
         documents.append(
             {
-                "source": file_path.name,
+                "source": str(file_path.relative_to(DATA_DIR)),
                 "text": text,
             }
         )
 
     return documents
+
+
+def extract_text(file_path: Path) -> str:
+    if file_path.suffix.lower() == ".pdf":
+        return extract_pdf_text(file_path)
+
+    return file_path.read_text(encoding="utf-8")
+
+
+def extract_pdf_text(file_path: Path) -> str:
+    reader = PdfReader(str(file_path))
+    pages = []
+
+    for page in reader.pages:
+        pages.append(page.extract_text() or "")
+
+    return "\n\n".join(pages)
 
 
 def chunk_text(text: str, chunk_size: int = 700, overlap: int = 100) -> List[str]:

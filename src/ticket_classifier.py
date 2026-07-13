@@ -86,6 +86,10 @@ def predict_priority(question_lower: str) -> str:
             "locked",
             "error",
             "issue",
+            "stopped",
+            "broken",
+            "not responding",
+            "no response",
         ]
     ):
         return "Medium"

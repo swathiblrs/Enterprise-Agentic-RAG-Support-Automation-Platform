@@ -1,5 +1,6 @@
 from typing import Dict, List
 
+from src.config import LLM_MODEL_NAME, OPENAI_API_KEY, USE_LLM_GENERATION
 from src.retriever import retrieve_relevant_chunks
 from src.ticket_classifier import classify_ticket
 
@@ -21,10 +22,11 @@ def answer_question(question: str) -> Dict:
             "sources": [],
             "retrieved_chunks": [],
             "ticket": ticket,
+            "answer_generation_mode": "fallback",
             "fallback": True,
         }
 
-    answer = generate_grounded_answer(question, retrieved_chunks)
+    answer, generation_mode = generate_grounded_answer(question, retrieved_chunks)
 
     sources = []
     for chunk in retrieved_chunks:
@@ -36,13 +38,73 @@ def answer_question(question: str) -> Dict:
         "sources": sources,
         "retrieved_chunks": retrieved_chunks,
         "ticket": ticket,
+        "answer_generation_mode": generation_mode,
         "fallback": False,
     }
 
 
-def generate_grounded_answer(question: str, retrieved_chunks: List[Dict]) -> str:
+def generate_grounded_answer(question: str, retrieved_chunks: List[Dict]) -> tuple:
     """
     Creates a grounded support answer from retrieved context.
+    """
+    if USE_LLM_GENERATION and OPENAI_API_KEY:
+        llm_answer = generate_llm_grounded_answer(question, retrieved_chunks)
+
+        if llm_answer:
+            return llm_answer, "llm"
+
+    return generate_rule_based_answer(question, retrieved_chunks), "rule_based"
+
+
+def generate_llm_grounded_answer(question: str, retrieved_chunks: List[Dict]) -> str:
+    """
+    Uses an LLM to answer only from retrieved context.
+
+    This path is optional so the project remains testable without external API
+    access. If the LLM call fails, the caller falls back to deterministic logic.
+    """
+    try:
+        from langchain_openai import ChatOpenAI
+    except ImportError:
+        return ""
+
+    context_blocks = []
+    for index, chunk in enumerate(retrieved_chunks, start=1):
+        context_blocks.append(
+            f"Source {index}: {chunk['source']}\n{chunk['text']}"
+        )
+
+    prompt = f"""
+You are an enterprise IT support assistant.
+
+Answer the user's question using only the retrieved knowledge-base context.
+If the context is not enough, say that the Service Desk should review it.
+Do not invent policy, tools, URLs, phone numbers, or escalation paths.
+Include a short "Sources" line listing the source file names used.
+
+User question:
+{question}
+
+Retrieved context:
+{chr(10).join(context_blocks)}
+"""
+
+    try:
+        llm = ChatOpenAI(
+            model=LLM_MODEL_NAME,
+            temperature=0,
+            api_key=OPENAI_API_KEY,
+        )
+        response = llm.invoke(prompt)
+        return response.content.strip()
+    except Exception as error:
+        print(f"LLM generation unavailable: {error}")
+        return ""
+
+
+def generate_rule_based_answer(question: str, retrieved_chunks: List[Dict]) -> str:
+    """
+    Creates a deterministic grounded support answer from retrieved context.
     """
     question_lower = question.lower()
     context_text = "\n\n".join(chunk["text"] for chunk in retrieved_chunks)

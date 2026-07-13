@@ -11,7 +11,7 @@ The platform is designed to demonstrate backend engineering, semantic search, ve
 ## Key Features
 
 * Synthetic enterprise IT knowledge-base documents
-* Document ingestion from Markdown files
+* Document ingestion from Markdown, text, and PDF files
 * Text chunking with metadata
 * Embedding generation using SentenceTransformers
 * Vector storage using ChromaDB
@@ -23,6 +23,11 @@ The platform is designed to demonstrate backend engineering, semantic search, ve
 * Agent-style support workflow orchestration
 * Confidence scoring and escalation decisions
 * Structured ticket draft generation
+* User feedback capture for answer, source, routing, and priority quality
+* Metrics endpoint for latency, fallback rate, confidence, and agent decisions
+* Optional LLM-based grounded answer generation
+* Configurable API key authentication
+* Document upload workflow
 * FastAPI backend
 * Streamlit web interface
 * Query logging using JSONL logs
@@ -66,6 +71,8 @@ No private company, university, or personal user data is used.
 * Pydantic
 * Requests
 * JSONL logging
+* Docker
+* GitHub Actions CI
 
 ## Project Structure
 
@@ -93,6 +100,12 @@ Enterprise RAG Support Automation Platform/
     ticket_classifier.py
   tests/
     eval_questions.json
+  .github/
+    workflows/
+      ci.yml
+  Dockerfile
+  docker-compose.yml
+  Makefile
   vectorstore/
     chroma/
   README.md
@@ -106,9 +119,9 @@ How It Works
 
 1. Document Ingestion
 
-The ingestion script reads Markdown files from the data/ folder.
+The ingestion script reads Markdown, text, and PDF files from the data/ folder.
 
-Markdown files → text extraction → chunks → metadata
+Markdown, text, and PDF files → text extraction → chunks → metadata
 
 Run:
 
@@ -135,6 +148,12 @@ python src/retriever.py
 3. Answer Generation
 
 The generator uses retrieved context and returns a support answer with source references.
+
+By default, the project uses deterministic rule-based generation so it can run without external API access. To enable LLM-based grounded generation, set:
+
+USE_LLM_GENERATION=true
+OPENAI_API_KEY=your_api_key
+LLM_MODEL_NAME=gpt-4o-mini
 
 Run:
 
@@ -172,7 +191,7 @@ Run:
 
 python src/ticket_classifier.py
 
-5. FastAPI Backend
+6. FastAPI Backend
 
 Start the API server:
 
@@ -188,6 +207,10 @@ GET  /
 GET  /health
 POST /ask
 GET  /logs
+POST /feedback
+GET  /feedback
+GET  /metrics
+POST /documents/upload
 
 Example /ask request:
 
@@ -198,6 +221,7 @@ Example /ask request:
 Example response:
 
 {
+  "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
   "question": "My VPN is not working after I reset my password",
   "answer": "Based on the knowledge base...",
   "sources": [
@@ -211,10 +235,27 @@ Example response:
     "assigned_team": "Network Support"
   },
   "fallback_triggered": false,
+  "answer_generation_mode": "llm",
+  "confidence": {
+    "retrieval_confidence": 0.87,
+    "classification_confidence": 0.75,
+    "overall_confidence": 0.82
+  },
+  "agent_decision": {
+    "next_action": "answer_and_create_ticket_draft",
+    "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+    "assigned_team": "Network Support"
+  },
+  "ticket_draft": {
+    "title": "My VPN is not working after I reset my password",
+    "category": "VPN Connectivity",
+    "priority": "Medium",
+    "assigned_team": "Network Support"
+  },
   "latency_ms": 1749.13
 }
 
-6. Streamlit UI
+7. Streamlit UI
 
 Start FastAPI first:
 
@@ -231,29 +272,68 @@ The UI allows users to enter support questions and view:
 * Ticket category
 * Priority
 * Assigned team
+* Agent next action
+* Confidence scores
+* Structured ticket draft
 * Latency
 * Fallback status
+* Feedback form
+* Analytics dashboard
+* Document upload workflow
 
-7. Query Logging
+8. Query Logging, Feedback, and Metrics
 
 Every API query is logged to:
 
 logs/query_logs.jsonl
 
+User feedback is logged to:
+
+logs/feedback_logs.jsonl
+
 Each log stores:
 
+* Request ID
 * Timestamp
 * Question
 * Answer
 * Sources
 * Ticket recommendation
 * Fallback status
+* Confidence scores
+* Agent decision
 * Latency
+
+The metrics endpoint summarizes:
+
+* Total queries
+* Total feedback submissions
+* Fallback rate
+* Average latency
+* Average confidence
+* Agent decision counts
+* Ticket category counts
+* Helpful feedback rate
+
+9. Security
+
+API key authentication is configurable through:
+
+SUPPORT_API_KEY=your_api_key
+
+When this value is empty, local development endpoints remain open. When it is set, protected endpoints require:
+
+x-api-key: your_api_key
+
+10. Document Upload
+
+The platform supports uploading Markdown, text, and PDF documents. Uploaded documents are saved under data/uploads/. The upload endpoint can optionally reindex the vector store after a document is saved.
 
 Example log entry:
 
 {
   "timestamp": "2026-06-15T17:51:07.894699Z",
+  "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
   "question": "My VPN is not working after I reset my password",
   "sources": ["vpn_troubleshooting_kb.md", "password_reset_kb.md"],
   "ticket": {
@@ -262,6 +342,9 @@ Example log entry:
     "assigned_team": "Network Support"
   },
   "fallback_triggered": false,
+  "agent_decision": {
+    "next_action": "answer_and_create_ticket_draft"
+  },
   "latency_ms": 1749.13
 }
 
@@ -296,6 +379,33 @@ Open a second terminal:
 source .venv/bin/activate
 streamlit run app/streamlit_app.py
 
+7. Run tests and evaluation
+
+make test
+make evaluate
+
+8. Run with Docker Compose
+
+docker compose up --build
+
+FastAPI will be available at:
+
+http://127.0.0.1:8000
+
+Streamlit will be available at:
+
+http://127.0.0.1:8501
+
+CI/CD
+
+GitHub Actions runs on push and pull request.
+
+The CI workflow validates:
+
+* Dependency installation
+* API tests
+* Workflow evaluation
+
 Sample Questions
 
 Try these questions:
@@ -322,6 +432,19 @@ Completed:
 - Ticket classification
 - Priority prediction
 - Team routing
+- Agent workflow orchestration
+- Confidence scoring
+- Ticket draft generation
+- Feedback logging
+- Metrics endpoint
+- Optional LLM grounded generation
+- API key authentication
+- PDF/document upload support
+- Expanded RAG evaluation metrics
+- Dockerfile
+- Docker Compose
+- Makefile
+- GitHub Actions CI
 - FastAPI backend
 - Streamlit UI
 - Query logging
@@ -329,17 +452,12 @@ Completed:
 
 In progress / planned:
 
-- Evaluation metrics
 - More knowledge-base documents
 - Improved unsupported-question fallback
-- PDF ingestion
-- Hybrid retrieval using vector search + BM25
-- Reranking
-- LLM-based answer generation
-- API tests
-- Docker setup
-- GitHub Actions CI/CD
-- Monitoring dashboard
+- Metadata-aware retrieval
+- Stronger LLM answer-quality evaluation
+- Authentication roles and user management
+- External ITSM integration
 - README screenshots and architecture diagram
 
 Production-Ready Project Roadmap
@@ -350,8 +468,8 @@ The long-term goal is to evolve this into a production-style enterprise project 
 
 Current Completion Estimate
 
-Beginner/Intermediate RAG project: 70% complete
-Production-ready enterprise project: 35–40% complete
+Beginner/Intermediate RAG project: 90% complete
+Production-style enterprise project: 65–70% complete
 
 The current version proves the end-to-end RAG workflow. The remaining work focuses on making the system more measurable, scalable, reliable, and closer to real enterprise engineering standards.
 

@@ -27,6 +27,7 @@ def run_support_workflow(question: str) -> Dict:
             "sources": response.get("sources", []),
             "retrieved_chunks": response.get("retrieved_chunks", []),
             "ticket": response.get("ticket", {}),
+            "answer_generation_mode": response.get("answer_generation_mode", "unknown"),
             "fallback_triggered": response.get("fallback", False),
         }
     )
@@ -46,6 +47,7 @@ def build_initial_state(question: str) -> Dict:
         "sources": [],
         "retrieved_chunks": [],
         "ticket": {},
+        "answer_generation_mode": "unknown",
         "fallback_triggered": False,
         "confidence": {},
         "confusion_analysis": {},
