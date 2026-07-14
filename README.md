@@ -20,38 +20,9 @@ The agent can:
 - Track confidence
 - Capture feedback
 
-## ✨ Key Features
-
-- Document ingestion
-- Metadata chunking
-- Vector search
-- BM25 search
-- Hybrid retrieval
-- Domain filtering
-- Lightweight reranking
-- LangChain generation
-- Offline fallback
-- Source citations
-- Ticket classification
-- Priority prediction
-- Team routing
-- Agent orchestration
-- Confidence scoring
-- Escalation decisions
-- Ticket drafts
-- Feedback capture
-- Analytics dashboard
-- Metrics endpoint
-- API key auth
-- JWT auth
-- Streamlit UI
-- FastAPI backend
-- Evaluation pipeline
-- Docker support
-- Kubernetes manifests
-- GitHub Actions CI
-
 ## 🏗️ System Architecture
+
+<img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
 
 High-level workflow:
 
@@ -74,46 +45,35 @@ Core stack:
 - Docker for containerization
 - Kubernetes manifests for deployment readiness
 
-<img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
+## ✨ Key Features
 
-## 📚 Current Knowledge Base
+🔎 Support Automation Agent
 
-The project uses synthetic enterprise IT support documents:
+- Ask IT support questions or upload support documents
+- Retrieve relevant knowledge-base content using hybrid search
+- Generate source-backed support answers
+- Classify issues, predict priority, and recommend routing
+- Create ticket-ready drafts with suggested next steps
 
-```text
-data/
-  password_reset_kb.md
-  vpn_troubleshooting_kb.md
-  mfa_duo_kb.md
-  ticket_routing_rules.md
-  priority_matrix.md
-```
+🧠 Agentic Workflow
 
-These documents cover:
+- Coordinate retrieval, answer generation, ticket intelligence, and escalation decisions
+- Track confidence and detect low-confidence cases
+- Use LangChain-powered grounded generation when LLM access is enabled
+- Fall back to deterministic offline answers for local testing
 
-- password reset
-- account lockout
-- VPN troubleshooting
-- Duo/MFA issues
-- ticket routing rules
-- ticket priority rules
+📊 Analytics and Evaluation
 
-No private company, university, or personal user data is used.
+- Capture user feedback and query logs
+- Track latency, fallback rate, confidence, categories, and agent decisions
+- Evaluate retrieval quality, routing accuracy, groundedness, and faithfulness
 
-## 🧰 Tech Stack
+🚀 Production Readiness
 
-- Python
-- FastAPI
-- Streamlit
-- ChromaDB
-- SentenceTransformers
-- BM25
-- LangChain / LangChain OpenAI
-- Pydantic
-- pypdf
-- Docker
-- GitHub Actions
-- JSONL logging
+- FastAPI backend with Swagger docs
+- Streamlit UI for Ask, Analytics, and Upload workflows
+- API key and JWT authentication
+- Docker, Kubernetes manifests, and GitHub Actions CI
 
 ## 📁 Project Structure
 
@@ -604,45 +564,15 @@ Production VPN outage for many users.
 Duo MFA app stopped sending push requests.
 ```
 
-## ✅ Current Status
+## 🔮 Future Improvements
 
-Completed:
+- ServiceNow and Jira ticket creation
+- Slack and Microsoft Teams support
+- Confluence, SharePoint, Google Drive, and S3 ingestion
+- Larger enterprise evaluation datasets
+- Advanced multi-step agent workflows
+- Production monitoring with Prometheus and Grafana
 
-- synthetic enterprise knowledge base
-- Markdown, text, and PDF ingestion
-- ChromaDB vector store
-- hybrid retrieval with BM25
-- lightweight reranking
-- optional LLM grounded generation
-- source-backed answers
-- ticket classification
-- priority prediction
-- team routing
-- agent workflow orchestration
-- confidence scoring
-- escalation decisions
-- ticket draft generation
-- API key authentication
-- JWT role-based authentication
-- domain-aware retrieval
-- feedback logging
-- metrics endpoint
-- analytics UI
-- document upload UI
-- evaluation pipeline
-- API tests
-- Docker and Docker Compose
-- Kubernetes manifests
-- Makefile
-- GitHub Actions CI
+## 🙌 Acknowledgements
 
-Remaining future improvements:
-
-- external ITSM integration such as ServiceNow or Jira Service Management
-- stronger LLM answer-quality evaluation
-- larger enterprise knowledge base
-- production monitoring stack such as Prometheus and Grafana
-
-## 🎯 Project Positioning
-
-This project started as a RAG support assistant and has evolved into an agentic enterprise support automation platform. It demonstrates not only retrieval and answer generation, but also workflow orchestration, ticket intelligence, observability, feedback loops, evaluation, security configuration, document upload, and deployment readiness.
+Built using FastAPI, Streamlit, LangChain, ChromaDB, BM25, Docker, and Kubernetes manifests, and extended into a real-world enterprise IT support automation use case.
