@@ -79,48 +79,32 @@ Core stack:
 
 ```text
 Enterprise RAG Support Automation Platform/
-  app/
-    streamlit_app.py
-  data/
-    password_reset_kb.md
-    vpn_troubleshooting_kb.md
-    mfa_duo_kb.md
-    ticket_routing_rules.md
-    priority_matrix.md
-  src/
-    api.py
-    config.py
-    document_store.py
-    evaluator.py
-    generator.py
-    ingest.py
-    logger.py
-    orchestrator.py
-    retriever.py
-    security.py
-    ticket_classifier.py
-  tests/
-    eval_questions.json
-    test_api.py
-  .github/
-    workflows/
-      ci.yml
-  k8s/
-    api-deployment.yaml
-    api-service.yaml
-    configmap.yaml
-    ingress.yaml
-    secret.example.yaml
-    namespace.yaml
-    persistent-volume-claims.yaml
-    streamlit-deployment.yaml
-    streamlit-service.yaml
-  Dockerfile
-  docker-compose.yml
-  Makefile
-  requirements.txt
-  .env.example
-  README.md
+app/
+ └── streamlit_app.py        # Streamlit UI for Ask, Analytics, and Upload workflows
+
+src/
+ ├── api.py                  # FastAPI REST API endpoints
+ ├── security.py             # API key auth + JWT role-based auth
+ ├── orchestrator.py         # Agent workflow orchestration and decisions
+ ├── retriever.py            # Hybrid retrieval with ChromaDB + BM25
+ ├── generator.py            # LangChain LLM generation + offline fallback
+ ├── ticket_classifier.py    # Category, priority, and team routing logic
+ ├── ingest.py               # Knowledge-base ingestion and indexing
+ ├── document_store.py       # Uploaded document storage
+ ├── evaluator.py            # Retrieval, routing, groundedness, and faithfulness evaluation
+ ├── logger.py               # Query logs, feedback logs, and metrics
+ └── config.py               # Environment-based application settings
+
+data/                        # Sample enterprise support knowledge base
+tests/                       # API tests and evaluation questions
+k8s/                         # Kubernetes deployment manifests
+.github/workflows/           # GitHub Actions CI pipeline
+
+Dockerfile                   # API container image
+docker-compose.yml           # Local multi-service runtime
+Makefile                     # Common development commands
+requirements.txt             # Python dependencies
+.env.example                 # Environment variable template
 ```
 
 `logs/`, `vectorstore/`, and `.venv/` are excluded from GitHub.
