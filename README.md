@@ -23,30 +23,34 @@ Beyond basic RAG, the platform adds support automation:
 
 ## Key Features
 
-- Markdown, text, and PDF document ingestion
-- Text chunking with metadata
-- Embedding generation using SentenceTransformers
-- ChromaDB vector storage
-- BM25 keyword retrieval
-- Hybrid retrieval with reranking
-- Domain-aware retrieval for configurable knowledge domains
-- Optional LLM-based grounded answer generation
-- Deterministic fallback answer generation for local/offline use
-- Source-backed responses
+- Document ingestion
+- Metadata chunking
+- Vector search
+- BM25 search
+- Hybrid retrieval
+- Domain filtering
+- Lightweight reranking
+- LangChain generation
+- Offline fallback
+- Source citations
 - Ticket classification
 - Priority prediction
-- Support team routing
-- Agent-style workflow orchestration
-- Confidence scoring and escalation decisions
-- Structured ticket draft generation
-- User feedback capture
-- Metrics endpoint for latency, fallback rate, confidence, categories, and agent decisions
-- Configurable API key and JWT role-based authentication
-- Streamlit UI with Ask, Analytics, and Upload tabs
-- FastAPI backend with Swagger docs
-- JSONL query and feedback logging
-- Evaluation pipeline with retrieval, routing, confidence, and faithfulness metrics
-- Docker, Docker Compose, Kubernetes manifests, Makefile, and GitHub Actions CI
+- Team routing
+- Agent orchestration
+- Confidence scoring
+- Escalation decisions
+- Ticket drafts
+- Feedback capture
+- Analytics dashboard
+- Metrics endpoint
+- API key auth
+- JWT auth
+- Streamlit UI
+- FastAPI backend
+- Evaluation pipeline
+- Docker support
+- Kubernetes manifests
+- GitHub Actions CI
 
 ## System Architecture
 <img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
