@@ -1,27 +1,26 @@
-# Enterprise Agentic RAG Support Automation Platform
+# 🤖 Enterprise Agentic RAG Support Automation Platform
 
-A production-ready AI agent that helps enterprise IT and support teams investigate, answer, route, and respond to support issues by analyzing internal knowledge-base documents using agentic workflow orchestration plus Retrieval-Augmented Generation (RAG).
+A production-ready AI agent that helps enterprise IT and support teams answer, triage, route, and respond to support issues using agentic workflow orchestration + Retrieval-Augmented Generation (RAG).
 
-The system retrieves relevant internal knowledge-base content, generates grounded support answers, classifies IT issues, predicts ticket priority, recommends the right support team, creates ticket drafts, tracks confidence, collects feedback, and exposes analytics and metrics for observability.
+## 🌟 Why This Project Exists
 
-## Project Overview
+Enterprise IT support teams spend valuable time answering repeated questions, searching knowledge-base documents, triaging unclear issues, and routing tickets to the right team.
 
-This project simulates an enterprise IT service desk assistant powered by RAG and agentic workflow orchestration. Instead of answering only from general model knowledge, the assistant searches a local enterprise knowledge base, retrieves relevant document chunks, and uses those chunks to produce source-backed support responses.
+This system acts as an AI copilot for support automation, helping reduce response time, improve ticket quality, and generate grounded answers from internal documentation.
 
-Beyond basic RAG, the platform adds support automation:
+The agent can:
 
-- issue classification
-- priority prediction
-- team routing
-- confidence scoring
-- escalation decisions
-- ticket draft generation
-- feedback logging
-- metrics and evaluation
-- Docker and CI/CD readiness
-- Kubernetes deployment readiness
+- Retrieve relevant knowledge-base content
+- Generate source-backed support answers
+- Classify issues
+- Predict priority
+- Recommend routing
+- Suggest next steps
+- Create ticket drafts
+- Track confidence
+- Capture feedback
 
-## Key Features
+## ✨ Key Features
 
 - Document ingestion
 - Metadata chunking
@@ -52,10 +51,32 @@ Beyond basic RAG, the platform adds support automation:
 - Kubernetes manifests
 - GitHub Actions CI
 
-## System Architecture
+## 🏗️ System Architecture
+
+High-level workflow:
+
+User support question or uploaded document  
+➡️ Agent workflow orchestration  
+➡️ RAG pipeline retrieves relevant knowledge-base chunks from ChromaDB and BM25  
+➡️ LangChain-powered grounded generation or offline fallback  
+➡️ Structured support response with sources, priority, routing, confidence, and ticket draft
+
+Core stack:
+
+- FastAPI for API backend
+- Streamlit for web UI
+- Custom agent orchestrator for support workflow decisions
+- ChromaDB for vector search
+- BM25 for keyword retrieval
+- SentenceTransformers for embeddings
+- LangChain / OpenAI for optional grounded LLM generation
+- JSONL logs and metrics endpoint for observability
+- Docker for containerization
+- Kubernetes manifests for deployment readiness
+
 <img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
 
-## Current Knowledge Base
+## 📚 Current Knowledge Base
 
 The project uses synthetic enterprise IT support documents:
 
@@ -79,7 +100,7 @@ These documents cover:
 
 No private company, university, or personal user data is used.
 
-## Tech Stack
+## 🧰 Tech Stack
 
 - Python
 - FastAPI
@@ -94,7 +115,7 @@ No private company, university, or personal user data is used.
 - GitHub Actions
 - JSONL logging
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 Enterprise RAG Support Automation Platform/
@@ -144,7 +165,7 @@ Enterprise RAG Support Automation Platform/
 
 `logs/`, `vectorstore/`, and `.venv/` are excluded from GitHub.
 
-## How It Works
+## ⚙️ How It Works
 
 ### 1. Document Ingestion
 
@@ -243,7 +264,7 @@ Example:
 }
 ```
 
-## API Endpoints
+## 🔌 API Endpoints
 
 Start the backend:
 
@@ -320,7 +341,7 @@ Example response:
 }
 ```
 
-## Security
+## 🔐 Security
 
 API key authentication is optional and controlled through environment configuration.
 
@@ -372,7 +393,7 @@ JWT requests use:
 Authorization: Bearer <access_token>
 ```
 
-## Streamlit UI
+## 🖥️ Streamlit UI
 
 Start the backend first:
 
@@ -392,7 +413,7 @@ The UI includes three tabs:
 - `Analytics`: view latency, fallback rate, helpful feedback rate, category counts, and agent decision counts
 - `Upload Documents`: upload Markdown, text, or PDF documents into a selected knowledge domain
 
-## Document Upload
+## 📄 Document Upload
 
 Supported upload types:
 
@@ -408,7 +429,7 @@ data/<domain>/uploads/
 
 The upload endpoint can optionally reindex the vector store after saving a document.
 
-## Logging and Metrics
+## 📊 Logging and Metrics
 
 Query logs:
 
@@ -433,7 +454,7 @@ Metrics include:
 - agent decision counts
 - helpful feedback rate
 
-## Evaluation
+## 🧪 Evaluation
 
 Run:
 
@@ -468,7 +489,7 @@ Faithfulness Heuristic Rate: 100.00%
 Safe Agent Decision Rate: 100.00%
 ```
 
-## Setup
+## 🚀 Setup
 
 Clone the repository:
 
@@ -508,7 +529,7 @@ Run UI:
 streamlit run app/streamlit_app.py
 ```
 
-## Makefile Commands
+## 🛠️ Makefile Commands
 
 ```bash
 make install
@@ -521,7 +542,7 @@ make docker-up
 make docker-down
 ```
 
-## Docker
+## 🐳 Docker
 
 Run the full stack:
 
@@ -541,7 +562,7 @@ Streamlit:
 http://127.0.0.1:8501
 ```
 
-## Kubernetes
+## ☸️ Kubernetes
 
 Kubernetes manifests are provided under:
 
@@ -561,7 +582,7 @@ They include:
 
 See [k8s/README.md](k8s/README.md) for deployment steps.
 
-## CI/CD
+## 🔁 CI/CD
 
 GitHub Actions runs on push and pull request.
 
@@ -571,7 +592,7 @@ The CI workflow validates:
 - API tests
 - workflow evaluation
 
-## Sample Questions
+## 💬 Sample Questions
 
 ```text
 My VPN is not working after I reset my password.
@@ -583,7 +604,7 @@ Production VPN outage for many users.
 Duo MFA app stopped sending push requests.
 ```
 
-## Current Status
+## ✅ Current Status
 
 Completed:
 
@@ -622,6 +643,6 @@ Remaining future improvements:
 - larger enterprise knowledge base
 - production monitoring stack such as Prometheus and Grafana
 
-## Project Positioning
+## 🎯 Project Positioning
 
 This project started as a RAG support assistant and has evolved into an agentic enterprise support automation platform. It demonstrates not only retrieval and answer generation, but also workflow orchestration, ticket intelligence, observability, feedback loops, evaluation, security configuration, document upload, and deployment readiness.
