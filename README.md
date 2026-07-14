@@ -1,8 +1,8 @@
 # Enterprise Agentic RAG Support Automation Platform
 
-A production-style Retrieval-Augmented Generation platform for enterprise IT support automation.
+A production-ready AI agent that helps enterprise IT and support teams investigate, answer, route, and respond to support issues by analyzing internal knowledge-base documents using agentic workflow orchestration plus Retrieval-Augmented Generation (RAG).
 
-The system retrieves relevant internal knowledge-base content, generates grounded support answers, classifies IT issues, predicts ticket priority, recommends the right support team, creates ticket drafts, tracks confidence, collects feedback, and exposes metrics for observability.
+The system retrieves relevant internal knowledge-base content, generates grounded support answers, classifies IT issues, predicts ticket priority, recommends the right support team, creates ticket drafts, tracks confidence, collects feedback, and exposes analytics and metrics for observability.
 
 ## Project Overview
 
