@@ -3,6 +3,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
 
+from src.config import PERSISTENCE_BACKEND
+from src.persistence import write_feedback_log, write_query_log
+
 
 LOG_DIR = Path("logs")
 LOG_FILE = LOG_DIR / "query_logs.jsonl"
@@ -27,6 +30,8 @@ def log_query(entry: Dict[str, Any]) -> None:
     }
 
     write_jsonl(LOG_FILE, log_entry)
+    if PERSISTENCE_BACKEND == "sqlite":
+        write_query_log(log_entry)
 
 
 def log_feedback(entry: Dict[str, Any]) -> None:
@@ -36,6 +41,8 @@ def log_feedback(entry: Dict[str, Any]) -> None:
     }
 
     write_jsonl(FEEDBACK_FILE, feedback_entry)
+    if PERSISTENCE_BACKEND == "sqlite":
+        write_feedback_log(feedback_entry)
 
 
 def read_jsonl(file_path: Path) -> list:

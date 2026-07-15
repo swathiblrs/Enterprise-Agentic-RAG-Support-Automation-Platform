@@ -166,6 +166,19 @@ with ask_tab:
         for step in ticket_draft["suggested_steps"]:
             st.write(f"- {step}")
 
+        if data.get("integrations"):
+            st.subheader("Integration Status")
+            itsm = data["integrations"].get("itsm", {})
+            chat = data["integrations"].get("chat", {})
+
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("ITSM", itsm.get("status", "unknown"))
+                st.caption(itsm.get("message", ""))
+            with col2:
+                st.metric("Chat", chat.get("status", "unknown"))
+                st.caption(chat.get("message", ""))
+
         st.subheader("System Metadata")
         st.write(f"Request ID: `{data['request_id']}`")
         st.write(f"Domain: `{data.get('domain', 'it_support')}`")

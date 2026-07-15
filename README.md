@@ -41,7 +41,8 @@ Core stack:
 - BM25 for keyword retrieval
 - SentenceTransformers for embeddings
 - LangChain / OpenAI for optional grounded LLM generation
-- JSONL logs and metrics endpoint for observability
+- SQLite + JSONL logs for persistence and observability
+- Mock or webhook-based ITSM and chat integrations
 - Docker for containerization
 - Kubernetes manifests for deployment readiness
 
@@ -54,6 +55,7 @@ Core stack:
 - Generate source-backed support answers
 - Classify issues, predict priority, and recommend routing
 - Create ticket-ready drafts with suggested next steps
+- Prepare mock or webhook-based ITSM tickets and chat notifications
 
 🧠 Agentic Workflow
 
@@ -67,12 +69,14 @@ Core stack:
 - Capture user feedback and query logs
 - Track latency, fallback rate, confidence, categories, and agent decisions
 - Evaluate retrieval quality, routing accuracy, groundedness, and faithfulness
+- Store query, feedback, and ticket draft records in SQLite
 
 🚀 Production Readiness
 
 - FastAPI backend with Swagger docs
 - Streamlit UI for Ask, Analytics, and Upload workflows
 - API key and JWT authentication
+- Readiness checks and request validation
 - Docker, Kubernetes manifests, and GitHub Actions CI
 
 ## 📁 Project Structure
@@ -85,6 +89,8 @@ app/
 src/
  ├── api.py                  # FastAPI REST API endpoints
  ├── security.py             # API key auth + JWT role-based auth
+ ├── integrations.py         # Mock/webhook ITSM and chat adapters
+ ├── persistence.py          # SQLite persistence for logs, feedback, and ticket drafts
  ├── orchestrator.py         # Agent workflow orchestration and decisions
  ├── retriever.py            # Hybrid retrieval with ChromaDB + BM25
  ├── generator.py            # LangChain LLM generation + offline fallback
@@ -188,7 +194,22 @@ Example agent decisions:
 - `create_urgent_ticket_draft`
 - `escalate_to_human`
 
-### 5. Ticket Intelligence
+### 5. ITSM and Chat Integration Adapters
+
+The API prepares ticket and chat payloads for each support workflow.
+
+By default, integrations run in `mock` mode so the project is safe to demo locally. For real systems, configure webhook URLs:
+
+```env
+ITSM_INTEGRATION_MODE=webhook
+ITSM_WEBHOOK_URL=https://example.com/itsm-webhook
+CHAT_INTEGRATION_MODE=webhook
+CHAT_WEBHOOK_URL=https://example.com/chat-webhook
+```
+
+Use `disabled`, `mock`, or `webhook` for each integration mode.
+
+### 6. Ticket Intelligence
 
 The classifier predicts:
 
@@ -227,12 +248,14 @@ Available endpoints:
 ```text
 GET  /
 GET  /health
+GET  /ready
 POST /auth/login
 POST /ask
 GET  /logs
 POST /feedback
 GET  /feedback
 GET  /metrics
+GET  /tickets
 POST /documents/upload
 ```
 

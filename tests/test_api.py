@@ -21,6 +21,17 @@ def test_health_endpoint():
     assert data["service"] == "enterprise-rag-support-platform"
 
 
+def test_ready_endpoint_checks_persistence():
+    response = client.get("/ready")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["service"] == "enterprise-rag-support-platform"
+    assert data["checks"]["database"]["backend"] == "sqlite"
+
+
 def test_ask_endpoint_vpn_question():
     payload = {
         "question": "My VPN is not working after I reset my password"
@@ -43,6 +54,7 @@ def test_ask_endpoint_vpn_question():
     assert "confidence" in data
     assert "agent_decision" in data
     assert "ticket_draft" in data
+    assert "integrations" in data
     assert "latency_ms" in data
 
     assert data["ticket"]["category"] == "VPN Connectivity"
@@ -50,6 +62,14 @@ def test_ask_endpoint_vpn_question():
     assert data["ticket"]["assigned_team"] == "Network Support"
     assert data["ticket_draft"]["assigned_team"] == "Network Support"
     assert data["agent_decision"]["assigned_team"] == "Network Support"
+    assert data["integrations"]["itsm"]["status"] in {"mock_created", "disabled"}
+    assert data["integrations"]["chat"]["status"] in {"mock_sent", "disabled"}
+
+
+def test_ask_endpoint_rejects_short_questions():
+    response = client.post("/ask", json={"question": "?"})
+
+    assert response.status_code == 422
 
 
 def test_ask_endpoint_accepts_domain_filter():
@@ -147,6 +167,17 @@ def test_metrics_endpoint_returns_observability_summary():
     assert "fallback_rate" in data
     assert "average_latency_ms" in data
     assert "agent_decision_counts" in data
+
+
+def test_tickets_endpoint_returns_ticket_drafts():
+    response = client.get("/tickets")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "total_returned" in data
+    assert "tickets" in data
 
 
 def test_document_upload_endpoint_accepts_text_documents():

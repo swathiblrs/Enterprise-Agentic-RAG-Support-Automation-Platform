@@ -3,13 +3,15 @@ from time import time
 from typing import Dict
 
 from fastapi import Depends, FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from src.document_store import save_uploaded_document
 from src.ingest import ingest_documents
+from src.integrations import create_ticket, notify_chat, prepare_ticket_payload
 from src.logger import calculate_metrics, log_feedback, log_query, read_feedback, read_logs
 from src.orchestrator import run_support_workflow
 from src.config import DEFAULT_DOMAIN
+from src.persistence import database_health, read_table_payloads, write_ticket_draft
 from src.security import ROLE_ADMIN, ROLE_SUPPORT_AGENT, authenticate_user, create_access_token, require_auth
 
 
@@ -21,31 +23,31 @@ app = FastAPI(
 
 
 class AskRequest(BaseModel):
-    question: str
-    domain: str = DEFAULT_DOMAIN
+    question: str = Field(..., min_length=3, max_length=2000)
+    domain: str = Field(DEFAULT_DOMAIN, min_length=2, max_length=80)
 
 
 class FeedbackRequest(BaseModel):
-    request_id: str
-    question: str
+    request_id: str = Field(..., min_length=3, max_length=120)
+    question: str = Field(..., min_length=3, max_length=2000)
     answer_helpful: bool
     correct_sources: bool
     correct_ticket_routing: bool
     correct_priority: bool
-    comments: str = ""
+    comments: str = Field("", max_length=2000)
 
 
 class DocumentUploadRequest(BaseModel):
-    filename: str
-    content_base64: str
-    domain: str = DEFAULT_DOMAIN
-    source_type: str = "upload"
+    filename: str = Field(..., min_length=1, max_length=255)
+    content_base64: str = Field(..., min_length=1)
+    domain: str = Field(DEFAULT_DOMAIN, min_length=2, max_length=80)
+    source_type: str = Field("upload", min_length=2, max_length=80)
     reindex: bool = False
 
 
 class LoginRequest(BaseModel):
-    username: str
-    password: str
+    username: str = Field(..., min_length=1, max_length=80)
+    password: str = Field(..., min_length=1, max_length=200)
 
 
 @app.get("/")
@@ -61,6 +63,19 @@ def health_check() -> Dict:
     return {
         "status": "ok",
         "service": "enterprise-rag-support-platform",
+    }
+
+
+@app.get("/ready")
+def readiness_check() -> Dict:
+    database = database_health()
+
+    return {
+        "status": "ok" if database["status"] == "ok" else "degraded",
+        "service": "enterprise-rag-support-platform",
+        "checks": {
+            "database": database,
+        },
     }
 
 
@@ -89,6 +104,9 @@ def ask_question(
     start_time = time()
 
     response = run_support_workflow(request.question, domain=request.domain)
+    ticket_payload = prepare_ticket_payload(request_id, response)
+    ticket_integration = create_ticket(ticket_payload)
+    chat_integration = notify_chat(ticket_payload)
 
     latency_ms = round((time() - start_time) * 1000, 2)
 
@@ -105,10 +123,15 @@ def ask_question(
         "confusion_analysis": response.get("confusion_analysis", {}),
         "agent_decision": response.get("agent_decision", {}),
         "ticket_draft": response.get("ticket_draft", {}),
+        "integrations": {
+            "itsm": ticket_integration,
+            "chat": chat_integration,
+        },
         "latency_ms": latency_ms,
     }
 
     log_query(api_response)
+    write_ticket_draft(request_id, ticket_payload, ticket_integration)
 
     return api_response
 
@@ -154,6 +177,16 @@ def get_feedback(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
 @app.get("/metrics")
 def get_metrics(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
     return calculate_metrics()
+
+
+@app.get("/tickets")
+def get_ticket_drafts(_: Dict = Depends(require_auth([ROLE_ADMIN]))) -> Dict:
+    tickets = read_table_payloads("ticket_drafts", limit=20)
+
+    return {
+        "total_returned": len(tickets),
+        "tickets": tickets,
+    }
 
 
 @app.post("/documents/upload")

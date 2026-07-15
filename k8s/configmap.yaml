@@ -11,3 +11,7 @@ data:
   USE_LLM_GENERATION: "false"
   LLM_MODEL_NAME: "gpt-4o-mini"
   SUPPORT_API_BASE_URL: "http://enterprise-rag-api:8000"
+  PERSISTENCE_BACKEND: "sqlite"
+  SQLITE_DB_PATH: "logs/support_platform.db"
+  ITSM_INTEGRATION_MODE: "mock"
+  CHAT_INTEGRATION_MODE: "mock"
