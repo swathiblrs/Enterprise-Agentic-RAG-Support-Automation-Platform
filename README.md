@@ -22,7 +22,7 @@ The agent can:
 
 ## 🏗️ System Architecture
 
-<img width="1581" height="995" alt="image" src="https://github.com/user-attachments/assets/045adcad-2f54-4cb0-8a32-27e7c77d6845" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/218fe669-abd9-4daf-8f98-feb2019e242f" />
 
 High-level workflow:
 
