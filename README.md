@@ -445,16 +445,27 @@ The evaluator measures:
 
 Current local evaluation result:
 
-```text
-Retrieval Accuracy: 100.00%
-Category Accuracy: 100.00%
-Team Routing Accuracy: 100.00%
-Priority Accuracy: 100.00%
-Average Recall@K: 100.00%
-Grounded Answer Rate: 100.00%
-Faithfulness Heuristic Rate: 100.00%
-Safe Agent Decision Rate: 100.00%
-```
+| Metric | Result |
+|---|---:|
+| Retrieval Accuracy | 100.00% |
+| Category Accuracy | 100.00% |
+| Team Routing Accuracy | 100.00% |
+| Priority Accuracy | 100.00% |
+| Average Recall@K | 100.00% |
+| Grounded Answer Rate | 100.00% |
+| Faithfulness Heuristic Rate | 100.00% |
+| Safe Agent Decision Rate | 100.00% |
+| Average Precision@K | 46.67% |
+| Average Overall Confidence | 0.90 |
+
+The evaluation shows that the system consistently retrieves the expected support source and makes correct routing, priority, and escalation decisions on the curated IT support test set. The main improvement target is Precision@K, which means the system finds the right documents but can still reduce extra retrieved context.
+
+Planned retrieval-quality improvements:
+
+- intent-aware retrieval boosting for VPN, MFA, account access, outage, and routing queries
+- stricter reranking to reduce noisy citations
+- larger evaluation dataset with ambiguous, multi-intent, unsupported, and high-priority scenarios
+- additional ranking metrics such as MRR, nDCG@K, and Top-1 source accuracy
 
 ## 🚀 Setup
 
@@ -576,6 +587,8 @@ Duo MFA app stopped sending push requests.
 - ServiceNow and Jira ticket creation
 - Slack and Microsoft Teams support
 - Confluence, SharePoint, Google Drive, and S3 ingestion
+- Intent-aware retrieval boosting and stricter reranking
+- MRR, nDCG@K, and Top-1 source accuracy metrics
 - Larger enterprise evaluation datasets
 - Advanced multi-step agent workflows
 - Production monitoring with Prometheus and Grafana
