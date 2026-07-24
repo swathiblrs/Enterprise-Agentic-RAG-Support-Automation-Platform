@@ -23,7 +23,7 @@ def classify_ticket(question: str) -> Dict:
         category_scores["VPN Connectivity"] += 3
 
     # Account-related signals
-    if any(keyword in question_lower for keyword in ["password", "locked", "login", "sign in", "account"]):
+    if any(keyword in question_lower for keyword in ["password", "locked", "login", "log in", "sign in", "account", "sso"]):
         category_scores["Account Access"] += 2
 
     # MFA-related signals
@@ -43,6 +43,9 @@ def classify_ticket(question: str) -> Dict:
 
 
 def predict_priority(question_lower: str) -> str:
+    if is_informational_routing_question(question_lower):
+        return "Low"
+
     # Critical issues affect production systems, company-wide services, or security.
     if any(
         keyword in question_lower
@@ -90,11 +93,24 @@ def predict_priority(question_lower: str) -> str:
             "broken",
             "not responding",
             "no response",
+            "lost",
         ]
     ):
         return "Medium"
 
     return "Low"
+
+
+def is_informational_routing_question(question_lower: str) -> bool:
+    informational_starts = [
+        "which support team",
+        "which team",
+        "who handles",
+        "where should",
+        "how should this be routed",
+    ]
+
+    return any(question_lower.startswith(prefix) for prefix in informational_starts)
 
 
 def generate_summary(question: str) -> str:

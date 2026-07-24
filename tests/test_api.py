@@ -54,6 +54,8 @@ def test_ask_endpoint_vpn_question():
     assert "confidence" in data
     assert "agent_decision" in data
     assert "ticket_draft" in data
+    assert "workflow_engine" in data
+    assert "engineering_metrics" in data
     assert "integrations" in data
     assert "latency_ms" in data
 
@@ -62,6 +64,10 @@ def test_ask_endpoint_vpn_question():
     assert data["ticket"]["assigned_team"] == "Network Support"
     assert data["ticket_draft"]["assigned_team"] == "Network Support"
     assert data["agent_decision"]["assigned_team"] == "Network Support"
+    assert data["workflow_engine"].startswith("llamaindex_workflows")
+    assert data["engineering_metrics"]["retrieved_chunk_count"] >= 1
+    assert data["engineering_metrics"]["source_count"] >= 1
+    assert "total_workflow_latency_ms" in data["engineering_metrics"]
     assert data["integrations"]["itsm"]["status"] in {"mock_created", "disabled"}
     assert data["integrations"]["chat"]["status"] in {"mock_sent", "disabled"}
 
@@ -166,6 +172,9 @@ def test_metrics_endpoint_returns_observability_summary():
     assert "total_queries" in data
     assert "fallback_rate" in data
     assert "average_latency_ms" in data
+    assert "average_workflow_latency_ms" in data
+    assert "average_retrieved_chunk_count" in data
+    assert "average_source_count" in data
     assert "agent_decision_counts" in data
 
 

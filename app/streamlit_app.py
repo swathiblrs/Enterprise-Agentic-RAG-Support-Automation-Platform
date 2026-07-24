@@ -183,6 +183,25 @@ with ask_tab:
         st.write(f"Request ID: `{data['request_id']}`")
         st.write(f"Domain: `{data.get('domain', 'it_support')}`")
         st.write(f"Latency: `{data['latency_ms']} ms`")
+        st.write(f"Workflow Engine: `{data.get('workflow_engine', 'unknown')}`")
+
+        engineering_metrics = data.get("engineering_metrics", {})
+        if engineering_metrics:
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric(
+                    "Workflow",
+                    f"{engineering_metrics.get('total_workflow_latency_ms', 0.0)} ms",
+                )
+            with col2:
+                st.metric(
+                    "Answer Stage",
+                    f"{engineering_metrics.get('answer_stage_latency_ms', 0.0)} ms",
+                )
+            with col3:
+                st.metric("Chunks", engineering_metrics.get("retrieved_chunk_count", 0))
+            with col4:
+                st.metric("Sources", engineering_metrics.get("source_count", 0))
 
         st.subheader("Feedback")
         with st.form("feedback_form"):
@@ -251,6 +270,16 @@ with analytics_tab:
             st.metric("Avg Latency", f"{metrics['average_latency_ms']} ms")
         with col4:
             st.metric("Helpful Rate", metrics["feedback_helpful_rate"])
+
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Workflow Latency", f"{metrics.get('average_workflow_latency_ms', 0.0)} ms")
+        with col2:
+            st.metric("Answer Stage", f"{metrics.get('average_answer_stage_latency_ms', 0.0)} ms")
+        with col3:
+            st.metric("Avg Chunks", metrics.get("average_retrieved_chunk_count", 0.0))
+        with col4:
+            st.metric("Avg Sources", metrics.get("average_source_count", 0.0))
 
         col1, col2 = st.columns(2)
         with col1:

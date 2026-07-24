@@ -123,6 +123,8 @@ def ask_question(
         "confusion_analysis": response.get("confusion_analysis", {}),
         "agent_decision": response.get("agent_decision", {}),
         "ticket_draft": response.get("ticket_draft", {}),
+        "workflow_engine": response.get("workflow_engine", "unknown"),
+        "engineering_metrics": response.get("engineering_metrics", {}),
         "integrations": {
             "itsm": ticket_integration,
             "chat": chat_integration,

@@ -1,4 +1,21 @@
+import asyncio
+from time import perf_counter
 from typing import Dict, List
+
+try:
+    from llama_index.core.workflow import Event, StartEvent, StopEvent, Workflow, step
+
+    LLAMA_INDEX_WORKFLOWS_AVAILABLE = True
+except Exception:
+    Event = object
+    StartEvent = object
+    StopEvent = object
+    Workflow = object
+
+    def step(func):
+        return func
+
+    LLAMA_INDEX_WORKFLOWS_AVAILABLE = False
 
 from src.config import CLARIFY_CONFIDENCE_THRESHOLD, LOW_CONFIDENCE_THRESHOLD
 from src.generator import answer_question
@@ -15,11 +32,107 @@ def run_support_workflow(question: str, domain: str = "it_support") -> Dict:
     """
     Coordinates the support workflow around the RAG answer.
 
-    The API calls this orchestrator instead of directly calling the generator so
-    the project can track confidence, decisions, escalation, and ticket drafts.
+    LlamaIndex Workflows is used when installed. A compatible sequential runner
+    keeps local tests and offline demos deterministic if the optional workflow
+    package is not available in the current environment.
     """
-    state = build_initial_state(question, domain)
+    if LLAMA_INDEX_WORKFLOWS_AVAILABLE:
+        try:
+            asyncio.get_running_loop()
+        except RuntimeError:
+            return asyncio.run(run_support_workflow_async(question, domain))
 
+        return run_sequential_support_workflow(
+            question,
+            domain,
+            workflow_engine="llamaindex_workflows_sync_fallback",
+        )
+
+    return run_sequential_support_workflow(
+        question,
+        domain,
+        workflow_engine="llamaindex_workflows_compatible_fallback",
+    )
+
+
+async def run_support_workflow_async(question: str, domain: str = "it_support") -> Dict:
+    workflow = SupportAutomationWorkflow(timeout=30, verbose=False)
+    return await workflow.run(question=question, domain=domain)
+
+
+def run_sequential_support_workflow(
+    question: str,
+    domain: str,
+    workflow_engine: str,
+) -> Dict:
+    state = build_initial_state(question, domain)
+    state["workflow_engine"] = workflow_engine
+
+    workflow_start = perf_counter()
+    run_answer_stage(state)
+    run_decision_stage(state)
+    run_ticket_stage(state)
+    finalize_workflow_metrics(state, workflow_start)
+
+    return state
+
+
+if LLAMA_INDEX_WORKFLOWS_AVAILABLE:
+    class AnswerGeneratedEvent(Event):
+        state: Dict
+
+    class DecisionReadyEvent(Event):
+        state: Dict
+
+    class TicketDraftReadyEvent(Event):
+        state: Dict
+
+    class SupportAutomationWorkflow(Workflow):
+        @step
+        async def generate_answer(self, ev: StartEvent) -> AnswerGeneratedEvent:
+            state = build_initial_state(ev.question, ev.domain)
+            state["workflow_engine"] = "llamaindex_workflows"
+            state["_workflow_start"] = perf_counter()
+            run_answer_stage(state)
+            return AnswerGeneratedEvent(state=state)
+
+        @step
+        async def score_and_decide(self, ev: AnswerGeneratedEvent) -> DecisionReadyEvent:
+            state = ev.state
+            run_decision_stage(state)
+            return DecisionReadyEvent(state=state)
+
+        @step
+        async def prepare_ticket(self, ev: DecisionReadyEvent) -> TicketDraftReadyEvent:
+            state = ev.state
+            run_ticket_stage(state)
+            return TicketDraftReadyEvent(state=state)
+
+        @step
+        async def finish(self, ev: TicketDraftReadyEvent) -> StopEvent:
+            state = ev.state
+            workflow_start = state.pop("_workflow_start", perf_counter())
+            finalize_workflow_metrics(state, workflow_start)
+            return StopEvent(result=state)
+
+else:
+    class SupportAutomationWorkflow:
+        def __init__(self, timeout: int = 30, verbose: bool = False):
+            self.timeout = timeout
+            self.verbose = verbose
+
+        async def run(self, question: str, domain: str = "it_support") -> Dict:
+            return run_sequential_support_workflow(
+                question,
+                domain,
+                workflow_engine="llamaindex_workflows_compatible_fallback",
+            )
+
+
+def run_answer_stage(state: Dict) -> None:
+    start = perf_counter()
+    question = state.get("question", "")
+    domain = state.get("domain", "it_support")
     response = answer_question(question, domain=domain)
     state.update(
         {
@@ -31,13 +144,34 @@ def run_support_workflow(question: str, domain: str = "it_support") -> Dict:
             "fallback_triggered": response.get("fallback", False),
         }
     )
+    record_stage_latency(state, "answer_stage_latency_ms", start)
+    state["engineering_metrics"]["retrieved_chunk_count"] = len(state.get("retrieved_chunks", []))
+    state["engineering_metrics"]["source_count"] = len(state.get("sources", []))
 
+
+def run_decision_stage(state: Dict) -> None:
+    start = perf_counter()
     state["confidence"] = calculate_confidence(state)
-    state["confusion_analysis"] = detect_confusion(question)
+    state["confusion_analysis"] = detect_confusion(state.get("question", ""))
     state["agent_decision"] = decide_next_action(state)
-    state["ticket_draft"] = build_ticket_draft(state)
+    record_stage_latency(state, "decision_stage_latency_ms", start)
 
-    return state
+
+def run_ticket_stage(state: Dict) -> None:
+    start = perf_counter()
+    state["ticket_draft"] = build_ticket_draft(state)
+    record_stage_latency(state, "ticket_draft_stage_latency_ms", start)
+
+
+def record_stage_latency(state: Dict, metric_name: str, start: float) -> None:
+    state["engineering_metrics"][metric_name] = round((perf_counter() - start) * 1000, 2)
+
+
+def finalize_workflow_metrics(state: Dict, workflow_start: float) -> None:
+    metrics = state["engineering_metrics"]
+    metrics["total_workflow_latency_ms"] = round((perf_counter() - workflow_start) * 1000, 2)
+    metrics["workflow_engine"] = state.get("workflow_engine", "unknown")
+    metrics["llamaindex_workflows_available"] = LLAMA_INDEX_WORKFLOWS_AVAILABLE
 
 
 def build_initial_state(question: str, domain: str) -> Dict:
@@ -54,6 +188,17 @@ def build_initial_state(question: str, domain: str) -> Dict:
         "confusion_analysis": {},
         "agent_decision": {},
         "ticket_draft": {},
+        "workflow_engine": "unknown",
+        "engineering_metrics": {
+            "answer_stage_latency_ms": 0.0,
+            "decision_stage_latency_ms": 0.0,
+            "ticket_draft_stage_latency_ms": 0.0,
+            "total_workflow_latency_ms": 0.0,
+            "retrieved_chunk_count": 0,
+            "source_count": 0,
+            "workflow_engine": "unknown",
+            "llamaindex_workflows_available": LLAMA_INDEX_WORKFLOWS_AVAILABLE,
+        },
         "errors": [],
     }
 

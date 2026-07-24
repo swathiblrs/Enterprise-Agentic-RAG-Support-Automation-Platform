@@ -68,5 +68,75 @@
     "expected_category": "VPN Connectivity",
     "expected_team": "Network Support",
     "expected_priority": "High"
+  },
+  {
+    "question": "The VPN client disconnects every few minutes",
+    "expected_sources": ["vpn_troubleshooting_kb.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "Low"
+  },
+  {
+    "question": "VPN shows an authentication error after I changed my password",
+    "expected_sources": ["vpn_troubleshooting_kb.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "I changed phones and cannot use Duo anymore",
+    "expected_sources": ["mfa_duo_kb.md"],
+    "expected_category": "Multi-Factor Authentication",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "I lost my MFA device and need a temporary bypass code",
+    "expected_sources": ["mfa_duo_kb.md"],
+    "expected_category": "Multi-Factor Authentication",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "My SSO password reset did not sync and I cannot sign in",
+    "expected_sources": ["password_reset_kb.md"],
+    "expected_category": "Account Access",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "I can sign in but my enterprise account keeps getting locked",
+    "expected_sources": ["password_reset_kb.md"],
+    "expected_category": "Account Access",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Medium"
+  },
+  {
+    "question": "Several users in finance cannot log in",
+    "expected_sources": ["password_reset_kb.md", "priority_matrix.md"],
+    "expected_category": "Account Access",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "High"
+  },
+  {
+    "question": "Security incident affecting company authentication",
+    "expected_sources": ["priority_matrix.md", "mfa_duo_kb.md"],
+    "expected_category": "Multi-Factor Authentication",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Critical"
+  },
+  {
+    "question": "Which support team handles VPN connectivity issues?",
+    "expected_sources": ["vpn_troubleshooting_kb.md", "ticket_routing_rules.md"],
+    "expected_category": "VPN Connectivity",
+    "expected_team": "Network Support",
+    "expected_priority": "Low"
+  },
+  {
+    "question": "Which team should handle Duo MFA reset requests?",
+    "expected_sources": ["mfa_duo_kb.md", "ticket_routing_rules.md"],
+    "expected_category": "Multi-Factor Authentication",
+    "expected_team": "Identity and Access Management",
+    "expected_priority": "Low"
   }
 ]

@@ -16,6 +16,33 @@ COLLECTION_NAME = "support_kb"
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 DEFAULT_DOMAIN = os.getenv("DEFAULT_DOMAIN", "it_support")
 
+INTENT_SOURCE_MAP = {
+    "vpn": "vpn_troubleshooting_kb.md",
+    "account": "password_reset_kb.md",
+    "mfa": "mfa_duo_kb.md",
+    "priority": "priority_matrix.md",
+    "routing": "ticket_routing_rules.md",
+}
+
+INTENT_KEYWORDS = {
+    "vpn": ["vpn", "network", "connect", "connection", "disconnect", "remote"],
+    "account": ["password", "locked", "login", "log in", "sign in", "account", "sso"],
+    "mfa": ["duo", "mfa", "authentication", "push", "phone", "device"],
+    "priority": [
+        "multiple users",
+        "many users",
+        "several users",
+        "department",
+        "company-wide",
+        "company wide",
+        "outage",
+        "production",
+        "security incident",
+        "security breach",
+    ],
+    "routing": ["route", "routing", "assigned", "team", "support group"],
+}
+
 
 embedding_model = None
 
@@ -110,6 +137,33 @@ def tokenize(text: str) -> List[str]:
         normalized = normalized.replace(character, " ")
 
     return normalized.split()
+
+
+def detect_query_intents(question: str) -> List[str]:
+    question_lower = question.lower()
+    intents = []
+
+    for intent, keywords in INTENT_KEYWORDS.items():
+        if any(keyword in question_lower for keyword in keywords):
+            intents.append(intent)
+
+    # If VPN and account signals both appear, keep VPN as the primary support
+    # source because password-reset VPN failures usually need VPN remediation.
+    if "vpn" in intents and "account" in intents:
+        intents.remove("account")
+
+    return intents
+
+
+def expected_sources_for_intents(intents: List[str]) -> List[str]:
+    sources = []
+
+    for intent in intents:
+        source = INTENT_SOURCE_MAP.get(intent)
+        if source and source not in sources:
+            sources.append(source)
+
+    return sources
 
 
 def get_chroma_collection():
@@ -229,6 +283,8 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
     This keeps the project simple while showing production-style reranking logic.
     """
     question_tokens = set(tokenize(question))
+    query_intents = detect_query_intents(question)
+    intent_sources = expected_sources_for_intents(query_intents)
 
     reranked = []
 
@@ -237,8 +293,10 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
         source_tokens = set(tokenize(result.get("source", "")))
         keyword_overlap = len(question_tokens.intersection(chunk_tokens))
         source_overlap = len(question_tokens.intersection(source_tokens))
+        intent_boost = 8 if result.get("source") in intent_sources else 0
+        priority_boost = 3 if "priority" in query_intents and result.get("source") == "priority_matrix.md" else 0
 
-        rerank_score = result["score"] + keyword_overlap + (source_overlap * 2)
+        rerank_score = result["score"] + keyword_overlap + (source_overlap * 2) + intent_boost + priority_boost
 
         reranked.append(
             {
@@ -248,6 +306,15 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
         )
 
     reranked.sort(key=lambda item: item["rerank_score"], reverse=True)
+
+    if intent_sources:
+        intent_ranked = [
+            result for result in reranked
+            if result.get("source") in intent_sources
+        ]
+
+        if intent_ranked:
+            return intent_ranked[: max(1, min(len(intent_sources), top_k))]
 
     return reranked[:top_k]
 

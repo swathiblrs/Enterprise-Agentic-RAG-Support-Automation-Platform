@@ -1,6 +1,6 @@
 # 🤖 Enterprise Agentic RAG Support Automation Platform
 
-A production-ready AI agent that helps enterprise IT and support teams answer, triage, route, and respond to support issues using agentic workflow orchestration + Retrieval-Augmented Generation (RAG).
+A production-ready AI agent that helps enterprise IT and support teams answer, triage, route, and respond to support issues using LlamaIndex Workflows-based orchestration + Retrieval-Augmented Generation (RAG).
 
 ## 🌟 Why This Project Exists
 
@@ -27,7 +27,7 @@ The agent can:
 High-level workflow:
 
 User support question or uploaded document  
-➡️ Agent workflow orchestration  
+➡️ LlamaIndex Workflows-based orchestration  
 ➡️ RAG pipeline retrieves relevant knowledge-base chunks from ChromaDB and BM25  
 ➡️ LangChain-powered grounded generation or offline fallback  
 ➡️ Structured support response with sources, priority, routing, confidence, and ticket draft
@@ -36,7 +36,7 @@ Core stack:
 
 - FastAPI for API backend
 - Streamlit for web UI
-- Custom agent orchestrator for support workflow decisions
+- LlamaIndex Workflows for agent orchestration
 - ChromaDB for vector search
 - BM25 for keyword retrieval
 - SentenceTransformers for embeddings
@@ -60,6 +60,7 @@ Core stack:
 🧠 Agentic Workflow
 
 - Coordinate retrieval, answer generation, ticket intelligence, and escalation decisions
+- Use LlamaIndex Workflows to run staged support automation orchestration
 - Track confidence and detect low-confidence cases
 - Use LangChain-powered grounded generation when LLM access is enabled
 - Fall back to deterministic offline answers for local testing
@@ -67,7 +68,7 @@ Core stack:
 📊 Analytics and Evaluation
 
 - Capture user feedback and query logs
-- Track latency, fallback rate, confidence, categories, and agent decisions
+- Track latency, workflow-stage timing, fallback rate, confidence, categories, and agent decisions
 - Evaluate retrieval quality, routing accuracy, groundedness, and faithfulness
 - Store query, feedback, and ticket draft records in SQLite
 
@@ -91,7 +92,7 @@ src/
  ├── security.py             # API key auth + JWT role-based auth
  ├── integrations.py         # Mock/webhook ITSM and chat adapters
  ├── persistence.py          # SQLite persistence for logs, feedback, and ticket drafts
- ├── orchestrator.py         # Agent workflow orchestration and decisions
+ ├── orchestrator.py         # LlamaIndex Workflows orchestration and decisions
  ├── retriever.py            # Hybrid retrieval with ChromaDB + BM25
  ├── generator.py            # LangChain LLM generation + offline fallback
  ├── ticket_classifier.py    # Category, priority, and team routing logic
@@ -168,7 +169,7 @@ LLM_MODEL_NAME=gpt-4o-mini
 
 The LLM prompt instructs the model to answer only from retrieved context and cite source files.
 
-### 4. Agent Workflow Orchestration
+### 4. LlamaIndex Workflows Orchestration
 
 The API calls:
 
@@ -176,7 +177,7 @@ The API calls:
 run_support_workflow(question, domain="it_support")
 ```
 
-The orchestrator coordinates:
+The orchestrator runs the support flow as staged workflow events:
 
 - retrieval
 - answer generation
@@ -186,6 +187,7 @@ The orchestrator coordinates:
 - next-action decisions
 - escalation recommendations
 - ticket draft generation
+- engineering metrics collection
 
 Example agent decisions:
 
@@ -416,6 +418,10 @@ Metrics include:
 - total feedback submissions
 - fallback rate
 - average latency
+- average workflow latency
+- average answer-stage latency
+- average retrieved chunk count
+- average source count
 - average confidence
 - ticket category counts
 - agent decision counts
@@ -437,11 +443,18 @@ The evaluator measures:
 - priority accuracy
 - Precision@K
 - Recall@K
+- Top-1 source accuracy
+- Mean Reciprocal Rank
+- nDCG@K
 - grounded answer rate
 - faithfulness heuristic rate
 - safe agent decision rate
 - average confidence
 - average latency
+- average workflow latency
+- average answer-stage latency
+- average retrieved chunk count
+- average source count
 
 Current local evaluation result:
 
@@ -451,16 +464,24 @@ Current local evaluation result:
 | Category Accuracy | 100.00% |
 | Team Routing Accuracy | 100.00% |
 | Priority Accuracy | 100.00% |
+| Average Precision@K | 97.50% |
 | Average Recall@K | 100.00% |
+| Top-1 Source Accuracy | 100.00% |
+| Mean Reciprocal Rank | 100.00% |
+| Average nDCG@K | 100.00% |
 | Grounded Answer Rate | 100.00% |
 | Faithfulness Heuristic Rate | 100.00% |
 | Safe Agent Decision Rate | 100.00% |
-| Average Precision@K | 46.67% |
-| Average Overall Confidence | 0.90 |
+| Average Overall Confidence | 0.88 |
+| Average Latency | 19.35 ms |
+| Average Workflow Latency | 18.23 ms |
+| Average Answer Stage Latency | 17.89 ms |
+| Average Retrieved Chunks | 1.45 |
+| Average Source Count | 1.45 |
 
-The evaluation shows that the system consistently retrieves the expected support source and makes correct routing, priority, and escalation decisions on the curated IT support test set. The main improvement target is Precision@K, which means the system finds the right documents but can still reduce extra retrieved context.
+The evaluation now covers 20 curated IT support scenarios across VPN, MFA, account access, outage escalation, routing, and priority workflows. Intent-aware retrieval boosting and stricter reranking improved Average Precision@K from 46.67% to 97.50% while keeping Recall@K at 100.00%.
 
-Planned retrieval-quality improvements:
+Retrieval-quality improvements added:
 
 - intent-aware retrieval boosting for VPN, MFA, account access, outage, and routing queries
 - stricter reranking to reduce noisy citations
@@ -587,12 +608,10 @@ Duo MFA app stopped sending push requests.
 - ServiceNow and Jira ticket creation
 - Slack and Microsoft Teams support
 - Confluence, SharePoint, Google Drive, and S3 ingestion
-- Intent-aware retrieval boosting and stricter reranking
-- MRR, nDCG@K, and Top-1 source accuracy metrics
 - Larger enterprise evaluation datasets
-- Advanced multi-step agent workflows
 - Production monitoring with Prometheus and Grafana
+- Human-in-the-loop approval for high-risk ticket actions
 
 ## 🙌 Acknowledgements
 
-Built using FastAPI, Streamlit, LangChain, ChromaDB, BM25, Docker, and Kubernetes manifests, and extended into a real-world enterprise IT support automation use case.
+Built using FastAPI, Streamlit, LlamaIndex Workflows, LangChain, ChromaDB, BM25, Docker, and Kubernetes manifests, and extended into a real-world enterprise IT support automation use case.

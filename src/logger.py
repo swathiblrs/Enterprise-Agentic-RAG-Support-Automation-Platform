@@ -79,6 +79,12 @@ def calculate_metrics() -> Dict[str, Any]:
             "total_feedback": total_feedback,
             "fallback_rate": 0.0,
             "average_latency_ms": 0.0,
+            "average_workflow_latency_ms": 0.0,
+            "average_answer_stage_latency_ms": 0.0,
+            "average_decision_stage_latency_ms": 0.0,
+            "average_ticket_draft_stage_latency_ms": 0.0,
+            "average_retrieved_chunk_count": 0.0,
+            "average_source_count": 0.0,
             "average_overall_confidence": 0.0,
             "agent_decision_counts": {},
             "ticket_category_counts": {},
@@ -91,17 +97,47 @@ def calculate_metrics() -> Dict[str, Any]:
         entry.get("confidence", {}).get("overall_confidence", 0.0)
         for entry in logs
     ]
+    engineering_metrics = [entry.get("engineering_metrics", {}) for entry in logs]
 
     return {
         "total_queries": total_queries,
         "total_feedback": total_feedback,
         "fallback_rate": round(fallback_count / total_queries, 4),
         "average_latency_ms": round(sum(latency_values) / total_queries, 2),
+        "average_workflow_latency_ms": average_nested_metric(
+            engineering_metrics,
+            "total_workflow_latency_ms",
+        ),
+        "average_answer_stage_latency_ms": average_nested_metric(
+            engineering_metrics,
+            "answer_stage_latency_ms",
+        ),
+        "average_decision_stage_latency_ms": average_nested_metric(
+            engineering_metrics,
+            "decision_stage_latency_ms",
+        ),
+        "average_ticket_draft_stage_latency_ms": average_nested_metric(
+            engineering_metrics,
+            "ticket_draft_stage_latency_ms",
+        ),
+        "average_retrieved_chunk_count": average_nested_metric(
+            engineering_metrics,
+            "retrieved_chunk_count",
+        ),
+        "average_source_count": average_nested_metric(engineering_metrics, "source_count"),
         "average_overall_confidence": round(sum(confidence_values) / total_queries, 2),
         "agent_decision_counts": count_by_nested_key(logs, "agent_decision", "next_action"),
         "ticket_category_counts": count_by_nested_key(logs, "ticket", "category"),
         "feedback_helpful_rate": calculate_helpful_rate(feedback),
     }
+
+
+def average_nested_metric(entries: list, key: str) -> float:
+    values = [entry.get(key, 0.0) for entry in entries if key in entry]
+    if not values:
+        return 0.0
+
+    return round(sum(values) / len(values), 2)
 
 
 def count_by_nested_key(entries: list, parent_key: str, child_key: str) -> Dict[str, int]:
