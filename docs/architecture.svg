@@ -12,16 +12,15 @@
     </linearGradient>
     <style>
       .bg { fill: #ffffff; }
-      .title { font: 700 42px Arial, sans-serif; fill: #070b18; }
-      .subtitle { font: italic 22px Arial, sans-serif; fill: #0a4fbf; }
+      .title { font: 700 26px Arial, sans-serif; fill: #070b18; }
       .box { fill: url(#pink); stroke: #111827; stroke-width: 1.4; rx: 6; }
       .panel { fill: url(#panel); stroke: #8cb8ff; stroke-width: 1.3; rx: 8; }
       .store { fill: #eef6ff; stroke: #083f9e; stroke-width: 1.7; }
       .external { fill: #fff4f4; stroke: #ff4040; stroke-width: 1.4; rx: 8; }
       .infra { fill: #fff2f2; stroke: #214f9f; stroke-width: 1.2; rx: 4; }
-      .label { font: 700 16px Arial, sans-serif; fill: #101827; }
-      .small { font: 13px Arial, sans-serif; fill: #111827; }
-      .tiny { font: 12px Arial, sans-serif; fill: #111827; }
+      .label { font: 700 15px Arial, sans-serif; fill: #101827; }
+      .small { font: 12px Arial, sans-serif; fill: #111827; }
+      .tiny { font: 11px Arial, sans-serif; fill: #111827; }
       .white { fill: #ffffff; stroke: #0d55c7; stroke-width: 1.2; rx: 5; }
       .green { stroke: #14911f; }
       .purple { stroke: #7b1fff; }
@@ -37,8 +36,7 @@
   </defs>
 
   <rect class="bg" width="1536" height="1024"/>
-  <text x="768" y="46" text-anchor="middle" class="title">Enterprise Agentic RAG Support Automation Platform</text>
-  <text x="768" y="80" text-anchor="middle" class="subtitle">LlamaIndex Workflows-based RAG for IT support automation with auth, ticket workflow, metrics, feedback, and deployment</text>
+  <text x="768" y="58" text-anchor="middle" class="title" textLength="1040" lengthAdjust="spacingAndGlyphs">Enterprise Agentic RAG Support Automation Platform</text>
 
   <rect x="156" y="214" width="1210" height="720" class="panel"/>
 
