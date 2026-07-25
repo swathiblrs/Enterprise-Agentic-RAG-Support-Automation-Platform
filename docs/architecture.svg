@@ -176,11 +176,6 @@
   <line x1="48" y1="907" x2="92" y2="907" class="arrow red"/>
   <text x="108" y="912" class="tiny">Ticket / Integration</text>
 
-  <rect x="1140" y="840" width="272" height="82" fill="#f7fbff" stroke="#8cb8ff" stroke-width="1.2" rx="8"/>
-  <text x="1276" y="868" text-anchor="middle" class="label">Engineering Metrics</text>
-  <text x="1160" y="894" class="tiny">Precision@K 97.50% | Recall@K 100%</text>
-  <text x="1160" y="914" class="tiny">MRR / nDCG 100% | Avg workflow latency 18.23 ms</text>
-
   <line x1="292" y1="165" x2="365" y2="165" class="arrow purple"/>
   <line x1="1045" y1="153" x2="1140" y2="153" class="arrow blue"/>
   <line x1="1045" y1="202" x2="1140" y2="202" class="arrow blue"/>
