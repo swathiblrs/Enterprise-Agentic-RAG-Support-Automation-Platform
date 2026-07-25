@@ -22,7 +22,7 @@ The agent can:
 
 ## 🏗️ System Architecture
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/218fe669-abd9-4daf-8f98-feb2019e242f" />
+![Enterprise Agentic RAG Support Automation Platform Architecture](docs/architecture.svg)
 
 High-level workflow:
 
