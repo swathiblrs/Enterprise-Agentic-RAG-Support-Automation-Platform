@@ -1,0 +1,182 @@
+[
+  {
+    "text": "My VPN is not working after I reset my password",
+    "category": "VPN Connectivity",
+    "priority": "Medium"
+  },
+  {
+    "text": "VPN connection keeps dropping during remote work",
+    "category": "VPN Connectivity",
+    "priority": "Low"
+  },
+  {
+    "text": "The VPN client disconnects every few minutes",
+    "category": "VPN Connectivity",
+    "priority": "Low"
+  },
+  {
+    "text": "VPN shows an authentication error after I changed my password",
+    "category": "VPN Connectivity",
+    "priority": "Medium"
+  },
+  {
+    "text": "Multiple users cannot access VPN",
+    "category": "VPN Connectivity",
+    "priority": "High"
+  },
+  {
+    "text": "Production VPN outage for many users",
+    "category": "VPN Connectivity",
+    "priority": "Critical"
+  },
+  {
+    "text": "Our department cannot access VPN",
+    "category": "VPN Connectivity",
+    "priority": "High"
+  },
+  {
+    "text": "Remote employees report VPN tunnel timeout errors",
+    "category": "VPN Connectivity",
+    "priority": "Medium"
+  },
+  {
+    "text": "VPN is slow but still connects",
+    "category": "VPN Connectivity",
+    "priority": "Low"
+  },
+  {
+    "text": "Company network access is down through VPN",
+    "category": "VPN Connectivity",
+    "priority": "Critical"
+  },
+  {
+    "text": "I cannot approve Duo push notifications",
+    "category": "Multi-Factor Authentication",
+    "priority": "Medium"
+  },
+  {
+    "text": "Duo MFA app stopped sending push requests",
+    "category": "Multi-Factor Authentication",
+    "priority": "Medium"
+  },
+  {
+    "text": "I changed phones and cannot use Duo anymore",
+    "category": "Multi-Factor Authentication",
+    "priority": "Medium"
+  },
+  {
+    "text": "I lost my MFA device and need a temporary bypass code",
+    "category": "Multi-Factor Authentication",
+    "priority": "Medium"
+  },
+  {
+    "text": "Company-wide authentication failure",
+    "category": "Multi-Factor Authentication",
+    "priority": "Critical"
+  },
+  {
+    "text": "Security incident affecting company authentication",
+    "category": "Multi-Factor Authentication",
+    "priority": "Critical"
+  },
+  {
+    "text": "Which team should handle Duo MFA reset requests?",
+    "category": "Multi-Factor Authentication",
+    "priority": "Low"
+  },
+  {
+    "text": "MFA push approval is delayed for one user",
+    "category": "Multi-Factor Authentication",
+    "priority": "Low"
+  },
+  {
+    "text": "Several employees cannot complete MFA login",
+    "category": "Multi-Factor Authentication",
+    "priority": "High"
+  },
+  {
+    "text": "Duo authentication outage blocks sign in",
+    "category": "Multi-Factor Authentication",
+    "priority": "Critical"
+  },
+  {
+    "text": "My account is locked",
+    "category": "Account Access",
+    "priority": "Medium"
+  },
+  {
+    "text": "I forgot my password and cannot login",
+    "category": "Account Access",
+    "priority": "Medium"
+  },
+  {
+    "text": "My SSO password reset did not sync and I cannot sign in",
+    "category": "Account Access",
+    "priority": "Medium"
+  },
+  {
+    "text": "I can sign in but my enterprise account keeps getting locked",
+    "category": "Account Access",
+    "priority": "Medium"
+  },
+  {
+    "text": "Several users in finance cannot log in",
+    "category": "Account Access",
+    "priority": "High"
+  },
+  {
+    "text": "A single user needs password reset guidance",
+    "category": "Account Access",
+    "priority": "Low"
+  },
+  {
+    "text": "Team blocked because SSO login is failing",
+    "category": "Account Access",
+    "priority": "High"
+  },
+  {
+    "text": "Production SSO login is down for the company",
+    "category": "Account Access",
+    "priority": "Critical"
+  },
+  {
+    "text": "Account password expired and user cannot access email",
+    "category": "Account Access",
+    "priority": "Medium"
+  },
+  {
+    "text": "Which team handles account unlock requests?",
+    "category": "Account Access",
+    "priority": "Low"
+  },
+  {
+    "text": "How do I request a new monitor?",
+    "category": "General IT Support",
+    "priority": "Low"
+  },
+  {
+    "text": "I need help installing approved software",
+    "category": "General IT Support",
+    "priority": "Low"
+  },
+  {
+    "text": "Laptop keyboard has intermittent issues",
+    "category": "General IT Support",
+    "priority": "Low"
+  },
+  {
+    "text": "Business critical application access issue for one user",
+    "category": "General IT Support",
+    "priority": "Medium"
+  },
+  {
+    "text": "Multiple teams are blocked by workstation failures",
+    "category": "General IT Support",
+    "priority": "High"
+  },
+  {
+    "text": "Company-wide workstation outage",
+    "category": "General IT Support",
+    "priority": "Critical"
+  }
+]

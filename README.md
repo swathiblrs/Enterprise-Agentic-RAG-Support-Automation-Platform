@@ -40,6 +40,7 @@ Core stack:
 - ChromaDB for vector search
 - BM25 for keyword retrieval
 - SentenceTransformers for embeddings
+- TF-IDF + Logistic Regression for supervised NLP ticket classification and priority prediction
 - LangChain / OpenAI for optional grounded LLM generation
 - SQLite + JSONL logs for persistence and observability
 - Mock or webhook-based ITSM and chat integrations
@@ -53,7 +54,7 @@ Core stack:
 - Ask IT support questions or upload support documents
 - Retrieve relevant knowledge-base content using hybrid search
 - Generate source-backed support answers
-- Classify issues, predict priority, and recommend routing
+- Classify issues, predict priority, and recommend routing using hybrid rules + supervised NLP/ML
 - Create ticket-ready drafts with suggested next steps
 - Prepare mock or webhook-based ITSM tickets and chat notifications
 
@@ -69,7 +70,7 @@ Core stack:
 
 - Capture user feedback and query logs
 - Track latency, workflow-stage timing, fallback rate, confidence, categories, and agent decisions
-- Evaluate retrieval quality, routing accuracy, groundedness, and faithfulness
+- Evaluate retrieval quality, NLP/ML classification, routing accuracy, groundedness, and faithfulness
 - Store query, feedback, and ticket draft records in SQLite
 
 🚀 Production Readiness
@@ -95,14 +96,15 @@ src/
  ├── orchestrator.py         # LlamaIndex Workflows orchestration and decisions
  ├── retriever.py            # Hybrid retrieval with ChromaDB + BM25
  ├── generator.py            # LangChain LLM generation + offline fallback
- ├── ticket_classifier.py    # Category, priority, and team routing logic
+ ├── ticket_classifier.py    # Hybrid ML/rule category, priority, and routing logic
+ ├── ml_ticket_model.py      # TF-IDF + Logistic Regression NLP ticket models
  ├── ingest.py               # Knowledge-base ingestion and indexing
  ├── document_store.py       # Uploaded document storage
  ├── evaluator.py            # Retrieval, routing, groundedness, and faithfulness evaluation
  ├── logger.py               # Query logs, feedback logs, and metrics
  └── config.py               # Environment-based application settings
 
-data/                        # Sample enterprise support knowledge base
+data/                        # Sample enterprise support knowledge base + ML training labels
 tests/                       # API tests and evaluation questions
 k8s/                         # Kubernetes deployment manifests
 .github/workflows/           # GitHub Actions CI pipeline
@@ -211,9 +213,18 @@ CHAT_WEBHOOK_URL=https://example.com/chat-webhook
 
 Use `disabled`, `mock`, or `webhook` for each integration mode.
 
-### 6. Ticket Intelligence
+### 6. NLP/ML Ticket Intelligence
 
-The classifier predicts:
+The ticket intelligence layer combines deterministic guardrails with supervised NLP/ML models.
+
+The ML pipeline uses:
+
+- text normalization
+- TF-IDF vectorization
+- Logistic Regression classification
+- model confidence scores
+
+It predicts:
 
 - ticket summary
 - category
@@ -227,7 +238,9 @@ Example:
   "summary": "My VPN is not working after I reset my password",
   "category": "VPN Connectivity",
   "priority": "Medium",
-  "assigned_team": "Network Support"
+  "assigned_team": "Network Support",
+  "classification_method": "hybrid_ml_nlp",
+  "ml_model": "tfidf_logistic_regression"
 }
 ```
 
@@ -441,6 +454,10 @@ The evaluator measures:
 - category accuracy
 - team routing accuracy
 - priority accuracy
+- NLP/ML category accuracy
+- NLP/ML category weighted F1
+- NLP/ML priority accuracy
+- NLP/ML priority weighted F1
 - Precision@K
 - Recall@K
 - Top-1 source accuracy
@@ -464,6 +481,10 @@ Current local evaluation result:
 | Category Accuracy | 100.00% |
 | Team Routing Accuracy | 100.00% |
 | Priority Accuracy | 100.00% |
+| NLP/ML Category Accuracy | 95.00% |
+| NLP/ML Category Weighted F1 | 95.06% |
+| NLP/ML Priority Accuracy | 100.00% |
+| NLP/ML Priority Weighted F1 | 100.00% |
 | Average Precision@K | 97.50% |
 | Average Recall@K | 100.00% |
 | Top-1 Source Accuracy | 100.00% |
@@ -473,9 +494,9 @@ Current local evaluation result:
 | Faithfulness Heuristic Rate | 100.00% |
 | Safe Agent Decision Rate | 100.00% |
 | Average Overall Confidence | 0.88 |
-| Average Latency | 19.35 ms |
-| Average Workflow Latency | 18.23 ms |
-| Average Answer Stage Latency | 17.89 ms |
+| Average Latency | 31.20 ms |
+| Average Workflow Latency | 29.87 ms |
+| Average Answer Stage Latency | 29.51 ms |
 | Average Retrieved Chunks | 1.45 |
 | Average Source Count | 1.45 |
 

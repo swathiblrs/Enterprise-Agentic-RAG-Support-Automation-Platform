@@ -1,21 +1,42 @@
 from typing import Dict
 
+from src.ml_ticket_model import predict_ticket_ml
+
+
+CATEGORY_CONFIDENCE_THRESHOLD = 0.3
+PRIORITY_CONFIDENCE_THRESHOLD = 0.3
+
 
 def classify_ticket(question: str) -> Dict:
     question_lower = question.lower()
+    ml_prediction = predict_ticket_ml(question)
 
+    rule_category = classify_category_with_rules(question_lower)
+    category = choose_category(rule_category, ml_prediction)
+    assigned_team = assigned_team_for_category(category)
+    rule_priority = predict_priority(question_lower)
+    priority = choose_priority(rule_priority, ml_prediction)
+
+    return {
+        "summary": generate_summary(question),
+        "category": category,
+        "priority": priority,
+        "assigned_team": assigned_team,
+        "classification_method": "hybrid_ml_nlp",
+        "ml_model": (ml_prediction or {}).get("model", "unavailable"),
+        "ml_category": (ml_prediction or {}).get("category", ""),
+        "ml_priority": (ml_prediction or {}).get("priority", ""),
+        "ml_category_confidence": (ml_prediction or {}).get("category_confidence", 0.0),
+        "ml_priority_confidence": (ml_prediction or {}).get("priority_confidence", 0.0),
+    }
+
+
+def classify_category_with_rules(question_lower: str) -> str:
     category_scores = {
         "VPN Connectivity": 0,
         "Account Access": 0,
         "Multi-Factor Authentication": 0,
         "General IT Support": 1,
-    }
-
-    team_mapping = {
-        "VPN Connectivity": "Network Support",
-        "Account Access": "Identity and Access Management",
-        "Multi-Factor Authentication": "Identity and Access Management",
-        "General IT Support": "Service Desk",
     }
 
     # VPN-related signals
@@ -31,15 +52,63 @@ def classify_ticket(question: str) -> Dict:
         category_scores["Multi-Factor Authentication"] += 3
 
     category = max(category_scores, key=category_scores.get)
-    assigned_team = team_mapping[category]
-    priority = predict_priority(question_lower)
+    return category
 
+
+def choose_category(rule_category: str, ml_prediction: Dict) -> str:
+    if not ml_prediction:
+        return rule_category
+
+    ml_category = ml_prediction.get("category", rule_category)
+    ml_confidence = ml_prediction.get("category_confidence", 0.0)
+
+    if rule_category == "General IT Support" and ml_confidence >= CATEGORY_CONFIDENCE_THRESHOLD:
+        return ml_category
+
+    if ml_category == rule_category:
+        return ml_category
+
+    if ml_confidence >= 0.55:
+        return ml_category
+
+    return rule_category
+
+
+def choose_priority(rule_priority: str, ml_prediction: Dict) -> str:
+    if not ml_prediction:
+        return rule_priority
+
+    ml_priority = ml_prediction.get("priority", rule_priority)
+    ml_confidence = ml_prediction.get("priority_confidence", 0.0)
+
+    # Rule-based escalation signals are retained as guardrails for high-risk cases.
+    if priority_rank(rule_priority) >= priority_rank("High"):
+        return rule_priority
+
+    if ml_confidence >= PRIORITY_CONFIDENCE_THRESHOLD:
+        return ml_priority
+
+    return rule_priority
+
+
+def priority_rank(priority: str) -> int:
     return {
-        "summary": generate_summary(question),
-        "category": category,
-        "priority": priority,
-        "assigned_team": assigned_team,
+        "Low": 1,
+        "Medium": 2,
+        "High": 3,
+        "Critical": 4,
+    }.get(priority, 1)
+
+
+def assigned_team_for_category(category: str) -> str:
+    team_mapping = {
+        "VPN Connectivity": "Network Support",
+        "Account Access": "Identity and Access Management",
+        "Multi-Factor Authentication": "Identity and Access Management",
+        "General IT Support": "Service Desk",
     }
+
+    return team_mapping.get(category, "Service Desk")
 
 
 def predict_priority(question_lower: str) -> str:

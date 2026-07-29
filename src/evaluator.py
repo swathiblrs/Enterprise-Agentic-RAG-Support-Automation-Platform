@@ -3,6 +3,7 @@ from pathlib import Path
 from math import log2
 from time import time
 
+from src.ml_ticket_model import evaluate_ticket_models
 from src.orchestrator import run_support_workflow
 
 
@@ -86,6 +87,7 @@ def evaluate_faithfulness(response):
 
 def run_evaluation():
     questions = load_eval_questions()
+    ml_metrics = evaluate_ticket_models(questions)
 
     total = len(questions)
 
@@ -208,6 +210,13 @@ def run_evaluation():
     print(f"Average Answer Stage Latency: {total_answer_stage_latency / total:.2f} ms")
     print(f"Average Retrieved Chunks: {total_retrieved_chunks / total:.2f}")
     print(f"Average Source Count: {total_source_count / total:.2f}")
+    print(f"NLP/ML Model Available: {ml_metrics['available']}")
+    print(f"NLP/ML Model: {ml_metrics['model']}")
+    print(f"NLP/ML Training Examples: {ml_metrics['training_examples']}")
+    print(f"NLP/ML Category Accuracy: {ml_metrics['category_accuracy']:.2%}")
+    print(f"NLP/ML Category Weighted F1: {ml_metrics['category_weighted_f1']:.2%}")
+    print(f"NLP/ML Priority Accuracy: {ml_metrics['priority_accuracy']:.2%}")
+    print(f"NLP/ML Priority Weighted F1: {ml_metrics['priority_weighted_f1']:.2%}")
 
 
 if __name__ == "__main__":

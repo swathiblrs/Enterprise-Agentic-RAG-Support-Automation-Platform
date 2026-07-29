@@ -62,6 +62,10 @@ def test_ask_endpoint_vpn_question():
     assert data["ticket"]["category"] == "VPN Connectivity"
     assert data["ticket"]["priority"] == "Medium"
     assert data["ticket"]["assigned_team"] == "Network Support"
+    assert data["ticket"]["classification_method"] == "hybrid_ml_nlp"
+    assert data["ticket"]["ml_model"] == "tfidf_logistic_regression"
+    assert data["ticket"]["ml_category_confidence"] > 0
+    assert data["ticket"]["ml_priority_confidence"] > 0
     assert data["ticket_draft"]["assigned_team"] == "Network Support"
     assert data["agent_decision"]["assigned_team"] == "Network Support"
     assert data["workflow_engine"].startswith("llamaindex_workflows")
