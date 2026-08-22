@@ -13,6 +13,7 @@ pypdf
 rank-bm25
 pandas
 scikit-learn
+torch
 requests
 pytest
 httpx

@@ -5,6 +5,10 @@ from time import time
 
 from src.ml_ticket_model import evaluate_ticket_models
 from src.orchestrator import run_support_workflow
+from src.torch_ticket_model import (
+    evaluate_checkpoint,
+    evaluate_logistic_regression_baseline,
+)
 
 
 EVAL_FILE = Path("tests/eval_questions.json")
@@ -88,6 +92,8 @@ def evaluate_faithfulness(response):
 def run_evaluation():
     questions = load_eval_questions()
     ml_metrics = evaluate_ticket_models(questions)
+    torch_metrics = evaluate_checkpoint()
+    logistic_split_metrics = evaluate_logistic_regression_baseline()
 
     total = len(questions)
 
@@ -217,6 +223,15 @@ def run_evaluation():
     print(f"NLP/ML Category Weighted F1: {ml_metrics['category_weighted_f1']:.2%}")
     print(f"NLP/ML Priority Accuracy: {ml_metrics['priority_accuracy']:.2%}")
     print(f"NLP/ML Priority Weighted F1: {ml_metrics['priority_weighted_f1']:.2%}")
+    print(f"PyTorch Multi-Task Model Available: {torch_metrics['available']}")
+    print(f"PyTorch Category Accuracy: {torch_metrics['category_accuracy']:.2%}")
+    print(f"PyTorch Category Weighted F1: {torch_metrics['category_weighted_f1']:.2%}")
+    print(f"PyTorch Priority Accuracy: {torch_metrics['priority_accuracy']:.2%}")
+    print(f"PyTorch Priority Weighted F1: {torch_metrics['priority_weighted_f1']:.2%}")
+    print(f"Logistic Baseline Category Accuracy: {logistic_split_metrics['category_accuracy']:.2%}")
+    print(f"Logistic Baseline Category Weighted F1: {logistic_split_metrics['category_weighted_f1']:.2%}")
+    print(f"Logistic Baseline Priority Accuracy: {logistic_split_metrics['priority_accuracy']:.2%}")
+    print(f"Logistic Baseline Priority Weighted F1: {logistic_split_metrics['priority_weighted_f1']:.2%}")
 
 
 if __name__ == "__main__":

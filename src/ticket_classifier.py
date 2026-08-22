@@ -1,6 +1,7 @@
 from typing import Dict
 
 from src.ml_ticket_model import predict_ticket_ml
+from src.torch_ticket_model import predict_ticket_torch
 
 
 CATEGORY_CONFIDENCE_THRESHOLD = 0.3
@@ -9,7 +10,7 @@ PRIORITY_CONFIDENCE_THRESHOLD = 0.3
 
 def classify_ticket(question: str) -> Dict:
     question_lower = question.lower()
-    ml_prediction = predict_ticket_ml(question)
+    ml_prediction = predict_ticket_torch(question) or predict_ticket_ml(question)
 
     rule_category = classify_category_with_rules(question_lower)
     category = choose_category(rule_category, ml_prediction)

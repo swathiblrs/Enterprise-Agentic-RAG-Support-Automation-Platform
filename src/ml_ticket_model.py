@@ -5,6 +5,7 @@ from typing import Dict, List, Optional
 
 
 TRAINING_DATA_FILE = Path("data/ticket_training_data.json")
+MULTITASK_DATA_FILE = Path("data/ticket_multitask_dataset.jsonl")
 
 
 def normalize_text(text: str) -> str:
@@ -12,11 +13,37 @@ def normalize_text(text: str) -> str:
 
 
 def load_training_examples() -> List[Dict[str, str]]:
+    multitask_examples = load_multitask_training_examples()
+    if multitask_examples:
+        return multitask_examples
+
     if not TRAINING_DATA_FILE.exists():
         return []
 
     with TRAINING_DATA_FILE.open("r", encoding="utf-8") as file:
         return json.load(file)
+
+
+def load_multitask_training_examples() -> List[Dict[str, str]]:
+    if not MULTITASK_DATA_FILE.exists():
+        return []
+
+    examples = []
+    with MULTITASK_DATA_FILE.open("r", encoding="utf-8") as file:
+        for line in file:
+            if not line.strip():
+                continue
+            example = json.loads(line)
+            if example.get("split") in {"train", "validation"}:
+                examples.append(
+                    {
+                        "text": example["text"],
+                        "category": example["category"],
+                        "priority": example["priority"],
+                    }
+                )
+
+    return examples
 
 
 @lru_cache(maxsize=1)

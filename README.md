@@ -40,7 +40,8 @@ Core stack:
 - ChromaDB for vector search
 - BM25 for keyword retrieval
 - SentenceTransformers for embeddings
-- TF-IDF + Logistic Regression for supervised NLP ticket classification and priority prediction
+- PyTorch multi-task ticket classifier with shared layers, category head, and priority head
+- TF-IDF + Logistic Regression baseline for supervised NLP comparison
 - LangChain / OpenAI for optional grounded LLM generation
 - SQLite + JSONL logs for persistence and observability
 - Mock or webhook-based ITSM and chat integrations
@@ -98,13 +99,15 @@ src/
  ├── generator.py            # LangChain LLM generation + offline fallback
  ├── ticket_classifier.py    # Hybrid ML/rule category, priority, and routing logic
  ├── ml_ticket_model.py      # TF-IDF + Logistic Regression NLP ticket models
+ ├── torch_ticket_model.py   # PyTorch multi-task ticket classifier
+ ├── train_ticket_model.py   # PyTorch training and Logistic Regression comparison
  ├── ingest.py               # Knowledge-base ingestion and indexing
  ├── document_store.py       # Uploaded document storage
  ├── evaluator.py            # Retrieval, routing, groundedness, and faithfulness evaluation
  ├── logger.py               # Query logs, feedback logs, and metrics
  └── config.py               # Environment-based application settings
 
-data/                        # Sample enterprise support knowledge base + ML training labels
+data/                        # Sample enterprise support knowledge base + ML train/validation/test labels
 tests/                       # API tests and evaluation questions
 k8s/                         # Kubernetes deployment manifests
 .github/workflows/           # GitHub Actions CI pipeline
@@ -217,7 +220,21 @@ Use `disabled`, `mock`, or `webhook` for each integration mode.
 
 The ticket intelligence layer combines deterministic guardrails with supervised NLP/ML models.
 
-The ML pipeline uses:
+The PyTorch pipeline uses:
+
+- SentenceTransformer embeddings when the model is available locally
+- deterministic hashing embeddings as an offline-safe fallback
+- a shared neural network layer
+- a category classification head
+- a priority classification head
+- weighted cross-entropy for class balance
+- AdamW optimization
+- dropout and early stopping
+- checkpoint saving and loading
+- CPU, MPS, or CUDA device selection
+- confidence thresholds before model predictions influence ticket decisions
+
+The Logistic Regression baseline uses:
 
 - text normalization
 - TF-IDF vectorization
@@ -243,6 +260,20 @@ Example:
   "ml_model": "tfidf_logistic_regression"
 }
 ```
+
+Train the PyTorch multi-task classifier:
+
+```bash
+python -m src.train_ticket_model
+```
+
+The training script saves the best checkpoint to:
+
+```text
+models/ticket_multitask.pt
+```
+
+If a checkpoint exists, runtime ticket classification prefers the PyTorch multi-task model. If no checkpoint exists, the system falls back to the TF-IDF + Logistic Regression baseline and rule guardrails.
 
 ## 🔌 API Endpoints
 
@@ -458,6 +489,9 @@ The evaluator measures:
 - NLP/ML category weighted F1
 - NLP/ML priority accuracy
 - NLP/ML priority weighted F1
+- PyTorch multi-task category accuracy
+- PyTorch multi-task priority accuracy
+- Logistic Regression baseline accuracy
 - Precision@K
 - Recall@K
 - Top-1 source accuracy
@@ -478,13 +512,21 @@ Current local evaluation result:
 | Metric | Result |
 |---|---:|
 | Retrieval Accuracy | 100.00% |
-| Category Accuracy | 100.00% |
+| Category Accuracy | 90.00% |
 | Team Routing Accuracy | 100.00% |
 | Priority Accuracy | 100.00% |
 | NLP/ML Category Accuracy | 95.00% |
 | NLP/ML Category Weighted F1 | 95.06% |
-| NLP/ML Priority Accuracy | 100.00% |
-| NLP/ML Priority Weighted F1 | 100.00% |
+| NLP/ML Priority Accuracy | 95.00% |
+| NLP/ML Priority Weighted F1 | 94.76% |
+| PyTorch Multi-Task Category Accuracy | 100.00% |
+| PyTorch Multi-Task Category Weighted F1 | 100.00% |
+| PyTorch Multi-Task Priority Accuracy | 87.50% |
+| PyTorch Multi-Task Priority Weighted F1 | 87.40% |
+| Logistic Baseline Category Accuracy | 93.75% |
+| Logistic Baseline Category Weighted F1 | 93.65% |
+| Logistic Baseline Priority Accuracy | 68.75% |
+| Logistic Baseline Priority Weighted F1 | 68.21% |
 | Average Precision@K | 97.50% |
 | Average Recall@K | 100.00% |
 | Top-1 Source Accuracy | 100.00% |
@@ -494,9 +536,9 @@ Current local evaluation result:
 | Faithfulness Heuristic Rate | 100.00% |
 | Safe Agent Decision Rate | 100.00% |
 | Average Overall Confidence | 0.88 |
-| Average Latency | 31.20 ms |
-| Average Workflow Latency | 29.87 ms |
-| Average Answer Stage Latency | 29.51 ms |
+| Average Latency | 53.96 ms |
+| Average Workflow Latency | 52.72 ms |
+| Average Answer Stage Latency | 52.36 ms |
 | Average Retrieved Chunks | 1.45 |
 | Average Source Count | 1.45 |
 
