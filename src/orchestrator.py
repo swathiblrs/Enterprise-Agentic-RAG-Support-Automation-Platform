@@ -295,6 +295,13 @@ def decide_next_action(state: Dict) -> Dict:
     confusion = state.get("confusion_analysis", {})
     overall_confidence = confidence.get("overall_confidence", 0.0)
 
+    if ticket.get("priority") == "Critical":
+        return {
+            "next_action": "create_urgent_ticket_draft",
+            "reason": "Critical priority issue detected.",
+            "assigned_team": ticket.get("assigned_team", "Service Desk"),
+        }
+
     if state.get("fallback_triggered") or overall_confidence < LOW_CONFIDENCE_THRESHOLD:
         return {
             "next_action": "escalate_to_human",
@@ -306,13 +313,6 @@ def decide_next_action(state: Dict) -> Dict:
         return {
             "next_action": "ask_clarifying_question",
             "reason": "Multiple support intents were detected with moderate confidence.",
-            "assigned_team": ticket.get("assigned_team", "Service Desk"),
-        }
-
-    if ticket.get("priority") == "Critical":
-        return {
-            "next_action": "create_urgent_ticket_draft",
-            "reason": "Critical priority issue detected.",
             "assigned_team": ticket.get("assigned_team", "Service Desk"),
         }
 
