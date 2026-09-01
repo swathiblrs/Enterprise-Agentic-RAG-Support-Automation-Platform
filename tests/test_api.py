@@ -48,6 +48,7 @@ def test_ask_endpoint_vpn_question():
     assert "request_id" in data
     assert "answer" in data
     assert "sources" in data
+    assert "preliminary_classification" in data
     assert "ticket" in data
     assert "answer_generation_mode" in data
     assert "fallback_triggered" in data
@@ -60,6 +61,9 @@ def test_ask_endpoint_vpn_question():
     assert "latency_ms" in data
 
     assert data["ticket"]["category"] == "VPN Connectivity"
+    assert data["preliminary_classification"]["category"] == "VPN Connectivity"
+    assert data["preliminary_classification"]["retrieval_mode"] == "targeted"
+    assert "vpn" in data["preliminary_classification"]["retrieval_intents"]
     assert data["ticket"]["priority"] == "Medium"
     assert data["ticket"]["assigned_team"] == "Network Support"
     assert data["ticket"]["classification_method"] == "hybrid_ml_nlp"
@@ -77,6 +81,22 @@ def test_ask_endpoint_vpn_question():
     assert "total_workflow_latency_ms" in data["engineering_metrics"]
     assert data["integrations"]["itsm"]["status"] in {"mock_created", "disabled"}
     assert data["integrations"]["chat"]["status"] in {"mock_sent", "disabled"}
+
+
+def test_ask_endpoint_unknown_question_uses_broad_retrieval():
+    payload = {
+        "question": "The office printer is making a strange noise"
+    }
+
+    response = client.post("/ask", json=payload)
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["preliminary_classification"]["retrieval_mode"] == "broad"
+    assert data["preliminary_classification"]["retrieval_intents"] == []
+    assert "fallback_reason" in data["preliminary_classification"]
 
 
 def test_ask_endpoint_rejects_short_questions():

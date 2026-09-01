@@ -7,6 +7,13 @@ from src.torch_ticket_model import predict_ticket_torch
 CATEGORY_CONFIDENCE_THRESHOLD = 0.3
 PRIORITY_CONFIDENCE_THRESHOLD = 0.3
 
+CATEGORY_RETRIEVAL_INTENTS = {
+    "VPN Connectivity": ["vpn"],
+    "Account Access": ["account"],
+    "Multi-Factor Authentication": ["mfa"],
+    "General IT Support": [],
+}
+
 
 def classify_ticket(question: str) -> Dict:
     question_lower = question.lower()
@@ -29,6 +36,36 @@ def classify_ticket(question: str) -> Dict:
         "ml_priority": (ml_prediction or {}).get("priority", ""),
         "ml_category_confidence": (ml_prediction or {}).get("category_confidence", 0.0),
         "ml_priority_confidence": (ml_prediction or {}).get("priority_confidence", 0.0),
+    }
+
+
+def classify_for_retrieval(question: str) -> Dict:
+    """
+    Runs a lightweight early classification pass before RAG retrieval.
+
+    This is used only to guide the retriever toward the most likely support
+    domain/source area. Final ticket category, priority, and routing are still
+    produced later by classify_ticket().
+    """
+    question_lower = question.lower()
+    ml_prediction = predict_ticket_torch(question) or predict_ticket_ml(question)
+    rule_category = classify_category_with_rules(question_lower)
+    predicted_category = choose_category(rule_category, ml_prediction)
+    category_confidence = (ml_prediction or {}).get("category_confidence", 0.0)
+
+    if predicted_category != "General IT Support":
+        category_confidence = max(category_confidence, 0.55)
+
+    retrieval_intents = CATEGORY_RETRIEVAL_INTENTS.get(predicted_category, [])
+    mode = "targeted" if retrieval_intents and category_confidence >= CATEGORY_CONFIDENCE_THRESHOLD else "broad"
+
+    return {
+        "category": predicted_category,
+        "confidence": round(category_confidence, 4),
+        "retrieval_intents": retrieval_intents if mode == "targeted" else [],
+        "retrieval_mode": mode,
+        "fallback_reason": "" if mode == "targeted" else "No confident support domain was detected; using broad retrieval.",
+        "model": (ml_prediction or {}).get("model", "rules_only"),
     }
 
 

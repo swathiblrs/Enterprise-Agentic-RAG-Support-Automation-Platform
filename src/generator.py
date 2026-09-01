@@ -5,12 +5,22 @@ from src.retriever import retrieve_relevant_chunks
 from src.ticket_classifier import classify_ticket
 
 
-def answer_question(question: str, domain: str = "it_support") -> Dict:
+def answer_question(
+    question: str,
+    domain: str = "it_support",
+    preliminary_classification: Dict = None,
+) -> Dict:
     """
     Generates a grounded support answer using retrieved knowledge chunks
     and adds ticket classification metadata.
     """
-    retrieved_chunks = retrieve_relevant_chunks(question, top_k=3, domain=domain)
+    preliminary_classification = preliminary_classification or {}
+    retrieved_chunks = retrieve_relevant_chunks(
+        question,
+        top_k=3,
+        domain=domain,
+        retrieval_intents=preliminary_classification.get("retrieval_intents", []),
+    )
     ticket = classify_ticket(question)
 
     if not retrieved_chunks:
@@ -23,6 +33,7 @@ def answer_question(question: str, domain: str = "it_support") -> Dict:
             "sources": [],
             "retrieved_chunks": [],
             "ticket": ticket,
+            "preliminary_classification": preliminary_classification,
             "answer_generation_mode": "fallback",
             "fallback": True,
         }
@@ -40,6 +51,7 @@ def answer_question(question: str, domain: str = "it_support") -> Dict:
         "sources": sources,
         "retrieved_chunks": retrieved_chunks,
         "ticket": ticket,
+        "preliminary_classification": preliminary_classification,
         "answer_generation_mode": generation_mode,
         "fallback": False,
     }

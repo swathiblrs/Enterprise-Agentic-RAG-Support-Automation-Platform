@@ -19,6 +19,7 @@ except Exception:
 
 from src.config import CLARIFY_CONFIDENCE_THRESHOLD, LOW_CONFIDENCE_THRESHOLD
 from src.generator import answer_question
+from src.ticket_classifier import classify_for_retrieval
 
 
 SUPPORT_SIGNALS = {
@@ -69,6 +70,7 @@ def run_sequential_support_workflow(
     state["workflow_engine"] = workflow_engine
 
     workflow_start = perf_counter()
+    run_preclassification_stage(state)
     run_answer_stage(state)
     run_decision_stage(state)
     run_ticket_stage(state)
@@ -93,6 +95,7 @@ if LLAMA_INDEX_WORKFLOWS_AVAILABLE:
             state = build_initial_state(ev.question, ev.domain)
             state["workflow_engine"] = "llamaindex_workflows"
             state["_workflow_start"] = perf_counter()
+            run_preclassification_stage(state)
             run_answer_stage(state)
             return AnswerGeneratedEvent(state=state)
 
@@ -129,17 +132,31 @@ else:
             )
 
 
+def run_preclassification_stage(state: Dict) -> None:
+    start = perf_counter()
+    state["preliminary_classification"] = classify_for_retrieval(state.get("question", ""))
+    record_stage_latency(state, "preclassification_stage_latency_ms", start)
+
+
 def run_answer_stage(state: Dict) -> None:
     start = perf_counter()
     question = state.get("question", "")
     domain = state.get("domain", "it_support")
-    response = answer_question(question, domain=domain)
+    response = answer_question(
+        question,
+        domain=domain,
+        preliminary_classification=state.get("preliminary_classification", {}),
+    )
     state.update(
         {
             "answer": response.get("answer", ""),
             "sources": response.get("sources", []),
             "retrieved_chunks": response.get("retrieved_chunks", []),
             "ticket": response.get("ticket", {}),
+            "preliminary_classification": response.get(
+                "preliminary_classification",
+                state.get("preliminary_classification", {}),
+            ),
             "answer_generation_mode": response.get("answer_generation_mode", "unknown"),
             "fallback_triggered": response.get("fallback", False),
         }
@@ -182,6 +199,7 @@ def build_initial_state(question: str, domain: str) -> Dict:
         "sources": [],
         "retrieved_chunks": [],
         "ticket": {},
+        "preliminary_classification": {},
         "answer_generation_mode": "unknown",
         "fallback_triggered": False,
         "confidence": {},
@@ -190,6 +208,7 @@ def build_initial_state(question: str, domain: str) -> Dict:
         "ticket_draft": {},
         "workflow_engine": "unknown",
         "engineering_metrics": {
+            "preclassification_stage_latency_ms": 0.0,
             "answer_stage_latency_ms": 0.0,
             "decision_stage_latency_ms": 0.0,
             "ticket_draft_stage_latency_ms": 0.0,

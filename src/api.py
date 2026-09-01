@@ -116,6 +116,7 @@ def ask_question(
         "domain": request.domain,
         "answer": response.get("answer", ""),
         "sources": response.get("sources", []),
+        "preliminary_classification": response.get("preliminary_classification", {}),
         "ticket": response.get("ticket", {}),
         "answer_generation_mode": response.get("answer_generation_mode", "unknown"),
         "fallback_triggered": response.get("fallback_triggered", False),

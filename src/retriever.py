@@ -277,13 +277,18 @@ def merge_results(results: List[Dict]) -> List[Dict]:
     return merged
 
 
-def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[Dict]:
+def rerank_results(
+    question: str,
+    results: List[Dict],
+    top_k: int = 3,
+    retrieval_intents: Optional[List[str]] = None,
+) -> List[Dict]:
     """
     Lightweight reranking based on keyword overlap and retrieval score.
     This keeps the project simple while showing production-style reranking logic.
     """
     question_tokens = set(tokenize(question))
-    query_intents = detect_query_intents(question)
+    query_intents = retrieval_intents or detect_query_intents(question)
     intent_sources = expected_sources_for_intents(query_intents)
 
     reranked = []
@@ -319,7 +324,12 @@ def rerank_results(question: str, results: List[Dict], top_k: int = 3) -> List[D
     return reranked[:top_k]
 
 
-def retrieve_relevant_chunks(question: str, top_k: int = 3, domain: str = DEFAULT_DOMAIN) -> List[Dict]:
+def retrieve_relevant_chunks(
+    question: str,
+    top_k: int = 3,
+    domain: str = DEFAULT_DOMAIN,
+    retrieval_intents: Optional[List[str]] = None,
+) -> List[Dict]:
     """
     Main retrieval function used by the RAG pipeline.
 
@@ -333,7 +343,12 @@ def retrieve_relevant_chunks(question: str, top_k: int = 3, domain: str = DEFAUL
     bm25_results = bm25_retrieve(question, top_k=5, domain=domain)
 
     merged_results = merge_results(dense_results + bm25_results)
-    reranked_results = rerank_results(question, merged_results, top_k=top_k)
+    reranked_results = rerank_results(
+        question,
+        merged_results,
+        top_k=top_k,
+        retrieval_intents=retrieval_intents,
+    )
 
     return reranked_results
 

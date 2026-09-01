@@ -24,11 +24,60 @@ def auth_headers() -> dict:
     return {"x-api-key": SUPPORT_API_KEY}
 
 
+def clear_auth_state() -> None:
+    for key in ["access_token", "auth_role", "last_response", "metrics"]:
+        st.session_state.pop(key, None)
+
+
+def is_authenticated() -> bool:
+    return bool(st.session_state.get("access_token") or SUPPORT_API_KEY)
+
+
+def render_login_screen() -> None:
+    st.title("Enterprise RAG Support Assistant")
+    st.subheader("Sign in to continue")
+    st.write(
+        "This assistant is protected because support questions can expose internal "
+        "knowledge-base content, ticket drafts, logs, and analytics."
+    )
+
+    with st.form("login_form"):
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+        login_submitted = st.form_submit_button("Sign In")
+
+    if login_submitted:
+        try:
+            login_response = requests.post(
+                LOGIN_API_URL,
+                json={"username": username, "password": password},
+                timeout=30,
+            )
+
+            if login_response.status_code == 200:
+                login_data = login_response.json()
+                st.session_state["access_token"] = login_data["access_token"]
+                st.session_state["auth_role"] = login_data["role"]
+                st.success("Signed in.")
+                st.rerun()
+            else:
+                st.error(f"Login failed: {login_response.status_code}")
+                st.text(login_response.text)
+        except Exception as error:
+            st.error(f"Could not sign in: {error}")
+
+    st.caption("Demo credentials are configured through the FastAPI environment variables.")
+
+
 st.set_page_config(
     page_title="Enterprise RAG Support Assistant",
     page_icon="🤖",
     layout="wide",
 )
+
+if not is_authenticated():
+    render_login_screen()
+    st.stop()
 
 
 st.title("Enterprise RAG Support Assistant")
@@ -36,34 +85,13 @@ st.title("Enterprise RAG Support Assistant")
 with st.sidebar:
     st.header("Access")
 
-    if "access_token" in st.session_state:
+    if st.session_state.get("access_token"):
         st.write(f"Signed in as `{st.session_state.get('auth_role', 'unknown')}`")
         if st.button("Sign Out"):
-            del st.session_state["access_token"]
-            st.session_state.pop("auth_role", None)
-    else:
-        with st.form("login_form"):
-            username = st.text_input("Username")
-            password = st.text_input("Password", type="password")
-            login_submitted = st.form_submit_button("Sign In")
-
-        if login_submitted:
-            try:
-                login_response = requests.post(
-                    LOGIN_API_URL,
-                    json={"username": username, "password": password},
-                    timeout=30,
-                )
-
-                if login_response.status_code == 200:
-                    login_data = login_response.json()
-                    st.session_state["access_token"] = login_data["access_token"]
-                    st.session_state["auth_role"] = login_data["role"]
-                    st.success("Signed in.")
-                else:
-                    st.error(f"Login failed: {login_response.status_code}")
-            except Exception as error:
-                st.error(f"Could not sign in: {error}")
+            clear_auth_state()
+            st.rerun()
+    elif SUPPORT_API_KEY:
+        st.write("Signed in with configured API key.")
 
 ask_tab, analytics_tab, upload_tab = st.tabs(["Ask", "Analytics", "Upload Documents"])
 

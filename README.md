@@ -137,13 +137,32 @@ Run:
 python src/ingest.py
 ```
 
-### 2. Hybrid Retrieval
+### 2. Early Ticket Intent Classification
+
+Before RAG retrieval, the workflow runs a lightweight classifier to estimate the likely support area.
+
+```text
+Question -> early classifier -> retrieval intent
+```
+
+Examples:
+
+- VPN or internet issue -> `vpn`
+- password, login, or locked account -> `account`
+- Duo, MFA, or push notification issue -> `mfa`
+
+The early classification is used only to guide retrieval. Final ticket category, priority, team routing, and ticket draft generation still happen later in the workflow.
+
+If the classifier cannot confidently identify a support area, the system uses broad retrieval across the selected domain instead of failing.
+
+### 3. Hybrid Retrieval
 
 The retriever narrows the knowledge base using:
 
 - vector similarity search through ChromaDB
 - BM25 keyword search
 - domain metadata filtering
+- early retrieval intent hints from ticket classification
 - result merging
 - lightweight reranking
 
@@ -158,7 +177,7 @@ Likely retrieved sources:
 - password_reset_kb.md
 ```
 
-### 3. Grounded Answer Generation
+### 4. Grounded Answer Generation
 
 The generator uses retrieved chunks to produce an answer.
 
@@ -174,7 +193,7 @@ LLM_MODEL_NAME=gpt-4o-mini
 
 The LLM prompt instructs the model to answer only from retrieved context and cite source files.
 
-### 4. LlamaIndex Workflows Orchestration
+### 5. LlamaIndex Workflows Orchestration
 
 The API calls:
 
@@ -184,6 +203,7 @@ run_support_workflow(question, domain="it_support")
 
 The orchestrator runs the support flow as staged workflow events:
 
+- early ticket intent classification
 - retrieval
 - answer generation
 - ticket classification
@@ -201,7 +221,7 @@ Example agent decisions:
 - `create_urgent_ticket_draft`
 - `escalate_to_human`
 
-### 5. ITSM and Chat Integration Adapters
+### 6. ITSM and Chat Integration Adapters
 
 The API prepares ticket and chat payloads for each support workflow.
 
@@ -216,7 +236,7 @@ CHAT_WEBHOOK_URL=https://example.com/chat-webhook
 
 Use `disabled`, `mock`, or `webhook` for each integration mode.
 
-### 6. NLP/ML Ticket Intelligence
+### 7. NLP/ML Ticket Intelligence
 
 The ticket intelligence layer combines deterministic guardrails with supervised NLP/ML models.
 
@@ -356,7 +376,15 @@ Example response:
 
 ## 🔐 Security
 
-API key authentication is optional and controlled through environment configuration.
+The Streamlit UI uses an auth-first flow. Users see the login screen before they can access Ask, Analytics, or Upload Documents.
+
+```text
+Open Streamlit -> login -> FastAPI returns JWT -> Streamlit sends JWT on protected requests
+```
+
+This protects support questions because answers can expose internal knowledge-base content, ticket drafts, logs, and analytics.
+
+API key authentication is also supported for service-to-service or local automation use cases.
 
 ```env
 SUPPORT_API_KEY=your_api_key
@@ -406,6 +434,16 @@ JWT requests use:
 Authorization: Bearer <access_token>
 ```
 
+Demo flow:
+
+```text
+1. Start FastAPI.
+2. Start Streamlit.
+3. Login using the configured demo agent/admin credentials.
+4. Streamlit stores the JWT in session state.
+5. Ask, Analytics, and Upload tabs are shown only after authentication.
+```
+
 ## 🖥️ Streamlit UI
 
 Start the backend first:
@@ -420,7 +458,7 @@ Then start the frontend:
 streamlit run app/streamlit_app.py
 ```
 
-The UI includes three tabs:
+After login, the UI includes three tabs:
 
 - `Ask`: ask support questions and view answer, sources, ticket recommendation, confidence, and ticket draft
 - `Analytics`: view latency, fallback rate, helpful feedback rate, category counts, and agent decision counts
