@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
   <title id="title">Enterprise Agentic RAG Support Automation Platform Architecture</title>
-  <desc id="desc">System architecture for an enterprise IT support automation platform using Streamlit, FastAPI, LlamaIndex Workflows, hybrid RAG, ticket intelligence, persistence, metrics, and deployment components.</desc>
+  <desc id="desc">System architecture for an enterprise IT support automation platform using Streamlit, FastAPI, LlamaIndex Workflows, hybrid RAG, NLP/ML ticket intelligence, persistence, metrics, and deployment components.</desc>
   <defs>
     <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f8fbff"/>
@@ -89,7 +89,8 @@
   <rect x="360" y="392" width="294" height="340" class="rag"/>
   <text x="507" y="415" text-anchor="middle" class="label">RAG Pipeline</text>
   <rect x="386" y="420" width="116" height="54" class="box"/>
-  <text x="444" y="452" text-anchor="middle" class="label">Embedding</text>
+  <text x="444" y="443" text-anchor="middle" class="label">Embeddings</text>
+  <text x="444" y="463" text-anchor="middle" class="tiny">SentenceTransformer</text>
   <rect x="386" y="530" width="116" height="54" class="box"/>
   <text x="444" y="563" text-anchor="middle" class="label">Retriever</text>
   <rect x="526" y="502" width="110" height="54" class="box"/>
@@ -110,7 +111,8 @@
   <text x="736" y="723" text-anchor="middle" class="label">Answer with Sources</text>
 
   <rect x="850" y="486" width="144" height="54" class="box"/>
-  <text x="922" y="519" text-anchor="middle" class="label">Ticket Classifier</text>
+  <text x="922" y="510" text-anchor="middle" class="label">NLP/ML</text>
+  <text x="922" y="530" text-anchor="middle" class="label">Classifier</text>
   <rect x="850" y="563" width="144" height="54" class="box"/>
   <text x="922" y="596" text-anchor="middle" class="label">Priority Predictor</text>
   <rect x="850" y="641" width="144" height="54" class="box"/>
