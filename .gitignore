@@ -8,7 +8,7 @@ __pycache__/
 .DS_Store
 logs/
 vectorstore/
-models/
+/models/
 *.sqlite3
 *.sqlite3-*
 *.db
@@ -17,4 +17,3 @@ k8s/secret.yaml
 !combined/support/models/
 !combined/support/models/ticket_multitask.pt
 combined/results.json
-
