@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: enterprise-rag-ingress
+  namespace: enterprise-rag
+spec:
+  rules:
+    - host: enterprise-rag.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: enterprise-rag-ui
+                port:
+                  number: 8501
+    - host: api.enterprise-rag.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: enterprise-rag-api
+                port:
+                  number: 8000

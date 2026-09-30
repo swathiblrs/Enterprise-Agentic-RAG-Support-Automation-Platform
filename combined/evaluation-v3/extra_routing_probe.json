@@ -1,0 +1,439 @@
+{
+  "n": 16,
+  "correct": 16,
+  "cases": [
+    {
+      "question": "My virtual private network stopped connecting",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": true,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "it",
+          "score": 0.46515,
+          "margin": 0.32478,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Our SSO rejects an entire department",
+      "expected_domain": "it",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "it",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "sso"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Multiple staff cannot authenticate",
+      "expected_domain": "it",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "it",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": true,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "it",
+          "score": 0.35005,
+          "margin": 0.17314,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Microsoft Entra detected password-spray attempts",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "security_policy",
+        "scores": {
+          "security": 6,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "password-spray"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Unexpected OAuth permissions on user identity",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "security",
+          "score": 0.54911,
+          "margin": 0.43011,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Kubernetes pods cannot schedule because capacity is exhausted",
+      "expected_domain": "cloud",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [
+          "kubernetes"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Azure virtual machines have disappeared",
+      "expected_domain": "cloud",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 2,
+          "production": 0
+        },
+        "matched_signals": [
+          "azure"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Ingress reports HTTP 502 errors",
+      "expected_domain": "production",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "production",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "production",
+          "score": 0.57312,
+          "margin": 0.47347,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "An ETL transform is failing",
+      "expected_domain": "data",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "etl"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Warehouse jobs show stale partitions",
+      "expected_domain": "data",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "warehouse"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "I need a password reset; there was no breach",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "password"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "We detected malware but password reset did not fix it",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "security_policy",
+        "scores": {
+          "security": 5,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "malware"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "ETL failure and Kubernetes node failure",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "ambiguous",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "What is a load balancer?",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "CPU 98 percent please help",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "other",
+          "score": 0.21858,
+          "margin": 0.02818,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "My Duo enrollment needs help",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "duo"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    }
+  ],
+  "note": "Historical hand-authored wording probes. Failures informed v3 training examples; these are now regression/development cases, not an independent test."
+}

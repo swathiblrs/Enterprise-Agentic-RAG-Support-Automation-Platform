@@ -1,0 +1,466 @@
+[
+  {
+    "question": "How do I reset my password?",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "password"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "VPN disconnects on my laptop",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "vpn"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "I changed phones and need Duo setup",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "duo"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "MFA push is not arriving",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "mfa"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "My account is locked",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "account"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Company-wide authentication failure",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Several users in finance cannot log in",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Multiple users cannot access VPN",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "vpn"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "VPN outage for all users",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "it",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "vpn"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Our department cannot access VPN",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "support",
+      "domain": "it",
+      "reason": "Routine IT request; retrieve guidance and prepare support draft.",
+      "matched_signals": [
+        "vpn"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Suspicious login from a new country",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "suspicious login"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Account takeover and mailbox rule changes",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "account takeover",
+        "mailbox rule"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Malware detected on workstation",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "malware"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Phishing credentials stolen",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "phishing"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Security incident affecting company authentication",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Ransomware encrypted finance files",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Checkout returns 503 after deployment",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "production",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "503",
+        "checkout",
+        "deployment"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Production service outage",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "production",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "production",
+        "service outage"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "API requests timing out with elevated latency",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Payment service error rate exceeds SLO",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "AWS autoscaling quota exhausted",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "cloud",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "autoscaling",
+        "aws",
+        "quota"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Kubernetes node capacity exhausted",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "cloud",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "kubernetes"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Cloudwatch reports unavailable instances",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "cloud",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "cloudwatch"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Load balancer targets are unhealthy",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "ETL pipeline failed schema drift validation",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "data",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "pipeline",
+        "schema drift",
+        "etl"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Data quality checks failed",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "data",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "data quality"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Backfill job stopped",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "investigate",
+      "domain": "data",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "backfill"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "Warehouse ingestion stopped updating tables",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Something is broken",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Can you help me?",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Write me a poem",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "Recommend a restaurant",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "path": "clarify",
+      "domain": null,
+      "reason": "No supported domain identified; request a domain or more details."
+    }
+  },
+  {
+    "question": "No malware was detected; how do I reset my password?",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "malware"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "What does phishing mean?",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "path": "investigate",
+      "domain": "security",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "phishing"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "VPN password reset instructions mention AWS but this is just my account",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "investigate",
+      "domain": "cloud",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "aws"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  },
+  {
+    "question": "This is not a production outage; I forgot my password",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "path": "investigate",
+      "domain": "production",
+      "reason": "Incident domain, evidence, impact, or severity requires investigation.",
+      "matched_signals": [
+        "production"
+      ],
+      "routing_mode": "keyword_policy"
+    }
+  }
+]

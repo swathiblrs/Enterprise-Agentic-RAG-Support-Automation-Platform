@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-09-30T00:35:43.670244+00:00",
+  "mode": "offline",
+  "test_functions_passed": 15,
+  "browser_checks": "login, ML route, evidence origins, mobile overflow, logout, architecture render passed",
+  "sha256": {
+    "routing.py": "6979459feb035f694a234d91f6b24d8c6b4089116350a6e3f287de5ab4facc0e",
+    "domain_classifier.py": "fc201c9f73350dd2ea4ca4814431a276e08d5de32bd47e54eb07cde89fad2173",
+    "domain_model.json": "c6a7308e3f1cf18eefe4ceab4930a4aaf9b073219e7a678dc27a204debae755e",
+    "domain_dataset.json": "75b877ab6647dd9961fcb4a9e283e6c83de8055570c7c20e7f64aa38ee7b8a47",
+    "support/src/retriever.py": "11fcf30fa9aef62151a07eb94b03bf6b9b9b867cf6f72b82f5dccee5f9950a85",
+    "evidence_provenance.py": "2b7b46cb350e50a60f4a843024df5d82c9ea87b13a5b16e58d94b2a953634b6e",
+    "combined.py": "d08cf92eb46946cb8f728601500020ed8d012e8710911b5ff0fb807fe20a6358"
+  }
+}

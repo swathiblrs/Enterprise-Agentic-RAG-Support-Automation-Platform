@@ -1,0 +1,2078 @@
+{
+  "index_count": 10,
+  "results": [
+    {
+      "case": {
+        "question": "My VPN is not working after I reset my password",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "My VPN is not working after I reset my password",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 1.1769433134072196,
+            "rerank_score": 17.17694331340722
+          }
+        ],
+        "ticket": {
+          "summary": "My VPN is not working after I reset my password",
+          "category": "VPN Connectivity",
+          "priority": "Medium",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9449,
+          "ml_priority_confidence": 0.4586
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9449,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.6,
+          "overall_confidence": 0.84
+        },
+        "confusion_analysis": {
+          "multi_intent": true,
+          "matched_categories": [
+            "VPN Connectivity",
+            "Account Access"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "My VPN is not working after I reset my password",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Medium",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 80.8,
+          "answer_stage_latency_ms": 172.59,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 253.77,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 255.24595800000017
+    },
+    {
+      "case": {
+        "question": "I cannot approve Duo push notifications",
+        "expected_sources": [
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "I cannot approve Duo push notifications",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.881642852637838,
+            "rerank_score": 18.88164285263784
+          }
+        ],
+        "ticket": {
+          "summary": "I cannot approve Duo push notifications",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Multi-Factor Authentication",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9797,
+          "ml_priority_confidence": 0.5547
+        },
+        "preliminary_classification": {
+          "category": "Multi-Factor Authentication",
+          "confidence": 0.9797,
+          "retrieval_intents": [
+            "mfa"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.94
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "I cannot approve Duo push notifications",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify MFA device registration and push notification status.",
+            "Confirm the user has network access and can receive MFA prompts.",
+            "Escalate to Identity and Access Management for MFA reset or re-enrollment."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.92,
+          "answer_stage_latency_ms": 45.47,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 82.76,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 83.95933300000013
+    },
+    {
+      "case": {
+        "question": "My account is locked",
+        "expected_sources": [
+          "password_reset_kb.md"
+        ],
+        "expected_category": "Account Access",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "My account is locked",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+        "sources": [
+          "password_reset_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Password Reset Knowledge Base\n\n## Overview\nThis article explains how users can reset their enterprise account password and regain access to systems connected through Single Sign-On.\n\n## Common Symptoms\nUsers may report that they forgot their password, their account is locked, or they cannot log in after changing their password.\n\n## Troubleshooting Steps\n1. Ask the user to visit the enterprise Single Sign-On password reset portal.\n2. Verify the user's identity using the approved recovery method.\n3. Reset the password and wait 5 to 10 minutes for synchronization.\n4. Ask the user to sign out of all active sessions.\n5. Ask the user to log in again using the new password.\n6. If the account is locked, wait for the lockout period or escalate to Identity and Access Management.\n\n## Escalation\nIf the user cannot reset the password or the account remains locked, route the ticket to Identity and Access Management.\n\n## Ticket Category\nAccount Access\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "password_reset_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 2.564323236806122,
+            "rerank_score": 13.564323236806121
+          }
+        ],
+        "ticket": {
+          "summary": "My account is locked",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9429,
+          "ml_priority_confidence": 0.6966
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.9429,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.94
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Account Access"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "My account is locked",
+          "description": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "password_reset_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 42.51,
+          "answer_stage_latency_ms": 44.5,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 87.37,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 88.55350000000017
+    },
+    {
+      "case": {
+        "question": "Multiple users cannot access VPN",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md",
+          "priority_matrix.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "High"
+      },
+      "result": {
+        "question": "Multiple users cannot access VPN",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.4937248347688741,
+            "rerank_score": 13.493724834768873
+          }
+        ],
+        "ticket": {
+          "summary": "Multiple users cannot access VPN",
+          "category": "VPN Connectivity",
+          "priority": "High",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "High",
+          "ml_category_confidence": 0.9238,
+          "ml_priority_confidence": 0.6911
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9238,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.54,
+          "classification_confidence": 0.75,
+          "overall_confidence": 0.62
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "Multiple users cannot access VPN",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "High",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.41,
+          "answer_stage_latency_ms": 50.78,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 87.54,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 88.8115410000001
+    },
+    {
+      "case": {
+        "question": "Company-wide authentication failure",
+        "expected_sources": [
+          "priority_matrix.md",
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Critical"
+      },
+      "result": {
+        "question": "Company-wide authentication failure",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "priority_matrix.md",
+          "vpn_troubleshooting_kb.md",
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Ticket Priority Matrix\n\n## Overview\nThis document defines priority levels for enterprise support tickets.\n\n## Low Priority\nUse Low priority when the issue has a workaround and does not block the user from working.\n\nExamples:\n- General software questions\n- Minor UI issues\n- Non-urgent access requests\n\n## Medium Priority\nUse Medium priority when one user is blocked from completing normal work but there is no company-wide impact.\n\nExamples:\n- One user cannot access VPN\n- One user cannot log in to email\n- One user needs password reset\n- One user cannot approve Duo MFA\n\n## High Priority\nUse High priority when multiple users are affected or a business-critical team is blocked.\n\nExamples:\n- Multiple users cannot access VPN\n- Department-wide email access issue\n- Shared application outage\n\n## Critical Priority\nUse Critical priority when there is a production outage, security incident, or company-wide service disruption.\n\nExamples:\n- Production system outage\n- Security breach\n- Company-wide authentication failure",
+            "source": "priority_matrix.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.7641302145231412,
+            "rerank_score": 7.764130214523141
+          },
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.45579127614550424,
+            "rerank_score": 2.4557912761455043
+          },
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.18082488571710484,
+            "rerank_score": 1.1808248857171049
+          }
+        ],
+        "ticket": {
+          "summary": "Company-wide authentication failure",
+          "category": "Account Access",
+          "priority": "Critical",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Critical",
+          "ml_category_confidence": 0.6208,
+          "ml_priority_confidence": 0.7712
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.6208,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.65,
+          "overall_confidence": 0.86
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "create_urgent_ticket_draft",
+          "reason": "Critical priority issue detected.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "Company-wide authentication failure",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Account Access",
+          "priority": "Critical",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "priority_matrix.md",
+            "vpn_troubleshooting_kb.md",
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "create_urgent_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.39,
+          "answer_stage_latency_ms": 44.38,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 81.14,
+          "retrieved_chunk_count": 3,
+          "source_count": 3,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 82.31524999999974
+    },
+    {
+      "case": {
+        "question": "VPN connection keeps dropping during remote work",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Low"
+      },
+      "result": {
+        "question": "VPN connection keeps dropping during remote work",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.22738177367388607,
+            "rerank_score": 11.227381773673887
+          }
+        ],
+        "ticket": {
+          "summary": "VPN connection keeps dropping during remote work",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Low",
+          "ml_category_confidence": 0.9933,
+          "ml_priority_confidence": 0.5299
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9933,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.28,
+          "classification_confidence": 0.9,
+          "overall_confidence": 0.53
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "escalate_to_human",
+          "reason": "Low confidence or insufficient retrieved knowledge.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "VPN connection keeps dropping during remote work",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "escalate_to_human",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 41.9,
+          "answer_stage_latency_ms": 44.81,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 87.08,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 88.25799999999973
+    },
+    {
+      "case": {
+        "question": "I forgot my password and cannot login",
+        "expected_sources": [
+          "password_reset_kb.md"
+        ],
+        "expected_category": "Account Access",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "I forgot my password and cannot login",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+        "sources": [
+          "password_reset_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Password Reset Knowledge Base\n\n## Overview\nThis article explains how users can reset their enterprise account password and regain access to systems connected through Single Sign-On.\n\n## Common Symptoms\nUsers may report that they forgot their password, their account is locked, or they cannot log in after changing their password.\n\n## Troubleshooting Steps\n1. Ask the user to visit the enterprise Single Sign-On password reset portal.\n2. Verify the user's identity using the approved recovery method.\n3. Reset the password and wait 5 to 10 minutes for synchronization.\n4. Ask the user to sign out of all active sessions.\n5. Ask the user to log in again using the new password.\n6. If the account is locked, wait for the lockout period or escalate to Identity and Access Management.\n\n## Escalation\nIf the user cannot reset the password or the account remains locked, route the ticket to Identity and Access Management.\n\n## Ticket Category\nAccount Access\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "password_reset_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 1.619465335303305,
+            "rerank_score": 15.619465335303305
+          }
+        ],
+        "ticket": {
+          "summary": "I forgot my password and cannot login",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.948,
+          "ml_priority_confidence": 0.6614
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.948,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.94
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Account Access"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "I forgot my password and cannot login",
+          "description": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "password_reset_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.36,
+          "answer_stage_latency_ms": 51.63,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 88.36,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 89.5217920000002
+    },
+    {
+      "case": {
+        "question": "Duo MFA app stopped sending push requests",
+        "expected_sources": [
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "Duo MFA app stopped sending push requests",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.0922512253775327,
+            "rerank_score": 19.09225122537753
+          }
+        ],
+        "ticket": {
+          "summary": "Duo MFA app stopped sending push requests",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Multi-Factor Authentication",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9939,
+          "ml_priority_confidence": 0.6228
+        },
+        "preliminary_classification": {
+          "category": "Multi-Factor Authentication",
+          "confidence": 0.9939,
+          "retrieval_intents": [
+            "mfa"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.9,
+          "overall_confidence": 0.96
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "Duo MFA app stopped sending push requests",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify MFA device registration and push notification status.",
+            "Confirm the user has network access and can receive MFA prompts.",
+            "Escalate to Identity and Access Management for MFA reset or re-enrollment."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 35.91,
+          "answer_stage_latency_ms": 44.39,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 80.65,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 81.83333300000051
+    },
+    {
+      "case": {
+        "question": "Production VPN outage for many users",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md",
+          "priority_matrix.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Critical"
+      },
+      "result": {
+        "question": "Production VPN outage for many users",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.4937248347688741,
+            "rerank_score": 13.493724834768873
+          }
+        ],
+        "ticket": {
+          "summary": "Production VPN outage for many users",
+          "category": "VPN Connectivity",
+          "priority": "Critical",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Critical",
+          "ml_category_confidence": 0.9681,
+          "ml_priority_confidence": 0.8586
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9681,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.54,
+          "classification_confidence": 0.75,
+          "overall_confidence": 0.62
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "create_urgent_ticket_draft",
+          "reason": "Critical priority issue detected.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "Production VPN outage for many users",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Critical",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "create_urgent_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 42.27,
+          "answer_stage_latency_ms": 44.67,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 87.31,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 88.6443340000005
+    },
+    {
+      "case": {
+        "question": "Our department cannot access VPN",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md",
+          "priority_matrix.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "High"
+      },
+      "result": {
+        "question": "Our department cannot access VPN",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.33755202126587847,
+            "rerank_score": 12.337552021265878
+          }
+        ],
+        "ticket": {
+          "summary": "Our department cannot access VPN",
+          "category": "VPN Connectivity",
+          "priority": "High",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "High",
+          "ml_category_confidence": 0.9321,
+          "ml_priority_confidence": 0.4797
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9321,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.39,
+          "classification_confidence": 0.75,
+          "overall_confidence": 0.53
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "escalate_to_human",
+          "reason": "Low confidence or insufficient retrieved knowledge.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "Our department cannot access VPN",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "High",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "escalate_to_human",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 35.97,
+          "answer_stage_latency_ms": 50.1,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 86.43,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 87.62604200000013
+    },
+    {
+      "case": {
+        "question": "The VPN client disconnects every few minutes",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Low"
+      },
+      "result": {
+        "question": "The VPN client disconnects every few minutes",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.4574396749487173,
+            "rerank_score": 17.457439674948716
+          }
+        ],
+        "ticket": {
+          "summary": "The VPN client disconnects every few minutes",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Low",
+          "ml_category_confidence": 0.992,
+          "ml_priority_confidence": 0.5662
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.992,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.94
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "The VPN client disconnects every few minutes",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.43,
+          "answer_stage_latency_ms": 45.05,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 81.85,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 83.03720799999948
+    },
+    {
+      "case": {
+        "question": "VPN shows an authentication error after I changed my password",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "VPN shows an authentication error after I changed my password",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.6233593722472066,
+            "rerank_score": 21.623359372247208
+          }
+        ],
+        "ticket": {
+          "summary": "VPN shows an authentication error after I changed my password",
+          "category": "VPN Connectivity",
+          "priority": "Medium",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.935,
+          "ml_priority_confidence": 0.549
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.935,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.6,
+          "overall_confidence": 0.84
+        },
+        "confusion_analysis": {
+          "multi_intent": true,
+          "matched_categories": [
+            "VPN Connectivity",
+            "Account Access",
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "VPN shows an authentication error after I changed my password",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Medium",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 42.81,
+          "answer_stage_latency_ms": 46.05,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 89.23,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 90.59200000000001
+    },
+    {
+      "case": {
+        "question": "I changed phones and cannot use Duo anymore",
+        "expected_sources": [
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "I changed phones and cannot use Duo anymore",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 2.613900687911421,
+            "rerank_score": 17.61390068791142
+          }
+        ],
+        "ticket": {
+          "summary": "I changed phones and cannot use Duo anymore",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Multi-Factor Authentication",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9003,
+          "ml_priority_confidence": 0.6161
+        },
+        "preliminary_classification": {
+          "category": "Multi-Factor Authentication",
+          "confidence": 0.9003,
+          "retrieval_intents": [
+            "mfa"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.75,
+          "overall_confidence": 0.9
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "I changed phones and cannot use Duo anymore",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify MFA device registration and push notification status.",
+            "Confirm the user has network access and can receive MFA prompts.",
+            "Escalate to Identity and Access Management for MFA reset or re-enrollment."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.69,
+          "answer_stage_latency_ms": 51.33,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 88.39,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 89.63408299999998
+    },
+    {
+      "case": {
+        "question": "I lost my MFA device and need a temporary bypass code",
+        "expected_sources": [
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "I lost my MFA device and need a temporary bypass code",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 6.046694638654218,
+            "rerank_score": 24.046694638654216
+          }
+        ],
+        "ticket": {
+          "summary": "I lost my MFA device and need a temporary bypass code",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Multi-Factor Authentication",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9614,
+          "ml_priority_confidence": 0.5891
+        },
+        "preliminary_classification": {
+          "category": "Multi-Factor Authentication",
+          "confidence": 0.9614,
+          "retrieval_intents": [
+            "mfa"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.75,
+          "overall_confidence": 0.9
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "I lost my MFA device and need a temporary bypass code",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Multi-Factor Authentication",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify MFA device registration and push notification status.",
+            "Confirm the user has network access and can receive MFA prompts.",
+            "Escalate to Identity and Access Management for MFA reset or re-enrollment."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.42,
+          "answer_stage_latency_ms": 45.96,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 82.75,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 83.93800000000073
+    },
+    {
+      "case": {
+        "question": "My SSO password reset did not sync and I cannot sign in",
+        "expected_sources": [
+          "password_reset_kb.md"
+        ],
+        "expected_category": "Account Access",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "My SSO password reset did not sync and I cannot sign in",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+        "sources": [
+          "password_reset_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Password Reset Knowledge Base\n\n## Overview\nThis article explains how users can reset their enterprise account password and regain access to systems connected through Single Sign-On.\n\n## Common Symptoms\nUsers may report that they forgot their password, their account is locked, or they cannot log in after changing their password.\n\n## Troubleshooting Steps\n1. Ask the user to visit the enterprise Single Sign-On password reset portal.\n2. Verify the user's identity using the approved recovery method.\n3. Reset the password and wait 5 to 10 minutes for synchronization.\n4. Ask the user to sign out of all active sessions.\n5. Ask the user to log in again using the new password.\n6. If the account is locked, wait for the lockout period or escalate to Identity and Access Management.\n\n## Escalation\nIf the user cannot reset the password or the account remains locked, route the ticket to Identity and Access Management.\n\n## Ticket Category\nAccount Access\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "password_reset_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 1.4691010836630314,
+            "rerank_score": 19.46910108366303
+          }
+        ],
+        "ticket": {
+          "summary": "My SSO password reset did not sync and I cannot sign in",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9643,
+          "ml_priority_confidence": 0.7157
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.9643,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.94
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Account Access"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "My SSO password reset did not sync and I cannot sign in",
+          "description": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "password_reset_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 42.77,
+          "answer_stage_latency_ms": 46.25,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 89.39,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 90.6147500000003
+    },
+    {
+      "case": {
+        "question": "I can sign in but my enterprise account keeps getting locked",
+        "expected_sources": [
+          "password_reset_kb.md"
+        ],
+        "expected_category": "Account Access",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Medium"
+      },
+      "result": {
+        "question": "I can sign in but my enterprise account keeps getting locked",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+        "sources": [
+          "password_reset_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Password Reset Knowledge Base\n\n## Overview\nThis article explains how users can reset their enterprise account password and regain access to systems connected through Single Sign-On.\n\n## Common Symptoms\nUsers may report that they forgot their password, their account is locked, or they cannot log in after changing their password.\n\n## Troubleshooting Steps\n1. Ask the user to visit the enterprise Single Sign-On password reset portal.\n2. Verify the user's identity using the approved recovery method.\n3. Reset the password and wait 5 to 10 minutes for synchronization.\n4. Ask the user to sign out of all active sessions.\n5. Ask the user to log in again using the new password.\n6. If the account is locked, wait for the lockout period or escalate to Identity and Access Management.\n\n## Escalation\nIf the user cannot reset the password or the account remains locked, route the ticket to Identity and Access Management.\n\n## Ticket Category\nAccount Access\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "password_reset_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.57834015902843,
+            "rerank_score": 17.57834015902843
+          }
+        ],
+        "ticket": {
+          "summary": "I can sign in but my enterprise account keeps getting locked",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Medium",
+          "ml_category_confidence": 0.9696,
+          "ml_priority_confidence": 0.6842
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.9696,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.9,
+          "overall_confidence": 0.96
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Account Access"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "I can sign in but my enterprise account keeps getting locked",
+          "description": "Based on the knowledge base, this appears to be an account access issue. Please try resetting your password through the approved password reset process. If your account is locked, wait for the lockout period to expire or contact the Identity and Access Management team for account unlock support.",
+          "category": "Account Access",
+          "priority": "Medium",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "password_reset_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 37.5,
+          "answer_stage_latency_ms": 51.86,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 89.71,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 90.91504199999977
+    },
+    {
+      "case": {
+        "question": "Several users in finance cannot log in",
+        "expected_sources": [
+          "password_reset_kb.md",
+          "priority_matrix.md"
+        ],
+        "expected_category": "Account Access",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "High"
+      },
+      "result": {
+        "question": "Several users in finance cannot log in",
+        "domain": "it_support",
+        "answer": "Based on the retrieved knowledge base content, this request may require priority review. Please include the number of affected users, business impact, and whether this is blocking production or normal work.",
+        "sources": [
+          "password_reset_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Password Reset Knowledge Base\n\n## Overview\nThis article explains how users can reset their enterprise account password and regain access to systems connected through Single Sign-On.\n\n## Common Symptoms\nUsers may report that they forgot their password, their account is locked, or they cannot log in after changing their password.\n\n## Troubleshooting Steps\n1. Ask the user to visit the enterprise Single Sign-On password reset portal.\n2. Verify the user's identity using the approved recovery method.\n3. Reset the password and wait 5 to 10 minutes for synchronization.\n4. Ask the user to sign out of all active sessions.\n5. Ask the user to log in again using the new password.\n6. If the account is locked, wait for the lockout period or escalate to Identity and Access Management.\n\n## Escalation\nIf the user cannot reset the password or the account remains locked, route the ticket to Identity and Access Management.\n\n## Ticket Category\nAccount Access\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "password_reset_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.7396825953945128,
+            "rerank_score": 12.739682595394513
+          }
+        ],
+        "ticket": {
+          "summary": "Several users in finance cannot log in",
+          "category": "Account Access",
+          "priority": "High",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "High",
+          "ml_category_confidence": 0.9505,
+          "ml_priority_confidence": 0.8621
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.9505,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.79,
+          "classification_confidence": 0.65,
+          "overall_confidence": 0.73
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": []
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "Several users in finance cannot log in",
+          "description": "Based on the retrieved knowledge base content, this request may require priority review. Please include the number of affected users, business impact, and whether this is blocking production or normal work.",
+          "category": "Account Access",
+          "priority": "High",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "password_reset_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.25,
+          "answer_stage_latency_ms": 44.53,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 81.14,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 82.32091599999958
+    },
+    {
+      "case": {
+        "question": "Security incident affecting company authentication",
+        "expected_sources": [
+          "priority_matrix.md",
+          "mfa_duo_kb.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Critical"
+      },
+      "result": {
+        "question": "Security incident affecting company authentication",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "priority_matrix.md",
+          "vpn_troubleshooting_kb.md",
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Ticket Priority Matrix\n\n## Overview\nThis document defines priority levels for enterprise support tickets.\n\n## Low Priority\nUse Low priority when the issue has a workaround and does not block the user from working.\n\nExamples:\n- General software questions\n- Minor UI issues\n- Non-urgent access requests\n\n## Medium Priority\nUse Medium priority when one user is blocked from completing normal work but there is no company-wide impact.\n\nExamples:\n- One user cannot access VPN\n- One user cannot log in to email\n- One user needs password reset\n- One user cannot approve Duo MFA\n\n## High Priority\nUse High priority when multiple users are affected or a business-critical team is blocked.\n\nExamples:\n- Multiple users cannot access VPN\n- Department-wide email access issue\n- Shared application outage\n\n## Critical Priority\nUse Critical priority when there is a production outage, security incident, or company-wide service disruption.\n\nExamples:\n- Production system outage\n- Security breach\n- Company-wide authentication failure",
+            "source": "priority_matrix.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 3.3360994527043975,
+            "rerank_score": 7.3360994527043975
+          },
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.45579127614550424,
+            "rerank_score": 2.4557912761455043
+          },
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.18082488571710484,
+            "rerank_score": 1.1808248857171049
+          }
+        ],
+        "ticket": {
+          "summary": "Security incident affecting company authentication",
+          "category": "Account Access",
+          "priority": "Critical",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Account Access",
+          "ml_priority": "Critical",
+          "ml_category_confidence": 0.6471,
+          "ml_priority_confidence": 0.8363
+        },
+        "preliminary_classification": {
+          "category": "Account Access",
+          "confidence": 0.6471,
+          "retrieval_intents": [
+            "account"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 1.0,
+          "classification_confidence": 0.65,
+          "overall_confidence": 0.86
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "create_urgent_ticket_draft",
+          "reason": "Critical priority issue detected.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "Security incident affecting company authentication",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Account Access",
+          "priority": "Critical",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "priority_matrix.md",
+            "vpn_troubleshooting_kb.md",
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "create_urgent_ticket_draft",
+          "suggested_steps": [
+            "Verify account lockout or password reset status.",
+            "Confirm whether the user can sign in to other enterprise services.",
+            "Escalate to Identity and Access Management if access remains blocked."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 41.64,
+          "answer_stage_latency_ms": 44.11,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 86.11,
+          "retrieved_chunk_count": 3,
+          "source_count": 3,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 87.29366699999997
+    },
+    {
+      "case": {
+        "question": "Which support team handles VPN connectivity issues?",
+        "expected_sources": [
+          "vpn_troubleshooting_kb.md",
+          "ticket_routing_rules.md"
+        ],
+        "expected_category": "VPN Connectivity",
+        "expected_team": "Network Support",
+        "expected_priority": "Low"
+      },
+      "result": {
+        "question": "Which support team handles VPN connectivity issues?",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+        "sources": [
+          "vpn_troubleshooting_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# VPN Troubleshooting Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot VPN connectivity issues for enterprise users.\n\n## Common Symptoms\nUsers may report that the VPN disconnects frequently, fails after a password reset, shows an authentication error, or cannot connect to the company network.\n\n## Troubleshooting Steps\n1. Confirm the user can log in to the Single Sign-On portal.\n2. Ask the user to restart the VPN client.\n3. Verify that Duo MFA approval is working.\n4. Clear saved VPN credentials from the VPN client.\n5. Confirm the user is using the latest VPN client version.\n6. Ask the user to reconnect using the new password if the password was recently changed.\n\n## Escalation\nIf the issue continues after these steps, route the ticket to Network Support.\n\n## Ticket Category\nVPN Connectivity\n\n## Assigned Team\nNetwork Support\n\n## Default Priority\nMedium",
+            "source": "vpn_troubleshooting_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.6498976482718697,
+            "rerank_score": 14.64989764827187
+          }
+        ],
+        "ticket": {
+          "summary": "Which support team handles VPN connectivity issues?",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "VPN Connectivity",
+          "ml_priority": "Low",
+          "ml_category_confidence": 0.9635,
+          "ml_priority_confidence": 0.7424
+        },
+        "preliminary_classification": {
+          "category": "VPN Connectivity",
+          "confidence": 0.9635,
+          "retrieval_intents": [
+            "vpn"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.7,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.76
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "VPN Connectivity"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Network Support"
+        },
+        "ticket_draft": {
+          "title": "Which support team handles VPN connectivity issues?",
+          "description": "Based on the knowledge base, this appears to be a VPN connectivity issue. Please verify your internet connection, confirm that your VPN client is updated, restart the VPN application, and try signing in again. If the issue started after a password reset, make sure you are using the updated password and reconnecting through the VPN client.",
+          "category": "VPN Connectivity",
+          "priority": "Low",
+          "assigned_team": "Network Support",
+          "source_references": [
+            "vpn_troubleshooting_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify network connectivity and VPN client status.",
+            "Confirm whether the issue started after a password reset.",
+            "Escalate to Network Support if reconnection fails."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.49,
+          "answer_stage_latency_ms": 51.26,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 88.1,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 89.25441599999928
+    },
+    {
+      "case": {
+        "question": "Which team should handle Duo MFA reset requests?",
+        "expected_sources": [
+          "mfa_duo_kb.md",
+          "ticket_routing_rules.md"
+        ],
+        "expected_category": "Multi-Factor Authentication",
+        "expected_team": "Identity and Access Management",
+        "expected_priority": "Low"
+      },
+      "result": {
+        "question": "Which team should handle Duo MFA reset requests?",
+        "domain": "it_support",
+        "answer": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+        "sources": [
+          "mfa_duo_kb.md"
+        ],
+        "retrieved_chunks": [
+          {
+            "text": "# Duo MFA Knowledge Base\n\n## Overview\nThis article explains how to troubleshoot Duo Multi-Factor Authentication issues.\n\n## Common Symptoms\nUsers may report that they are not receiving Duo push notifications, cannot approve MFA, changed phones, or lost access to their authentication device.\n\n## Troubleshooting Steps\n1. Verify that the user has network connectivity on their mobile device.\n2. Ask the user to open the Duo Mobile app manually.\n3. Ask the user to check whether push notifications are enabled.\n4. If the user changed phones, re-register the new device.\n5. If the user lost the device, verify identity and issue a temporary bypass code according to policy.\n\n## Escalation\nIf the user cannot complete MFA after basic troubleshooting, route the ticket to Identity and Access Management.\n\n## Ticket Category\nMulti-Factor Authentication\n\n## Assigned Team\nIdentity and Access Management\n\n## Default Priority\nMedium",
+            "source": "mfa_duo_kb.md",
+            "domain": "it_support",
+            "source_type": "markdown",
+            "retrieval_method": "bm25",
+            "score": 0.48718285339516454,
+            "rerank_score": 15.487182853395165
+          }
+        ],
+        "ticket": {
+          "summary": "Which team should handle Duo MFA reset requests?",
+          "category": "Multi-Factor Authentication",
+          "priority": "Low",
+          "assigned_team": "Identity and Access Management",
+          "classification_method": "hybrid_ml_nlp",
+          "ml_model": "pytorch_multitask_ticket_classifier",
+          "ml_category": "Multi-Factor Authentication",
+          "ml_priority": "Low",
+          "ml_category_confidence": 0.9667,
+          "ml_priority_confidence": 0.4955
+        },
+        "preliminary_classification": {
+          "category": "Multi-Factor Authentication",
+          "confidence": 0.9667,
+          "retrieval_intents": [
+            "mfa"
+          ],
+          "retrieval_mode": "targeted",
+          "fallback_reason": "",
+          "model": "pytorch_multitask_ticket_classifier"
+        },
+        "answer_generation_mode": "rule_based",
+        "fallback_triggered": false,
+        "confidence": {
+          "retrieval_confidence": 0.54,
+          "classification_confidence": 0.85,
+          "overall_confidence": 0.66
+        },
+        "confusion_analysis": {
+          "multi_intent": false,
+          "matched_categories": [
+            "Multi-Factor Authentication"
+          ]
+        },
+        "agent_decision": {
+          "next_action": "answer_and_create_ticket_draft",
+          "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
+          "assigned_team": "Identity and Access Management"
+        },
+        "ticket_draft": {
+          "title": "Which team should handle Duo MFA reset requests?",
+          "description": "Based on the knowledge base, this appears to be a multi-factor authentication issue. Please check your Duo/MFA device, ensure push notifications are enabled, verify network access, and try approving the request again. If the issue continues, contact the Identity and Access Management team.",
+          "category": "Multi-Factor Authentication",
+          "priority": "Low",
+          "assigned_team": "Identity and Access Management",
+          "source_references": [
+            "mfa_duo_kb.md"
+          ],
+          "next_action": "answer_and_create_ticket_draft",
+          "suggested_steps": [
+            "Verify MFA device registration and push notification status.",
+            "Confirm the user has network access and can receive MFA prompts.",
+            "Escalate to Identity and Access Management for MFA reset or re-enrollment."
+          ]
+        },
+        "workflow_engine": "llamaindex_workflows",
+        "engineering_metrics": {
+          "preclassification_stage_latency_ms": 36.52,
+          "answer_stage_latency_ms": 45.71,
+          "decision_stage_latency_ms": 0.01,
+          "ticket_draft_stage_latency_ms": 0.0,
+          "total_workflow_latency_ms": 82.6,
+          "retrieved_chunk_count": 1,
+          "source_count": 1,
+          "workflow_engine": "llamaindex_workflows",
+          "llamaindex_workflows_available": true
+        },
+        "errors": []
+      },
+      "wall_ms": 83.76737499999987
+    }
+  ],
+  "models": {
+    "pytorch": {
+      "available": true,
+      "model": "pytorch_multitask_ticket_classifier",
+      "examples": 16,
+      "category_accuracy": 1.0,
+      "category_weighted_f1": 1.0,
+      "priority_accuracy": 0.875,
+      "priority_weighted_f1": 0.874
+    },
+    "logistic_regression": {
+      "available": true,
+      "model": "tfidf_logistic_regression",
+      "examples": 16,
+      "category_accuracy": 0.9375,
+      "category_weighted_f1": 0.9365,
+      "priority_accuracy": 0.6875,
+      "priority_weighted_f1": 0.6821
+    }
+  }
+}

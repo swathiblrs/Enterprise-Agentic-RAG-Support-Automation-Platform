@@ -1,0 +1,16 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.venv*/
+*.pyc
+.env
+*.db
+*.sqlite
+dist/
+build/
+evals/reports/
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl

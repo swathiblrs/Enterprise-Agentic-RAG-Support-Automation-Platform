@@ -1,0 +1,1124 @@
+{
+  "n": 24,
+  "old_correct": 10,
+  "new_correct": 18,
+  "cases": [
+    {
+      "id": "it-test-1",
+      "domain": "it",
+      "split": "test",
+      "text": "The corporate wireless network refuses my laptop credentials",
+      "expected": "it",
+      "old": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 2,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "laptop"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 2,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "laptop"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "it-test-2",
+      "domain": "it",
+      "split": "test",
+      "text": "A new employee needs their account unlocked",
+      "expected": "it",
+      "old": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 2,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "account"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 2,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "account"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "it-test-3",
+      "domain": "it",
+      "split": "test",
+      "text": "I am unable to use the remote work connection",
+      "expected": "it",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": true,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "it",
+          "score": 0.33626,
+          "margin": 0.15381,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "it-test-4",
+      "domain": "it",
+      "split": "test",
+      "text": "My authentication app is asking to be enrolled again",
+      "expected": "it",
+      "old": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "authentication"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "authentication"
+        ],
+        "support_context": true,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "security-test-1",
+      "domain": "security",
+      "split": "test",
+      "text": "Identity telemetry shows unauthorized privilege escalation",
+      "expected": "security",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "security",
+          "score": 0.34317,
+          "margin": 0.19139,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "security-test-2",
+      "domain": "security",
+      "split": "test",
+      "text": "A malicious attachment installed a backdoor",
+      "expected": "security",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "security",
+          "score": 0.30272,
+          "margin": 0.11308,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "security-test-3",
+      "domain": "security",
+      "split": "test",
+      "text": "A user approved an unexpected application consent request",
+      "expected": "security",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "production",
+          "score": 0.31922,
+          "margin": 0.05365,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "security-test-4",
+      "domain": "security",
+      "split": "test",
+      "text": "Someone is extracting confidential files to an unknown destination",
+      "expected": "security",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "security",
+          "score": 0.33382,
+          "margin": 0.15229,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "production-test-1",
+      "domain": "production",
+      "split": "test",
+      "text": "The order endpoint is failing its health checks",
+      "expected": "production",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "production",
+          "score": 0.18894,
+          "margin": 0.00213,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "production-test-2",
+      "domain": "production",
+      "split": "test",
+      "text": "Traffic to the application produces intermittent server errors",
+      "expected": "production",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "production",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "production",
+          "score": 0.51909,
+          "margin": 0.39974,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "production-test-3",
+      "domain": "production",
+      "split": "test",
+      "text": "A connection leak is exhausting the service thread pool",
+      "expected": "production",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "production",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "production",
+          "score": 0.54381,
+          "margin": 0.42311,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "production-test-4",
+      "domain": "production",
+      "split": "test",
+      "text": "The storefront cannot complete transactions after a version change",
+      "expected": "production",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "cloud",
+          "score": 0.24698,
+          "margin": 0.05808,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "cloud-test-1",
+      "domain": "cloud",
+      "split": "test",
+      "text": "An instance group has no capacity in the selected zone",
+      "expected": "cloud",
+      "old": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 2,
+          "production": 0
+        },
+        "matched_signals": [
+          "instance"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 2,
+          "production": 0
+        },
+        "matched_signals": [
+          "instance"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "cloud-test-2",
+      "domain": "cloud",
+      "split": "test",
+      "text": "The cloud network route table points at a missing gateway",
+      "expected": "cloud",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "cloud",
+          "score": 0.25439,
+          "margin": 0.08967,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "cloud-test-3",
+      "domain": "cloud",
+      "split": "test",
+      "text": "A managed cluster has unavailable worker nodes",
+      "expected": "cloud",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "cloud",
+          "score": 0.55288,
+          "margin": 0.41054,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "cloud-test-4",
+      "domain": "cloud",
+      "split": "test",
+      "text": "Compute provisioning is blocked by subscription limits",
+      "expected": "cloud",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "it",
+          "score": 0.20988,
+          "margin": 0.00075,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "data-test-1",
+      "domain": "data",
+      "split": "test",
+      "text": "The daily revenue table is stale despite a successful job",
+      "expected": "data",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "data",
+          "score": 0.26569,
+          "margin": 0.07496,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "data-test-2",
+      "domain": "data",
+      "split": "test",
+      "text": "The feature store has missing values for recent records",
+      "expected": "data",
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "ml_fallback",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "data",
+          "score": 0.31974,
+          "margin": 0.14039,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "data-test-3",
+      "domain": "data",
+      "split": "test",
+      "text": "Historical partitions were skipped by the backfill",
+      "expected": "data",
+      "old": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "backfill"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "backfill"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "data-test-4",
+      "domain": "data",
+      "split": "test",
+      "text": "A transformation change altered the schema expected by analytics",
+      "expected": "data",
+      "old": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "schema"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      },
+      "new": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "schema"
+        ],
+        "support_context": false,
+        "model_prediction": {
+          "available": false,
+          "accepted": false
+        },
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "id": "other-test-1",
+      "domain": "other",
+      "split": "test",
+      "text": "Plan a weekend trip to the beach",
+      "expected": null,
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "other",
+          "score": 0.22415,
+          "margin": 0.00471,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "other-test-2",
+      "domain": "other",
+      "split": "test",
+      "text": "Write a thank you note for my teacher",
+      "expected": null,
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "other",
+          "score": 0.36884,
+          "margin": 0.16551,
+          "accepted": true,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "other-test-3",
+      "domain": "other",
+      "split": "test",
+      "text": "I need advice about buying running shoes",
+      "expected": null,
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "it",
+          "score": 0.21367,
+          "margin": 0.02862,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "id": "other-test-4",
+      "domain": "other",
+      "split": "test",
+      "text": "Can you help me with an unspecified problem",
+      "expected": null,
+      "old": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      },
+      "new": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "model_prediction": {
+          "available": true,
+          "model": "char_tfidf_logistic_regression",
+          "domain": "other",
+          "score": 0.28345,
+          "margin": 0.10297,
+          "accepted": false,
+          "threshold": 0.3,
+          "score_kind": "uncalibrated_model_probability"
+        },
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    }
+  ],
+  "caveat": "Synthetic, manually authored test sentences, not independently reviewed. Model hyperparameters selected only on validation."
+}

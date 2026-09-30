@@ -2,30 +2,49 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
+          python-version: '3.11'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Run tests
-        run: python -m pytest
-
-      - name: Run evaluation
+      - name: Run original support tests
+        run: python -m pytest tests
+      - name: Run original evaluation
         run: python -m src.evaluator
+
+  combined:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: combined
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Prepare support environment and index
+        run: |
+          python -m venv .venv-support
+          .venv-support/bin/pip install -r support/requirements.txt
+          echo "SUPPORT_PYTHON=$PWD/.venv-support/bin/python" >> "$GITHUB_ENV"
+          cd support
+          ../.venv-support/bin/python -m src.ingest
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare API environment
+        run: |
+          python -m venv .venv-api
+          .venv-api/bin/pip install -r incident/requirements.txt pytest
+      - name: Test combined platform
+        run: .venv-api/bin/python -m pytest test_combined.py test_regressions.py test_improvements.py -q

@@ -1,0 +1,345 @@
+{
+  "n": 16,
+  "correct": 12,
+  "cases": [
+    {
+      "question": "My virtual private network stopped connecting",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "Our SSO rejects an entire department",
+      "expected_domain": "it",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "it",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "sso"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Multiple staff cannot authenticate",
+      "expected_domain": "it",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "Microsoft Entra detected password-spray attempts",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "security_policy",
+        "scores": {
+          "security": 6,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "password-spray"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Unexpected OAuth permissions on user identity",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "Kubernetes pods cannot schedule because capacity is exhausted",
+      "expected_domain": "cloud",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [
+          "kubernetes"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Azure virtual machines have disappeared",
+      "expected_domain": "cloud",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "cloud",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 2,
+          "production": 0
+        },
+        "matched_signals": [
+          "azure"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Ingress reports HTTP 502 errors",
+      "expected_domain": "production",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "An ETL transform is failing",
+      "expected_domain": "data",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "etl"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "Warehouse jobs show stale partitions",
+      "expected_domain": "data",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "data",
+        "path": "investigate",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "warehouse"
+        ],
+        "support_context": false,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "I need a password reset; there was no breach",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "password"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "We detected malware but password reset did not fix it",
+      "expected_domain": "security",
+      "expected_path": "investigate",
+      "actual": {
+        "domain": "security",
+        "path": "investigate",
+        "routing_mode": "security_policy",
+        "scores": {
+          "security": 5,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "malware"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    },
+    {
+      "question": "ETL failure and Kubernetes node failure",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "ambiguous",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 5,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "What is a load balancer?",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 5,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "CPU 98 percent please help",
+      "expected_domain": null,
+      "expected_path": "clarify",
+      "actual": {
+        "domain": null,
+        "path": "clarify",
+        "routing_mode": "clarification",
+        "scores": {
+          "security": 0,
+          "it": 0,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [],
+        "support_context": false,
+        "reason": "Clarify missing or ambiguous domain."
+      }
+    },
+    {
+      "question": "My Duo enrollment needs help",
+      "expected_domain": "it",
+      "expected_path": "support",
+      "actual": {
+        "domain": "it",
+        "path": "support",
+        "routing_mode": "weighted_policy",
+        "scores": {
+          "security": 0,
+          "it": 4,
+          "data": 0,
+          "cloud": 0,
+          "production": 0
+        },
+        "matched_signals": [
+          "duo"
+        ],
+        "support_context": true,
+        "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+      }
+    }
+  ],
+  "note": "Additional hand-authored diagnostic probe; not independently labeled. No router changes made in response to these results."
+}

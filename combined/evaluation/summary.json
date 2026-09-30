@@ -1,0 +1,159 @@
+{
+  "mode": "offline",
+  "routing_diagnostic": {
+    "n": 36,
+    "domain_accuracy": 0.6666666666666666,
+    "domain_macro_f1": 0.6796218487394957,
+    "path_accuracy": 0.6111111111111112,
+    "escalation_precision": 0.7647058823529411,
+    "escalation_recall": 0.5652173913043478,
+    "unnecessary_escalation_rate": 0.3076923076923077,
+    "missed_escalation_rate": 0.43478260869565216,
+    "tp": 13,
+    "fp": 4,
+    "fn": 10
+  },
+  "incident_regression": {
+    "n": 12,
+    "baseline": {
+      "pass": 1.0,
+      "status": 1.0,
+      "risk": 1.0,
+      "actions": 1.0,
+      "evidence": 1.0
+    },
+    "combined": {
+      "pass": 0.5833333333333334,
+      "status": 0.5833333333333334,
+      "risk": 0.6666666666666666,
+      "actions": 0.5833333333333334,
+      "evidence": 0.75
+    },
+    "domain_accuracy": 0.5833333333333334
+  },
+  "support_regression": {
+    "n": 20,
+    "baseline": {
+      "hit": 1.0,
+      "precision_returned": 0.9666666666666666,
+      "precision_at_3": 0.36666666666666664,
+      "recall": 0.85,
+      "top1": 1.0,
+      "category": 0.9,
+      "team": 1.0,
+      "priority": 1.0,
+      "legacy_groundedness_proxy": 1.0,
+      "legacy_faithfulness_proxy": 1.0
+    },
+    "combined": {
+      "hit": 0.8,
+      "precision_returned": 0.8,
+      "precision_at_3": 0.26666666666666666,
+      "recall": 0.7,
+      "top1": 0.8,
+      "category": 0.8,
+      "team": 0.8,
+      "priority": 0.8,
+      "legacy_groundedness_proxy": 0.85,
+      "legacy_faithfulness_proxy": 1.0
+    }
+  },
+  "original_index_support_baseline": {
+    "hit": 1.0,
+    "precision_returned": 0.9666666666666666,
+    "precision_at_3": 0.36666666666666664,
+    "recall": 0.85,
+    "top1": 1.0,
+    "category": 0.9,
+    "team": 1.0,
+    "priority": 1.0,
+    "legacy_groundedness_proxy": 1.0,
+    "legacy_faithfulness_proxy": 1.0
+  },
+  "explicit_domain_incidents": {
+    "pass": 1.0,
+    "status": 1.0,
+    "risk": 1.0,
+    "actions": 1.0,
+    "evidence": 1.0
+  },
+  "model_test": {
+    "pytorch": {
+      "available": true,
+      "model": "pytorch_multitask_ticket_classifier",
+      "examples": 16,
+      "category_accuracy": 1.0,
+      "category_weighted_f1": 1.0,
+      "priority_accuracy": 0.875,
+      "priority_weighted_f1": 0.874
+    },
+    "logistic_regression": {
+      "available": true,
+      "model": "tfidf_logistic_regression",
+      "examples": 16,
+      "category_accuracy": 0.9375,
+      "category_weighted_f1": 0.9365,
+      "priority_accuracy": 0.6875,
+      "priority_weighted_f1": 0.6821
+    }
+  },
+  "http_performance": [
+    {
+      "workload": "incident_offline",
+      "concurrency": 1,
+      "n": 20,
+      "success": 20,
+      "p50_ms": 10.825500001374166,
+      "p95_ms": 12.414457996783312,
+      "throughput_requests_per_second": 90.41608365046298,
+      "wall_seconds": 0.22119958300027065
+    },
+    {
+      "workload": "mixed_50_percent_support",
+      "concurrency": 1,
+      "n": 8,
+      "success": 8,
+      "p50_ms": 13.431332998152357,
+      "p95_ms": 4763.159000001906,
+      "throughput_requests_per_second": 0.4410246656826046,
+      "wall_seconds": 18.13957500000106
+    },
+    {
+      "workload": "incident_offline",
+      "concurrency": 2,
+      "n": 20,
+      "success": 20,
+      "p50_ms": 21.94716699887067,
+      "p95_ms": 27.924041998630855,
+      "throughput_requests_per_second": 89.64666899484027,
+      "wall_seconds": 0.22309808299905853
+    },
+    {
+      "workload": "mixed_50_percent_support",
+      "concurrency": 2,
+      "n": 8,
+      "success": 8,
+      "p50_ms": 16.45983300113585,
+      "p95_ms": 5355.615000000398,
+      "throughput_requests_per_second": 0.79925523734519,
+      "wall_seconds": 10.009318208001787
+    }
+  ],
+  "created_at": "2026-09-29T20:33:07.299815+00:00",
+  "resume_capabilities": {
+    "domains": 5,
+    "registered_tools": 6,
+    "registered_agents": 5,
+    "advertised_capabilities": 15,
+    "nine_end_to_end_steps": "not verified; new API does not expose postmortems"
+  },
+  "unmeasured": [
+    "semantic groundedness",
+    "semantic faithfulness",
+    "real investigation correctness",
+    "human time saved",
+    "real user helpfulness",
+    "live LLM performance",
+    "production capacity"
+  ]
+}

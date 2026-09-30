@@ -1,0 +1,319 @@
+{
+  "provenance": "Hand-authored synthetic demo data. Validation/test are separate sentences; no independent human review or production representativeness is claimed. Historical routing failures informed training examples. No test-set tuning.",
+  "counts": {
+    "train": 72,
+    "validation": 24,
+    "test": 24
+  },
+  "selected_C": 5,
+  "threshold": 0.3,
+  "margin": 0.1,
+  "runtime_equivalence_max_tolerance": 1e-09,
+  "selection": "validation only",
+  "results": {
+    "validation": {
+      "accuracy": 0.75,
+      "macro_f1": 0.7521645021645021,
+      "coverage": 0.5,
+      "accepted_accuracy": 0.9166666666666666,
+      "cases": [
+        {
+          "text": "The office scanner cannot be found by my workstation",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true
+        },
+        {
+          "text": "An employee cannot access the company intranet",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true
+        },
+        {
+          "text": "The VPN client says authentication expired",
+          "expected": "it",
+          "predicted": "security",
+          "accepted": false
+        },
+        {
+          "text": "My Outlook application is stuck synchronizing mail",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true
+        },
+        {
+          "text": "The SOC detected a cryptominer on an endpoint",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true
+        },
+        {
+          "text": "An attacker added an unapproved OAuth application",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": false
+        },
+        {
+          "text": "Suspicious credentials are being used outside working hours",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true
+        },
+        {
+          "text": "Security monitoring found a command and control connection",
+          "expected": "security",
+          "predicted": "it",
+          "accepted": false
+        },
+        {
+          "text": "The API has a spike in tail response time",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false
+        },
+        {
+          "text": "Customer transactions fail after the latest rollout",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false
+        },
+        {
+          "text": "Our service reports bad gateway responses",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true
+        },
+        {
+          "text": "Message processing has stopped in production",
+          "expected": "production",
+          "predicted": "data",
+          "accepted": false
+        },
+        {
+          "text": "The cloud provider rejected a provisioning request",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": false
+        },
+        {
+          "text": "An AWS load balancer health probe is failing",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true
+        },
+        {
+          "text": "The Kubernetes scheduler cannot place additional workloads",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true
+        },
+        {
+          "text": "Azure subscription resource limits prevent scaling",
+          "expected": "cloud",
+          "predicted": "data",
+          "accepted": false
+        },
+        {
+          "text": "The analytics dataset contains duplicate primary keys",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": false
+        },
+        {
+          "text": "A scheduled ingestion run did not populate its target table",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "Our data freshness check failed on an upstream source",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "The pipeline cannot parse the new source format",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "Recommend a book to read on holiday",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true
+        },
+        {
+          "text": "How long should I bake a cake",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": false
+        },
+        {
+          "text": "Can you explain the rules of cricket",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": false
+        },
+        {
+          "text": "Something is wrong but I have no details",
+          "expected": "other",
+          "predicted": "data",
+          "accepted": false
+        }
+      ]
+    },
+    "test": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.8357142857142855,
+      "coverage": 0.5833333333333334,
+      "accepted_accuracy": 1.0,
+      "cases": [
+        {
+          "text": "The corporate wireless network refuses my laptop credentials",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true
+        },
+        {
+          "text": "A new employee needs their account unlocked",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true
+        },
+        {
+          "text": "I am unable to use the remote work connection",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true
+        },
+        {
+          "text": "My authentication app is asking to be enrolled again",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": false
+        },
+        {
+          "text": "Identity telemetry shows unauthorized privilege escalation",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true
+        },
+        {
+          "text": "A malicious attachment installed a backdoor",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true
+        },
+        {
+          "text": "A user approved an unexpected application consent request",
+          "expected": "security",
+          "predicted": "production",
+          "accepted": false
+        },
+        {
+          "text": "Someone is extracting confidential files to an unknown destination",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true
+        },
+        {
+          "text": "The order endpoint is failing its health checks",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false
+        },
+        {
+          "text": "Traffic to the application produces intermittent server errors",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true
+        },
+        {
+          "text": "A connection leak is exhausting the service thread pool",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true
+        },
+        {
+          "text": "The storefront cannot complete transactions after a version change",
+          "expected": "production",
+          "predicted": "cloud",
+          "accepted": false
+        },
+        {
+          "text": "An instance group has no capacity in the selected zone",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true
+        },
+        {
+          "text": "The cloud network route table points at a missing gateway",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": false
+        },
+        {
+          "text": "A managed cluster has unavailable worker nodes",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true
+        },
+        {
+          "text": "Compute provisioning is blocked by subscription limits",
+          "expected": "cloud",
+          "predicted": "it",
+          "accepted": false
+        },
+        {
+          "text": "The daily revenue table is stale despite a successful job",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": false
+        },
+        {
+          "text": "The feature store has missing values for recent records",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "Historical partitions were skipped by the backfill",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "A transformation change altered the schema expected by analytics",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true
+        },
+        {
+          "text": "Plan a weekend trip to the beach",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": false
+        },
+        {
+          "text": "Write a thank you note for my teacher",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true
+        },
+        {
+          "text": "I need advice about buying running shoes",
+          "expected": "other",
+          "predicted": "it",
+          "accepted": false
+        },
+        {
+          "text": "Can you help me with an unspecified problem",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": false
+        }
+      ]
+    }
+  }
+}

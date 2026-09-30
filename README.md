@@ -1,718 +1,116 @@
-# 🤖 Enterprise Agentic RAG Support Automation Platform
+# Enterprise Agentic RAG Support Automation Platform
 
-A production-ready AI agent that helps enterprise IT and support teams answer, triage, route, and respond to support issues using LlamaIndex Workflows-based orchestration + Retrieval-Augmented Generation (RAG).
+An AI support and incident-investigation prototype combining LlamaIndex workflows, LangGraph orchestration, retrieval-augmented generation, and ML-based routing across security, production, cloud, data, and IT.
 
-## 🌟 Why This Project Exists
+## Why This Project Exists
 
-Enterprise IT support teams spend valuable time answering repeated questions, searching knowledge-base documents, triaging unclear issues, and routing tickets to the right team.
+Support teams need to distinguish routine questions from incidents, find relevant documentation, and route issues with useful context. This platform brings those steps into one authenticated interface: answer a support question, investigate an incident, or request clarification when the available information is insufficient.
 
-This system acts as an AI copilot for support automation, helping reduce response time, improve ticket quality, and generate grounded answers from internal documentation.
+## System Architecture
 
-The agent can:
+![Combined platform architecture](combined/architecture.png)
 
-- Retrieve relevant knowledge-base content
-- Generate source-backed support answers
-- Classify issues
-- Predict priority
-- Recommend routing
-- Suggest next steps
-- Create ticket drafts
-- Track confidence
-- Capture feedback
+**High-level workflow**
 
-## 🏗️ System Architecture
+Login -> FastAPI -> policy + ML domain routing -> LlamaIndex support workflow and/or LangGraph investigation -> source-backed answer and reviewed ticket draft -> SQLite case history.
 
-![Enterprise Agentic RAG Support Automation Platform Architecture](docs/architecture.svg)
+**Core stack:** FastAPI, LlamaIndex, LangGraph, SentenceTransformers, ChromaDB, BM25, PyTorch, scikit-learn, JWT, and SQLite. The combined interface is a lightweight web UI; the original support application also includes Streamlit.
 
-High-level workflow:
+[Architecture details](combined/ARCHITECTURE.md) | [Vector diagram](combined/architecture.svg)
 
-User support question or uploaded document  
-➡️ LlamaIndex Workflows-based orchestration  
-➡️ RAG pipeline retrieves relevant knowledge-base chunks from ChromaDB and BM25  
-➡️ LangChain-powered grounded generation or offline fallback  
-➡️ Structured support response with sources, priority, routing, confidence, and ticket draft
+## Key Features
 
-Core stack:
+- Authentication: JWT-protected requests and user-scoped case history.
+- Routing: explicit domain selection, weighted policies, and a trained classifier with abstention thresholds.
+- Retrieval: semantic and BM25 search, metadata filtering, and source-aware reranking.
+- Investigation: five operational domains with preserved logs, events, identity, and service context.
+- Triage: ticket classification, priority, team recommendation, and human-reviewed drafts.
+- Transparency: separate support citations and investigation references; simulated evidence is labeled.
+- Persistence: SQLite case history and a reusable background support worker.
 
-- FastAPI for API backend
-- Streamlit for web UI
-- LlamaIndex Workflows for agent orchestration
-- ChromaDB for vector search
-- BM25 for keyword retrieval
-- SentenceTransformers for embeddings
-- PyTorch multi-task ticket classifier with shared layers, category head, and priority head
-- TF-IDF + Logistic Regression baseline for supervised NLP comparison
-- LangChain / OpenAI for optional grounded LLM generation
-- SQLite + JSONL logs for persistence and observability
-- Mock or webhook-based ITSM and chat integrations
-- Docker for containerization
-- Kubernetes manifests for deployment readiness
+## Measured Results
 
-## ✨ Key Features
+| Metric | Result | Evaluation scope |
+| --- | --- | --- |
+| Hybrid domain-routing accuracy | 75% (18/24) | Separate synthetic test split |
+| Recall@3 | 100% | 20 controlled support questions |
+| Precision@3 | 46.7% | Same 20 questions; fixed denominator of 3 |
+| Ticket category / team / priority accuracy | 90% / 95% / 100% | Same controlled support set |
+| Incident regression cases | 12/12 | Offline expected-behavior checks |
+| Automated tests | 15 passing | Combined integration test suite |
+| Mixed-workload p95 latency | Approximately 390 ms | Historical local offline worker benchmark; 8 requests at concurrency 2 |
 
-🔎 Support Automation Agent
+These are small, controlled evaluations, not production performance guarantees. The latency benchmark excludes live LLM calls and does not represent sustained load. Regression success does not establish factual correctness. Semantic groundedness and faithfulness have not been independently evaluated.
 
-- Ask IT support questions or upload support documents
-- Retrieve relevant knowledge-base content using hybrid search
-- Generate source-backed support answers
-- Classify issues, predict priority, and recommend routing using hybrid rules + supervised NLP/ML
-- Create ticket-ready drafts with suggested next steps
-- Prepare mock or webhook-based ITSM tickets and chat notifications
+[Latest evaluation](combined/EVALUATION_V3.md) | [Raw results](combined/evaluation-v3/) | [Worker benchmark](combined/EVALUATION_V2.md) | [Model card](combined/MODEL_CARD.md)
 
-🧠 Agentic Workflow
+## Datasets
 
-- Coordinate retrieval, answer generation, ticket intelligence, and escalation decisions
-- Use LlamaIndex Workflows to run staged support automation orchestration
-- Track confidence and detect low-confidence cases
-- Use LangChain-powered grounded generation when LLM access is enabled
-- Fall back to deterministic offline answers for local testing
+- Knowledge corpus: curated support documents and incident runbooks, not private company records.
+- Domain routing: 120 synthetic examples, split into 72 training, 24 validation, and 24 test examples. Labels are security, production, cloud, data, IT, and other.
+- Retrieval evaluation: 20 questions with expected source documents and support labels.
+- Incident evaluation: 12 scenarios with expected outcomes.
+- The inherited PyTorch category/priority classifier has separate training data and is distinct from the domain router.
 
-📊 Analytics and Evaluation
+Documents are indexed for retrieval; they do not train or fine-tune the LLM. The routing dataset has disjoint text splits but is not independently reviewed real-world data.
 
-- Capture user feedback and query logs
-- Track latency, workflow-stage timing, fallback rate, confidence, categories, and agent decisions
-- Evaluate retrieval quality, NLP/ML classification, routing accuracy, groundedness, and faithfulness
-- Store query, feedback, and ticket draft records in SQLite
+## Run Locally
 
-🚀 Production Readiness
+Use Python 3.12 for the API and Python 3.11 for the support environment. Two environments keep the inherited dependencies isolated.
 
-- FastAPI backend with Swagger docs
-- Streamlit UI for Ask, Analytics, and Upload workflows
-- API key and JWT authentication
-- Readiness checks and request validation
-- Docker, Kubernetes manifests, and GitHub Actions CI
+```sh
+git clone https://github.com/swathiblrs/Enterprise-Agentic-RAG-Support-Automation-Platform.git
+cd Enterprise-Agentic-RAG-Support-Automation-Platform/combined
+python3.12 -m venv .venv-api
+.venv-api/bin/pip install -r incident/requirements.txt pytest
+python3.11 -m venv .venv-support
+.venv-support/bin/pip install -r support/requirements.txt
+export SUPPORT_PYTHON="$PWD/.venv-support/bin/python"
+cd support
+"$SUPPORT_PYTHON" -m src.ingest
+cd ..
+.venv-api/bin/python -m uvicorn combined:api --host 127.0.0.1 --port 8765
+```
 
-## 📁 Project Structure
+Initial ingestion downloads the embedding model and builds the local index. The API uses offline generation and does not submit external actions. Model downloads require internet access. Dependencies are not fully locked; fresh-environment reproducibility remains a limitation.
+
+Open http://127.0.0.1:8765 and log in with `demo` / `local-demo-only`. This is a local demo account, not production identity management. Keep the server bound to localhost. JWTs expire on server restart. The first support request loads models; later requests reuse the worker.
+
+## Tests and Training
+
+From `combined/`, with `SUPPORT_PYTHON` set and ingestion complete:
+
+```sh
+.venv-api/bin/python -m pytest test_combined.py test_regressions.py test_improvements.py -q
+"$SUPPORT_PYTHON" train_domain_classifier.py
+```
+
+The second command retrains the domain router and writes its model and evaluation report. Historical evaluation artifacts are retained for traceability; some historical scripts reference the original local benchmark paths.
+
+## Project Structure
 
 ```text
-Enterprise RAG Support Automation Platform/
-app/
- └── streamlit_app.py        # Streamlit UI for Ask, Analytics, and Upload workflows
-
-src/
- ├── api.py                  # FastAPI REST API endpoints
- ├── security.py             # API key auth + JWT role-based auth
- ├── integrations.py         # Mock/webhook ITSM and chat adapters
- ├── persistence.py          # SQLite persistence for logs, feedback, and ticket drafts
- ├── orchestrator.py         # LlamaIndex Workflows orchestration and decisions
- ├── retriever.py            # Hybrid retrieval with ChromaDB + BM25
- ├── generator.py            # LangChain LLM generation + offline fallback
- ├── ticket_classifier.py    # Hybrid ML/rule category, priority, and routing logic
- ├── ml_ticket_model.py      # TF-IDF + Logistic Regression NLP ticket models
- ├── torch_ticket_model.py   # PyTorch multi-task ticket classifier
- ├── train_ticket_model.py   # PyTorch training and Logistic Regression comparison
- ├── ingest.py               # Knowledge-base ingestion and indexing
- ├── document_store.py       # Uploaded document storage
- ├── evaluator.py            # Retrieval, routing, groundedness, and faithfulness evaluation
- ├── logger.py               # Query logs, feedback logs, and metrics
- └── config.py               # Environment-based application settings
-
-data/                        # Sample enterprise support knowledge base + ML train/validation/test labels
-tests/                       # API tests and evaluation questions
-k8s/                         # Kubernetes deployment manifests
-.github/workflows/           # GitHub Actions CI pipeline
-
-Dockerfile                   # API container image
-docker-compose.yml           # Local multi-service runtime
-Makefile                     # Common development commands
-requirements.txt             # Python dependencies
-.env.example                 # Environment variable template
+combined/
+  combined.py              # Authenticated API and workflow coordination
+  routing.py               # Domain policy and ML fallback
+  domain_classifier.py     # Portable trained-model inference
+  domain_dataset.json      # Synthetic train/validation/test examples
+  train_domain_classifier.py
+  support_client.py        # Serialized persistent subprocess client
+  support_worker.py        # LlamaIndex support worker
+  evidence_provenance.py   # Evidence-origin labels
+  index.html               # Combined login and case interface
+  support/                 # Support RAG and ticket classification
+  incident/                # LangGraph investigation implementation
+  evaluation-v3/           # Latest controlled results
+  test_*.py                # Combined regression tests
+src/, app/, tests/         # Preserved original support application
 ```
 
-`logs/`, `vectorstore/`, and `.venv/` are excluded from GitHub.
+The original support application remains at the repository root. Its Docker, Kubernetes, and CI assets are not deployment manifests for the combined API. Its original README is retained at [docs/ORIGINAL_SUPPORT_README.md](docs/ORIGINAL_SUPPORT_README.md).
 
-## ⚙️ How It Works
+## Limitations and Next Steps
 
-### 1. Document Ingestion
+This is an integrated prototype, not a production-ready service. Some incident evidence is simulated and all findings require review. Shared document ingestion, production SSO/roles, live connectors, monitoring, postmortems, and unified deployment remain to be consolidated. Existing connector source does not mean those integrations are active in the combined API.
 
-The ingestion pipeline reads Markdown, text, and PDF files from the `data/` folder.
-
-```text
-Documents -> text extraction -> chunks -> embeddings -> ChromaDB
-```
-
-Run:
-
-```bash
-python src/ingest.py
-```
-
-### 2. Early Ticket Intent Classification
-
-Before RAG retrieval, the workflow runs a lightweight classifier to estimate the likely support area.
-
-```text
-Question -> early classifier -> retrieval intent
-```
-
-Examples:
-
-- VPN or internet issue -> `vpn`
-- password, login, or locked account -> `account`
-- Duo, MFA, or push notification issue -> `mfa`
-
-The early classification is used only to guide retrieval. Final ticket category, priority, team routing, and ticket draft generation still happen later in the workflow.
-
-If the classifier cannot confidently identify a support area, the system uses broad retrieval across the selected domain instead of failing.
-
-### 3. Hybrid Retrieval
-
-The retriever narrows the knowledge base using:
-
-- vector similarity search through ChromaDB
-- BM25 keyword search
-- domain metadata filtering
-- early retrieval intent hints from ticket classification
-- result merging
-- lightweight reranking
-
-Example:
-
-```text
-Question:
-My VPN is not working after I reset my password
-
-Likely retrieved sources:
-- vpn_troubleshooting_kb.md
-- password_reset_kb.md
-```
-
-### 4. Grounded Answer Generation
-
-The generator uses retrieved chunks to produce an answer.
-
-By default, the project uses deterministic rule-based generation so it can run locally without external API access.
-
-To enable LLM-based grounded generation:
-
-```env
-USE_LLM_GENERATION=true
-OPENAI_API_KEY=your_api_key
-LLM_MODEL_NAME=gpt-4o-mini
-```
-
-The LLM prompt instructs the model to answer only from retrieved context and cite source files.
-
-### 5. LlamaIndex Workflows Orchestration
-
-The API calls:
-
-```python
-run_support_workflow(question, domain="it_support")
-```
-
-The orchestrator runs the support flow as staged workflow events:
-
-- early ticket intent classification
-- retrieval
-- answer generation
-- ticket classification
-- confidence scoring
-- confusion detection
-- next-action decisions
-- escalation recommendations
-- ticket draft generation
-- engineering metrics collection
-
-Example agent decisions:
-
-- `answer_and_create_ticket_draft`
-- `ask_clarifying_question`
-- `create_urgent_ticket_draft`
-- `escalate_to_human`
-
-### 6. ITSM and Chat Integration Adapters
-
-The API prepares ticket and chat payloads for each support workflow.
-
-By default, integrations run in `mock` mode so the project is safe to demo locally. For real systems, configure webhook URLs:
-
-```env
-ITSM_INTEGRATION_MODE=webhook
-ITSM_WEBHOOK_URL=https://example.com/itsm-webhook
-CHAT_INTEGRATION_MODE=webhook
-CHAT_WEBHOOK_URL=https://example.com/chat-webhook
-```
-
-Use `disabled`, `mock`, or `webhook` for each integration mode.
-
-### 7. NLP/ML Ticket Intelligence
-
-The ticket intelligence layer combines deterministic guardrails with supervised NLP/ML models.
-
-The PyTorch pipeline uses:
-
-- SentenceTransformer embeddings when the model is available locally
-- deterministic hashing embeddings as an offline-safe fallback
-- a shared neural network layer
-- a category classification head
-- a priority classification head
-- weighted cross-entropy for class balance
-- AdamW optimization
-- dropout and early stopping
-- checkpoint saving and loading
-- CPU, MPS, or CUDA device selection
-- confidence thresholds before model predictions influence ticket decisions
-
-The Logistic Regression baseline uses:
-
-- text normalization
-- TF-IDF vectorization
-- Logistic Regression classification
-- model confidence scores
-
-It predicts:
-
-- ticket summary
-- category
-- priority
-- assigned support team
-
-Example:
-
-```json
-{
-  "summary": "My VPN is not working after I reset my password",
-  "category": "VPN Connectivity",
-  "priority": "Medium",
-  "assigned_team": "Network Support",
-  "classification_method": "hybrid_ml_nlp",
-  "ml_model": "tfidf_logistic_regression"
-}
-```
-
-Train the PyTorch multi-task classifier:
-
-```bash
-python -m src.train_ticket_model
-```
-
-The training script saves the best checkpoint to:
-
-```text
-models/ticket_multitask.pt
-```
-
-If a checkpoint exists, runtime ticket classification prefers the PyTorch multi-task model. If no checkpoint exists, the system falls back to the TF-IDF + Logistic Regression baseline and rule guardrails.
-
-## 🔌 API Endpoints
-
-Start the backend:
-
-```bash
-uvicorn src.api:app --reload
-```
-
-Swagger docs:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-Available endpoints:
-
-```text
-GET  /
-GET  /health
-GET  /ready
-POST /auth/login
-POST /ask
-GET  /logs
-POST /feedback
-GET  /feedback
-GET  /metrics
-GET  /tickets
-POST /documents/upload
-```
-
-Example request:
-
-```json
-{
-  "question": "My VPN is not working after I reset my password",
-  "domain": "it_support"
-}
-```
-
-Example response:
-
-```json
-{
-  "request_id": "6ed8718a-597a-4926-9f84-d93a7fe1507b",
-  "question": "My VPN is not working after I reset my password",
-  "domain": "it_support",
-  "answer": "Based on the knowledge base...",
-  "sources": [
-    "vpn_troubleshooting_kb.md",
-    "password_reset_kb.md"
-  ],
-  "ticket": {
-    "summary": "My VPN is not working after I reset my password",
-    "category": "VPN Connectivity",
-    "priority": "Medium",
-    "assigned_team": "Network Support"
-  },
-  "answer_generation_mode": "rule_based",
-  "fallback_triggered": false,
-  "confidence": {
-    "retrieval_confidence": 0.87,
-    "classification_confidence": 0.75,
-    "overall_confidence": 0.82
-  },
-  "agent_decision": {
-    "next_action": "answer_and_create_ticket_draft",
-    "reason": "Sufficient confidence to answer and prepare a support ticket draft.",
-    "assigned_team": "Network Support"
-  },
-  "ticket_draft": {
-    "title": "My VPN is not working after I reset my password",
-    "category": "VPN Connectivity",
-    "priority": "Medium",
-    "assigned_team": "Network Support"
-  },
-  "latency_ms": 1749.13
-}
-```
-
-## 🔐 Security
-
-The Streamlit UI uses an auth-first flow. Users see the login screen before they can access Ask, Analytics, or Upload Documents.
-
-```text
-Open Streamlit -> login -> FastAPI returns JWT -> Streamlit sends JWT on protected requests
-```
-
-This protects support questions because answers can expose internal knowledge-base content, ticket drafts, logs, and analytics.
-
-API key authentication is also supported for service-to-service or local automation use cases.
-
-```env
-SUPPORT_API_KEY=your_api_key
-```
-
-When `SUPPORT_API_KEY` is empty, local development endpoints remain open. When it is set, protected endpoints require:
-
-```text
-x-api-key: your_api_key
-```
-
-Protected endpoints include:
-
-- `POST /ask`
-- `GET /logs`
-- `POST /feedback`
-- `GET /feedback`
-- `GET /metrics`
-- `POST /documents/upload`
-
-JWT authentication is also supported when `JWT_SECRET_KEY` is configured:
-
-```env
-JWT_SECRET_KEY=replace-with-secret
-JWT_EXPIRATION_MINUTES=60
-AUTH_DEMO_ADMIN_USERNAME=admin
-AUTH_DEMO_ADMIN_PASSWORD=replace-admin-password
-AUTH_DEMO_AGENT_USERNAME=agent
-AUTH_DEMO_AGENT_PASSWORD=replace-agent-password
-```
-
-Login endpoint:
-
-```text
-POST /auth/login
-```
-
-Roles:
-
-- `admin`: can upload documents, view logs, view feedback, and view metrics
-- `support_agent`: can ask questions and submit feedback
-- `viewer`: reserved for future read-only workflows
-
-JWT requests use:
-
-```text
-Authorization: Bearer <access_token>
-```
-
-Demo flow:
-
-```text
-1. Start FastAPI.
-2. Start Streamlit.
-3. Login using the configured demo agent/admin credentials.
-4. Streamlit stores the JWT in session state.
-5. Ask, Analytics, and Upload tabs are shown only after authentication.
-```
-
-## 🖥️ Streamlit UI
-
-Start the backend first:
-
-```bash
-uvicorn src.api:app --reload
-```
-
-Then start the frontend:
-
-```bash
-streamlit run app/streamlit_app.py
-```
-
-After login, the UI includes three tabs:
-
-- `Ask`: ask support questions and view answer, sources, ticket recommendation, confidence, and ticket draft
-- `Analytics`: view latency, fallback rate, helpful feedback rate, category counts, and agent decision counts
-- `Upload Documents`: upload Markdown, text, or PDF documents into a selected knowledge domain
-
-## 📄 Document Upload
-
-Supported upload types:
-
-- `.md`
-- `.txt`
-- `.pdf`
-
-Uploaded documents are saved under:
-
-```text
-data/<domain>/uploads/
-```
-
-The upload endpoint can optionally reindex the vector store after saving a document.
-
-## 📊 Logging and Metrics
-
-Query logs:
-
-```text
-logs/query_logs.jsonl
-```
-
-Feedback logs:
-
-```text
-logs/feedback_logs.jsonl
-```
-
-Metrics include:
-
-- total queries
-- total feedback submissions
-- fallback rate
-- average latency
-- average workflow latency
-- average answer-stage latency
-- average retrieved chunk count
-- average source count
-- average confidence
-- ticket category counts
-- agent decision counts
-- helpful feedback rate
-
-## 🧪 Evaluation
-
-Run:
-
-```bash
-python -m src.evaluator
-```
-
-The evaluator measures:
-
-- retrieval accuracy
-- category accuracy
-- team routing accuracy
-- priority accuracy
-- NLP/ML category accuracy
-- NLP/ML category weighted F1
-- NLP/ML priority accuracy
-- NLP/ML priority weighted F1
-- PyTorch multi-task category accuracy
-- PyTorch multi-task priority accuracy
-- Logistic Regression baseline accuracy
-- Precision@K
-- Recall@K
-- Top-1 source accuracy
-- Mean Reciprocal Rank
-- nDCG@K
-- grounded answer rate
-- faithfulness heuristic rate
-- safe agent decision rate
-- average confidence
-- average latency
-- average workflow latency
-- average answer-stage latency
-- average retrieved chunk count
-- average source count
-
-Current local evaluation result:
-
-| Metric | Result |
-|---|---:|
-| Retrieval Accuracy | 100.00% |
-| Category Accuracy | 90.00% |
-| Team Routing Accuracy | 100.00% |
-| Priority Accuracy | 100.00% |
-| NLP/ML Category Accuracy | 95.00% |
-| NLP/ML Category Weighted F1 | 95.06% |
-| NLP/ML Priority Accuracy | 95.00% |
-| NLP/ML Priority Weighted F1 | 94.76% |
-| PyTorch Multi-Task Category Accuracy | 100.00% |
-| PyTorch Multi-Task Category Weighted F1 | 100.00% |
-| PyTorch Multi-Task Priority Accuracy | 87.50% |
-| PyTorch Multi-Task Priority Weighted F1 | 87.40% |
-| Logistic Baseline Category Accuracy | 93.75% |
-| Logistic Baseline Category Weighted F1 | 93.65% |
-| Logistic Baseline Priority Accuracy | 68.75% |
-| Logistic Baseline Priority Weighted F1 | 68.21% |
-| Average Precision@K | 97.50% |
-| Average Recall@K | 100.00% |
-| Top-1 Source Accuracy | 100.00% |
-| Mean Reciprocal Rank | 100.00% |
-| Average nDCG@K | 100.00% |
-| Grounded Answer Rate | 100.00% |
-| Faithfulness Heuristic Rate | 100.00% |
-| Safe Agent Decision Rate | 100.00% |
-| Average Overall Confidence | 0.88 |
-| Average Latency | 53.96 ms |
-| Average Workflow Latency | 52.72 ms |
-| Average Answer Stage Latency | 52.36 ms |
-| Average Retrieved Chunks | 1.45 |
-| Average Source Count | 1.45 |
-
-The evaluation now covers 20 curated IT support scenarios across VPN, MFA, account access, outage escalation, routing, and priority workflows. Intent-aware retrieval boosting and stricter reranking improved Average Precision@K from 46.67% to 97.50% while keeping Recall@K at 100.00%.
-
-Retrieval-quality improvements added:
-
-- intent-aware retrieval boosting for VPN, MFA, account access, outage, and routing queries
-- stricter reranking to reduce noisy citations
-- larger evaluation dataset with ambiguous, multi-intent, unsupported, and high-priority scenarios
-- additional ranking metrics such as MRR, nDCG@K, and Top-1 source accuracy
-
-## 🚀 Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/swathiblrs/Enterprise-Rag-Support-Platform.git
-cd Enterprise-Rag-Support-Platform
-```
-
-Create and activate a virtual environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Ingest documents:
-
-```bash
-python src/ingest.py
-```
-
-Run API:
-
-```bash
-uvicorn src.api:app --reload
-```
-
-Run UI:
-
-```bash
-streamlit run app/streamlit_app.py
-```
-
-## 🛠️ Makefile Commands
-
-```bash
-make install
-make test
-make evaluate
-make run-api
-make run-ui
-make docker-build
-make docker-up
-make docker-down
-```
-
-## 🐳 Docker
-
-Run the full stack:
-
-```bash
-docker compose up --build
-```
-
-FastAPI:
-
-```text
-http://127.0.0.1:8000
-```
-
-Streamlit:
-
-```text
-http://127.0.0.1:8501
-```
-
-## ☸️ Kubernetes
-
-Kubernetes manifests are provided under:
-
-```text
-k8s/
-```
-
-They include:
-
-- namespace
-- config map
-- secret template
-- API deployment and service
-- Streamlit deployment and service
-- persistent volume claims for logs and vectorstore
-- ingress template
-
-See [k8s/README.md](k8s/README.md) for deployment steps.
-
-## 🔁 CI/CD
-
-GitHub Actions runs on push and pull request.
-
-The CI workflow validates:
-
-- dependency installation
-- API tests
-- workflow evaluation
-
-## 💬 Sample Questions
-
-```text
-My VPN is not working after I reset my password.
-I cannot approve Duo push notifications.
-My account is locked.
-Company-wide authentication failure.
-Multiple users cannot access VPN.
-Production VPN outage for many users.
-Duo MFA app stopped sending push requests.
-```
-
-## 🔮 Future Improvements
-
-- ServiceNow and Jira ticket creation
-- Slack and Microsoft Teams support
-- Confluence, SharePoint, Google Drive, and S3 ingestion
-- Larger enterprise evaluation datasets
-- Production monitoring with Prometheus and Grafana
-- Human-in-the-loop approval for high-risk ticket actions
-
-## 🙌 Acknowledgements
-
-Built using FastAPI, Streamlit, LlamaIndex Workflows, LangChain, ChromaDB, BM25, Docker, and Kubernetes manifests, and extended into a real-world enterprise IT support automation use case.
+Next priorities are independently labeled evaluation data, live integration testing, actual LLM quality/cost measurements, concurrent-load testing, and production access controls.

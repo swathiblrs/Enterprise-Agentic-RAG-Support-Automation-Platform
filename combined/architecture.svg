@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1220" viewBox="0 0 1440 1220" role="img" aria-labelledby="title desc">
+<title id="title">Agentic RAG Incident Investigation and Support Automation</title><desc id="desc">Current local prototype: authenticated requests enter a policy router, support requests use a persistent LlamaIndex worker and support RAG, incidents use LangGraph and runbook retrieval, results form reviewed ticket drafts stored in SQLite. External integrations and shared ingestion are future consolidation work.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#425564" stroke-width="1.5"/></marker><style>text{font-family:Arial,sans-serif;fill:#182d39;letter-spacing:0}.title{font-size:28px;font-weight:bold}.h{font-size:21px;font-weight:bold}.t{font-size:17px}.s{font-size:15px;fill:#435865}.box{fill:#fff;stroke:#8098a5;stroke-width:1.5;rx:6}.flow{fill:none;stroke:#425564;stroke-width:2;marker-end:url(#arrow)}.dash{stroke-dasharray:6 5}</style></defs>
+<rect width="1440" height="1220" fill="#fff"/>
+<text x="720" y="44" text-anchor="middle" class="title">Agentic RAG Incident Investigation &amp; Support Automation</text>
+<text x="720" y="73" text-anchor="middle" class="s">Implemented local prototype | Offline generation | Human review before action</text>
+
+<rect x="40" y="108" width="235" height="88" class="box"/><text x="157" y="141" text-anchor="middle" class="h">Browser login</text><text x="157" y="170" text-anchor="middle" class="t">Demo account + JWT</text>
+<path d="M275 152H310" class="flow"/>
+<rect x="310" y="108" width="235" height="88" class="box"/><text x="427" y="141" text-anchor="middle" class="h">FastAPI</text><text x="427" y="170" text-anchor="middle" class="t">Authenticate / validate</text>
+<path d="M545 152H580" class="flow"/>
+<rect x="580" y="108" width="300" height="88" class="box"/><text x="730" y="141" text-anchor="middle" class="h">Structured request</text><text x="730" y="170" text-anchor="middle" class="t">Question, logs, events, metadata</text>
+<path d="M880 152H915" class="flow"/>
+<rect x="915" y="108" width="485" height="88" fill="#e8f2fb" stroke="#62839e" rx="6"/><text x="1157" y="140" text-anchor="middle" class="h">Policy + ML domain routing</text><text x="1157" y="169" text-anchor="middle" class="t">Explicit domain / policy / classifier fallback / uncertainty</text>
+
+<path d="M1157 196V233H170V284" class="flow"/><path d="M700 233V284" class="flow"/><path d="M1157 233V284" class="flow"/>
+<text x="170" y="267" text-anchor="middle" class="s">Unknown or ambiguous</text><text x="700" y="267" text-anchor="middle" class="s">IT support context</text><text x="1157" y="267" text-anchor="middle" class="s">Incident / evidence / impact</text>
+
+<rect x="40" y="284" width="265" height="125" fill="#fff4da" stroke="#b49b59" rx="6"/><text x="172" y="322" text-anchor="middle" class="h">Clarification</text><text x="172" y="353" text-anchor="middle" class="t">Ask for domain / evidence</text><text x="172" y="383" text-anchor="middle" class="s">No invented ticket or diagnosis</text>
+
+<rect x="340" y="284" width="480" height="513" fill="#edf7f3" stroke="#71a291" rx="6"/><text x="580" y="319" text-anchor="middle" class="h">LlamaIndex support workflow</text>
+<rect x="365" y="342" width="430" height="77" class="box"/><text x="580" y="372" text-anchor="middle" class="t">Persistent worker + NLP/ML classifier</text><text x="580" y="398" text-anchor="middle" class="s">PyTorch category / priority heads + rules</text>
+<path d="M580 419V446" class="flow"/>
+<rect x="365" y="446" width="430" height="164" fill="#fff" stroke="#438d72" stroke-width="2" rx="6"/><text x="580" y="478" text-anchor="middle" class="h">Support RAG pipeline</text><text x="580" y="510" text-anchor="middle" class="t">Classifier + query intents preserved</text><text x="580" y="540" text-anchor="middle" class="t">SentenceTransformer / ChromaDB + BM25</text><text x="580" y="570" text-anchor="middle" class="t">Merge + rerank + selected KB chunks</text><text x="580" y="594" text-anchor="middle" class="s">Dense path depends on local model / index</text>
+<path d="M580 610V637" class="flow"/>
+<rect x="365" y="637" width="430" height="132" class="box"/><text x="580" y="669" text-anchor="middle" class="t">Answer + confidence + support draft</text><text x="580" y="700" text-anchor="middle" class="t">Category / priority / specialist team</text><text x="580" y="730" text-anchor="middle" class="s">Original support citations preserved</text><text x="580" y="753" text-anchor="middle" class="s">Deterministic generation in this demo</text>
+
+<rect x="875" y="284" width="525" height="513" fill="#eef2fa" stroke="#8293b6" rx="6"/><text x="1137" y="319" text-anchor="middle" class="h">LangGraph investigation</text>
+<rect x="900" y="342" width="475" height="77" class="box"/><text x="1137" y="371" text-anchor="middle" class="t">Security / SRE / Cloud / Data / IT</text><text x="1137" y="399" text-anchor="middle" class="s">Original identity, service, tags and events retained</text>
+<path d="M1137 419V446" class="flow"/>
+<rect x="900" y="446" width="475" height="164" fill="#fff" stroke="#687dac" stroke-width="2" rx="6"/><text x="1137" y="479" text-anchor="middle" class="h">Investigation RAG + evidence</text><text x="1137" y="510" text-anchor="middle" class="t">Runbook / playbook retrieval</text><text x="1137" y="540" text-anchor="middle" class="t">Specialist handoffs + local tool calls</text><text x="1137" y="569" text-anchor="middle" class="t">Risk / findings / recommended actions</text><text x="1137" y="595" text-anchor="middle" class="s">Evidence origins labeled; local tools are simulated</text>
+<path d="M1137 610V637" class="flow"/>
+<rect x="900" y="637" width="475" height="132" class="box"/><text x="1137" y="669" text-anchor="middle" class="t">Structured investigation report</text><text x="1137" y="700" text-anchor="middle" class="t">Timeline / evidence / verdict / references</text><text x="1137" y="730" text-anchor="middle" class="s">Security ownership overrides routine IT routing</text><text x="1137" y="753" text-anchor="middle" class="s">Findings require review</text>
+
+<path d="M795 702H852V382H900" class="flow dash"/><text x="850" y="818" text-anchor="middle" class="s">IT incidents run support, then investigation; routine requests stop after support</text>
+<rect x="40" y="465" width="265" height="240" fill="#f5f7f8" stroke="#8d9aa0" rx="6"/><text x="172" y="498" text-anchor="middle" class="h">Knowledge sources</text><text x="172" y="534" text-anchor="middle" class="t">Support MD / text / PDF</text><text x="172" y="565" text-anchor="middle" class="s">Existing extraction and indexing</text><text x="172" y="608" text-anchor="middle" class="t">Incident runbooks</text><text x="172" y="639" text-anchor="middle" class="s">Playbooks / incident examples</text><text x="172" y="677" text-anchor="middle" class="s">Separate stores in this prototype</text>
+<path d="M305 532H365" class="flow"/>
+
+<path d="M580 797V852" class="flow"/><path d="M1137 797V852" class="flow"/>
+<rect x="340" y="852" width="1060" height="116" fill="#fff3e9" stroke="#b59276" rx="6"/><text x="870" y="886" text-anchor="middle" class="h">Compose response + reviewed ticket draft</text><text x="870" y="918" text-anchor="middle" class="t">Keep support team and citations | Separate investigation references | Preserve or raise priority</text><text x="870" y="945" text-anchor="middle" class="s">No automatic remediation or external ticket submission</text>
+<path d="M172 409V435H20V920H340" class="flow"/>
+<path d="M870 968V994" class="flow"/>
+<rect x="340" y="994" width="1060" height="76" class="box"/><text x="870" y="1025" text-anchor="middle" class="h">SQLite case history + browser results</text><text x="870" y="1052" text-anchor="middle" class="s">Request owner / combined output / measured latency / sources / ticket draft</text>
+
+<rect x="40" y="1110" width="1360" height="80" fill="#f6f7f8" stroke="#87939d" stroke-dasharray="6 5" rx="6"/><text x="720" y="1140" text-anchor="middle" class="h">Retained source / not yet consolidated into the combined app</text><text x="720" y="1172" text-anchor="middle" class="t">Shared uploads &amp; indexing | SSO / multi-user roles | Live connectors | Postmortems | Monitoring | Docker / Kubernetes</text>
+</svg>
+
+

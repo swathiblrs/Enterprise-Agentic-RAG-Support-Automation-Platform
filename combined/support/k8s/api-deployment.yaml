@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enterprise-rag-api
+  namespace: enterprise-rag
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enterprise-rag-api
+  template:
+    metadata:
+      labels:
+        app: enterprise-rag-api
+    spec:
+      containers:
+        - name: api
+          image: enterprise-rag-support-platform:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: enterprise-rag-config
+            - secretRef:
+                name: enterprise-rag-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "2Gi"
+          volumeMounts:
+            - name: vectorstore
+              mountPath: /app/vectorstore
+            - name: logs
+              mountPath: /app/logs
+      volumes:
+        - name: vectorstore
+          persistentVolumeClaim:
+            claimName: enterprise-rag-vectorstore
+        - name: logs
+          persistentVolumeClaim:
+            claimName: enterprise-rag-logs

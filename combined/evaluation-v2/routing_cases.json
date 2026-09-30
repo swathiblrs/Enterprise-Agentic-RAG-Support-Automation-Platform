@@ -1,0 +1,801 @@
+[
+  {
+    "question": "How do I reset my password?",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "password"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "VPN disconnects on my laptop",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 6,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "vpn",
+        "laptop"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "I changed phones and need Duo setup",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "duo"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "MFA push is not arriving",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "mfa"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "My account is locked",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 2,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "account"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Company-wide authentication failure",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "it",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "authentication"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Several users in finance cannot log in",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "it",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "log in"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Multiple users cannot access VPN",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "it",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "vpn"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "VPN outage for all users",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "it",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "vpn"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Our department cannot access VPN",
+    "expected_domain": "it",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "it",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "vpn"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Suspicious login from a new country",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 5,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "suspicious login"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Account takeover and mailbox rule changes",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 11,
+        "it": 2,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "account takeover",
+        "mailbox rule"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Malware detected on workstation",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 5,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "malware"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Phishing credentials stolen",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 10,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "phishing",
+        "credentials stolen"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Security incident affecting company authentication",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 5,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "security incident"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Ransomware encrypted finance files",
+    "expected_domain": "security",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "security",
+      "path": "investigate",
+      "routing_mode": "security_policy",
+      "scores": {
+        "security": 5,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "ransomware"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Checkout returns 503 after deployment",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "production",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 6
+      },
+      "matched_signals": [
+        "checkout",
+        "503",
+        "deployment"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Production service outage",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "production",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 6
+      },
+      "matched_signals": [
+        "service outage",
+        "production"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "API requests timing out with elevated latency",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "production",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 4
+      },
+      "matched_signals": [
+        "timing out",
+        "latency"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Payment service error rate exceeds SLO",
+    "expected_domain": "production",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "production",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 4
+      },
+      "matched_signals": [
+        "payment service",
+        "error rate",
+        "slo"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "AWS autoscaling quota exhausted",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "cloud",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 7,
+        "production": 0
+      },
+      "matched_signals": [
+        "autoscaling",
+        "quota",
+        "aws"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Kubernetes node capacity exhausted",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "cloud",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 5,
+        "production": 0
+      },
+      "matched_signals": [
+        "kubernetes",
+        "node capacity"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Cloudwatch reports unavailable instances",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "cloud",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 5,
+        "production": 0
+      },
+      "matched_signals": [
+        "cloudwatch"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Load balancer targets are unhealthy",
+    "expected_domain": "cloud",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "cloud",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 5,
+        "production": 0
+      },
+      "matched_signals": [
+        "load balancer"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "ETL pipeline failed schema drift validation",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "data",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 5,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "etl",
+        "pipeline",
+        "schema"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Data quality checks failed",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "data",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 5,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "data quality"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Backfill job stopped",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "data",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 5,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "backfill"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Warehouse ingestion stopped updating tables",
+    "expected_domain": "data",
+    "expected_path": "investigate",
+    "actual": {
+      "domain": "data",
+      "path": "investigate",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 5,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "warehouse",
+        "ingestion"
+      ],
+      "support_context": false,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "Something is broken",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "domain": null,
+      "path": "clarify",
+      "routing_mode": "clarification",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [],
+      "support_context": false,
+      "reason": "Clarify missing or ambiguous domain."
+    }
+  },
+  {
+    "question": "Can you help me?",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "domain": null,
+      "path": "clarify",
+      "routing_mode": "clarification",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [],
+      "support_context": false,
+      "reason": "Clarify missing or ambiguous domain."
+    }
+  },
+  {
+    "question": "Write me a poem",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "domain": null,
+      "path": "clarify",
+      "routing_mode": "clarification",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [],
+      "support_context": false,
+      "reason": "Clarify missing or ambiguous domain."
+    }
+  },
+  {
+    "question": "Recommend a restaurant",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "domain": null,
+      "path": "clarify",
+      "routing_mode": "clarification",
+      "scores": {
+        "security": 0,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [],
+      "support_context": false,
+      "reason": "Clarify missing or ambiguous domain."
+    }
+  },
+  {
+    "question": "No malware was detected; how do I reset my password?",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "password"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "What does phishing mean?",
+    "expected_domain": null,
+    "expected_path": "clarify",
+    "actual": {
+      "domain": null,
+      "path": "clarify",
+      "routing_mode": "clarification",
+      "scores": {
+        "security": 5,
+        "it": 0,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [],
+      "support_context": false,
+      "reason": "Clarify missing or ambiguous domain."
+    }
+  },
+  {
+    "question": "VPN password reset instructions mention AWS but this is just my account",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 6,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "vpn",
+        "password",
+        "account"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  },
+  {
+    "question": "This is not a production outage; I forgot my password",
+    "expected_domain": "it",
+    "expected_path": "support",
+    "actual": {
+      "domain": "it",
+      "path": "support",
+      "routing_mode": "weighted_policy",
+      "scores": {
+        "security": 0,
+        "it": 4,
+        "data": 0,
+        "cloud": 0,
+        "production": 0
+      },
+      "matched_signals": [
+        "password"
+      ],
+      "support_context": true,
+      "reason": "Explicit domain or active evidence policy; preserve specialist support context."
+    }
+  }
+]

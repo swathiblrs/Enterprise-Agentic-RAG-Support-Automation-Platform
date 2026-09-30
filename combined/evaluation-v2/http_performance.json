@@ -1,0 +1,330 @@
+[
+  {
+    "workload": "incident_offline",
+    "concurrency": 1,
+    "n": 20,
+    "success": 20,
+    "p50_ms": 10.653999997884966,
+    "p95_ms": 11.444499999925029,
+    "throughput_requests_per_second": 92.53854065948778,
+    "wall_seconds": 0.21612616600032197,
+    "requests": [
+      {
+        "ms": 11.298584002361167,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 11.304874999041203,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.757207994174678,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.692500000004657,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.846582998055965,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.440083002322353,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.653999997884966,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 11.444499999925029,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.583416995359585,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.942624998278916,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.49208299809834,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.241832998872269,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.601040994515643,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 11.466374999145046,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.333541998988949,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.375874997407664,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.346208000555634,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.217250004643574,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 10.89129199681338,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 11.374542002158705,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      }
+    ]
+  },
+  {
+    "workload": "mixed_50_percent_support",
+    "concurrency": 1,
+    "n": 8,
+    "success": 8,
+    "p50_ms": 12.142042003688402,
+    "p95_ms": 3867.9009999978007,
+    "throughput_requests_per_second": 1.774829736283824,
+    "wall_seconds": 4.507474625002942,
+    "requests": [
+      {
+        "ms": 3867.9009999978007,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 12.142042003688402,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 257.17666700074915,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 11.110915998870041,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 171.64541699457914,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 11.034125003789086,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 164.88783299428178,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 11.337374999129679,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      }
+    ]
+  },
+  {
+    "workload": "incident_offline",
+    "concurrency": 2,
+    "n": 20,
+    "success": 20,
+    "p50_ms": 20.63612500205636,
+    "p95_ms": 22.49912499974016,
+    "throughput_requests_per_second": 95.52018316761757,
+    "wall_seconds": 0.20937983300245833,
+    "requests": [
+      {
+        "ms": 20.63612500205636,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 21.83954099746188,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.578541996655986,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.56566700048279,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 21.159125004487578,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 21.331790994736366,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 18.084499999531545,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 21.82633399934275,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 16.27287500014063,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 28.45858300133841,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 18.430374999297783,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 19.920082995668054,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 22.49912499974016,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 21.496917004697025,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 18.9591670059599,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.891291998850647,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.960374997230247,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.50579200295033,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 20.987957999750506,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 12.147665998782031,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      }
+    ]
+  },
+  {
+    "workload": "mixed_50_percent_support",
+    "concurrency": 2,
+    "n": 8,
+    "success": 8,
+    "p50_ms": 12.968707997060847,
+    "p95_ms": 390.99316699866904,
+    "throughput_requests_per_second": 10.62167442932636,
+    "wall_seconds": 0.7531769169945619,
+    "requests": [
+      {
+        "ms": 177.98779199802084,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 11.898291995748878,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 337.98366699920734,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 12.968707997060847,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 320.67279199691257,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 11.93033400340937,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      },
+      {
+        "ms": 390.99316699866904,
+        "status": 200,
+        "question": "How do I reset my password?"
+      },
+      {
+        "ms": 12.343499998678453,
+        "status": 200,
+        "question": "Checkout returns 503 after deployment"
+      }
+    ]
+  }
+]

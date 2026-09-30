@@ -1,0 +1,80 @@
+{"split":"train","text":"VPN client fails to connect after a password change","category":"VPN Connectivity","priority":"Medium"}
+{"split":"train","text":"Remote user sees VPN tunnel timeout while connecting","category":"VPN Connectivity","priority":"Medium"}
+{"split":"train","text":"VPN works slowly but the employee can still access apps","category":"VPN Connectivity","priority":"Low"}
+{"split":"train","text":"Employee reports intermittent VPN disconnects during meetings","category":"VPN Connectivity","priority":"Low"}
+{"split":"train","text":"Several users in sales cannot establish a VPN session","category":"VPN Connectivity","priority":"High"}
+{"split":"train","text":"Multiple remote workers are blocked because VPN login fails","category":"VPN Connectivity","priority":"High"}
+{"split":"train","text":"Production VPN gateway is down for all remote employees","category":"VPN Connectivity","priority":"Critical"}
+{"split":"train","text":"Company wide VPN outage prevents remote access","category":"VPN Connectivity","priority":"Critical"}
+{"split":"train","text":"VPN authentication error appears after credential rotation","category":"VPN Connectivity","priority":"Medium"}
+{"split":"train","text":"One laptop cannot reconnect to the corporate network through VPN","category":"VPN Connectivity","priority":"Medium"}
+{"split":"train","text":"Which support team owns VPN connectivity tickets","category":"VPN Connectivity","priority":"Low"}
+{"split":"train","text":"User asks for guidance on VPN client update steps","category":"VPN Connectivity","priority":"Low"}
+{"split":"train","text":"Duo push notification does not appear on my phone","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"MFA approval fails when user tries to sign in","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"Employee changed phone and needs Duo enrollment help","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"User lost MFA device and needs temporary access","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"Duo app is slow but user can approve after retry","category":"Multi-Factor Authentication","priority":"Low"}
+{"split":"train","text":"Which team handles MFA reset requests","category":"Multi-Factor Authentication","priority":"Low"}
+{"split":"train","text":"Several employees cannot complete MFA challenge","category":"Multi-Factor Authentication","priority":"High"}
+{"split":"train","text":"Department users are blocked by Duo approval failures","category":"Multi-Factor Authentication","priority":"High"}
+{"split":"train","text":"Company wide authentication outage affects MFA login","category":"Multi-Factor Authentication","priority":"Critical"}
+{"split":"train","text":"Security incident blocks multi factor authentication for all users","category":"Multi-Factor Authentication","priority":"Critical"}
+{"split":"train","text":"Duo push keeps expiring before user can approve","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"MFA bypass code request for a single traveler","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"train","text":"Account is locked after too many login attempts","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"Password reset did not sync to SSO login","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"Employee cannot sign in after password expired","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"User forgot enterprise password and needs reset","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"Question about which team handles account unlocks","category":"Account Access","priority":"Low"}
+{"split":"train","text":"User can log in but wants password reset instructions","category":"Account Access","priority":"Low"}
+{"split":"train","text":"Several finance users cannot access SSO applications","category":"Account Access","priority":"High"}
+{"split":"train","text":"Team is blocked because shared account access failed","category":"Account Access","priority":"High"}
+{"split":"train","text":"Company wide SSO login outage affects all employees","category":"Account Access","priority":"Critical"}
+{"split":"train","text":"Identity provider outage prevents production access","category":"Account Access","priority":"Critical"}
+{"split":"train","text":"Account keeps locking every morning for one employee","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"Single user cannot open email after password change","category":"Account Access","priority":"Medium"}
+{"split":"train","text":"How do I request approved software installation","category":"General IT Support","priority":"Low"}
+{"split":"train","text":"Employee needs help connecting a new monitor","category":"General IT Support","priority":"Low"}
+{"split":"train","text":"Laptop keyboard intermittently stops responding","category":"General IT Support","priority":"Low"}
+{"split":"train","text":"Printer configuration question for one workstation","category":"General IT Support","priority":"Low"}
+{"split":"train","text":"Business critical app access issue for one manager","category":"General IT Support","priority":"Medium"}
+{"split":"train","text":"Employee cannot use required software due to install error","category":"General IT Support","priority":"Medium"}
+{"split":"train","text":"Multiple teams are blocked by workstation failures","category":"General IT Support","priority":"High"}
+{"split":"train","text":"Department laptops fail after required update","category":"General IT Support","priority":"High"}
+{"split":"train","text":"Company wide device management outage blocks workstations","category":"General IT Support","priority":"Critical"}
+{"split":"train","text":"Critical endpoint failure affects all office laptops","category":"General IT Support","priority":"Critical"}
+{"split":"train","text":"User needs general help with IT request routing","category":"General IT Support","priority":"Low"}
+{"split":"train","text":"Single workstation has a non urgent peripheral issue","category":"General IT Support","priority":"Low"}
+{"split":"validation","text":"VPN reports invalid credentials after user changed password","category":"VPN Connectivity","priority":"Medium"}
+{"split":"validation","text":"Remote access VPN drops once every hour","category":"VPN Connectivity","priority":"Low"}
+{"split":"validation","text":"Many employees cannot connect to VPN from home","category":"VPN Connectivity","priority":"High"}
+{"split":"validation","text":"VPN service outage blocks the whole company","category":"VPN Connectivity","priority":"Critical"}
+{"split":"validation","text":"Duo push notification fails for one employee","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"validation","text":"Users in HR cannot approve MFA prompts","category":"Multi-Factor Authentication","priority":"High"}
+{"split":"validation","text":"MFA provider outage prevents all sign ins","category":"Multi-Factor Authentication","priority":"Critical"}
+{"split":"validation","text":"Which group supports Duo enrollment","category":"Multi-Factor Authentication","priority":"Low"}
+{"split":"validation","text":"User account locked and password reset needed","category":"Account Access","priority":"Medium"}
+{"split":"validation","text":"SSO is unavailable for multiple users in finance","category":"Account Access","priority":"High"}
+{"split":"validation","text":"Company identity login service is down","category":"Account Access","priority":"Critical"}
+{"split":"validation","text":"Employee asks how to reset an expired password","category":"Account Access","priority":"Low"}
+{"split":"validation","text":"Need help installing standard productivity software","category":"General IT Support","priority":"Low"}
+{"split":"validation","text":"Required desktop app crashes for one user","category":"General IT Support","priority":"Medium"}
+{"split":"validation","text":"Entire department laptops failed after patching","category":"General IT Support","priority":"High"}
+{"split":"validation","text":"Endpoint management outage affects every workstation","category":"General IT Support","priority":"Critical"}
+{"split":"test","text":"VPN connection fails immediately after password reset","category":"VPN Connectivity","priority":"Medium"}
+{"split":"test","text":"Employee can connect to VPN but performance is degraded","category":"VPN Connectivity","priority":"Low"}
+{"split":"test","text":"Several remote employees cannot access corporate network","category":"VPN Connectivity","priority":"High"}
+{"split":"test","text":"Production VPN concentrator outage for all users","category":"VPN Connectivity","priority":"Critical"}
+{"split":"test","text":"Duo mobile approval never arrives for user","category":"Multi-Factor Authentication","priority":"Medium"}
+{"split":"test","text":"Multiple teams cannot pass MFA challenge","category":"Multi-Factor Authentication","priority":"High"}
+{"split":"test","text":"Enterprise authentication security outage impacts MFA","category":"Multi-Factor Authentication","priority":"Critical"}
+{"split":"test","text":"Where should MFA enrollment questions be routed","category":"Multi-Factor Authentication","priority":"Low"}
+{"split":"test","text":"Account lockout prevents user from logging in","category":"Account Access","priority":"Medium"}
+{"split":"test","text":"Several people cannot log in through SSO","category":"Account Access","priority":"High"}
+{"split":"test","text":"Identity provider outage blocks company sign in","category":"Account Access","priority":"Critical"}
+{"split":"test","text":"Who handles account password reset questions","category":"Account Access","priority":"Low"}
+{"split":"test","text":"User requests help setting up approved office software","category":"General IT Support","priority":"Low"}
+{"split":"test","text":"One employee cannot launch a required business tool","category":"General IT Support","priority":"Medium"}
+{"split":"test","text":"Multiple support agents report workstation failures","category":"General IT Support","priority":"High"}
+{"split":"test","text":"All managed laptops fail device compliance check","category":"General IT Support","priority":"Critical"}

@@ -1,0 +1,725 @@
+{
+  "provenance": "Hand-authored synthetic demo data. Validation/test are separate sentences; no independent human review or production representativeness is claimed. Historical routing failures informed training examples. No test-set tuning.",
+  "examples": [
+    {
+      "id": "it-train-1",
+      "domain": "it",
+      "split": "train",
+      "text": "The virtual private network will not connect from home"
+    },
+    {
+      "id": "it-train-2",
+      "domain": "it",
+      "split": "train",
+      "text": "Employees cannot authenticate using their work accounts"
+    },
+    {
+      "id": "it-train-3",
+      "domain": "it",
+      "split": "train",
+      "text": "I forgot my corporate password and need it reset"
+    },
+    {
+      "id": "it-train-4",
+      "domain": "it",
+      "split": "train",
+      "text": "My Duo verification prompt never arrives on my phone"
+    },
+    {
+      "id": "it-train-5",
+      "domain": "it",
+      "split": "train",
+      "text": "My laptop cannot print to the office printer"
+    },
+    {
+      "id": "it-train-6",
+      "domain": "it",
+      "split": "train",
+      "text": "The wifi connection on my computer keeps disconnecting"
+    },
+    {
+      "id": "it-train-7",
+      "domain": "it",
+      "split": "train",
+      "text": "The email client will not open my work mailbox"
+    },
+    {
+      "id": "it-train-8",
+      "domain": "it",
+      "split": "train",
+      "text": "My account has been locked after incorrect credentials"
+    },
+    {
+      "id": "it-train-9",
+      "domain": "it",
+      "split": "train",
+      "text": "How can I enroll a replacement phone for MFA"
+    },
+    {
+      "id": "it-train-10",
+      "domain": "it",
+      "split": "train",
+      "text": "The remote access tunnel fails during sign in"
+    },
+    {
+      "id": "it-train-11",
+      "domain": "it",
+      "split": "train",
+      "text": "I need help installing approved desktop software"
+    },
+    {
+      "id": "it-train-12",
+      "domain": "it",
+      "split": "train",
+      "text": "Single sign on rejects my employee credentials"
+    },
+    {
+      "id": "it-validation-1",
+      "domain": "it",
+      "split": "validation",
+      "text": "The office scanner cannot be found by my workstation"
+    },
+    {
+      "id": "it-validation-2",
+      "domain": "it",
+      "split": "validation",
+      "text": "An employee cannot access the company intranet"
+    },
+    {
+      "id": "it-validation-3",
+      "domain": "it",
+      "split": "validation",
+      "text": "The VPN client says authentication expired"
+    },
+    {
+      "id": "it-validation-4",
+      "domain": "it",
+      "split": "validation",
+      "text": "My Outlook application is stuck synchronizing mail"
+    },
+    {
+      "id": "it-test-1",
+      "domain": "it",
+      "split": "test",
+      "text": "The corporate wireless network refuses my laptop credentials"
+    },
+    {
+      "id": "it-test-2",
+      "domain": "it",
+      "split": "test",
+      "text": "A new employee needs their account unlocked"
+    },
+    {
+      "id": "it-test-3",
+      "domain": "it",
+      "split": "test",
+      "text": "I am unable to use the remote work connection"
+    },
+    {
+      "id": "it-test-4",
+      "domain": "it",
+      "split": "test",
+      "text": "My authentication app is asking to be enrolled again"
+    },
+    {
+      "id": "security-train-1",
+      "domain": "security",
+      "split": "train",
+      "text": "Unexpected OAuth permissions were granted to a user identity"
+    },
+    {
+      "id": "security-train-2",
+      "domain": "security",
+      "split": "train",
+      "text": "An intruder stole credentials and established a remote session"
+    },
+    {
+      "id": "security-train-3",
+      "domain": "security",
+      "split": "train",
+      "text": "A password spraying attack targeted employee identities"
+    },
+    {
+      "id": "security-train-4",
+      "domain": "security",
+      "split": "train",
+      "text": "The antivirus detected malicious executable files"
+    },
+    {
+      "id": "security-train-5",
+      "domain": "security",
+      "split": "train",
+      "text": "Ransomware is encrypting shared directories"
+    },
+    {
+      "id": "security-train-6",
+      "domain": "security",
+      "split": "train",
+      "text": "A phishing message tricked a user into sharing a password"
+    },
+    {
+      "id": "security-train-7",
+      "domain": "security",
+      "split": "train",
+      "text": "The account has impossible travel logins from distant locations"
+    },
+    {
+      "id": "security-train-8",
+      "domain": "security",
+      "split": "train",
+      "text": "An unauthorized mailbox forwarding rule was created"
+    },
+    {
+      "id": "security-train-9",
+      "domain": "security",
+      "split": "train",
+      "text": "Sensitive records are being exfiltrated to an external host"
+    },
+    {
+      "id": "security-train-10",
+      "domain": "security",
+      "split": "train",
+      "text": "We suspect an account takeover after suspicious authentication"
+    },
+    {
+      "id": "security-train-11",
+      "domain": "security",
+      "split": "train",
+      "text": "Our endpoint sensor reports malware persistence"
+    },
+    {
+      "id": "security-train-12",
+      "domain": "security",
+      "split": "train",
+      "text": "A stolen token was used to grant application access"
+    },
+    {
+      "id": "security-validation-1",
+      "domain": "security",
+      "split": "validation",
+      "text": "The SOC detected a cryptominer on an endpoint"
+    },
+    {
+      "id": "security-validation-2",
+      "domain": "security",
+      "split": "validation",
+      "text": "An attacker added an unapproved OAuth application"
+    },
+    {
+      "id": "security-validation-3",
+      "domain": "security",
+      "split": "validation",
+      "text": "Suspicious credentials are being used outside working hours"
+    },
+    {
+      "id": "security-validation-4",
+      "domain": "security",
+      "split": "validation",
+      "text": "Security monitoring found a command and control connection"
+    },
+    {
+      "id": "security-test-1",
+      "domain": "security",
+      "split": "test",
+      "text": "Identity telemetry shows unauthorized privilege escalation"
+    },
+    {
+      "id": "security-test-2",
+      "domain": "security",
+      "split": "test",
+      "text": "A malicious attachment installed a backdoor"
+    },
+    {
+      "id": "security-test-3",
+      "domain": "security",
+      "split": "test",
+      "text": "A user approved an unexpected application consent request"
+    },
+    {
+      "id": "security-test-4",
+      "domain": "security",
+      "split": "test",
+      "text": "Someone is extracting confidential files to an unknown destination"
+    },
+    {
+      "id": "production-train-1",
+      "domain": "production",
+      "split": "train",
+      "text": "Ingress reports HTTP 502 errors for the customer API"
+    },
+    {
+      "id": "production-train-2",
+      "domain": "production",
+      "split": "train",
+      "text": "The checkout endpoint returns service unavailable responses"
+    },
+    {
+      "id": "production-train-3",
+      "domain": "production",
+      "split": "train",
+      "text": "Payment service requests time out after a release"
+    },
+    {
+      "id": "production-train-4",
+      "domain": "production",
+      "split": "train",
+      "text": "Application error rate exceeded the availability SLO"
+    },
+    {
+      "id": "production-train-5",
+      "domain": "production",
+      "split": "train",
+      "text": "The worker queue backlog is delaying notifications"
+    },
+    {
+      "id": "production-train-6",
+      "domain": "production",
+      "split": "train",
+      "text": "A deployment caused application latency to increase"
+    },
+    {
+      "id": "production-train-7",
+      "domain": "production",
+      "split": "train",
+      "text": "The service process crashes when handling requests"
+    },
+    {
+      "id": "production-train-8",
+      "domain": "production",
+      "split": "train",
+      "text": "Database connection pool exhaustion is breaking the API"
+    },
+    {
+      "id": "production-train-9",
+      "domain": "production",
+      "split": "train",
+      "text": "The production web service returns internal server errors"
+    },
+    {
+      "id": "production-train-10",
+      "domain": "production",
+      "split": "train",
+      "text": "Users see HTTP 504 gateway timeouts on the storefront"
+    },
+    {
+      "id": "production-train-11",
+      "domain": "production",
+      "split": "train",
+      "text": "A release regression increased payment failures"
+    },
+    {
+      "id": "production-train-12",
+      "domain": "production",
+      "split": "train",
+      "text": "Application workers stopped consuming messages"
+    },
+    {
+      "id": "production-validation-1",
+      "domain": "production",
+      "split": "validation",
+      "text": "The API has a spike in tail response time"
+    },
+    {
+      "id": "production-validation-2",
+      "domain": "production",
+      "split": "validation",
+      "text": "Customer transactions fail after the latest rollout"
+    },
+    {
+      "id": "production-validation-3",
+      "domain": "production",
+      "split": "validation",
+      "text": "Our service reports bad gateway responses"
+    },
+    {
+      "id": "production-validation-4",
+      "domain": "production",
+      "split": "validation",
+      "text": "Message processing has stopped in production"
+    },
+    {
+      "id": "production-test-1",
+      "domain": "production",
+      "split": "test",
+      "text": "The order endpoint is failing its health checks"
+    },
+    {
+      "id": "production-test-2",
+      "domain": "production",
+      "split": "test",
+      "text": "Traffic to the application produces intermittent server errors"
+    },
+    {
+      "id": "production-test-3",
+      "domain": "production",
+      "split": "test",
+      "text": "A connection leak is exhausting the service thread pool"
+    },
+    {
+      "id": "production-test-4",
+      "domain": "production",
+      "split": "test",
+      "text": "The storefront cannot complete transactions after a version change"
+    },
+    {
+      "id": "cloud-train-1",
+      "domain": "cloud",
+      "split": "train",
+      "text": "The cluster autoscaler cannot provision additional nodes"
+    },
+    {
+      "id": "cloud-train-2",
+      "domain": "cloud",
+      "split": "train",
+      "text": "AWS account capacity quota was exceeded"
+    },
+    {
+      "id": "cloud-train-3",
+      "domain": "cloud",
+      "split": "train",
+      "text": "Kubernetes pods remain pending because nodes lack resources"
+    },
+    {
+      "id": "cloud-train-4",
+      "domain": "cloud",
+      "split": "train",
+      "text": "The load balancer has no healthy backend targets"
+    },
+    {
+      "id": "cloud-train-5",
+      "domain": "cloud",
+      "split": "train",
+      "text": "Azure virtual machines disappeared after infrastructure changes"
+    },
+    {
+      "id": "cloud-train-6",
+      "domain": "cloud",
+      "split": "train",
+      "text": "Cloudwatch reports unavailable compute instances"
+    },
+    {
+      "id": "cloud-train-7",
+      "domain": "cloud",
+      "split": "train",
+      "text": "The cloud subnet has exhausted its available IP addresses"
+    },
+    {
+      "id": "cloud-train-8",
+      "domain": "cloud",
+      "split": "train",
+      "text": "A node pool cannot scale because instance capacity is unavailable"
+    },
+    {
+      "id": "cloud-train-9",
+      "domain": "cloud",
+      "split": "train",
+      "text": "The cloud storage bucket rejects access after an IAM policy change"
+    },
+    {
+      "id": "cloud-train-10",
+      "domain": "cloud",
+      "split": "train",
+      "text": "A GCP virtual machine cannot attach its persistent disk"
+    },
+    {
+      "id": "cloud-train-11",
+      "domain": "cloud",
+      "split": "train",
+      "text": "Container nodes failed to join the Kubernetes cluster"
+    },
+    {
+      "id": "cloud-train-12",
+      "domain": "cloud",
+      "split": "train",
+      "text": "The infrastructure gateway cannot reach healthy instances"
+    },
+    {
+      "id": "cloud-validation-1",
+      "domain": "cloud",
+      "split": "validation",
+      "text": "The cloud provider rejected a provisioning request"
+    },
+    {
+      "id": "cloud-validation-2",
+      "domain": "cloud",
+      "split": "validation",
+      "text": "An AWS load balancer health probe is failing"
+    },
+    {
+      "id": "cloud-validation-3",
+      "domain": "cloud",
+      "split": "validation",
+      "text": "The Kubernetes scheduler cannot place additional workloads"
+    },
+    {
+      "id": "cloud-validation-4",
+      "domain": "cloud",
+      "split": "validation",
+      "text": "Azure subscription resource limits prevent scaling"
+    },
+    {
+      "id": "cloud-test-1",
+      "domain": "cloud",
+      "split": "test",
+      "text": "An instance group has no capacity in the selected zone"
+    },
+    {
+      "id": "cloud-test-2",
+      "domain": "cloud",
+      "split": "test",
+      "text": "The cloud network route table points at a missing gateway"
+    },
+    {
+      "id": "cloud-test-3",
+      "domain": "cloud",
+      "split": "test",
+      "text": "A managed cluster has unavailable worker nodes"
+    },
+    {
+      "id": "cloud-test-4",
+      "domain": "cloud",
+      "split": "test",
+      "text": "Compute provisioning is blocked by subscription limits"
+    },
+    {
+      "id": "data-train-1",
+      "domain": "data",
+      "split": "train",
+      "text": "The ETL pipeline failed while transforming source records"
+    },
+    {
+      "id": "data-train-2",
+      "domain": "data",
+      "split": "train",
+      "text": "Schema changes broke the warehouse ingestion job"
+    },
+    {
+      "id": "data-train-3",
+      "domain": "data",
+      "split": "train",
+      "text": "Data quality checks detected null customer identifiers"
+    },
+    {
+      "id": "data-train-4",
+      "domain": "data",
+      "split": "train",
+      "text": "The nightly batch pipeline missed its freshness target"
+    },
+    {
+      "id": "data-train-5",
+      "domain": "data",
+      "split": "train",
+      "text": "The warehouse tables have not been updated since yesterday"
+    },
+    {
+      "id": "data-train-6",
+      "domain": "data",
+      "split": "train",
+      "text": "A backfill job stopped before loading historical records"
+    },
+    {
+      "id": "data-train-7",
+      "domain": "data",
+      "split": "train",
+      "text": "Feature drift was detected in the model input distribution"
+    },
+    {
+      "id": "data-train-8",
+      "domain": "data",
+      "split": "train",
+      "text": "A source schema change caused downstream dashboard failures"
+    },
+    {
+      "id": "data-train-9",
+      "domain": "data",
+      "split": "train",
+      "text": "The data processing job wrote duplicate rows"
+    },
+    {
+      "id": "data-train-10",
+      "domain": "data",
+      "split": "train",
+      "text": "The ingestion connector stopped consuming source events"
+    },
+    {
+      "id": "data-train-11",
+      "domain": "data",
+      "split": "train",
+      "text": "A dataset partition is missing from the data lake"
+    },
+    {
+      "id": "data-train-12",
+      "domain": "data",
+      "split": "train",
+      "text": "The transformation model produces inconsistent aggregates"
+    },
+    {
+      "id": "data-validation-1",
+      "domain": "data",
+      "split": "validation",
+      "text": "The analytics dataset contains duplicate primary keys"
+    },
+    {
+      "id": "data-validation-2",
+      "domain": "data",
+      "split": "validation",
+      "text": "A scheduled ingestion run did not populate its target table"
+    },
+    {
+      "id": "data-validation-3",
+      "domain": "data",
+      "split": "validation",
+      "text": "Our data freshness check failed on an upstream source"
+    },
+    {
+      "id": "data-validation-4",
+      "domain": "data",
+      "split": "validation",
+      "text": "The pipeline cannot parse the new source format"
+    },
+    {
+      "id": "data-test-1",
+      "domain": "data",
+      "split": "test",
+      "text": "The daily revenue table is stale despite a successful job"
+    },
+    {
+      "id": "data-test-2",
+      "domain": "data",
+      "split": "test",
+      "text": "The feature store has missing values for recent records"
+    },
+    {
+      "id": "data-test-3",
+      "domain": "data",
+      "split": "test",
+      "text": "Historical partitions were skipped by the backfill"
+    },
+    {
+      "id": "data-test-4",
+      "domain": "data",
+      "split": "test",
+      "text": "A transformation change altered the schema expected by analytics"
+    },
+    {
+      "id": "other-train-1",
+      "domain": "other",
+      "split": "train",
+      "text": "Suggest a restaurant for dinner"
+    },
+    {
+      "id": "other-train-2",
+      "domain": "other",
+      "split": "train",
+      "text": "Write a birthday poem for my friend"
+    },
+    {
+      "id": "other-train-3",
+      "domain": "other",
+      "split": "train",
+      "text": "What will the weather be tomorrow"
+    },
+    {
+      "id": "other-train-4",
+      "domain": "other",
+      "split": "train",
+      "text": "Help me book a vacation to Italy"
+    },
+    {
+      "id": "other-train-5",
+      "domain": "other",
+      "split": "train",
+      "text": "Who won the basketball game"
+    },
+    {
+      "id": "other-train-6",
+      "domain": "other",
+      "split": "train",
+      "text": "Recommend a movie for tonight"
+    },
+    {
+      "id": "other-train-7",
+      "domain": "other",
+      "split": "train",
+      "text": "How do I cook vegetable soup"
+    },
+    {
+      "id": "other-train-8",
+      "domain": "other",
+      "split": "train",
+      "text": "Tell me a joke about cats"
+    },
+    {
+      "id": "other-train-9",
+      "domain": "other",
+      "split": "train",
+      "text": "Translate this paragraph into Spanish"
+    },
+    {
+      "id": "other-train-10",
+      "domain": "other",
+      "split": "train",
+      "text": "What is the capital of France"
+    },
+    {
+      "id": "other-train-11",
+      "domain": "other",
+      "split": "train",
+      "text": "Explain photosynthesis to a child"
+    },
+    {
+      "id": "other-train-12",
+      "domain": "other",
+      "split": "train",
+      "text": "Help me choose a birthday gift"
+    },
+    {
+      "id": "other-validation-1",
+      "domain": "other",
+      "split": "validation",
+      "text": "Recommend a book to read on holiday"
+    },
+    {
+      "id": "other-validation-2",
+      "domain": "other",
+      "split": "validation",
+      "text": "How long should I bake a cake"
+    },
+    {
+      "id": "other-validation-3",
+      "domain": "other",
+      "split": "validation",
+      "text": "Can you explain the rules of cricket"
+    },
+    {
+      "id": "other-validation-4",
+      "domain": "other",
+      "split": "validation",
+      "text": "Something is wrong but I have no details"
+    },
+    {
+      "id": "other-test-1",
+      "domain": "other",
+      "split": "test",
+      "text": "Plan a weekend trip to the beach"
+    },
+    {
+      "id": "other-test-2",
+      "domain": "other",
+      "split": "test",
+      "text": "Write a thank you note for my teacher"
+    },
+    {
+      "id": "other-test-3",
+      "domain": "other",
+      "split": "test",
+      "text": "I need advice about buying running shoes"
+    },
+    {
+      "id": "other-test-4",
+      "domain": "other",
+      "split": "test",
+      "text": "Can you help me with an unspecified problem"
+    }
+  ]
+}
