@@ -1,12 +1,12 @@
-# Enterprise Agentic RAG Support Automation Platform
+# 🤖 Enterprise Agentic RAG Support Automation Platform
 
 An AI support and incident-investigation prototype combining LlamaIndex workflows, LangGraph orchestration, retrieval-augmented generation, and ML-based routing across security, production, cloud, data, and IT.
 
-## Why This Project Exists
+## 🌟 Why This Project Exists
 
 Support teams need to distinguish routine questions from incidents, find relevant documentation, and route issues with useful context. This platform brings those steps into one authenticated interface: answer a support question, investigate an incident, or request clarification when the available information is insufficient.
 
-## System Architecture
+## 🏗️ System Architecture
 
 ![Combined platform architecture](combined/architecture.png)
 
@@ -18,7 +18,7 @@ Login -> FastAPI -> policy + ML domain routing -> LlamaIndex support workflow an
 
 [Architecture details](combined/ARCHITECTURE.md) | [Vector diagram](combined/architecture.svg)
 
-## Key Features
+## ✨ Key Features
 
 - Authentication: JWT-protected requests and user-scoped case history.
 - Routing: explicit domain selection, weighted policies, and a trained classifier with abstention thresholds.
@@ -28,7 +28,7 @@ Login -> FastAPI -> policy + ML domain routing -> LlamaIndex support workflow an
 - Transparency: separate support citations and investigation references; simulated evidence is labeled.
 - Persistence: SQLite case history and a reusable background support worker.
 
-## Measured Results
+## 📊 Measured Results
 
 | Metric | Result | Evaluation scope |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ These are small, controlled evaluations, not production performance guarantees. 
 
 [Latest evaluation](combined/EVALUATION_V3.md) | [Raw results](combined/evaluation-v3/) | [Worker benchmark](combined/EVALUATION_V2.md) | [Model card](combined/MODEL_CARD.md)
 
-## Datasets
+## 📚 Datasets
 
 - Knowledge corpus: curated support documents and incident runbooks, not private company records.
 - Domain routing: 120 synthetic examples, split into 72 training, 24 validation, and 24 test examples. Labels are security, production, cloud, data, IT, and other.
@@ -54,7 +54,7 @@ These are small, controlled evaluations, not production performance guarantees. 
 
 Documents are indexed for retrieval; they do not train or fine-tune the LLM. The routing dataset has disjoint text splits but is not independently reviewed real-world data.
 
-## Run Locally
+## 🚀 Run Locally
 
 Use Python 3.12 for the API and Python 3.11 for the support environment. Two environments keep the inherited dependencies isolated.
 
@@ -76,7 +76,7 @@ Initial ingestion downloads the embedding model and builds the local index. The 
 
 Open http://127.0.0.1:8765 and log in with `demo` / `local-demo-only`. This is a local demo account, not production identity management. Keep the server bound to localhost. JWTs expire on server restart. The first support request loads models; later requests reuse the worker.
 
-## Tests and Training
+## 🧪 Tests and Training
 
 From `combined/`, with `SUPPORT_PYTHON` set and ingestion complete:
 
@@ -87,7 +87,7 @@ From `combined/`, with `SUPPORT_PYTHON` set and ingestion complete:
 
 The second command retrains the domain router and writes its model and evaluation report. Historical evaluation artifacts are retained for traceability; some historical scripts reference the original local benchmark paths.
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 combined/
@@ -109,7 +109,7 @@ src/, app/, tests/         # Preserved original support application
 
 The original support application remains at the repository root. Its Docker, Kubernetes, and CI assets are not deployment manifests for the combined API. Its original README is retained at [docs/ORIGINAL_SUPPORT_README.md](docs/ORIGINAL_SUPPORT_README.md).
 
-## Limitations and Next Steps
+## 🔮 Limitations and Next Steps
 
 This is an integrated prototype, not a production-ready service. Some incident evidence is simulated and all findings require review. Shared document ingestion, production SSO/roles, live connectors, monitoring, postmortems, and unified deployment remain to be consolidated. Existing connector source does not mean those integrations are active in the combined API.
 
