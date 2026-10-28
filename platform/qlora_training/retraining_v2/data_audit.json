@@ -1,0 +1,43 @@
+{
+  "sizes": [
+    612,
+    210,
+    120
+  ],
+  "groups": [
+    144,
+    78,
+    60
+  ],
+  "max_challenge_char5_jaccard": 0.3258426966292135,
+  "review_status": "synthetic_not_independently_reviewed",
+  "class_counts": [
+    {
+      "cloud": 102,
+      "data": 102,
+      "it": 102,
+      "other": 102,
+      "production": 102,
+      "security": 102
+    },
+    {
+      "cloud": 35,
+      "data": 35,
+      "it": 35,
+      "other": 35,
+      "production": 35,
+      "security": 35
+    },
+    {
+      "cloud": 20,
+      "data": 20,
+      "it": 20,
+      "other": 20,
+      "production": 20,
+      "security": 20
+    }
+  ],
+  "training_changes": "Removed 1080 formatting variants; retained 540 scenarios; added 72 boundary examples.",
+  "validation_notice": "210 development examples include the 120 previously inspected test cases.",
+  "held_out_notice": "120 new synthetic cases in 60 paraphrase groups. Not human-reviewed or real tickets."
+}

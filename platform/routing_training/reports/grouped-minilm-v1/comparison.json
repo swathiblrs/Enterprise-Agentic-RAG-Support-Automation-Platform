@@ -1,0 +1,4480 @@
+{
+  "created_at_utc": "2026-10-27T13:30:57.510644+00:00",
+  "dataset": {
+    "schema_version": 1,
+    "seed": 41,
+    "source_sha256": "9cc1613491cba61549008a6fa4619cb136b474d9295ffd6f0e8fd2e0ba051778",
+    "labels": [
+      "cloud",
+      "data",
+      "it",
+      "other",
+      "production",
+      "security"
+    ],
+    "provenance": "Project-authored synthetic scenario families, not real support records; not independently human-reviewed.",
+    "split_method": "Topic-family grouping; all variants and scenarios in a family stay together.",
+    "augmentation": "Two formatting variants per training base scenario; no validation/test augmentation.",
+    "independent_human_review": false,
+    "production_representativeness_established": false,
+    "dataset_sha256": "f7194a89ca600659fea57c6f59b552b0e1331eb046c6c5c8d5e538f2695fd6ca",
+    "audit": {
+      "examples": 1800,
+      "base_scenarios": 720,
+      "topic_families": 144,
+      "split_counts": {
+        "train": 1620,
+        "validation": 90,
+        "test": 90
+      },
+      "class_counts_by_split": {
+        "train": {
+          "cloud": 270,
+          "data": 270,
+          "it": 270,
+          "other": 270,
+          "production": 270,
+          "security": 270
+        },
+        "validation": {
+          "cloud": 15,
+          "data": 15,
+          "it": 15,
+          "other": 15,
+          "production": 15,
+          "security": 15
+        },
+        "test": {
+          "cloud": 15,
+          "data": 15,
+          "it": 15,
+          "other": 15,
+          "production": 15,
+          "security": 15
+        }
+      },
+      "group_overlap": 0,
+      "scenario_overlap": 0,
+      "exact_text_duplicates": 0,
+      "near_duplicate_threshold": 0.85,
+      "near_duplicates_at_threshold": 0,
+      "max_train_heldout_char5_jaccard": 0.4305555555555556,
+      "note": "Lexical checks do not prove absence of semantic leakage or label ambiguity."
+    }
+  },
+  "selection": {
+    "winner": "frozen",
+    "selection_basis": "validation macro-F1, then accepted coverage, then lower warm p95",
+    "dataset_sha256": "f7194a89ca600659fea57c6f59b552b0e1331eb046c6c5c8d5e538f2695fd6ca",
+    "test_used_for_selection": false,
+    "candidates": {
+      "tfidf": {
+        "classes": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "threshold": 0.3,
+        "margin": 0,
+        "validation": {
+          "n": 90,
+          "accuracy": 0.9777777777777777,
+          "macro_f1": 0.9776785714285715,
+          "per_domain_recall": {
+            "cloud": 1,
+            "data": 1,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 0.8666666666666667
+          },
+          "per_domain_f1": {
+            "cloud": 1,
+            "data": 0.9375,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 0.9285714285714286
+          },
+          "confusion_matrix": [
+            [
+              15,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              15,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              15,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              15,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0,
+              0,
+              13
+            ]
+          ],
+          "confusion_label_order": [
+            "cloud",
+            "data",
+            "it",
+            "other",
+            "production",
+            "security"
+          ],
+          "accepted_coverage": 1,
+          "accepted_accuracy": 0.9777777777777777,
+          "abstention_rate": 0,
+          "cases": [
+            {
+              "id": "cloud-vm-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.626145135243562
+            },
+            {
+              "id": "cloud-vm-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5160269694178334
+            },
+            {
+              "id": "cloud-vm-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6115686978994932
+            },
+            {
+              "id": "cloud-vm-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5484451432733967
+            },
+            {
+              "id": "cloud-vm-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5385108682755114
+            },
+            {
+              "id": "cloud-cloudroutes-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6771097029478998
+            },
+            {
+              "id": "cloud-cloudroutes-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8811803607545386
+            },
+            {
+              "id": "cloud-cloudroutes-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6774686554392884
+            },
+            {
+              "id": "cloud-cloudroutes-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5786469822131459
+            },
+            {
+              "id": "cloud-cloudroutes-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5238996723759647
+            },
+            {
+              "id": "cloud-containers-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.7225811651945816
+            },
+            {
+              "id": "cloud-containers-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6242512759081024
+            },
+            {
+              "id": "cloud-containers-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.38624148714062134
+            },
+            {
+              "id": "cloud-containers-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6252081333048836
+            },
+            {
+              "id": "cloud-containers-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.3479719607916152
+            },
+            {
+              "id": "data-timeseries-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.4130178380431302
+            },
+            {
+              "id": "data-timeseries-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6650604075745066
+            },
+            {
+              "id": "data-timeseries-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.46283994144737955
+            },
+            {
+              "id": "data-timeseries-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.39108225597315194
+            },
+            {
+              "id": "data-timeseries-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.5442317764970611
+            },
+            {
+              "id": "data-lake-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.65162807928865
+            },
+            {
+              "id": "data-lake-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7295882233918695
+            },
+            {
+              "id": "data-lake-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6796848846163178
+            },
+            {
+              "id": "data-lake-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.5554834762493426
+            },
+            {
+              "id": "data-lake-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6953322768652189
+            },
+            {
+              "id": "data-freshness-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6176757977909219
+            },
+            {
+              "id": "data-freshness-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7861271618139969
+            },
+            {
+              "id": "data-freshness-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.5801158899503118
+            },
+            {
+              "id": "data-freshness-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7053588223062467
+            },
+            {
+              "id": "data-freshness-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6931190196746498
+            },
+            {
+              "id": "it-browser-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.42329814206529165
+            },
+            {
+              "id": "it-browser-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.42095650686095654
+            },
+            {
+              "id": "it-browser-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5787071412670893
+            },
+            {
+              "id": "it-browser-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.43616273158090973
+            },
+            {
+              "id": "it-browser-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.47179753148966525
+            },
+            {
+              "id": "it-chat-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5994672262273879
+            },
+            {
+              "id": "it-chat-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6549214733923682
+            },
+            {
+              "id": "it-chat-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.4744083848899702
+            },
+            {
+              "id": "it-chat-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5198319735803634
+            },
+            {
+              "id": "it-chat-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.4428327001755211
+            },
+            {
+              "id": "it-onboarding-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.7947840866726635
+            },
+            {
+              "id": "it-onboarding-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6448236519112831
+            },
+            {
+              "id": "it-onboarding-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6275389541260468
+            },
+            {
+              "id": "it-onboarding-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5111258559044833
+            },
+            {
+              "id": "it-onboarding-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5557855799224912
+            },
+            {
+              "id": "other-boardgames-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7198558587698813
+            },
+            {
+              "id": "other-boardgames-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.5762855910590209
+            },
+            {
+              "id": "other-boardgames-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.763368680161482
+            },
+            {
+              "id": "other-boardgames-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8006770676664351
+            },
+            {
+              "id": "other-boardgames-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.5334812957054168
+            },
+            {
+              "id": "other-astronomy-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7875377430102428
+            },
+            {
+              "id": "other-astronomy-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8656318544503767
+            },
+            {
+              "id": "other-astronomy-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.6974825674067796
+            },
+            {
+              "id": "other-astronomy-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7460230156829937
+            },
+            {
+              "id": "other-astronomy-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8357006651002683
+            },
+            {
+              "id": "other-fitness-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7637642202251526
+            },
+            {
+              "id": "other-fitness-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8554148603382323
+            },
+            {
+              "id": "other-fitness-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7661610724838543
+            },
+            {
+              "id": "other-fitness-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.821600906907941
+            },
+            {
+              "id": "other-fitness-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7810511678259029
+            },
+            {
+              "id": "production-search-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6359133646229869
+            },
+            {
+              "id": "production-search-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.7200272016262463
+            },
+            {
+              "id": "production-search-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.48064768630580956
+            },
+            {
+              "id": "production-search-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.4424080751598552
+            },
+            {
+              "id": "production-search-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5502925422330568
+            },
+            {
+              "id": "production-shipping-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.8739268048451246
+            },
+            {
+              "id": "production-shipping-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.8735650149521327
+            },
+            {
+              "id": "production-shipping-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.8367285795663782
+            },
+            {
+              "id": "production-shipping-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.927149122587755
+            },
+            {
+              "id": "production-shipping-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9699261024380809
+            },
+            {
+              "id": "production-scheduledjobs-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.3019766890636784
+            },
+            {
+              "id": "production-scheduledjobs-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6203688615416657
+            },
+            {
+              "id": "production-scheduledjobs-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6030390997818583
+            },
+            {
+              "id": "production-scheduledjobs-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5918941185401636
+            },
+            {
+              "id": "production-scheduledjobs-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5597373750346827
+            },
+            {
+              "id": "security-privilege-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.4347612946813558
+            },
+            {
+              "id": "security-privilege-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.6397378976721105
+            },
+            {
+              "id": "security-privilege-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5855321523865152
+            },
+            {
+              "id": "security-privilege-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.6091395534880325
+            },
+            {
+              "id": "security-privilege-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.4078012734769143
+            },
+            {
+              "id": "security-exfiltration-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5292437331590748
+            },
+            {
+              "id": "security-exfiltration-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.3444550453904846
+            },
+            {
+              "id": "security-exfiltration-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5078708198359076
+            },
+            {
+              "id": "security-exfiltration-3-0",
+              "expected": "security",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.3288347312513501
+            },
+            {
+              "id": "security-exfiltration-4-0",
+              "expected": "security",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.3492307119806511
+            },
+            {
+              "id": "security-malware-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.6921677829928535
+            },
+            {
+              "id": "security-malware-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8845525641890202
+            },
+            {
+              "id": "security-malware-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8015162787199932
+            },
+            {
+              "id": "security-malware-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5432931706256273
+            },
+            {
+              "id": "security-malware-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8954642119382701
+            }
+          ]
+        },
+        "kind": "tfidf",
+        "head": "tfidf.json",
+        "latency": {
+          "samples": 50,
+          "batch_size": 1,
+          "warm_p50_ms": 0.34604200000387664,
+          "warm_p95_ms": 1.0274999999992929,
+          "includes_process_ipc": false
+        }
+      },
+      "frozen": {
+        "classes": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "threshold": 0.49999999999999994,
+        "margin": 0.05,
+        "validation": {
+          "n": 90,
+          "accuracy": 1,
+          "macro_f1": 1,
+          "per_domain_recall": {
+            "cloud": 1,
+            "data": 1,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 1
+          },
+          "per_domain_f1": {
+            "cloud": 1,
+            "data": 1,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 1
+          },
+          "confusion_matrix": [
+            [
+              15,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              15,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              15,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              15,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              15
+            ]
+          ],
+          "confusion_label_order": [
+            "cloud",
+            "data",
+            "it",
+            "other",
+            "production",
+            "security"
+          ],
+          "accepted_coverage": 1,
+          "accepted_accuracy": 1,
+          "abstention_rate": 0,
+          "cases": [
+            {
+              "id": "cloud-vm-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8737402884603591
+            },
+            {
+              "id": "cloud-vm-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8258843642850228
+            },
+            {
+              "id": "cloud-vm-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9884726788574165
+            },
+            {
+              "id": "cloud-vm-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9894081559714382
+            },
+            {
+              "id": "cloud-vm-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8895880941879362
+            },
+            {
+              "id": "cloud-cloudroutes-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9916675201267442
+            },
+            {
+              "id": "cloud-cloudroutes-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9880536160631732
+            },
+            {
+              "id": "cloud-cloudroutes-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.990949670528021
+            },
+            {
+              "id": "cloud-cloudroutes-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9921796215844407
+            },
+            {
+              "id": "cloud-cloudroutes-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9794069858582906
+            },
+            {
+              "id": "cloud-containers-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8649622242338336
+            },
+            {
+              "id": "cloud-containers-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9570273089852854
+            },
+            {
+              "id": "cloud-containers-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9854801824323643
+            },
+            {
+              "id": "cloud-containers-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9721664190892004
+            },
+            {
+              "id": "cloud-containers-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.9495946230156254
+            },
+            {
+              "id": "data-timeseries-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9552421353018342
+            },
+            {
+              "id": "data-timeseries-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9872875214366005
+            },
+            {
+              "id": "data-timeseries-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9675298132861712
+            },
+            {
+              "id": "data-timeseries-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7563720897872833
+            },
+            {
+              "id": "data-timeseries-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9670194366415117
+            },
+            {
+              "id": "data-lake-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9962163074473723
+            },
+            {
+              "id": "data-lake-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9752077554228245
+            },
+            {
+              "id": "data-lake-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9977110152288002
+            },
+            {
+              "id": "data-lake-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9949410298091719
+            },
+            {
+              "id": "data-lake-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9683263905061442
+            },
+            {
+              "id": "data-freshness-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.8857828477352894
+            },
+            {
+              "id": "data-freshness-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9938157325439584
+            },
+            {
+              "id": "data-freshness-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9809190870852386
+            },
+            {
+              "id": "data-freshness-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9909354635408688
+            },
+            {
+              "id": "data-freshness-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.9958485888851352
+            },
+            {
+              "id": "it-browser-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.8070237704788515
+            },
+            {
+              "id": "it-browser-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.8254760855211286
+            },
+            {
+              "id": "it-browser-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9728854360632415
+            },
+            {
+              "id": "it-browser-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9792485817221159
+            },
+            {
+              "id": "it-browser-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9842977248341088
+            },
+            {
+              "id": "it-chat-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.99677404129233
+            },
+            {
+              "id": "it-chat-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9981522787857597
+            },
+            {
+              "id": "it-chat-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.984072137218824
+            },
+            {
+              "id": "it-chat-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9970461362993966
+            },
+            {
+              "id": "it-chat-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9973327714115242
+            },
+            {
+              "id": "it-onboarding-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9002630871249281
+            },
+            {
+              "id": "it-onboarding-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.9228809432616877
+            },
+            {
+              "id": "it-onboarding-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.7389206193156982
+            },
+            {
+              "id": "it-onboarding-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.8608735384909187
+            },
+            {
+              "id": "it-onboarding-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.8932939065511869
+            },
+            {
+              "id": "other-boardgames-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9880641182609408
+            },
+            {
+              "id": "other-boardgames-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9957121199469305
+            },
+            {
+              "id": "other-boardgames-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9775655789506976
+            },
+            {
+              "id": "other-boardgames-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9897783990509732
+            },
+            {
+              "id": "other-boardgames-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9721467905920776
+            },
+            {
+              "id": "other-astronomy-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8421814704246467
+            },
+            {
+              "id": "other-astronomy-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.96445146186991
+            },
+            {
+              "id": "other-astronomy-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8947118717983039
+            },
+            {
+              "id": "other-astronomy-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9873048359942901
+            },
+            {
+              "id": "other-astronomy-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9658132687225354
+            },
+            {
+              "id": "other-fitness-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9936467940419018
+            },
+            {
+              "id": "other-fitness-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9712667495340417
+            },
+            {
+              "id": "other-fitness-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9795294445208278
+            },
+            {
+              "id": "other-fitness-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9821259330673421
+            },
+            {
+              "id": "other-fitness-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.9968443328265724
+            },
+            {
+              "id": "production-search-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.8077952625887079
+            },
+            {
+              "id": "production-search-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9824612290930839
+            },
+            {
+              "id": "production-search-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.8925819466731657
+            },
+            {
+              "id": "production-search-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9466285425972568
+            },
+            {
+              "id": "production-search-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9721349645928699
+            },
+            {
+              "id": "production-shipping-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.954854280017242
+            },
+            {
+              "id": "production-shipping-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9982357495897553
+            },
+            {
+              "id": "production-shipping-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9823561630467171
+            },
+            {
+              "id": "production-shipping-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9965029395610501
+            },
+            {
+              "id": "production-shipping-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9985011409867529
+            },
+            {
+              "id": "production-scheduledjobs-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.71117024734011
+            },
+            {
+              "id": "production-scheduledjobs-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9626011003103191
+            },
+            {
+              "id": "production-scheduledjobs-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9621902378867682
+            },
+            {
+              "id": "production-scheduledjobs-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9689861373702021
+            },
+            {
+              "id": "production-scheduledjobs-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.9061798150612655
+            },
+            {
+              "id": "security-privilege-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9811543437231532
+            },
+            {
+              "id": "security-privilege-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.984876420190526
+            },
+            {
+              "id": "security-privilege-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9960971091617405
+            },
+            {
+              "id": "security-privilege-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9889239428525451
+            },
+            {
+              "id": "security-privilege-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9499080444008013
+            },
+            {
+              "id": "security-exfiltration-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9959895862957141
+            },
+            {
+              "id": "security-exfiltration-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8759411400771769
+            },
+            {
+              "id": "security-exfiltration-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9923680188049614
+            },
+            {
+              "id": "security-exfiltration-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5033855217860701
+            },
+            {
+              "id": "security-exfiltration-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8697861302344346
+            },
+            {
+              "id": "security-malware-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9955378851145241
+            },
+            {
+              "id": "security-malware-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9947191675173014
+            },
+            {
+              "id": "security-malware-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9868371624271781
+            },
+            {
+              "id": "security-malware-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.989382029298825
+            },
+            {
+              "id": "security-malware-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.9982618186636274
+            }
+          ]
+        },
+        "kind": "embedding",
+        "head": "frozen_head.json",
+        "encoder": "frozen_encoder",
+        "latency": {
+          "samples": 50,
+          "batch_size": 1,
+          "warm_p50_ms": 6.705250000003105,
+          "warm_p95_ms": 8.52054199999941,
+          "includes_process_ipc": false
+        }
+      },
+      "setfit": {
+        "classes": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "threshold": 0.3,
+        "margin": 0,
+        "validation": {
+          "n": 90,
+          "accuracy": 0.9888888888888889,
+          "macro_f1": 0.988876529477197,
+          "per_domain_recall": {
+            "cloud": 1,
+            "data": 1,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 0.9333333333333333
+          },
+          "per_domain_f1": {
+            "cloud": 1,
+            "data": 0.967741935483871,
+            "it": 1,
+            "other": 1,
+            "production": 1,
+            "security": 0.9655172413793104
+          },
+          "confusion_matrix": [
+            [
+              15,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              15,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              15,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              15,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              14
+            ]
+          ],
+          "confusion_label_order": [
+            "cloud",
+            "data",
+            "it",
+            "other",
+            "production",
+            "security"
+          ],
+          "accepted_coverage": 1,
+          "accepted_accuracy": 0.9888888888888889,
+          "abstention_rate": 0,
+          "cases": [
+            {
+              "id": "cloud-vm-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5241799077947906
+            },
+            {
+              "id": "cloud-vm-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5691774472478407
+            },
+            {
+              "id": "cloud-vm-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.7608484456131042
+            },
+            {
+              "id": "cloud-vm-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.7003054955009209
+            },
+            {
+              "id": "cloud-vm-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5306985356342897
+            },
+            {
+              "id": "cloud-cloudroutes-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.798342135065922
+            },
+            {
+              "id": "cloud-cloudroutes-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.8035982177838852
+            },
+            {
+              "id": "cloud-cloudroutes-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.837759006454026
+            },
+            {
+              "id": "cloud-cloudroutes-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.828143181625048
+            },
+            {
+              "id": "cloud-cloudroutes-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.7101919222247554
+            },
+            {
+              "id": "cloud-containers-0-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5380977607478168
+            },
+            {
+              "id": "cloud-containers-1-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6272637374012474
+            },
+            {
+              "id": "cloud-containers-2-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6162087755281955
+            },
+            {
+              "id": "cloud-containers-3-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.5637611547212611
+            },
+            {
+              "id": "cloud-containers-4-0",
+              "expected": "cloud",
+              "predicted": "cloud",
+              "accepted": true,
+              "confidence": 0.6535409392291269
+            },
+            {
+              "id": "data-timeseries-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6500618097524142
+            },
+            {
+              "id": "data-timeseries-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6714146414996088
+            },
+            {
+              "id": "data-timeseries-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.679135080953816
+            },
+            {
+              "id": "data-timeseries-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.5509934999782578
+            },
+            {
+              "id": "data-timeseries-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6976831556516444
+            },
+            {
+              "id": "data-lake-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7372048965069435
+            },
+            {
+              "id": "data-lake-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6412999186670498
+            },
+            {
+              "id": "data-lake-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7890098378650947
+            },
+            {
+              "id": "data-lake-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7239870550634245
+            },
+            {
+              "id": "data-lake-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6324316376929804
+            },
+            {
+              "id": "data-freshness-0-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.5528914281676812
+            },
+            {
+              "id": "data-freshness-1-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.7059788501004142
+            },
+            {
+              "id": "data-freshness-2-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6183499109297051
+            },
+            {
+              "id": "data-freshness-3-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6295391717611416
+            },
+            {
+              "id": "data-freshness-4-0",
+              "expected": "data",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.6886384461024494
+            },
+            {
+              "id": "it-browser-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.4379731571940909
+            },
+            {
+              "id": "it-browser-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.42759451844575
+            },
+            {
+              "id": "it-browser-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.569671330076019
+            },
+            {
+              "id": "it-browser-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5751101022894487
+            },
+            {
+              "id": "it-browser-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6571088149027109
+            },
+            {
+              "id": "it-chat-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6833908472211249
+            },
+            {
+              "id": "it-chat-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.7214242830388891
+            },
+            {
+              "id": "it-chat-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6247814381441451
+            },
+            {
+              "id": "it-chat-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.7140767213213425
+            },
+            {
+              "id": "it-chat-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.6935302319817375
+            },
+            {
+              "id": "it-onboarding-0-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.4280001115496749
+            },
+            {
+              "id": "it-onboarding-1-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.5312495267128042
+            },
+            {
+              "id": "it-onboarding-2-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.363367952320178
+            },
+            {
+              "id": "it-onboarding-3-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.4854311929475504
+            },
+            {
+              "id": "it-onboarding-4-0",
+              "expected": "it",
+              "predicted": "it",
+              "accepted": true,
+              "confidence": 0.36361212840047585
+            },
+            {
+              "id": "other-boardgames-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7886907402380325
+            },
+            {
+              "id": "other-boardgames-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8346078019607478
+            },
+            {
+              "id": "other-boardgames-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7783287578352874
+            },
+            {
+              "id": "other-boardgames-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8002482166877404
+            },
+            {
+              "id": "other-boardgames-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7304016544584281
+            },
+            {
+              "id": "other-astronomy-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.6188462510070653
+            },
+            {
+              "id": "other-astronomy-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7249167183017878
+            },
+            {
+              "id": "other-astronomy-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.6195223777630077
+            },
+            {
+              "id": "other-astronomy-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.794847197058653
+            },
+            {
+              "id": "other-astronomy-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7210709119346347
+            },
+            {
+              "id": "other-fitness-0-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7658030057210196
+            },
+            {
+              "id": "other-fitness-1-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7854370429340616
+            },
+            {
+              "id": "other-fitness-2-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.7707829438912688
+            },
+            {
+              "id": "other-fitness-3-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8233315189594008
+            },
+            {
+              "id": "other-fitness-4-0",
+              "expected": "other",
+              "predicted": "other",
+              "accepted": true,
+              "confidence": 0.8489608268791125
+            },
+            {
+              "id": "production-search-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.4533656428730407
+            },
+            {
+              "id": "production-search-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6430087985835022
+            },
+            {
+              "id": "production-search-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5156229716768742
+            },
+            {
+              "id": "production-search-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6371078612345603
+            },
+            {
+              "id": "production-search-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6306648225351101
+            },
+            {
+              "id": "production-shipping-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5213757715741278
+            },
+            {
+              "id": "production-shipping-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.7188099491403653
+            },
+            {
+              "id": "production-shipping-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5324387323957892
+            },
+            {
+              "id": "production-shipping-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.6542581186329349
+            },
+            {
+              "id": "production-shipping-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.7168767992686934
+            },
+            {
+              "id": "production-scheduledjobs-0-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.3920542895238733
+            },
+            {
+              "id": "production-scheduledjobs-1-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.4757619723321683
+            },
+            {
+              "id": "production-scheduledjobs-2-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5053114681048173
+            },
+            {
+              "id": "production-scheduledjobs-3-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.5725978726253141
+            },
+            {
+              "id": "production-scheduledjobs-4-0",
+              "expected": "production",
+              "predicted": "production",
+              "accepted": true,
+              "confidence": 0.48917098485750027
+            },
+            {
+              "id": "security-privilege-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.6810124020381143
+            },
+            {
+              "id": "security-privilege-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.6669021332681994
+            },
+            {
+              "id": "security-privilege-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7958493229432901
+            },
+            {
+              "id": "security-privilege-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7161389129742027
+            },
+            {
+              "id": "security-privilege-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.4627663219155123
+            },
+            {
+              "id": "security-exfiltration-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7347890199691473
+            },
+            {
+              "id": "security-exfiltration-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.44261619640469607
+            },
+            {
+              "id": "security-exfiltration-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7348042643242033
+            },
+            {
+              "id": "security-exfiltration-3-0",
+              "expected": "security",
+              "predicted": "data",
+              "accepted": true,
+              "confidence": 0.3458637381612841
+            },
+            {
+              "id": "security-exfiltration-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.5069865878115805
+            },
+            {
+              "id": "security-malware-0-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8011262269769993
+            },
+            {
+              "id": "security-malware-1-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8139509882036371
+            },
+            {
+              "id": "security-malware-2-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7573115598210154
+            },
+            {
+              "id": "security-malware-3-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.7974080664796072
+            },
+            {
+              "id": "security-malware-4-0",
+              "expected": "security",
+              "predicted": "security",
+              "accepted": true,
+              "confidence": 0.8523771904478831
+            }
+          ]
+        },
+        "kind": "embedding",
+        "head": "setfit_head.json",
+        "encoder": "setfit_encoder",
+        "latency": {
+          "samples": 50,
+          "batch_size": 1,
+          "warm_p50_ms": 7.834416999997984,
+          "warm_p95_ms": 28.287957999999946,
+          "includes_process_ipc": false
+        }
+      }
+    }
+  },
+  "test": {
+    "tfidf": {
+      "n": 90,
+      "accuracy": 0.9666666666666667,
+      "macro_f1": 0.9666543072549748,
+      "per_domain_recall": {
+        "cloud": 1,
+        "data": 1,
+        "it": 0.9333333333333333,
+        "other": 0.9333333333333333,
+        "production": 0.9333333333333333,
+        "security": 1
+      },
+      "per_domain_f1": {
+        "cloud": 1,
+        "data": 0.967741935483871,
+        "it": 0.9333333333333333,
+        "other": 0.9655172413793104,
+        "production": 0.9333333333333333,
+        "security": 1
+      },
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "confusion_label_order": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "accepted_coverage": 0.9,
+      "accepted_accuracy": 1,
+      "abstention_rate": 0.09999999999999998,
+      "cases": [
+        {
+          "id": "cloud-cloudcert-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.5296309888413021
+        },
+        {
+          "id": "cloud-cloudcert-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.4137840544732925
+        },
+        {
+          "id": "cloud-cloudcert-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.43928212484297763
+        },
+        {
+          "id": "cloud-cloudcert-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6289242771864787
+        },
+        {
+          "id": "cloud-cloudcert-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.47364344484074333
+        },
+        {
+          "id": "cloud-serverlessinfra-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8972974212022247
+        },
+        {
+          "id": "cloud-serverlessinfra-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8089154869199685
+        },
+        {
+          "id": "cloud-serverlessinfra-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8035776990641107
+        },
+        {
+          "id": "cloud-serverlessinfra-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8678404797873529
+        },
+        {
+          "id": "cloud-serverlessinfra-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.7636188035098923
+        },
+        {
+          "id": "cloud-cloudcost-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.37572578292723635
+        },
+        {
+          "id": "cloud-cloudcost-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6408533762602772
+        },
+        {
+          "id": "cloud-cloudcost-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.746327337136345
+        },
+        {
+          "id": "cloud-cloudcost-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.5651655182083919
+        },
+        {
+          "id": "cloud-cloudcost-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.5642731975603812
+        },
+        {
+          "id": "data-datatypes-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.6973890852105206
+        },
+        {
+          "id": "data-datatypes-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.6635377491363221
+        },
+        {
+          "id": "data-datatypes-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.5680255427907762
+        },
+        {
+          "id": "data-datatypes-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.5681752800837212
+        },
+        {
+          "id": "data-datatypes-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.6535952816171079
+        },
+        {
+          "id": "data-reconciliation-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.44830850716828946
+        },
+        {
+          "id": "data-reconciliation-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.5718768695138244
+        },
+        {
+          "id": "data-reconciliation-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.5226958926153568
+        },
+        {
+          "id": "data-reconciliation-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.5470290156025789
+        },
+        {
+          "id": "data-reconciliation-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.4712566872656659
+        },
+        {
+          "id": "data-sampling-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8013340563167628
+        },
+        {
+          "id": "data-sampling-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.4941341384551259
+        },
+        {
+          "id": "data-sampling-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8132391498304052
+        },
+        {
+          "id": "data-sampling-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.4547800431330397
+        },
+        {
+          "id": "data-sampling-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.46573057955417696
+        },
+        {
+          "id": "it-serviceportal-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.6872243700802135
+        },
+        {
+          "id": "it-serviceportal-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5566334604067029
+        },
+        {
+          "id": "it-serviceportal-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5279632172808119
+        },
+        {
+          "id": "it-serviceportal-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.4349957155050626
+        },
+        {
+          "id": "it-serviceportal-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5676748025058669
+        },
+        {
+          "id": "it-mail-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5205196279756239
+        },
+        {
+          "id": "it-mail-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.7154024468364403
+        },
+        {
+          "id": "it-mail-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.34149515552148196
+        },
+        {
+          "id": "it-mail-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.4485623737030084
+        },
+        {
+          "id": "it-mail-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5390454709795403
+        },
+        {
+          "id": "it-duo-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": false,
+          "confidence": 0.28888009224231864
+        },
+        {
+          "id": "it-duo-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.4591182831364379
+        },
+        {
+          "id": "it-duo-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": false,
+          "confidence": 0.22143775261584756
+        },
+        {
+          "id": "it-duo-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.4317196228382057
+        },
+        {
+          "id": "it-duo-4-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": false,
+          "confidence": 0.268513494278433
+        },
+        {
+          "id": "other-career-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.3779677700923851
+        },
+        {
+          "id": "other-career-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6851106845981468
+        },
+        {
+          "id": "other-career-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7267503910853199
+        },
+        {
+          "id": "other-career-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6079359147284051
+        },
+        {
+          "id": "other-career-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6771838601832064
+        },
+        {
+          "id": "other-language-0-0",
+          "expected": "other",
+          "predicted": "data",
+          "accepted": false,
+          "confidence": 0.24371588057639829
+        },
+        {
+          "id": "other-language-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.5562925172556394
+        },
+        {
+          "id": "other-language-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.4641684336903612
+        },
+        {
+          "id": "other-language-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.5438507494433358
+        },
+        {
+          "id": "other-language-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": false,
+          "confidence": 0.27546255112751417
+        },
+        {
+          "id": "other-history-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7051077922328284
+        },
+        {
+          "id": "other-history-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7232326111664356
+        },
+        {
+          "id": "other-history-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.5275095482047019
+        },
+        {
+          "id": "other-history-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6012135679194787
+        },
+        {
+          "id": "other-history-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7290030047055701
+        },
+        {
+          "id": "production-apiworker-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false,
+          "confidence": 0.23571003562060003
+        },
+        {
+          "id": "production-apiworker-1-0",
+          "expected": "production",
+          "predicted": "it",
+          "accepted": false,
+          "confidence": 0.18473556940454763
+        },
+        {
+          "id": "production-apiworker-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5055008332923652
+        },
+        {
+          "id": "production-apiworker-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.36986296896886656
+        },
+        {
+          "id": "production-apiworker-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false,
+          "confidence": 0.24149056369489164
+        },
+        {
+          "id": "production-databasepool-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": false,
+          "confidence": 0.2665767831126675
+        },
+        {
+          "id": "production-databasepool-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5107518403288146
+        },
+        {
+          "id": "production-databasepool-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.397824402509241
+        },
+        {
+          "id": "production-databasepool-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.503459765363084
+        },
+        {
+          "id": "production-databasepool-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5264843909357547
+        },
+        {
+          "id": "production-catalog-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.7704358012388186
+        },
+        {
+          "id": "production-catalog-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.7010966933509927
+        },
+        {
+          "id": "production-catalog-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.4659578014153438
+        },
+        {
+          "id": "production-catalog-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.4863111459808688
+        },
+        {
+          "id": "production-catalog-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.8447068874693836
+        },
+        {
+          "id": "security-dnsattack-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.581635912225463
+        },
+        {
+          "id": "security-dnsattack-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.41402874364677544
+        },
+        {
+          "id": "security-dnsattack-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.6714186585421615
+        },
+        {
+          "id": "security-dnsattack-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.5997978725623947
+        },
+        {
+          "id": "security-dnsattack-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.5982111428368403
+        },
+        {
+          "id": "security-bruteforce-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7585420601636764
+        },
+        {
+          "id": "security-bruteforce-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7901174794073853
+        },
+        {
+          "id": "security-bruteforce-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.6701108271998518
+        },
+        {
+          "id": "security-bruteforce-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.6429907375803529
+        },
+        {
+          "id": "security-bruteforce-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.674055083082583
+        },
+        {
+          "id": "security-browserthreat-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.5058491859601787
+        },
+        {
+          "id": "security-browserthreat-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.5962129367689986
+        },
+        {
+          "id": "security-browserthreat-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.5713529510146376
+        },
+        {
+          "id": "security-browserthreat-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.3656695989837631
+        },
+        {
+          "id": "security-browserthreat-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.6705012222902262
+        }
+      ]
+    },
+    "frozen": {
+      "n": 90,
+      "accuracy": 0.9666666666666667,
+      "macro_f1": 0.9656884707287933,
+      "per_domain_recall": {
+        "cloud": 1,
+        "data": 1,
+        "it": 0.8,
+        "other": 1,
+        "production": 1,
+        "security": 1
+      },
+      "per_domain_f1": {
+        "cloud": 0.967741935483871,
+        "data": 1,
+        "it": 0.8888888888888888,
+        "other": 1,
+        "production": 0.9375,
+        "security": 1
+      },
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          12,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "confusion_label_order": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "accepted_coverage": 0.9666666666666667,
+      "accepted_accuracy": 0.9770114942528736,
+      "abstention_rate": 0.033333333333333326,
+      "cases": [
+        {
+          "id": "cloud-cloudcert-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9724572130997371
+        },
+        {
+          "id": "cloud-cloudcert-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9505277239406009
+        },
+        {
+          "id": "cloud-cloudcert-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.939253725008995
+        },
+        {
+          "id": "cloud-cloudcert-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9956680627890252
+        },
+        {
+          "id": "cloud-cloudcert-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9667231168882774
+        },
+        {
+          "id": "cloud-serverlessinfra-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9809672156003769
+        },
+        {
+          "id": "cloud-serverlessinfra-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9386645934779014
+        },
+        {
+          "id": "cloud-serverlessinfra-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9740947828498937
+        },
+        {
+          "id": "cloud-serverlessinfra-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8495337189490741
+        },
+        {
+          "id": "cloud-serverlessinfra-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9723779333375968
+        },
+        {
+          "id": "cloud-cloudcost-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9946324637886794
+        },
+        {
+          "id": "cloud-cloudcost-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9887735602863292
+        },
+        {
+          "id": "cloud-cloudcost-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9552333690518562
+        },
+        {
+          "id": "cloud-cloudcost-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9955925239891984
+        },
+        {
+          "id": "cloud-cloudcost-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.9968081329873707
+        },
+        {
+          "id": "data-datatypes-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9936653071196506
+        },
+        {
+          "id": "data-datatypes-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9790403392254057
+        },
+        {
+          "id": "data-datatypes-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8843157292037691
+        },
+        {
+          "id": "data-datatypes-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9525323050152448
+        },
+        {
+          "id": "data-datatypes-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9899106751735334
+        },
+        {
+          "id": "data-reconciliation-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9747276738376426
+        },
+        {
+          "id": "data-reconciliation-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9990589991279383
+        },
+        {
+          "id": "data-reconciliation-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9982639319808997
+        },
+        {
+          "id": "data-reconciliation-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9982355713025796
+        },
+        {
+          "id": "data-reconciliation-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9918464040854528
+        },
+        {
+          "id": "data-sampling-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9867010950653412
+        },
+        {
+          "id": "data-sampling-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8777142879230175
+        },
+        {
+          "id": "data-sampling-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9944532086827064
+        },
+        {
+          "id": "data-sampling-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9555321271774211
+        },
+        {
+          "id": "data-sampling-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.9909888845207898
+        },
+        {
+          "id": "it-serviceportal-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9486953135028503
+        },
+        {
+          "id": "it-serviceportal-1-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.7704546626070726
+        },
+        {
+          "id": "it-serviceportal-2-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.506972503567448
+        },
+        {
+          "id": "it-serviceportal-3-0",
+          "expected": "it",
+          "predicted": "cloud",
+          "accepted": false,
+          "confidence": 0.351201934964422
+        },
+        {
+          "id": "it-serviceportal-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": false,
+          "confidence": 0.4154162201046311
+        },
+        {
+          "id": "it-mail-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9810242983847407
+        },
+        {
+          "id": "it-mail-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9674570821929692
+        },
+        {
+          "id": "it-mail-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9196357454881118
+        },
+        {
+          "id": "it-mail-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9101800970143861
+        },
+        {
+          "id": "it-mail-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.9765394143849876
+        },
+        {
+          "id": "it-duo-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.709032317872579
+        },
+        {
+          "id": "it-duo-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.734333625863816
+        },
+        {
+          "id": "it-duo-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": false,
+          "confidence": 0.42582380975475426
+        },
+        {
+          "id": "it-duo-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.6111708486756336
+        },
+        {
+          "id": "it-duo-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5840846056765837
+        },
+        {
+          "id": "other-career-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9542684615507869
+        },
+        {
+          "id": "other-career-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9940976515272624
+        },
+        {
+          "id": "other-career-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9754700391961323
+        },
+        {
+          "id": "other-career-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9744589321300526
+        },
+        {
+          "id": "other-career-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9881572184717644
+        },
+        {
+          "id": "other-language-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.8553603364382252
+        },
+        {
+          "id": "other-language-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9615724515291018
+        },
+        {
+          "id": "other-language-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9615010926854217
+        },
+        {
+          "id": "other-language-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9583132710908071
+        },
+        {
+          "id": "other-language-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9510175799808468
+        },
+        {
+          "id": "other-history-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9879245996556711
+        },
+        {
+          "id": "other-history-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9469040059197257
+        },
+        {
+          "id": "other-history-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9850608352297237
+        },
+        {
+          "id": "other-history-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.875025202387319
+        },
+        {
+          "id": "other-history-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.9870114434017339
+        },
+        {
+          "id": "production-apiworker-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9398309399486489
+        },
+        {
+          "id": "production-apiworker-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.8083744209553918
+        },
+        {
+          "id": "production-apiworker-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9630627068396157
+        },
+        {
+          "id": "production-apiworker-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9716491950206404
+        },
+        {
+          "id": "production-apiworker-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9280519166807785
+        },
+        {
+          "id": "production-databasepool-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9396838389831154
+        },
+        {
+          "id": "production-databasepool-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9676341166852022
+        },
+        {
+          "id": "production-databasepool-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5966533961954793
+        },
+        {
+          "id": "production-databasepool-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9427358097789698
+        },
+        {
+          "id": "production-databasepool-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.8879359793612296
+        },
+        {
+          "id": "production-catalog-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9604939991557504
+        },
+        {
+          "id": "production-catalog-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.943976557988137
+        },
+        {
+          "id": "production-catalog-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9373753028869485
+        },
+        {
+          "id": "production-catalog-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9193494955773067
+        },
+        {
+          "id": "production-catalog-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.9278888951957818
+        },
+        {
+          "id": "security-dnsattack-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9819111282822155
+        },
+        {
+          "id": "security-dnsattack-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9669285304118036
+        },
+        {
+          "id": "security-dnsattack-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9491156669320291
+        },
+        {
+          "id": "security-dnsattack-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9675417878931211
+        },
+        {
+          "id": "security-dnsattack-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9834059449899025
+        },
+        {
+          "id": "security-bruteforce-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9968699174131358
+        },
+        {
+          "id": "security-bruteforce-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9889656930605855
+        },
+        {
+          "id": "security-bruteforce-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9976324585639403
+        },
+        {
+          "id": "security-bruteforce-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9616229821504432
+        },
+        {
+          "id": "security-bruteforce-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9966552258672616
+        },
+        {
+          "id": "security-browserthreat-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9947338674213358
+        },
+        {
+          "id": "security-browserthreat-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9817879819913741
+        },
+        {
+          "id": "security-browserthreat-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9825175139955985
+        },
+        {
+          "id": "security-browserthreat-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9898181375554315
+        },
+        {
+          "id": "security-browserthreat-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.9950764736744476
+        }
+      ]
+    },
+    "setfit": {
+      "n": 90,
+      "accuracy": 0.9555555555555556,
+      "macro_f1": 0.9547511312217195,
+      "per_domain_recall": {
+        "cloud": 1,
+        "data": 1,
+        "it": 0.7333333333333333,
+        "other": 1,
+        "production": 1,
+        "security": 1
+      },
+      "per_domain_f1": {
+        "cloud": 1,
+        "data": 1,
+        "it": 0.8461538461538461,
+        "other": 1,
+        "production": 0.8823529411764706,
+        "security": 1
+      },
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          11,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "confusion_label_order": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "accepted_coverage": 1,
+      "accepted_accuracy": 0.9555555555555556,
+      "abstention_rate": 0,
+      "cases": [
+        {
+          "id": "cloud-cloudcert-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.7243985247397298
+        },
+        {
+          "id": "cloud-cloudcert-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6702773496244077
+        },
+        {
+          "id": "cloud-cloudcert-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.760053276731164
+        },
+        {
+          "id": "cloud-cloudcert-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.8162116952686516
+        },
+        {
+          "id": "cloud-cloudcert-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.7636975207340785
+        },
+        {
+          "id": "cloud-serverlessinfra-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.671724619864664
+        },
+        {
+          "id": "cloud-serverlessinfra-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.49377824117799435
+        },
+        {
+          "id": "cloud-serverlessinfra-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6716120493782767
+        },
+        {
+          "id": "cloud-serverlessinfra-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.5988902048645024
+        },
+        {
+          "id": "cloud-serverlessinfra-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6206724346175486
+        },
+        {
+          "id": "cloud-cloudcost-0-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6868236791299472
+        },
+        {
+          "id": "cloud-cloudcost-1-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.5602138956593224
+        },
+        {
+          "id": "cloud-cloudcost-2-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.4789560740835802
+        },
+        {
+          "id": "cloud-cloudcost-3-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.6394061170500845
+        },
+        {
+          "id": "cloud-cloudcost-4-0",
+          "expected": "cloud",
+          "predicted": "cloud",
+          "accepted": true,
+          "confidence": 0.7628554676162234
+        },
+        {
+          "id": "data-datatypes-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8141190590859413
+        },
+        {
+          "id": "data-datatypes-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8105243028737696
+        },
+        {
+          "id": "data-datatypes-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.7180909350160809
+        },
+        {
+          "id": "data-datatypes-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.7665556102181051
+        },
+        {
+          "id": "data-datatypes-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8093010975135796
+        },
+        {
+          "id": "data-reconciliation-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.6828590778480027
+        },
+        {
+          "id": "data-reconciliation-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.846649154760446
+        },
+        {
+          "id": "data-reconciliation-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8225373063220238
+        },
+        {
+          "id": "data-reconciliation-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.8186308368406989
+        },
+        {
+          "id": "data-reconciliation-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.68994751133561
+        },
+        {
+          "id": "data-sampling-0-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.7381048557645994
+        },
+        {
+          "id": "data-sampling-1-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.4767520074990501
+        },
+        {
+          "id": "data-sampling-2-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.7851810689884503
+        },
+        {
+          "id": "data-sampling-3-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.6269545707261012
+        },
+        {
+          "id": "data-sampling-4-0",
+          "expected": "data",
+          "predicted": "data",
+          "accepted": true,
+          "confidence": 0.7010626420641287
+        },
+        {
+          "id": "it-serviceportal-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.4695735181149225
+        },
+        {
+          "id": "it-serviceportal-1-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.4009048212332739
+        },
+        {
+          "id": "it-serviceportal-2-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.3119934601933892
+        },
+        {
+          "id": "it-serviceportal-3-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.30121925232253177
+        },
+        {
+          "id": "it-serviceportal-4-0",
+          "expected": "it",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.3072243866119801
+        },
+        {
+          "id": "it-mail-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.6470440398684838
+        },
+        {
+          "id": "it-mail-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.6033109355821638
+        },
+        {
+          "id": "it-mail-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5264838802812365
+        },
+        {
+          "id": "it-mail-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.5450897891440066
+        },
+        {
+          "id": "it-mail-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.6154278123697484
+        },
+        {
+          "id": "it-duo-0-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.364517518831602
+        },
+        {
+          "id": "it-duo-1-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.40219135000397593
+        },
+        {
+          "id": "it-duo-2-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.3166164212408606
+        },
+        {
+          "id": "it-duo-3-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.42343411422052385
+        },
+        {
+          "id": "it-duo-4-0",
+          "expected": "it",
+          "predicted": "it",
+          "accepted": true,
+          "confidence": 0.3750397643078392
+        },
+        {
+          "id": "other-career-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7662949471391842
+        },
+        {
+          "id": "other-career-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.8336671793429492
+        },
+        {
+          "id": "other-career-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7976961348959694
+        },
+        {
+          "id": "other-career-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7800266723049485
+        },
+        {
+          "id": "other-career-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7982475576962936
+        },
+        {
+          "id": "other-language-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.5930089033342065
+        },
+        {
+          "id": "other-language-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6716103524402129
+        },
+        {
+          "id": "other-language-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7591604324790331
+        },
+        {
+          "id": "other-language-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7061659303704803
+        },
+        {
+          "id": "other-language-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.6470849514925721
+        },
+        {
+          "id": "other-history-0-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.8136481525452376
+        },
+        {
+          "id": "other-history-1-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7601930432780983
+        },
+        {
+          "id": "other-history-2-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.7551726470929679
+        },
+        {
+          "id": "other-history-3-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.820974718636116
+        },
+        {
+          "id": "other-history-4-0",
+          "expected": "other",
+          "predicted": "other",
+          "accepted": true,
+          "confidence": 0.8320215153933331
+        },
+        {
+          "id": "production-apiworker-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5964387649504476
+        },
+        {
+          "id": "production-apiworker-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5697681929785775
+        },
+        {
+          "id": "production-apiworker-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.6322425588677387
+        },
+        {
+          "id": "production-apiworker-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.6353212498038042
+        },
+        {
+          "id": "production-apiworker-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.6171655012203854
+        },
+        {
+          "id": "production-databasepool-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5514881325680596
+        },
+        {
+          "id": "production-databasepool-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5826479809261885
+        },
+        {
+          "id": "production-databasepool-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.4068582949894618
+        },
+        {
+          "id": "production-databasepool-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5703621159782825
+        },
+        {
+          "id": "production-databasepool-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.44373205344766636
+        },
+        {
+          "id": "production-catalog-0-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5462067669921147
+        },
+        {
+          "id": "production-catalog-1-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5160368098067979
+        },
+        {
+          "id": "production-catalog-2-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5499729792543834
+        },
+        {
+          "id": "production-catalog-3-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5975394054481874
+        },
+        {
+          "id": "production-catalog-4-0",
+          "expected": "production",
+          "predicted": "production",
+          "accepted": true,
+          "confidence": 0.5649254262904729
+        },
+        {
+          "id": "security-dnsattack-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7488050247722785
+        },
+        {
+          "id": "security-dnsattack-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.727694243429966
+        },
+        {
+          "id": "security-dnsattack-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7304888172746334
+        },
+        {
+          "id": "security-dnsattack-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.766027338194609
+        },
+        {
+          "id": "security-dnsattack-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.8138029739338057
+        },
+        {
+          "id": "security-bruteforce-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.8466810968474646
+        },
+        {
+          "id": "security-bruteforce-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7713898776526469
+        },
+        {
+          "id": "security-bruteforce-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7900767969575785
+        },
+        {
+          "id": "security-bruteforce-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.6481319679992125
+        },
+        {
+          "id": "security-bruteforce-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.8144157159212655
+        },
+        {
+          "id": "security-browserthreat-0-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7930992126144751
+        },
+        {
+          "id": "security-browserthreat-1-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7653314039554466
+        },
+        {
+          "id": "security-browserthreat-2-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.7598478910359643
+        },
+        {
+          "id": "security-browserthreat-3-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.816011874271532
+        },
+        {
+          "id": "security-browserthreat-4-0",
+          "expected": "security",
+          "predicted": "security",
+          "accepted": true,
+          "confidence": 0.8041602938099348
+        }
+      ]
+    }
+  },
+  "fine_tuning": {
+    "steps": 80,
+    "device": "mps:0",
+    "seconds": 12.103811499999999,
+    "base_weight_sha256": "c8b0fbe0d4535cb57f3b5904e2b3d547ed1c3d6312415cc9737d7c3212b3d61b",
+    "fine_tuned_weight_sha256": "300a158b9b71170a16b6693c51cd54627c7beff3872078b98fd64670c39211ef",
+    "device_recording_note": "Original runner hard-coded cpu in its report. SetFit auto-selected Apple MPS outside the sandbox; the MPS training warning and a same-environment device probe established mps:0. This metadata correction does not alter weights, selection, or scores."
+  },
+  "total_seconds": 18.070719833,
+  "packages": {
+    "setfit": "1.1.3",
+    "sentence-transformers": "5.1.2",
+    "torch": "2.8.0",
+    "scikit-learn": "1.6.1",
+    "datasets": "3.6.0",
+    "transformers": "4.57.6"
+  },
+  "limitations": [
+    "Synthetic, unreviewed scenarios; not independent real support data.",
+    "Only 18 topic families and 90 base scenarios in the final test.",
+    "Training formatting variants do not add independent scenarios.",
+    "Measured model inference latency excludes queueing, IPC and end-to-end API processing.",
+    "Scores and acceptance thresholds are not production-calibrated."
+  ],
+  "original_inference_devices": {
+    "tfidf": "cpu",
+    "frozen": "cpu",
+    "setfit": "mps:0"
+  },
+  "standardized_cpu_latency": {
+    "tfidf": {
+      "device": "cpu",
+      "samples": 50,
+      "batch_size": 1,
+      "ipc_included": false,
+      "warm_p50_ms": 0.10854199999998926,
+      "warm_p95_ms": 0.15520899999987847
+    },
+    "frozen": {
+      "device": "cpu",
+      "samples": 50,
+      "batch_size": 1,
+      "ipc_included": false,
+      "warm_p50_ms": 6.284167000000451,
+      "warm_p95_ms": 8.359792000000255
+    },
+    "setfit": {
+      "device": "cpu",
+      "samples": 50,
+      "batch_size": 1,
+      "ipc_included": false,
+      "warm_p50_ms": 5.780249999999931,
+      "warm_p95_ms": 7.492000000000054
+    }
+  },
+  "standardized_latency_note": "Measured all saved candidates on validation texts only using a common CPU and exported JSON classifier head. Does not reopen final-test labels or change model selection."
+}

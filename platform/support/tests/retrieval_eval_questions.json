@@ -1,0 +1,1293 @@
+[
+  {
+    "id": "legacy-1",
+    "question": "My VPN is not working after I reset my password",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-password",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-2",
+    "question": "I cannot approve Duo push notifications",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-push",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-3",
+    "question": "My account is locked",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-lock",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-4",
+    "question": "Multiple users cannot access VPN",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md",
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-vpn-multiuser",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-5",
+    "question": "Company-wide authentication failure",
+    "expected_sources": [
+      "priority_matrix.md",
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-auth-wide",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-6",
+    "question": "VPN connection keeps dropping during remote work",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-disconnect",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-7",
+    "question": "I forgot my password and cannot login",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-forgot",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-8",
+    "question": "Duo MFA app stopped sending push requests",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-push",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-9",
+    "question": "Production VPN outage for many users",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md",
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-vpn-production",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-10",
+    "question": "Our department cannot access VPN",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md",
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-vpn-multiuser",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-11",
+    "question": "The VPN client disconnects every few minutes",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-disconnect",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-12",
+    "question": "VPN shows an authentication error after I changed my password",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-password",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-13",
+    "question": "I changed phones and cannot use Duo anymore",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-newdevice",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-14",
+    "question": "I lost my MFA device and need a temporary bypass code",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-lostdevice",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-15",
+    "question": "My SSO password reset did not sync and I cannot sign in",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-sync",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-16",
+    "question": "I can sign in but my enterprise account keeps getting locked",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-lock",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-17",
+    "question": "Several users in finance cannot log in",
+    "expected_sources": [
+      "password_reset_kb.md",
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-account-multiuser",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-18",
+    "question": "Security incident affecting company authentication",
+    "expected_sources": [
+      "priority_matrix.md",
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-auth-security",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-19",
+    "question": "Which support team handles VPN connectivity issues?",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md",
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-vpn-routing",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "legacy-20",
+    "question": "Which team should handle Duo MFA reset requests?",
+    "expected_sources": [
+      "mfa_duo_kb.md",
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-mfa-routing",
+    "stratum": "legacy",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-netid-1",
+    "question": "How do I find my UTK NetID?",
+    "expected_sources": [
+      "utk_netid.md"
+    ],
+    "scenario_group": "public-netid-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-netid-2",
+    "question": "Where can I change my UTK NetID password?",
+    "expected_sources": [
+      "utk_netid.md"
+    ],
+    "scenario_group": "public-netid-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-netid-3",
+    "question": "How long does a UTK password change take to synchronize?",
+    "expected_sources": [
+      "utk_netid.md"
+    ],
+    "scenario_group": "public-netid-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-netid-4",
+    "question": "Who helps if my UTK NetID password still fails?",
+    "expected_sources": [
+      "utk_netid.md"
+    ],
+    "scenario_group": "public-netid-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-password_reset-1",
+    "question": "How can I reset a forgotten UTK password?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-password_reset-2",
+    "question": "Can a UTK student use initial password setup for an existing password?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-password_reset-3",
+    "question": "Where can I get in-person UTK password reset assistance?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-password_reset-4",
+    "question": "Should I enter my birthdate in this UTK chatbot to reset a password?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-duo-1",
+    "question": "When does a new UTK student enroll in Duo?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-duo-2",
+    "question": "I replaced my phone and UTK Duo is not working; where do I start?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-duo-3",
+    "question": "Why does UTK require two-factor authentication?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-duo-4",
+    "question": "Can this UTK assistant issue a Duo bypass code?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-eduroam-1",
+    "question": "Which email address should a UTK student use for eduroam?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-eduroam-2",
+    "question": "Which eduroam username do UTK faculty and staff use?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-eduroam-3",
+    "question": "My UTK eduroam connection fails; what should I check?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-eduroam-4",
+    "question": "Is UTK ut-open a secure wireless network?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-vpn-1",
+    "question": "Do I need UTK VPN for Canvas?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-vpn-2",
+    "question": "Do I need UTK VPN for Microsoft 365 or Zoom?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-vpn-3",
+    "question": "Can UTK VPN help me reach my office computer off campus?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-vpn-4",
+    "question": "Which campus storage resources can UTK VPN reach?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-helpdesk-1",
+    "question": "How can I contact the UTK OIT HelpDesk?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-helpdesk-2",
+    "question": "Where is UTK walk-in IT support?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-helpdesk-3",
+    "question": "Can I chat with UTK OIT online?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-helpdesk-4",
+    "question": "Where should I check current UTK HelpDesk hours?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-software-1",
+    "question": "Where can a UTK student find university software downloads?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-software-2",
+    "question": "Who can use UTK Apps@UT?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-software-3",
+    "question": "Can UTK Apps@UT run software remotely?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-software-4",
+    "question": "Is every UTK software license valid on a personal device?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-printing-1",
+    "question": "How can I print from my laptop at UTK?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-printing-2",
+    "question": "Which website do I use for UTK MyPrint?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-printing-3",
+    "question": "How do I choose color printing in UTK MyPrint?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-printing-4",
+    "question": "How do I select a UTK VolPrint pickup location?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-microsoft365-1",
+    "question": "What is included in UTK Microsoft 365?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-microsoft365-2",
+    "question": "Can UTK users collaborate using Microsoft Teams?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-microsoft365-3",
+    "question": "Is UTK OneDrive storage quota the same for everyone?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-microsoft365-4",
+    "question": "Does UTK Office desktop licensing continue after leaving UT?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-canvas-1",
+    "question": "Which credentials allow access to UTK Canvas?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-1",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-canvas-2",
+    "question": "What is Canvas used for at UTK?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-2",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-canvas-3",
+    "question": "Does a UTK Registrar course have a corresponding Canvas shell?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-3",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "faq-utk-canvas-4",
+    "question": "Can this UTK assistant change my Canvas grades or enrollment?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-4",
+    "stratum": "existing_public_faq",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-1",
+    "question": "How should I clear credentials saved in the VPN client after a password change?",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-password",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-2",
+    "question": "What should I check in the SSO portal before reconnecting the corporate VPN?",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-sso-check",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-3",
+    "question": "Which VPN client version check is recommended when connection attempts keep failing?",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md"
+    ],
+    "scenario_group": "enterprise-vpn-version",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-4",
+    "question": "If VPN troubleshooting fails, which team should receive the ticket?",
+    "expected_sources": [
+      "vpn_troubleshooting_kb.md",
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-vpn-routing",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-5",
+    "question": "What approved identity check must happen before an enterprise password reset?",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-verification",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-6",
+    "question": "Should I sign out of existing sessions after resetting my SSO password?",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-signout",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-7",
+    "question": "How long should I allow for the generic enterprise password reset to synchronize?",
+    "expected_sources": [
+      "password_reset_kb.md"
+    ],
+    "scenario_group": "enterprise-account-sync",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-8",
+    "question": "My account stays locked after the reset process; who should review it?",
+    "expected_sources": [
+      "password_reset_kb.md",
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-account-lock",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-9",
+    "question": "Should I open Duo Mobile manually when a push notification is missing?",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-push",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-10",
+    "question": "What mobile network check should I perform when Duo approvals fail?",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-network",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-11",
+    "question": "What identity verification is required by the generic lost-MFA-device process?",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-lostdevice",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-12",
+    "question": "How should a replacement authentication device be registered for enterprise MFA?",
+    "expected_sources": [
+      "mfa_duo_kb.md"
+    ],
+    "scenario_group": "enterprise-mfa-newdevice",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-13",
+    "question": "Which support group should receive an email access ticket?",
+    "expected_sources": [
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-routing-email",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-14",
+    "question": "Which team handles an approved software installation request?",
+    "expected_sources": [
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-routing-software",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-15",
+    "question": "Where should the service desk route a laptop hardware problem?",
+    "expected_sources": [
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-routing-hardware",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-16",
+    "question": "Which support group should handle a printer problem?",
+    "expected_sources": [
+      "ticket_routing_rules.md"
+    ],
+    "scenario_group": "enterprise-routing-printer",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-17",
+    "question": "How does the priority matrix classify a minor issue with a workaround?",
+    "expected_sources": [
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-priority-workaround",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-18",
+    "question": "What priority applies when just one employee cannot complete normal work?",
+    "expected_sources": [
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-priority-singleblocked",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-19",
+    "question": "How should the priority of a shared application outage be assessed?",
+    "expected_sources": [
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-priority-sharedoutage",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-20",
+    "question": "Which priority tier covers a security breach or production system outage?",
+    "expected_sources": [
+      "priority_matrix.md"
+    ],
+    "scenario_group": "enterprise-priority-critical",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-21",
+    "question": "Can a new university employee use a NetID to access more than one campus service?",
+    "expected_sources": [
+      "utk_netid.md"
+    ],
+    "scenario_group": "public-netid-access",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-22",
+    "question": "What should I do when a campus NetID password still fails after the synchronization period?",
+    "expected_sources": [
+      "utk_netid.md",
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-netid-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-23",
+    "question": "Is the campus Initial Password Setup option intended for an account that never had a password?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-2",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-24",
+    "question": "Where should identity-verification information be entered during a campus password reset?",
+    "expected_sources": [
+      "utk_password_reset.md"
+    ],
+    "scenario_group": "public-password_reset-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-25",
+    "question": "When do university faculty and staff enroll in two-factor authentication?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-staffenrollment",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-26",
+    "question": "Can this support assistant change the Duo device registered to my campus account?",
+    "expected_sources": [
+      "utk_duo.md"
+    ],
+    "scenario_group": "public-duo-devicepermissions",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-27",
+    "question": "Can I use an email alias instead of my full university email address for eduroam?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-loginformat",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-28",
+    "question": "Which saved credential store may need updating for eduroam on a Mac?",
+    "expected_sources": [
+      "utk_eduroam.md"
+    ],
+    "scenario_group": "public-eduroam-keychain",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-29",
+    "question": "Where should I find the approved campus VPN installation instructions?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-installation",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-30",
+    "question": "Which public Linux resource can campus VPN provide remote access to?",
+    "expected_sources": [
+      "utk_vpn.md"
+    ],
+    "scenario_group": "public-vpn-linuxaccess",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-31",
+    "question": "Can the campus helpdesk assist with MyUTK and Microsoft Office questions?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-services",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-32",
+    "question": "Should I assume the campus walk-in helpdesk is staffed around the clock?",
+    "expected_sources": [
+      "utk_helpdesk.md"
+    ],
+    "scenario_group": "public-helpdesk-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-33",
+    "question": "Does access to campus software depend on affiliation and device ownership?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-34",
+    "question": "Can I assume all university software is free for my personal computer?",
+    "expected_sources": [
+      "utk_software.md"
+    ],
+    "scenario_group": "public-software-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-35",
+    "question": "What should I do after confirming a print job in MyPrint?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-4",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-36",
+    "question": "Can this assistant inspect my VolPrint balance or refund a printing charge?",
+    "expected_sources": [
+      "utk_printing.md"
+    ],
+    "scenario_group": "public-printing-refunds",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-37",
+    "question": "Can I create and edit documents in the university's Microsoft 365 web applications?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-1",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-38",
+    "question": "How can university OneDrive support file sharing with collaborators?",
+    "expected_sources": [
+      "utk_microsoft365.md"
+    ],
+    "scenario_group": "public-microsoft365-filesharing",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-39",
+    "question": "What should I do about a missing course or enrollment issue in campus Canvas?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-enrollmenthelp",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "expanded-40",
+    "question": "Can the support assistant promise the publication date of a Canvas course?",
+    "expected_sources": [
+      "utk_canvas.md"
+    ],
+    "scenario_group": "public-canvas-publication",
+    "stratum": "new_questions",
+    "answerable": true,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-1",
+    "question": "Which team won the basketball game last night?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-1",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-2",
+    "question": "Suggest a vegetarian recipe using lentils and spinach.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-2",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-3",
+    "question": "Write a birthday poem for a friend.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-3",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-4",
+    "question": "What is the current train fare between two cities?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-4",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-5",
+    "question": "Recommend a weekend hiking itinerary.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-5",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-6",
+    "question": "Who is leading the national election polls today?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-6",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-7",
+    "question": "What will the weather be at my house tomorrow?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-7",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-8",
+    "question": "Translate a short greeting into Portuguese.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-8",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-9",
+    "question": "Explain how to prune an apple tree.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-9",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-10",
+    "question": "Which film won the best picture award this year?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-10",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-11",
+    "question": "Help me choose a name for a fictional character.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-11",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-12",
+    "question": "What is the current market price of gold?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-12",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-13",
+    "question": "Suggest decorations for a family celebration.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-13",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-14",
+    "question": "Explain the rules of a cooperative board game.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-14",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-15",
+    "question": "How many vacation days does my employer grant me?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-15",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-16",
+    "question": "What is my current salary and next payroll amount?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-16",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-17",
+    "question": "Who won the latest international tennis tournament?",
+    "expected_sources": [],
+    "scenario_group": "unsupported-17",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-18",
+    "question": "Explain the history of a medieval trade route.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-18",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-19",
+    "question": "Recommend a beginner piano practice routine.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-19",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  },
+  {
+    "id": "unsupported-20",
+    "question": "Summarize the plot of a classic detective novel.",
+    "expected_sources": [],
+    "scenario_group": "unsupported-20",
+    "stratum": "unsupported_control",
+    "answerable": false,
+    "annotation_status": "project_authored_not_independently_reviewed"
+  }
+]

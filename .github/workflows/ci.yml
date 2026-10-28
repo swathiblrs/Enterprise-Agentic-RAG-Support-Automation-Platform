@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: combined
+        working-directory: platform
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,6 +37,7 @@ jobs:
           python -m venv .venv-support
           .venv-support/bin/pip install -r support/requirements.txt
           echo "SUPPORT_PYTHON=$PWD/.venv-support/bin/python" >> "$GITHUB_ENV"
+          .venv-support/bin/python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41', device='cpu')"
           cd support
           ../.venv-support/bin/python -m src.ingest
       - uses: actions/setup-python@v5
@@ -47,4 +48,7 @@ jobs:
           python -m venv .venv-api
           .venv-api/bin/pip install -r incident/requirements.txt pytest
       - name: Test combined platform
-        run: .venv-api/bin/python -m pytest test_combined.py test_regressions.py test_improvements.py -q
+        run: .venv-api/bin/python -m pytest test_combined.py test_regressions.py test_improvements.py test_university.py test_external_apis.py test_jobs.py test_routing_training.py test_retrieval_evaluation.py test_qlora_protocol.py test_qlora_retraining.py test_llama_training.py test_llama_retraining.py -q
+
+      - name: Run expanded retrieval evaluation
+        run: .venv-support/bin/python retrieval_benchmark.py

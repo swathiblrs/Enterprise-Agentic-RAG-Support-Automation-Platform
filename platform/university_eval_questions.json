@@ -1,0 +1,362 @@
+[
+  {
+    "id": "utk-netid-1",
+    "question": "How do I find my UTK NetID?",
+    "expected_source": "utk_netid.md",
+    "expected_url": "https://oit.utk.edu/accounts/netid/",
+    "answer_term": "NetID",
+    "topic": "netid",
+    "synthetic": true
+  },
+  {
+    "id": "utk-netid-2",
+    "question": "Where can I change my UTK NetID password?",
+    "expected_source": "utk_netid.md",
+    "expected_url": "https://oit.utk.edu/accounts/netid/",
+    "answer_term": "password",
+    "topic": "netid",
+    "synthetic": true
+  },
+  {
+    "id": "utk-netid-3",
+    "question": "How long does a UTK password change take to synchronize?",
+    "expected_source": "utk_netid.md",
+    "expected_url": "https://oit.utk.edu/accounts/netid/",
+    "answer_term": "15 minutes",
+    "topic": "netid",
+    "synthetic": true
+  },
+  {
+    "id": "utk-netid-4",
+    "question": "Who helps if my UTK NetID password still fails?",
+    "expected_source": "utk_netid.md",
+    "expected_url": "https://oit.utk.edu/accounts/netid/",
+    "answer_term": "865-974-9900",
+    "topic": "netid",
+    "synthetic": true
+  },
+  {
+    "id": "utk-password_reset-1",
+    "question": "How can I reset a forgotten UTK password?",
+    "expected_source": "utk_password_reset.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113585",
+    "answer_term": "reset",
+    "topic": "password_reset",
+    "synthetic": true
+  },
+  {
+    "id": "utk-password_reset-2",
+    "question": "Can a UTK student use initial password setup for an existing password?",
+    "expected_source": "utk_password_reset.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113585",
+    "answer_term": "Initial",
+    "topic": "password_reset",
+    "synthetic": true
+  },
+  {
+    "id": "utk-password_reset-3",
+    "question": "Where can I get in-person UTK password reset assistance?",
+    "expected_source": "utk_password_reset.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113585",
+    "answer_term": "Hodges",
+    "topic": "password_reset",
+    "synthetic": true
+  },
+  {
+    "id": "utk-password_reset-4",
+    "question": "Should I enter my birthdate in this UTK chatbot to reset a password?",
+    "expected_source": "utk_password_reset.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113585",
+    "answer_term": "never",
+    "topic": "password_reset",
+    "synthetic": true
+  },
+  {
+    "id": "utk-duo-1",
+    "question": "When does a new UTK student enroll in Duo?",
+    "expected_source": "utk_duo.md",
+    "expected_url": "https://oit.utk.edu/accounts/2fa/",
+    "answer_term": "day after",
+    "topic": "duo",
+    "synthetic": true
+  },
+  {
+    "id": "utk-duo-2",
+    "question": "I replaced my phone and UTK Duo is not working; where do I start?",
+    "expected_source": "utk_duo.md",
+    "expected_url": "https://oit.utk.edu/accounts/2fa/",
+    "answer_term": "restored",
+    "topic": "duo",
+    "synthetic": true
+  },
+  {
+    "id": "utk-duo-3",
+    "question": "Why does UTK require two-factor authentication?",
+    "expected_source": "utk_duo.md",
+    "expected_url": "https://oit.utk.edu/accounts/2fa/",
+    "answer_term": "password",
+    "topic": "duo",
+    "synthetic": true
+  },
+  {
+    "id": "utk-duo-4",
+    "question": "Can this UTK assistant issue a Duo bypass code?",
+    "expected_source": "utk_duo.md",
+    "expected_url": "https://oit.utk.edu/accounts/2fa/",
+    "answer_term": "cannot",
+    "topic": "duo",
+    "synthetic": true
+  },
+  {
+    "id": "utk-eduroam-1",
+    "question": "Which email address should a UTK student use for eduroam?",
+    "expected_source": "utk_eduroam.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113604",
+    "answer_term": "NetID@vols.utk.edu",
+    "topic": "eduroam",
+    "synthetic": true
+  },
+  {
+    "id": "utk-eduroam-2",
+    "question": "Which eduroam username do UTK faculty and staff use?",
+    "expected_source": "utk_eduroam.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113604",
+    "answer_term": "NetID@utk.edu",
+    "topic": "eduroam",
+    "synthetic": true
+  },
+  {
+    "id": "utk-eduroam-3",
+    "question": "My UTK eduroam connection fails; what should I check?",
+    "expected_source": "utk_eduroam.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113604",
+    "answer_term": "forget",
+    "topic": "eduroam",
+    "synthetic": true
+  },
+  {
+    "id": "utk-eduroam-4",
+    "question": "Is UTK ut-open a secure wireless network?",
+    "expected_source": "utk_eduroam.md",
+    "expected_url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113604",
+    "answer_term": "unsecured",
+    "topic": "eduroam",
+    "synthetic": true
+  },
+  {
+    "id": "utk-vpn-1",
+    "question": "Do I need UTK VPN for Canvas?",
+    "expected_source": "utk_vpn.md",
+    "expected_url": "https://oit.utk.edu/network/",
+    "answer_term": "do not require",
+    "topic": "vpn",
+    "synthetic": true
+  },
+  {
+    "id": "utk-vpn-2",
+    "question": "Do I need UTK VPN for Microsoft 365 or Zoom?",
+    "expected_source": "utk_vpn.md",
+    "expected_url": "https://oit.utk.edu/network/",
+    "answer_term": "do not require",
+    "topic": "vpn",
+    "synthetic": true
+  },
+  {
+    "id": "utk-vpn-3",
+    "question": "Can UTK VPN help me reach my office computer off campus?",
+    "expected_source": "utk_vpn.md",
+    "expected_url": "https://oit.utk.edu/network/",
+    "answer_term": "office computer",
+    "topic": "vpn",
+    "synthetic": true
+  },
+  {
+    "id": "utk-vpn-4",
+    "question": "Which campus storage resources can UTK VPN reach?",
+    "expected_source": "utk_vpn.md",
+    "expected_url": "https://oit.utk.edu/network/",
+    "answer_term": "T-Storage",
+    "topic": "vpn",
+    "synthetic": true
+  },
+  {
+    "id": "utk-helpdesk-1",
+    "question": "How can I contact the UTK OIT HelpDesk?",
+    "expected_source": "utk_helpdesk.md",
+    "expected_url": "https://oit.utk.edu/help/",
+    "answer_term": "865-974-9900",
+    "topic": "helpdesk",
+    "synthetic": true
+  },
+  {
+    "id": "utk-helpdesk-2",
+    "question": "Where is UTK walk-in IT support?",
+    "expected_source": "utk_helpdesk.md",
+    "expected_url": "https://oit.utk.edu/help/",
+    "answer_term": "Hodges",
+    "topic": "helpdesk",
+    "synthetic": true
+  },
+  {
+    "id": "utk-helpdesk-3",
+    "question": "Can I chat with UTK OIT online?",
+    "expected_source": "utk_helpdesk.md",
+    "expected_url": "https://oit.utk.edu/help/",
+    "answer_term": "https://oit.utk.edu/chat/",
+    "topic": "helpdesk",
+    "synthetic": true
+  },
+  {
+    "id": "utk-helpdesk-4",
+    "question": "Where should I check current UTK HelpDesk hours?",
+    "expected_source": "utk_helpdesk.md",
+    "expected_url": "https://oit.utk.edu/help/",
+    "answer_term": "official",
+    "topic": "helpdesk",
+    "synthetic": true
+  },
+  {
+    "id": "utk-software-1",
+    "question": "Where can a UTK student find university software downloads?",
+    "expected_source": "utk_software.md",
+    "expected_url": "https://oit.utk.edu/software-hardware/software/",
+    "answer_term": "Software Distribution",
+    "topic": "software",
+    "synthetic": true
+  },
+  {
+    "id": "utk-software-2",
+    "question": "Who can use UTK Apps@UT?",
+    "expected_source": "utk_software.md",
+    "expected_url": "https://oit.utk.edu/software-hardware/software/",
+    "answer_term": "active",
+    "topic": "software",
+    "synthetic": true
+  },
+  {
+    "id": "utk-software-3",
+    "question": "Can UTK Apps@UT run software remotely?",
+    "expected_source": "utk_software.md",
+    "expected_url": "https://oit.utk.edu/software-hardware/software/",
+    "answer_term": "remotely",
+    "topic": "software",
+    "synthetic": true
+  },
+  {
+    "id": "utk-software-4",
+    "question": "Is every UTK software license valid on a personal device?",
+    "expected_source": "utk_software.md",
+    "expected_url": "https://oit.utk.edu/software-hardware/software/",
+    "answer_term": "eligibility",
+    "topic": "software",
+    "synthetic": true
+  },
+  {
+    "id": "utk-printing-1",
+    "question": "How can I print from my laptop at UTK?",
+    "expected_source": "utk_printing.md",
+    "expected_url": "https://oit.utk.edu/labs/printing/mobile/",
+    "answer_term": "Upload",
+    "topic": "printing",
+    "synthetic": true
+  },
+  {
+    "id": "utk-printing-2",
+    "question": "Which website do I use for UTK MyPrint?",
+    "expected_source": "utk_printing.md",
+    "expected_url": "https://oit.utk.edu/labs/printing/mobile/",
+    "answer_term": "https://myprint.utk.edu",
+    "topic": "printing",
+    "synthetic": true
+  },
+  {
+    "id": "utk-printing-3",
+    "question": "How do I choose color printing in UTK MyPrint?",
+    "expected_source": "utk_printing.md",
+    "expected_url": "https://oit.utk.edu/labs/printing/mobile/",
+    "answer_term": "color",
+    "topic": "printing",
+    "synthetic": true
+  },
+  {
+    "id": "utk-printing-4",
+    "question": "How do I select a UTK VolPrint pickup location?",
+    "expected_source": "utk_printing.md",
+    "expected_url": "https://oit.utk.edu/labs/printing/mobile/",
+    "answer_term": "location",
+    "topic": "printing",
+    "synthetic": true
+  },
+  {
+    "id": "utk-microsoft365-1",
+    "question": "What is included in UTK Microsoft 365?",
+    "expected_source": "utk_microsoft365.md",
+    "expected_url": "https://oit.utk.edu/microsoft365/",
+    "answer_term": "email",
+    "topic": "microsoft365",
+    "synthetic": true
+  },
+  {
+    "id": "utk-microsoft365-2",
+    "question": "Can UTK users collaborate using Microsoft Teams?",
+    "expected_source": "utk_microsoft365.md",
+    "expected_url": "https://oit.utk.edu/microsoft365/",
+    "answer_term": "Teams",
+    "topic": "microsoft365",
+    "synthetic": true
+  },
+  {
+    "id": "utk-microsoft365-3",
+    "question": "Is UTK OneDrive storage quota the same for everyone?",
+    "expected_source": "utk_microsoft365.md",
+    "expected_url": "https://oit.utk.edu/microsoft365/",
+    "answer_term": "affiliation",
+    "topic": "microsoft365",
+    "synthetic": true
+  },
+  {
+    "id": "utk-microsoft365-4",
+    "question": "Does UTK Office desktop licensing continue after leaving UT?",
+    "expected_source": "utk_microsoft365.md",
+    "expected_url": "https://oit.utk.edu/microsoft365/",
+    "answer_term": "ends",
+    "topic": "microsoft365",
+    "synthetic": true
+  },
+  {
+    "id": "utk-canvas-1",
+    "question": "Which credentials allow access to UTK Canvas?",
+    "expected_source": "utk_canvas.md",
+    "expected_url": "https://oit.utk.edu/teachingtools/online/canvas-administration/",
+    "answer_term": "UPN",
+    "topic": "canvas",
+    "synthetic": true
+  },
+  {
+    "id": "utk-canvas-2",
+    "question": "What is Canvas used for at UTK?",
+    "expected_source": "utk_canvas.md",
+    "expected_url": "https://oit.utk.edu/teachingtools/online/canvas-administration/",
+    "answer_term": "learning management",
+    "topic": "canvas",
+    "synthetic": true
+  },
+  {
+    "id": "utk-canvas-3",
+    "question": "Does a UTK Registrar course have a corresponding Canvas shell?",
+    "expected_source": "utk_canvas.md",
+    "expected_url": "https://oit.utk.edu/teachingtools/online/canvas-administration/",
+    "answer_term": "course shells",
+    "topic": "canvas",
+    "synthetic": true
+  },
+  {
+    "id": "utk-canvas-4",
+    "question": "Can this UTK assistant change my Canvas grades or enrollment?",
+    "expected_source": "utk_canvas.md",
+    "expected_url": "https://oit.utk.edu/teachingtools/online/canvas-administration/",
+    "answer_term": "cannot",
+    "topic": "canvas",
+    "synthetic": true
+  }
+]

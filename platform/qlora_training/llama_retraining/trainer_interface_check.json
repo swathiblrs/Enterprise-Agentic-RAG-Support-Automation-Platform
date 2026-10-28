@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "two-step tiny random CPU model; not Llama training",
+  "trainer_compute_loss_compatible": true,
+  "classification_metrics_compatible": true,
+  "prediction_shape": [
+    6,
+    6
+  ],
+  "downloaded_weights_loaded": false,
+  "packages_installed": false,
+  "network_used": false
+}

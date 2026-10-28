@@ -1,0 +1,23 @@
+{
+  "model_id": "unsloth/Llama-3.2-1B-Instruct",
+  "revision": "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+  "seed": 42,
+  "max_length": 512,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.1,
+  "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"],
+  "max_steps": 300,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "learning_rate": 0.00005,
+  "label_smoothing": 0.05,
+  "checkpoint_metric": "macro_f1",
+  "objective": "six_class_cross_entropy_over_native_domain_tokens",
+  "inference_scoring": "one_forward_pass_six_domain_token_logits",
+  "chat_date": "01 Jan 2025",
+  "minimum_vram_gib": 10,
+  "requires_huggingface_access": false,
+  "authentication": "anonymous_token_false",
+  "benchmark_scope": "previously_inspected_synthetic_development_benchmark_not_blind_test"
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "source": "utk_netid.md",
+    "title": "UT Knoxville NetID and password",
+    "url": "https://oit.utk.edu/accounts/netid/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_password_reset.md",
+    "title": "UT Knoxville password reset",
+    "url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113585",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_duo.md",
+    "title": "UT Knoxville Duo two-factor authentication",
+    "url": "https://oit.utk.edu/accounts/2fa/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_eduroam.md",
+    "title": "UT Knoxville eduroam wireless connection",
+    "url": "https://utk.teamdynamix.com/TDClient/2277/OIT-Portal/KB/PrintArticle?ID=113604",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_vpn.md",
+    "title": "UT Knoxville VPN and off-campus access",
+    "url": "https://oit.utk.edu/network/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_helpdesk.md",
+    "title": "UT Knoxville OIT HelpDesk contact",
+    "url": "https://oit.utk.edu/help/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_software.md",
+    "title": "UT Knoxville software and Apps@UT",
+    "url": "https://oit.utk.edu/software-hardware/software/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_printing.md",
+    "title": "UT Knoxville VolPrint and MyPrint",
+    "url": "https://oit.utk.edu/labs/printing/mobile/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_microsoft365.md",
+    "title": "UT Knoxville Microsoft 365",
+    "url": "https://oit.utk.edu/microsoft365/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  },
+  {
+    "source": "utk_canvas.md",
+    "title": "UT Knoxville Canvas access",
+    "url": "https://oit.utk.edu/teachingtools/online/canvas-administration/",
+    "reviewed": "2026-10-22",
+    "institution": "University of Tennessee, Knoxville",
+    "content_type": "project_authored_public_summary"
+  }
+]

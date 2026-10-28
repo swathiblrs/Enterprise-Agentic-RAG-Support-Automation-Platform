@@ -1,0 +1,292 @@
+{
+  "status": "local_validation_only",
+  "network": "HF offline modes; existing model files only",
+  "qlora_training_executed": false,
+  "challenge_predictions_opened": false,
+  "dataset_audit": {
+    "sizes": [
+      1620,
+      90,
+      120
+    ],
+    "groups": [
+      108,
+      18,
+      60
+    ],
+    "max_challenge_char5_jaccard": 0.46808510638297873,
+    "review_status": "synthetic_not_independently_reviewed"
+  },
+  "results": {
+    "tfidf": {
+      "validation": {
+        "n": 90,
+        "accuracy": 0.9777777777777777,
+        "macro_f1": 0.9776785714285715,
+        "per_domain_recall": {
+          "cloud": 1,
+          "data": 1,
+          "it": 1,
+          "other": 1,
+          "production": 1,
+          "security": 0.8666666666666667
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0,
+            0,
+            13
+          ]
+        ],
+        "label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_count": 90,
+        "accepted_coverage": 1,
+        "accepted_accuracy": 0.9777777777777777,
+        "auto_route_coverage": 0.8333333333333334
+      },
+      "engineering": {
+        "device": "cpu",
+        "load_seconds": 0.067429625,
+        "warm_p50_ms": 0.10845800000000572,
+        "warm_p95_ms": 0.14649999999999386,
+        "latency_samples": 90,
+        "batch_size": 1,
+        "peak_process_rss_mib": 39.359375,
+        "memory_method": "10ms RSS sampling, isolated process including imports/model; not incremental model memory",
+        "peak_gpu_allocated_mib": null,
+        "peak_gpu_reserved_mib": null
+      },
+      "original_predictions_match": true
+    },
+    "frozen": {
+      "validation": {
+        "n": 90,
+        "accuracy": 1,
+        "macro_f1": 1,
+        "per_domain_recall": {
+          "cloud": 1,
+          "data": 1,
+          "it": 1,
+          "other": 1,
+          "production": 1,
+          "security": 1
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ]
+        ],
+        "label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_count": 90,
+        "accepted_coverage": 1,
+        "accepted_accuracy": 1,
+        "auto_route_coverage": 0.8333333333333334
+      },
+      "engineering": {
+        "device": "cpu",
+        "load_seconds": 4.046223416,
+        "warm_p50_ms": 5.1677500000000265,
+        "warm_p95_ms": 6.1407090000002995,
+        "latency_samples": 90,
+        "batch_size": 1,
+        "peak_process_rss_mib": 472.1875,
+        "memory_method": "10ms RSS sampling, isolated process including imports/model; not incremental model memory",
+        "peak_gpu_allocated_mib": null,
+        "peak_gpu_reserved_mib": null
+      },
+      "original_predictions_match": true
+    },
+    "setfit": {
+      "validation": {
+        "n": 90,
+        "accuracy": 0.9888888888888889,
+        "macro_f1": 0.988876529477197,
+        "per_domain_recall": {
+          "cloud": 1,
+          "data": 1,
+          "it": 1,
+          "other": 1,
+          "production": 1,
+          "security": 0.9333333333333333
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            14
+          ]
+        ],
+        "label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_count": 90,
+        "accepted_coverage": 1,
+        "accepted_accuracy": 0.9888888888888889,
+        "auto_route_coverage": 0.8333333333333334
+      },
+      "engineering": {
+        "device": "cpu",
+        "load_seconds": 2.6377473329999996,
+        "warm_p50_ms": 5.172209000000372,
+        "warm_p95_ms": 6.422875000000161,
+        "latency_samples": 90,
+        "batch_size": 1,
+        "peak_process_rss_mib": 476.703125,
+        "memory_method": "10ms RSS sampling, isolated process including imports/model; not incremental model memory",
+        "peak_gpu_allocated_mib": null,
+        "peak_gpu_reserved_mib": null
+      },
+      "original_predictions_match": true
+    }
+  }
+}

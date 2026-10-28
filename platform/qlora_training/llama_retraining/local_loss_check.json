@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "tiny CPU tensors only, not a Llama training run",
+  "selected_logits_shape": [
+    1,
+    6
+  ],
+  "only_class_logits_received_gradient": true,
+  "optimizer_step_reduced_toy_loss": true,
+  "model_weights_loaded": false,
+  "packages_installed": false,
+  "network_used": false
+}

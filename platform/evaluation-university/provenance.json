@@ -1,0 +1,17 @@
+{
+  "measured_at_utc": "2026-10-22T14:57:36.288428+00:00",
+  "files_sha256": {
+    "platform/api.py": "47f43b4a054106ea88cb59e4ff6b737694d86ae0be02c5144c10863417a6ba3f",
+    "platform/domain_router.py": "0a0637571428b109443e4624fed704a1e7081dfdc644df8f2108c58e7083fd3d",
+    "platform/public_faq_cache.py": "38ce62939ccfa5e69cba65bac73ac01fce0e11c0a8ecbd637d9a104b9c539fd2",
+    "platform/benchmark_university.py": "81dc99ae03be8fbab321ba9dfbf8b1a6707a61cf9bec04d843c1359ff9252446",
+    "platform/university_eval_questions.json": "5f4189549227d9bb6d4aa8715a6ac54bcff84947c9e12f377915f6d0ed6de0a8",
+    "platform/support/src/retriever.py": "630f88f3f34fd497a8b4fa811524d54cda7b88f2bac41e9aded50c917608ef57",
+    "platform/support/src/generator.py": "11ab2a43d1af42ddfb14573c6f2fbd13890610b05d2f3e11ed465e4a9f2fa43a",
+    "platform/support/public_sources.json": "a34e1166b5fd9a48e1b38166dae8587693e52a9a33f5021c36d1b56337440628"
+  },
+  "tests_passed": 18,
+  "measurement": "Live localhost HTTP, offline generation, warm public-FAQ cache, concurrency 16",
+  "fresh_rag_cases": 40,
+  "synthetic_http_requests": 65000
+}

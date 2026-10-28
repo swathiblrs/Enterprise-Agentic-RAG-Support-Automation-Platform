@@ -1,0 +1,737 @@
+{
+  "provenance": "Project-authored synthetic scenario families, not real support records; not independently human-reviewed.",
+  "families": {
+    "it": [
+      [
+        "vpn",
+        "Corporate VPN",
+        "tunnel closes during connection;client rejects the current password;remote desktop is unreachable from home;connection repeatedly drops;client requests help updating its profile"
+      ],
+      [
+        "account",
+        "Employee account",
+        "password reset is not completing;account is locked after a typo;new starter cannot sign in;password expiry notice needs clarification;username lookup is needed"
+      ],
+      [
+        "duo",
+        "Duo verification",
+        "approval notification does not arrive;replacement phone needs enrollment;hardware token is out of sync;backup device needs registering;authentication app cannot be restored"
+      ],
+      [
+        "wifi",
+        "Office Wi-Fi",
+        "laptop cannot join the wireless network;connection drops after sleep;saved credentials need updating;device registration is incomplete;signal is weak at a single desk"
+      ],
+      [
+        "mail",
+        "Desktop email client",
+        "mailbox will not open;profile setup needs assistance;messages are stuck in the outbox;signature settings were lost;shared mailbox needs opening"
+      ],
+      [
+        "printing",
+        "Office printer",
+        "print job stays in the queue;paper output is blank;driver cannot find the printer;duplex setting is unavailable;document was sent to the wrong print queue"
+      ],
+      [
+        "laptop",
+        "Employee laptop",
+        "new device setup is incomplete;screen remains black after waking;battery charging has stopped;keyboard layout is incorrect;external monitor is not detected"
+      ],
+      [
+        "software",
+        "Workstation software",
+        "approved application will not install;license activation fails;update needs administrator assistance;application shortcut disappeared;desktop application crashes on launch"
+      ],
+      [
+        "lms",
+        "Learning portal",
+        "student cannot open the course page;an enrollment is missing;assignment upload fails for one user;course notifications are not arriving;browser blocks a lesson attachment"
+      ],
+      [
+        "files",
+        "Shared office files",
+        "mapped drive is missing;folder access needs a routine permission request;file sync is paused on one laptop;document opens read-only;deleted personal file needs restoration"
+      ],
+      [
+        "video",
+        "Video meeting app",
+        "microphone cannot be selected;camera is unavailable;screen sharing fails for one attendee;meeting link opens the wrong account;headset audio is silent"
+      ],
+      [
+        "office",
+        "Office productivity suite",
+        "document editor needs activation;spreadsheet application will not start;presentation export fails;proofing language is incorrect;add-in installation needs help"
+      ],
+      [
+        "mobile",
+        "Work mobile device",
+        "mail setup fails on a new phone;approved app cannot be installed;work profile is not syncing;device enrollment instructions are needed;notifications are muted unexpectedly"
+      ],
+      [
+        "browser",
+        "Desktop web browser",
+        "saved session keeps expiring;approved site is blocked by an extension;cache clearing instructions are needed;download location cannot be changed;pop-up setting prevents a form opening"
+      ],
+      [
+        "meetingroom",
+        "Meeting-room equipment",
+        "projector does not detect a laptop;conference speaker is silent;display cable adapter is missing;room touch panel is unresponsive;wireless screen casting fails"
+      ],
+      [
+        "telephone",
+        "Desk telephone",
+        "handset has no dial tone;voicemail setup is incomplete;call forwarding needs changing;headset cannot connect;extension display is incorrect"
+      ],
+      [
+        "accessibility",
+        "Assistive desktop software",
+        "screen reader does not launch;magnification settings reset;dictation microphone needs setup;keyboard accessibility settings changed;approved accessibility tool needs installation"
+      ],
+      [
+        "chat",
+        "Workplace collaboration app",
+        "employee cannot join a team;desktop client will not update;notification settings need adjustment;shared calendar tab is missing;work account is not added to the app"
+      ],
+      [
+        "calendar",
+        "Personal work calendar",
+        "meeting invitations are not syncing;time zone is incorrect;delegate access needs setup;shared calendar will not display;reminder settings are lost"
+      ],
+      [
+        "storage",
+        "Employee device storage",
+        "local disk is almost full;approved backup is paused;USB drive is not recognized;personal folder sync needs setup;file recovery instructions are needed"
+      ],
+      [
+        "onboarding",
+        "New employee onboarding",
+        "work account setup checklist is needed;equipment pickup instructions are missing;first sign-in needs assistance;approved applications need installing;routine group access needs requesting"
+      ],
+      [
+        "mac",
+        "Mac workstation",
+        "login keychain keeps asking for an old password;printer setup needs help;operating system update is stuck;desktop display scaling is incorrect;approved VPN profile needs installing"
+      ],
+      [
+        "windows",
+        "Windows workstation",
+        "user profile loads incorrectly;screen resolution resets;company portal install is pending;Bluetooth keyboard cannot pair;device restart is required for an update"
+      ],
+      [
+        "serviceportal",
+        "IT self-service portal",
+        "employee cannot find the request form;existing ticket status needs checking;attachment upload fails for one user;request category needs clarification;contact details need updating"
+      ]
+    ],
+    "security": [
+      [
+        "phishing",
+        "Suspicious email campaign",
+        "message asks for a password on an unfamiliar website;sender impersonates payroll;attachment requests macros be enabled;link redirects to a fake sign-in page;several recipients report credential-harvesting messages"
+      ],
+      [
+        "ransomware",
+        "Endpoint ransomware alert",
+        "files were renamed and a payment note appeared;endpoint protection detected encryption behavior;shared files are becoming unreadable;malicious process is encrypting documents;device displays an extortion message"
+      ],
+      [
+        "takeover",
+        "Suspected account compromise",
+        "unrecognized login was followed by mailbox changes;employee denies a recorded successful sign-in;password was changed by an unknown actor;new recovery details appeared without approval;unknown sessions remain active"
+      ],
+      [
+        "spray",
+        "Password-spraying detection",
+        "many accounts receive failures from one address;distributed sources try one password across users;authentication logs show repeated low-volume guesses;sign-in attempts target inactive accounts;a known bad address probes employee identities"
+      ],
+      [
+        "malware",
+        "Malware protection alert",
+        "antivirus quarantined an unfamiliar executable;endpoint spawned a suspicious script;unapproved persistence was detected;downloaded file matched a threat signature;security agent identified a trojan"
+      ],
+      [
+        "exfiltration",
+        "Possible data exfiltration",
+        "large confidential files were sent to an unknown host;sensitive exports were uploaded without approval;outbound transfer volume increased after a suspicious login;restricted data appeared in an external bucket;an unknown process is sending customer records"
+      ],
+      [
+        "oauth",
+        "Suspicious application consent",
+        "unknown app received mailbox permissions;user denies approving an OAuth grant;application requests excessive directory access;unrecognized service principal gained consent;a malicious app registration was reported"
+      ],
+      [
+        "impossibletravel",
+        "Impossible-travel alert",
+        "one identity signed in from distant countries minutes apart;travel velocity exceeds a plausible trip;new foreign session followed a local login;identity provider flagged incompatible locations;user denies being in the second login location"
+      ],
+      [
+        "mailrules",
+        "Malicious mailbox rules",
+        "unknown rule forwards mail externally;messages about payments are being hidden;inbox forwarding appeared after a suspicious login;rule deletes security notifications;new delegate was added without authorization"
+      ],
+      [
+        "privilege",
+        "Unauthorized privilege escalation",
+        "ordinary user gained administrator rights unexpectedly;unapproved account was added to a privileged group;security logs show illicit role assignment;unknown actor granted tenant administration;privileged permission changed outside an approved request"
+      ],
+      [
+        "endpointtamper",
+        "Security agent tampering",
+        "endpoint protection was disabled by an unknown process;agent logs were cleared after suspicious execution;malware attempted to stop monitoring;device lost protection after a malicious command;unapproved script changed security exclusions"
+      ],
+      [
+        "bruteforce",
+        "Brute-force attack alert",
+        "one account receives hundreds of password attempts;gateway detected repeated credential guesses;SSH authentication is attacked from a hostile source;failed sign-ins continue after account lockout;credential guessing targets a privileged login"
+      ],
+      [
+        "vulnerability",
+        "Exploited vulnerability alert",
+        "intrusion system detected an exploit payload;public-facing service received a known attack pattern;unpatched host shows exploitation indicators;security scanner found active compromise evidence;malicious request triggered remote execution detection"
+      ],
+      [
+        "insider",
+        "Suspected insider misuse",
+        "employee accessed restricted records outside job duties;confidential data was copied before departure;unapproved bulk download triggered an investigation;privileged user bypassed an access restriction;sensitive files were sent to a personal account"
+      ],
+      [
+        "tokens",
+        "Compromised access token",
+        "secret scanning found a live credential in a public repository;unrecognized API calls use a stolen token;leaked key is being used from a hostile address;unexpected token issuance followed account compromise;bearer token was exposed in public logs"
+      ],
+      [
+        "dnsattack",
+        "Malicious DNS activity",
+        "endpoint resolves a known command-and-control domain;DNS logs show tunneling indicators;host makes repeated queries to an attacker domain;security appliance flagged domain-generation behavior;DNS requests carry suspected stolen data"
+      ],
+      [
+        "lateral",
+        "Lateral movement detection",
+        "one compromised host connects to many internal systems;remote execution follows credential theft;security telemetry shows suspicious administrative shares;attacker uses one account across multiple endpoints;unapproved remote services appear on neighboring hosts"
+      ],
+      [
+        "mfasocial",
+        "MFA fatigue attack",
+        "user receives repeated approvals they did not initiate;caller pressures employee to approve a login;unexpected authentication prompts coincide with hostile sign-ins;user accidentally approved an attacker request;security team detected approval bombing"
+      ],
+      [
+        "browserthreat",
+        "Malicious browser extension",
+        "extension captures credentials without authorization;security tool flagged an extension as spyware;unknown add-on redirects corporate sign-ins;browser extension sends browsing data to an attacker;unapproved extension injects malicious code"
+      ],
+      [
+        "webshell",
+        "Web shell detection",
+        "unexpected server file executes attacker commands;security telemetry identifies a server backdoor;web directory contains a malicious command script;unknown actor uploaded an executable shell;web process launches suspicious administrative commands"
+      ],
+      [
+        "cloudcompromise",
+        "Cloud identity compromise",
+        "unknown actor disabled cloud audit logs;stolen cloud keys created resources for abuse;unapproved account altered security policies;cloud session accessed secrets after a malicious login;attacker created a privileged cloud identity"
+      ],
+      [
+        "fraud",
+        "Business email compromise",
+        "message impersonates an executive requesting a transfer;vendor bank details changed after mailbox intrusion;fake invoice was sent from a compromised account;attacker redirected a payment conversation;security review found fraudulent payment instructions"
+      ],
+      [
+        "unapprovedaccess",
+        "Unauthorized resource access",
+        "restricted document was opened by an unknown identity;security log records access outside the authorization policy;external actor downloaded protected records;compromised account accessed confidential folders;intrusion alert identifies illicit database access"
+      ],
+      [
+        "cryptomining",
+        "Cryptomining alert",
+        "unknown process consumes compute for a mining pool;security product detects a miner on a workstation;cloud resources run unauthorized mining software;malicious container connects to a coin-mining service;unapproved executable mines digital currency"
+      ]
+    ],
+    "cloud": [
+      [
+        "autoscale",
+        "Autoscaling configuration",
+        "new instances are not being provisioned;desired replica count exceeds available capacity;scale policy does not trigger on demand;scaling group is limited by a regional quota;capacity increase remains pending"
+      ],
+      [
+        "loadbalancer",
+        "Cloud load balancer",
+        "target registration is failing;health checks use the wrong port;backend pool has no healthy targets;listener rule points to the wrong pool;certificate attachment is misconfigured"
+      ],
+      [
+        "kubernetes",
+        "Kubernetes cluster capacity",
+        "pods remain pending because nodes are full;node autoscaler cannot add capacity;resource requests exceed the node pool;cluster quota prevents scheduling;new node group is not joining"
+      ],
+      [
+        "terraform",
+        "Infrastructure provisioning",
+        "Terraform apply fails creating resources;infrastructure state lock is stuck;resource plan has an unexpected dependency;provider credentials lack provisioning permissions;deployment cannot allocate a subnet"
+      ],
+      [
+        "cloudquota",
+        "Cloud service quota",
+        "regional compute allocation is exhausted;instance family limit blocks provisioning;load balancer quota prevents creation;requested capacity exceeds subscription limits;service limit increase is needed"
+      ],
+      [
+        "vpc",
+        "Virtual private cloud networking",
+        "route table points to the wrong gateway;subnet has no outbound path;network ACL blocks expected traffic;peering configuration is incomplete;address space overlaps with another network"
+      ],
+      [
+        "storagebucket",
+        "Object storage configuration",
+        "bucket policy denies an approved workload;lifecycle rule archives files too early;replication configuration is incomplete;storage endpoint cannot be reached from a subnet;object upload is blocked by service configuration"
+      ],
+      [
+        "cloudiam",
+        "Routine cloud IAM configuration",
+        "service role lacks a documented resource permission;workload identity cannot assume its approved role;policy condition blocks an expected service call;new application needs a scoped cloud role;permission boundary prevents provisioning"
+      ],
+      [
+        "clouddns",
+        "Cloud DNS configuration",
+        "private zone is not linked to the network;record points to an old resource;resolver forwarding rule is incomplete;DNS change has not propagated;delegation for a cloud zone is missing"
+      ],
+      [
+        "vm",
+        "Virtual machine provisioning",
+        "image selection blocks instance creation;attached disk prevents boot;instance cannot get an address;requested machine size is unavailable;provisioning extension times out"
+      ],
+      [
+        "containers",
+        "Container infrastructure",
+        "image registry authentication is misconfigured;cluster cannot pull an approved image;container resource limits are insufficient;node storage is exhausted;deployment references a missing image tag"
+      ],
+      [
+        "cloudcert",
+        "Cloud certificate setup",
+        "managed certificate validation is pending;listener references an expired certificate;domain verification record is missing;certificate cannot be attached to the gateway;renewal requires a DNS update"
+      ],
+      [
+        "cloudcost",
+        "Cloud resource cost control",
+        "unused compute resources remain allocated;storage tier causes unexpected infrastructure charges;budget alert needs configuration;oversized instances need capacity review;reserved capacity does not match active resources"
+      ],
+      [
+        "region",
+        "Cloud region availability",
+        "requested service is unavailable in the selected region;capacity is exhausted in one availability zone;resource migration needs a region plan;regional endpoint configuration is incorrect;zone selection prevents instance launch"
+      ],
+      [
+        "nat",
+        "NAT gateway configuration",
+        "private subnet cannot reach package repositories;outbound gateway has exhausted ports;subnet route points to a deleted gateway;gateway address association is incomplete;egress path is misconfigured"
+      ],
+      [
+        "cloudbackup",
+        "Cloud backup infrastructure",
+        "backup policy is not attached to the resource;recovery vault permissions are incomplete;snapshot creation exceeds the service quota;backup retention configuration is incorrect;restore target cannot be provisioned"
+      ],
+      [
+        "privateendpoint",
+        "Private service endpoint",
+        "private endpoint approval is pending;private DNS record is missing;subnet policy blocks endpoint creation;application resolves the public service address;endpoint network interface failed provisioning"
+      ],
+      [
+        "cloudgateway",
+        "Cloud application gateway",
+        "routing rule does not match the hostname;backend protocol configuration is wrong;gateway subnet is too small;certificate chain is missing from configuration;gateway service health probe is incorrect"
+      ],
+      [
+        "serverlessinfra",
+        "Serverless infrastructure configuration",
+        "function cannot attach to the configured network;reserved concurrency quota blocks allocation;execution role lacks a required service permission;event source mapping is not provisioned;function package exceeds the platform limit"
+      ],
+      [
+        "managedcluster",
+        "Managed cluster provisioning",
+        "control plane creation is stuck;node image version is incompatible;cluster upgrade is blocked by capacity;managed identity is not attached;resource group policy prevents deployment"
+      ],
+      [
+        "cloudsecrets",
+        "Cloud secret-store configuration",
+        "workload lacks approved vault access;private endpoint DNS is not configured;secret rotation schedule is misconfigured;vault firewall blocks a permitted subnet;deployment references the wrong secret version"
+      ],
+      [
+        "cloudroutes",
+        "Cross-network cloud routing",
+        "transit gateway route is missing;VPN gateway configuration has mismatched address ranges;cloud-to-site route is not propagated;peering route was not added to a subnet;network attachment remains pending"
+      ],
+      [
+        "cloudobservability",
+        "Cloud monitoring setup",
+        "metric collection is not enabled for the resource;log workspace is not associated;diagnostic settings send data to the wrong destination;cloud alarm has an incorrect threshold;monitoring role lacks read permissions"
+      ],
+      [
+        "cloudregistry",
+        "Cloud artifact registry",
+        "repository policy denies an approved build role;registry endpoint is not exposed to the build network;retention policy removes required images;replication to another region is incomplete;artifact upload exceeds a storage quota"
+      ]
+    ],
+    "production": [
+      [
+        "checkout",
+        "Checkout API",
+        "requests return HTTP 503;error rate rose after a release;p95 response time violates the service target;healthy requests stall under normal traffic;customers cannot complete orders"
+      ],
+      [
+        "payments",
+        "Payment processing service",
+        "transactions time out;HTTP 500 responses increased;successful payments are not acknowledged;service crashes after the latest release;payment callbacks are delayed"
+      ],
+      [
+        "orders",
+        "Order processing service",
+        "orders remain stuck in processing;new orders are rejected after deployment;worker throughput fell below demand;service returns inconsistent status;transaction failures increased"
+      ],
+      [
+        "search",
+        "Customer search endpoint",
+        "queries return server errors;response latency exceeds the service objective;empty responses increased after a rollout;requests time out during normal traffic;service replicas repeatedly crash"
+      ],
+      [
+        "catalog",
+        "Product catalog service",
+        "customer-facing requests return HTTP 500;new release caused response failures;product pages are timing out;service performance degraded under load;application workers restart repeatedly"
+      ],
+      [
+        "queue",
+        "Application worker queue",
+        "backlog grows faster than workers consume it;messages are repeatedly reprocessed;worker exceptions prevent completion;processing delay violates the service objective;jobs remain unacknowledged"
+      ],
+      [
+        "releases",
+        "Application release health",
+        "new version causes a spike in exceptions;canary error rate exceeds the rollout threshold;service fails its readiness checks after deployment;rollback is needed after customer impact;request failures correlate with the latest build"
+      ],
+      [
+        "authservice",
+        "Customer authentication service",
+        "all customer logins return server errors;token endpoint times out during traffic;authentication service crashes after release;sign-in response latency breaches its objective;session creation fails across the product"
+      ],
+      [
+        "inventory",
+        "Inventory application service",
+        "stock updates fail with server errors;API responses are delayed;reservation requests time out;application exceptions increased after release;customers receive inconsistent availability results"
+      ],
+      [
+        "billing",
+        "Billing application",
+        "invoice creation returns server errors;scheduled billing jobs stop completing;service latency spikes during normal processing;new release breaks payment reconciliation;application workers fail repeatedly"
+      ],
+      [
+        "notificationsvc",
+        "Product notification service",
+        "delivery queue grows unexpectedly;messages are dropped after application errors;delivery latency breaches its objective;worker crash loop began after release;service returns repeated HTTP 500 responses"
+      ],
+      [
+        "streaming",
+        "Live application streaming",
+        "connections terminate unexpectedly;event delivery falls behind real time;server errors increase under ordinary traffic;application release causes stalled sessions;service cannot maintain active streams"
+      ],
+      [
+        "apiworker",
+        "Public API runtime",
+        "request handlers exhaust their worker pool;requests pile up behind blocked handlers;application process runs out of memory;service enters a crash loop;tail latency rises while throughput drops"
+      ],
+      [
+        "databasepool",
+        "Application database connection pool",
+        "request threads wait indefinitely for connections;pool exhaustion causes HTTP 503 responses;connection leaks appear after deployment;service times out while acquiring connections;application cannot recover after transient connection failures"
+      ],
+      [
+        "ratelimit",
+        "Application rate limiting",
+        "legitimate customers are rejected after a rollout;rate limiter causes elevated error responses;request budget resets incorrectly;service blocks normal API usage;application throttles far below its configured limit"
+      ],
+      [
+        "websocket",
+        "Application websocket service",
+        "active sessions disconnect after release;message handling falls behind;server exceptions terminate client sessions;connection latency exceeds the objective;gateway application returns upgrade errors"
+      ],
+      [
+        "imageprocessing",
+        "Image processing application",
+        "user uploads never finish processing;worker exceptions reject valid images;processing latency exceeds the target;new deployment breaks conversion;job throughput falls below incoming traffic"
+      ],
+      [
+        "sessionservice",
+        "Customer session service",
+        "sessions expire immediately after creation;session writes fail across the application;server errors rise during ordinary requests;deployment causes users to be signed out;session lookup latency breaches its objective"
+      ],
+      [
+        "webfrontend",
+        "Customer web application",
+        "pages return server errors after a release;rendering service crashes repeatedly;customer requests stall;new deployment produces blank responses;frontend server latency exceeds its objective"
+      ],
+      [
+        "scheduledjobs",
+        "Application scheduled jobs",
+        "critical business tasks stopped executing;jobs fail repeatedly after deployment;processing deadlines are missed;duplicate task execution affects customers;application scheduler backlog continues to grow"
+      ],
+      [
+        "servicecache",
+        "Application response cache",
+        "cache failures drive a spike in backend requests;new release serves stale customer responses;cache connection timeouts increase request latency;service crashes when the cache is unavailable;cache miss storm overloads the application"
+      ],
+      [
+        "shipping",
+        "Shipping application service",
+        "label generation fails with server errors;tracking API requests time out;workers stop acknowledging shipment events;new release breaks dispatch processing;application response latency exceeds its objective"
+      ],
+      [
+        "recommendations",
+        "Recommendation serving API",
+        "model serving requests return HTTP 500;prediction latency exceeds the service target;application release breaks online responses;serving workers crash under ordinary load;customers receive empty responses"
+      ],
+      [
+        "reportexport",
+        "Customer report export service",
+        "export jobs fail with application exceptions;generation queue is not draining;requests return server errors;processing time exceeds the delivery target;deployment breaks customer download generation"
+      ]
+    ],
+    "data": [
+      [
+        "etlschema",
+        "ETL schema validation",
+        "upstream column rename breaks a transformation;new field type fails the contract check;mandatory column is missing;schema drift blocks the scheduled load;partition schema differs from the expected table"
+      ],
+      [
+        "freshness",
+        "Analytics data freshness",
+        "dashboard table has not refreshed;latest partition is missing;source watermark has not advanced;scheduled ingestion missed its freshness target;downstream data is several hours old"
+      ],
+      [
+        "duplicates",
+        "Data quality duplication",
+        "loaded table contains duplicate business keys;incremental ingestion repeats records;deduplication check fails;replayed batch created duplicate rows;merge logic produces repeated customer records"
+      ],
+      [
+        "nulls",
+        "Data completeness validation",
+        "required fields contain unexpected nulls;new batch lacks mandatory identifiers;completeness threshold fails;source export omits a required column value;transformed records lose important attributes"
+      ],
+      [
+        "backfill",
+        "Historical data backfill",
+        "date range was skipped during reprocessing;backfilled records do not match source counts;historical partitions need rebuilding;late-arriving records were not included;reprocessing checkpoint is incorrect"
+      ],
+      [
+        "orchestration",
+        "Data pipeline orchestration",
+        "upstream task dependency blocks the ETL run;scheduled transformation did not start;pipeline retry checkpoint is incorrect;DAG task fails before loading a warehouse table;data load sequence runs out of order"
+      ],
+      [
+        "warehouse",
+        "Analytics warehouse tables",
+        "row counts differ from the source;incremental merge misses changed records;table partition pruning is not configured;aggregation produces incorrect totals;warehouse refresh contains stale partitions"
+      ],
+      [
+        "features",
+        "ML feature pipeline",
+        "online features lag behind the source;feature transformation changes unexpectedly;training and serving feature definitions differ;feature values fail validation;feature freshness checks fail"
+      ],
+      [
+        "drift",
+        "Dataset distribution monitoring",
+        "input feature distribution shifted;data drift threshold was exceeded;categorical values changed unexpectedly;new records differ from the training data;drift detector flags changed source behavior"
+      ],
+      [
+        "lineage",
+        "Dataset lineage tracking",
+        "downstream table lacks an upstream dependency record;transformation lineage is incomplete;dataset ownership metadata is missing;column lineage points to an old source;impact analysis cannot find a dependent dataset"
+      ],
+      [
+        "streamingdata",
+        "Streaming data ingestion",
+        "consumer watermark stalls;late events exceed the allowed window;ingested offsets are not committed;event records arrive out of order;stream processor drops malformed source records"
+      ],
+      [
+        "cdc",
+        "Change-data-capture pipeline",
+        "source changes are missing from the target;replication checkpoint fell behind;deleted records remain in the warehouse;CDC schema mapping is incorrect;change feed contains an unhandled event type"
+      ],
+      [
+        "reconciliation",
+        "Data reconciliation checks",
+        "source and target balances differ;batch row count does not match the manifest;aggregated totals disagree with input records;loaded records are missing from a join;reconciliation threshold fails after ingestion"
+      ],
+      [
+        "datatypes",
+        "Data transformation types",
+        "date parsing fails on a new format;numeric field arrives as text;timezone conversion shifts event dates;decimal precision is lost in a transformation;source encoding breaks text extraction"
+      ],
+      [
+        "partition",
+        "Dataset partition management",
+        "load writes to the wrong date partition;partition registration is missing;empty partitions appear after ingestion;late data is assigned to the wrong window;partition retention removes required records"
+      ],
+      [
+        "contracts",
+        "Producer-consumer data contract",
+        "producer removed a required field;new categorical value violates the agreed schema;consumer rejects the revised event format;contract validation fails before ingestion;source changed a field's meaning"
+      ],
+      [
+        "lake",
+        "Data lake ingestion",
+        "new source objects are not cataloged;ingestion manifest references missing files;raw data folder has incompatible schemas;processed files are incorrectly marked as unconsumed;load checkpoint skips valid objects"
+      ],
+      [
+        "labels",
+        "Training dataset labels",
+        "annotation labels disagree across batches;label distribution changes unexpectedly;ground-truth join misses examples;duplicate samples have conflicting labels;labeled dataset contains incomplete annotations"
+      ],
+      [
+        "sampling",
+        "Analytics data sampling",
+        "sample distribution differs from the full dataset;sampling logic drops a customer segment;validation split overlaps training records;sampling weights were not applied;rare categories disappear after filtering"
+      ],
+      [
+        "retention",
+        "Dataset retention processing",
+        "expired records remain in an analytics table;retention job removes the wrong date range;archived partitions cannot be reconciled;deletion propagation misses a derived table;retention metadata is inconsistent"
+      ],
+      [
+        "transformsql",
+        "SQL transformation logic",
+        "join multiplies records unexpectedly;aggregation excludes valid input rows;filter removes a required segment;dimension lookup fails for new keys;transformation produces incorrect business totals"
+      ],
+      [
+        "catalogdata",
+        "Data catalog metadata",
+        "schema description is out of date;dataset owner is not recorded;catalog references an obsolete table;data-quality status is not published;classification metadata is missing from a dataset"
+      ],
+      [
+        "timeseries",
+        "Time-series data processing",
+        "timestamps arrive out of order;window aggregation misses late records;resampling introduces unexpected gaps;timezone offsets misalign the series;duplicate timestamps break the quality check"
+      ],
+      [
+        "fileingest",
+        "Batch file ingestion",
+        "CSV delimiter changed unexpectedly;source file is truncated;manifest checksum does not match;header row is missing;malformed records stop the scheduled load"
+      ]
+    ],
+    "other": [
+      [
+        "cooking",
+        "Cooking question",
+        "suggest a vegetarian dinner;explain how to bake bread;recommend a soup recipe;describe how to cook lentils;help plan a picnic menu"
+      ],
+      [
+        "travel",
+        "Vacation planning",
+        "suggest a weekend itinerary;recommend a hiking destination;compare train travel routes;help plan a beach trip;describe places to visit in a city"
+      ],
+      [
+        "poetry",
+        "Creative writing request",
+        "write a short poem about autumn;compose a birthday verse;create a fictional character;write an opening paragraph for a story;suggest a title for a novel"
+      ],
+      [
+        "sports",
+        "Sports discussion",
+        "explain the rules of tennis;describe basketball scoring;recommend a beginner running routine;compare two football formations;summarize the history of baseball"
+      ],
+      [
+        "gardening",
+        "Gardening question",
+        "suggest plants for a shaded garden;explain how to prune roses;describe indoor herb care;recommend a watering schedule for tomatoes;explain how to prepare compost"
+      ],
+      [
+        "history",
+        "History question",
+        "describe an ancient civilization;explain a historical treaty;summarize a medieval trade route;discuss the history of printing books;describe a famous archaeological discovery"
+      ],
+      [
+        "music",
+        "Music learning",
+        "explain guitar chord notation;suggest beginner piano exercises;describe a musical time signature;compare jazz and blues;recommend a practice routine for violin"
+      ],
+      [
+        "language",
+        "Language translation",
+        "translate a greeting into French;explain an Italian phrase;suggest ways to practice Spanish;describe the difference between two grammatical tenses;translate a short travel phrase"
+      ],
+      [
+        "math",
+        "Mathematics homework",
+        "explain a quadratic equation;solve a geometry exercise;describe the concept of a derivative;help simplify an algebraic expression;explain prime factorization"
+      ],
+      [
+        "astronomy",
+        "Astronomy question",
+        "explain why the moon has phases;describe a solar eclipse;compare a comet and an asteroid;explain the seasons on Earth;describe how stars form"
+      ],
+      [
+        "geography",
+        "Geography question",
+        "describe a mountain range;explain how rivers form deltas;compare tropical and temperate climates;describe the location of a desert;explain continental drift"
+      ],
+      [
+        "art",
+        "Art appreciation",
+        "explain watercolor techniques;describe impressionist painting;suggest a drawing exercise;compare two sculpture styles;describe color theory for beginners"
+      ],
+      [
+        "shopping",
+        "Personal shopping advice",
+        "recommend a backpack for travel;compare types of hiking boots;suggest a birthday gift;explain how to choose a raincoat;recommend a kitchen utensil"
+      ],
+      [
+        "housing",
+        "Household planning",
+        "suggest a room layout;explain how to organize a closet;recommend a cleaning schedule;describe how to pack for a move;suggest ways to arrange a small kitchen"
+      ],
+      [
+        "boardgames",
+        "Board game question",
+        "explain the rules of chess;recommend a family board game;describe a strategy for checkers;explain how to score a card game;compare cooperative tabletop games"
+      ],
+      [
+        "literature",
+        "Literature discussion",
+        "summarize a classic novel;explain a literary metaphor;describe a famous fictional character;compare two genres of fiction;discuss the structure of a sonnet"
+      ],
+      [
+        "budget",
+        "Personal budgeting question",
+        "suggest a household budget template;explain a savings goal;describe the difference between fixed and variable expenses;help categorize grocery spending;explain compound interest conceptually"
+      ],
+      [
+        "events",
+        "Personal event planning",
+        "suggest activities for a birthday party;plan a family reunion agenda;recommend a theme for a celebration;help arrange a picnic schedule;suggest decorations for a small gathering"
+      ],
+      [
+        "animals",
+        "Animal facts",
+        "explain how birds migrate;describe the habitat of a dolphin;compare reptiles and amphibians;explain how bees communicate;describe the life cycle of a butterfly"
+      ],
+      [
+        "crafts",
+        "Craft project request",
+        "explain a beginner knitting stitch;suggest a paper folding project;describe how to make a greeting card;recommend materials for a collage;explain a simple embroidery pattern"
+      ],
+      [
+        "fitness",
+        "General exercise discussion",
+        "explain the difference between walking and jogging;describe a warmup routine;compare types of stretching;explain how a pedometer counts steps;suggest ways to organize a recreational walk"
+      ],
+      [
+        "career",
+        "General career writing",
+        "help structure a cover letter;suggest questions for a job interview;explain how to organize a resume;help draft a professional biography;describe how to prepare a presentation outline"
+      ],
+      [
+        "transport",
+        "Everyday transportation question",
+        "explain how bicycle gears work;compare walking and taking a bus;describe how a train timetable is read;suggest ways to plan a commute;explain roundabout traffic flow"
+      ],
+      [
+        "philosophy",
+        "Philosophy discussion",
+        "explain a thought experiment;compare two ethical theories;describe the idea of free will;explain deductive reasoning;discuss a famous philosophical argument"
+      ]
+    ]
+  }
+}

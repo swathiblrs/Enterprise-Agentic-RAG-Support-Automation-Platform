@@ -1,0 +1,2215 @@
+{
+  "winner": "frozen",
+  "selection_basis": "validation macro-F1, then accepted coverage, then lower warm p95",
+  "dataset_sha256": "f7194a89ca600659fea57c6f59b552b0e1331eb046c6c5c8d5e538f2695fd6ca",
+  "test_used_for_selection": false,
+  "candidates": {
+    "tfidf": {
+      "classes": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "threshold": 0.3,
+      "margin": 0.0,
+      "validation": {
+        "n": 90,
+        "accuracy": 0.9777777777777777,
+        "macro_f1": 0.9776785714285715,
+        "per_domain_recall": {
+          "cloud": 1.0,
+          "data": 1.0,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 0.8666666666666667
+        },
+        "per_domain_f1": {
+          "cloud": 1.0,
+          "data": 0.9375,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 0.9285714285714286
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0,
+            0,
+            13
+          ]
+        ],
+        "confusion_label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_coverage": 1.0,
+        "accepted_accuracy": 0.9777777777777777,
+        "abstention_rate": 0.0,
+        "cases": [
+          {
+            "id": "cloud-vm-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.626145135243562
+          },
+          {
+            "id": "cloud-vm-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5160269694178334
+          },
+          {
+            "id": "cloud-vm-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6115686978994932
+          },
+          {
+            "id": "cloud-vm-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5484451432733967
+          },
+          {
+            "id": "cloud-vm-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5385108682755114
+          },
+          {
+            "id": "cloud-cloudroutes-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6771097029478998
+          },
+          {
+            "id": "cloud-cloudroutes-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8811803607545386
+          },
+          {
+            "id": "cloud-cloudroutes-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6774686554392884
+          },
+          {
+            "id": "cloud-cloudroutes-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5786469822131459
+          },
+          {
+            "id": "cloud-cloudroutes-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5238996723759647
+          },
+          {
+            "id": "cloud-containers-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.7225811651945816
+          },
+          {
+            "id": "cloud-containers-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6242512759081024
+          },
+          {
+            "id": "cloud-containers-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.38624148714062134
+          },
+          {
+            "id": "cloud-containers-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6252081333048836
+          },
+          {
+            "id": "cloud-containers-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.3479719607916152
+          },
+          {
+            "id": "data-timeseries-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.4130178380431302
+          },
+          {
+            "id": "data-timeseries-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6650604075745066
+          },
+          {
+            "id": "data-timeseries-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.46283994144737955
+          },
+          {
+            "id": "data-timeseries-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.39108225597315194
+          },
+          {
+            "id": "data-timeseries-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.5442317764970611
+          },
+          {
+            "id": "data-lake-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.65162807928865
+          },
+          {
+            "id": "data-lake-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7295882233918695
+          },
+          {
+            "id": "data-lake-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6796848846163178
+          },
+          {
+            "id": "data-lake-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.5554834762493426
+          },
+          {
+            "id": "data-lake-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6953322768652189
+          },
+          {
+            "id": "data-freshness-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6176757977909219
+          },
+          {
+            "id": "data-freshness-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7861271618139969
+          },
+          {
+            "id": "data-freshness-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.5801158899503118
+          },
+          {
+            "id": "data-freshness-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7053588223062467
+          },
+          {
+            "id": "data-freshness-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6931190196746498
+          },
+          {
+            "id": "it-browser-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.42329814206529165
+          },
+          {
+            "id": "it-browser-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.42095650686095654
+          },
+          {
+            "id": "it-browser-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5787071412670893
+          },
+          {
+            "id": "it-browser-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.43616273158090973
+          },
+          {
+            "id": "it-browser-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.47179753148966525
+          },
+          {
+            "id": "it-chat-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5994672262273879
+          },
+          {
+            "id": "it-chat-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6549214733923682
+          },
+          {
+            "id": "it-chat-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.4744083848899702
+          },
+          {
+            "id": "it-chat-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5198319735803634
+          },
+          {
+            "id": "it-chat-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.4428327001755211
+          },
+          {
+            "id": "it-onboarding-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.7947840866726635
+          },
+          {
+            "id": "it-onboarding-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6448236519112831
+          },
+          {
+            "id": "it-onboarding-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6275389541260468
+          },
+          {
+            "id": "it-onboarding-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5111258559044833
+          },
+          {
+            "id": "it-onboarding-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5557855799224912
+          },
+          {
+            "id": "other-boardgames-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7198558587698813
+          },
+          {
+            "id": "other-boardgames-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.5762855910590209
+          },
+          {
+            "id": "other-boardgames-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.763368680161482
+          },
+          {
+            "id": "other-boardgames-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8006770676664351
+          },
+          {
+            "id": "other-boardgames-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.5334812957054168
+          },
+          {
+            "id": "other-astronomy-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7875377430102428
+          },
+          {
+            "id": "other-astronomy-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8656318544503767
+          },
+          {
+            "id": "other-astronomy-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.6974825674067796
+          },
+          {
+            "id": "other-astronomy-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7460230156829937
+          },
+          {
+            "id": "other-astronomy-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8357006651002683
+          },
+          {
+            "id": "other-fitness-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7637642202251526
+          },
+          {
+            "id": "other-fitness-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8554148603382323
+          },
+          {
+            "id": "other-fitness-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7661610724838543
+          },
+          {
+            "id": "other-fitness-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.821600906907941
+          },
+          {
+            "id": "other-fitness-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7810511678259029
+          },
+          {
+            "id": "production-search-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6359133646229869
+          },
+          {
+            "id": "production-search-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.7200272016262463
+          },
+          {
+            "id": "production-search-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.48064768630580956
+          },
+          {
+            "id": "production-search-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.4424080751598552
+          },
+          {
+            "id": "production-search-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5502925422330568
+          },
+          {
+            "id": "production-shipping-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.8739268048451246
+          },
+          {
+            "id": "production-shipping-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.8735650149521327
+          },
+          {
+            "id": "production-shipping-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.8367285795663782
+          },
+          {
+            "id": "production-shipping-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.927149122587755
+          },
+          {
+            "id": "production-shipping-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9699261024380809
+          },
+          {
+            "id": "production-scheduledjobs-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.3019766890636784
+          },
+          {
+            "id": "production-scheduledjobs-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6203688615416657
+          },
+          {
+            "id": "production-scheduledjobs-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6030390997818583
+          },
+          {
+            "id": "production-scheduledjobs-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5918941185401636
+          },
+          {
+            "id": "production-scheduledjobs-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5597373750346827
+          },
+          {
+            "id": "security-privilege-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.4347612946813558
+          },
+          {
+            "id": "security-privilege-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.6397378976721105
+          },
+          {
+            "id": "security-privilege-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5855321523865152
+          },
+          {
+            "id": "security-privilege-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.6091395534880325
+          },
+          {
+            "id": "security-privilege-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.4078012734769143
+          },
+          {
+            "id": "security-exfiltration-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5292437331590748
+          },
+          {
+            "id": "security-exfiltration-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.3444550453904846
+          },
+          {
+            "id": "security-exfiltration-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5078708198359076
+          },
+          {
+            "id": "security-exfiltration-3-0",
+            "expected": "security",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.3288347312513501
+          },
+          {
+            "id": "security-exfiltration-4-0",
+            "expected": "security",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.3492307119806511
+          },
+          {
+            "id": "security-malware-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.6921677829928535
+          },
+          {
+            "id": "security-malware-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8845525641890202
+          },
+          {
+            "id": "security-malware-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8015162787199932
+          },
+          {
+            "id": "security-malware-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5432931706256273
+          },
+          {
+            "id": "security-malware-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8954642119382701
+          }
+        ]
+      },
+      "kind": "tfidf",
+      "head": "tfidf.json",
+      "latency": {
+        "samples": 50,
+        "batch_size": 1,
+        "warm_p50_ms": 0.34604200000387664,
+        "warm_p95_ms": 1.0274999999992929,
+        "includes_process_ipc": false
+      }
+    },
+    "frozen": {
+      "classes": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "threshold": 0.49999999999999994,
+      "margin": 0.05,
+      "validation": {
+        "n": 90,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "per_domain_recall": {
+          "cloud": 1.0,
+          "data": 1.0,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 1.0
+        },
+        "per_domain_f1": {
+          "cloud": 1.0,
+          "data": 1.0,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 1.0
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ]
+        ],
+        "confusion_label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_coverage": 1.0,
+        "accepted_accuracy": 1.0,
+        "abstention_rate": 0.0,
+        "cases": [
+          {
+            "id": "cloud-vm-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8737402884603591
+          },
+          {
+            "id": "cloud-vm-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8258843642850228
+          },
+          {
+            "id": "cloud-vm-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9884726788574165
+          },
+          {
+            "id": "cloud-vm-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9894081559714382
+          },
+          {
+            "id": "cloud-vm-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8895880941879362
+          },
+          {
+            "id": "cloud-cloudroutes-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9916675201267442
+          },
+          {
+            "id": "cloud-cloudroutes-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9880536160631732
+          },
+          {
+            "id": "cloud-cloudroutes-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.990949670528021
+          },
+          {
+            "id": "cloud-cloudroutes-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9921796215844407
+          },
+          {
+            "id": "cloud-cloudroutes-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9794069858582906
+          },
+          {
+            "id": "cloud-containers-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8649622242338336
+          },
+          {
+            "id": "cloud-containers-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9570273089852854
+          },
+          {
+            "id": "cloud-containers-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9854801824323643
+          },
+          {
+            "id": "cloud-containers-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9721664190892004
+          },
+          {
+            "id": "cloud-containers-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.9495946230156254
+          },
+          {
+            "id": "data-timeseries-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9552421353018342
+          },
+          {
+            "id": "data-timeseries-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9872875214366005
+          },
+          {
+            "id": "data-timeseries-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9675298132861712
+          },
+          {
+            "id": "data-timeseries-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7563720897872833
+          },
+          {
+            "id": "data-timeseries-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9670194366415117
+          },
+          {
+            "id": "data-lake-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9962163074473723
+          },
+          {
+            "id": "data-lake-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9752077554228245
+          },
+          {
+            "id": "data-lake-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9977110152288002
+          },
+          {
+            "id": "data-lake-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9949410298091719
+          },
+          {
+            "id": "data-lake-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9683263905061442
+          },
+          {
+            "id": "data-freshness-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.8857828477352894
+          },
+          {
+            "id": "data-freshness-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9938157325439584
+          },
+          {
+            "id": "data-freshness-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9809190870852386
+          },
+          {
+            "id": "data-freshness-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9909354635408688
+          },
+          {
+            "id": "data-freshness-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.9958485888851352
+          },
+          {
+            "id": "it-browser-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.8070237704788515
+          },
+          {
+            "id": "it-browser-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.8254760855211286
+          },
+          {
+            "id": "it-browser-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9728854360632415
+          },
+          {
+            "id": "it-browser-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9792485817221159
+          },
+          {
+            "id": "it-browser-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9842977248341088
+          },
+          {
+            "id": "it-chat-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.99677404129233
+          },
+          {
+            "id": "it-chat-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9981522787857597
+          },
+          {
+            "id": "it-chat-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.984072137218824
+          },
+          {
+            "id": "it-chat-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9970461362993966
+          },
+          {
+            "id": "it-chat-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9973327714115242
+          },
+          {
+            "id": "it-onboarding-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9002630871249281
+          },
+          {
+            "id": "it-onboarding-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.9228809432616877
+          },
+          {
+            "id": "it-onboarding-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.7389206193156982
+          },
+          {
+            "id": "it-onboarding-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.8608735384909187
+          },
+          {
+            "id": "it-onboarding-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.8932939065511869
+          },
+          {
+            "id": "other-boardgames-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9880641182609408
+          },
+          {
+            "id": "other-boardgames-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9957121199469305
+          },
+          {
+            "id": "other-boardgames-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9775655789506976
+          },
+          {
+            "id": "other-boardgames-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9897783990509732
+          },
+          {
+            "id": "other-boardgames-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9721467905920776
+          },
+          {
+            "id": "other-astronomy-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8421814704246467
+          },
+          {
+            "id": "other-astronomy-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.96445146186991
+          },
+          {
+            "id": "other-astronomy-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8947118717983039
+          },
+          {
+            "id": "other-astronomy-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9873048359942901
+          },
+          {
+            "id": "other-astronomy-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9658132687225354
+          },
+          {
+            "id": "other-fitness-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9936467940419018
+          },
+          {
+            "id": "other-fitness-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9712667495340417
+          },
+          {
+            "id": "other-fitness-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9795294445208278
+          },
+          {
+            "id": "other-fitness-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9821259330673421
+          },
+          {
+            "id": "other-fitness-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.9968443328265724
+          },
+          {
+            "id": "production-search-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.8077952625887079
+          },
+          {
+            "id": "production-search-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9824612290930839
+          },
+          {
+            "id": "production-search-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.8925819466731657
+          },
+          {
+            "id": "production-search-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9466285425972568
+          },
+          {
+            "id": "production-search-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9721349645928699
+          },
+          {
+            "id": "production-shipping-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.954854280017242
+          },
+          {
+            "id": "production-shipping-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9982357495897553
+          },
+          {
+            "id": "production-shipping-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9823561630467171
+          },
+          {
+            "id": "production-shipping-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9965029395610501
+          },
+          {
+            "id": "production-shipping-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9985011409867529
+          },
+          {
+            "id": "production-scheduledjobs-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.71117024734011
+          },
+          {
+            "id": "production-scheduledjobs-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9626011003103191
+          },
+          {
+            "id": "production-scheduledjobs-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9621902378867682
+          },
+          {
+            "id": "production-scheduledjobs-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9689861373702021
+          },
+          {
+            "id": "production-scheduledjobs-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.9061798150612655
+          },
+          {
+            "id": "security-privilege-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9811543437231532
+          },
+          {
+            "id": "security-privilege-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.984876420190526
+          },
+          {
+            "id": "security-privilege-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9960971091617405
+          },
+          {
+            "id": "security-privilege-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9889239428525451
+          },
+          {
+            "id": "security-privilege-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9499080444008013
+          },
+          {
+            "id": "security-exfiltration-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9959895862957141
+          },
+          {
+            "id": "security-exfiltration-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8759411400771769
+          },
+          {
+            "id": "security-exfiltration-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9923680188049614
+          },
+          {
+            "id": "security-exfiltration-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5033855217860701
+          },
+          {
+            "id": "security-exfiltration-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8697861302344346
+          },
+          {
+            "id": "security-malware-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9955378851145241
+          },
+          {
+            "id": "security-malware-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9947191675173014
+          },
+          {
+            "id": "security-malware-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9868371624271781
+          },
+          {
+            "id": "security-malware-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.989382029298825
+          },
+          {
+            "id": "security-malware-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.9982618186636274
+          }
+        ]
+      },
+      "kind": "embedding",
+      "head": "frozen_head.json",
+      "encoder": "frozen_encoder",
+      "latency": {
+        "samples": 50,
+        "batch_size": 1,
+        "warm_p50_ms": 6.705250000003105,
+        "warm_p95_ms": 8.52054199999941,
+        "includes_process_ipc": false
+      }
+    },
+    "setfit": {
+      "classes": [
+        "cloud",
+        "data",
+        "it",
+        "other",
+        "production",
+        "security"
+      ],
+      "threshold": 0.3,
+      "margin": 0.0,
+      "validation": {
+        "n": 90,
+        "accuracy": 0.9888888888888889,
+        "macro_f1": 0.988876529477197,
+        "per_domain_recall": {
+          "cloud": 1.0,
+          "data": 1.0,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 0.9333333333333333
+        },
+        "per_domain_f1": {
+          "cloud": 1.0,
+          "data": 0.967741935483871,
+          "it": 1.0,
+          "other": 1.0,
+          "production": 1.0,
+          "security": 0.9655172413793104
+        },
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            14
+          ]
+        ],
+        "confusion_label_order": [
+          "cloud",
+          "data",
+          "it",
+          "other",
+          "production",
+          "security"
+        ],
+        "accepted_coverage": 1.0,
+        "accepted_accuracy": 0.9888888888888889,
+        "abstention_rate": 0.0,
+        "cases": [
+          {
+            "id": "cloud-vm-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5241799077947906
+          },
+          {
+            "id": "cloud-vm-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5691774472478407
+          },
+          {
+            "id": "cloud-vm-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.7608484456131042
+          },
+          {
+            "id": "cloud-vm-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.7003054955009209
+          },
+          {
+            "id": "cloud-vm-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5306985356342897
+          },
+          {
+            "id": "cloud-cloudroutes-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.798342135065922
+          },
+          {
+            "id": "cloud-cloudroutes-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.8035982177838852
+          },
+          {
+            "id": "cloud-cloudroutes-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.837759006454026
+          },
+          {
+            "id": "cloud-cloudroutes-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.828143181625048
+          },
+          {
+            "id": "cloud-cloudroutes-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.7101919222247554
+          },
+          {
+            "id": "cloud-containers-0-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5380977607478168
+          },
+          {
+            "id": "cloud-containers-1-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6272637374012474
+          },
+          {
+            "id": "cloud-containers-2-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6162087755281955
+          },
+          {
+            "id": "cloud-containers-3-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.5637611547212611
+          },
+          {
+            "id": "cloud-containers-4-0",
+            "expected": "cloud",
+            "predicted": "cloud",
+            "accepted": true,
+            "confidence": 0.6535409392291269
+          },
+          {
+            "id": "data-timeseries-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6500618097524142
+          },
+          {
+            "id": "data-timeseries-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6714146414996088
+          },
+          {
+            "id": "data-timeseries-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.679135080953816
+          },
+          {
+            "id": "data-timeseries-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.5509934999782578
+          },
+          {
+            "id": "data-timeseries-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6976831556516444
+          },
+          {
+            "id": "data-lake-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7372048965069435
+          },
+          {
+            "id": "data-lake-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6412999186670498
+          },
+          {
+            "id": "data-lake-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7890098378650947
+          },
+          {
+            "id": "data-lake-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7239870550634245
+          },
+          {
+            "id": "data-lake-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6324316376929804
+          },
+          {
+            "id": "data-freshness-0-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.5528914281676812
+          },
+          {
+            "id": "data-freshness-1-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.7059788501004142
+          },
+          {
+            "id": "data-freshness-2-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6183499109297051
+          },
+          {
+            "id": "data-freshness-3-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6295391717611416
+          },
+          {
+            "id": "data-freshness-4-0",
+            "expected": "data",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.6886384461024494
+          },
+          {
+            "id": "it-browser-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.4379731571940909
+          },
+          {
+            "id": "it-browser-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.42759451844575
+          },
+          {
+            "id": "it-browser-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.569671330076019
+          },
+          {
+            "id": "it-browser-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5751101022894487
+          },
+          {
+            "id": "it-browser-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6571088149027109
+          },
+          {
+            "id": "it-chat-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6833908472211249
+          },
+          {
+            "id": "it-chat-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.7214242830388891
+          },
+          {
+            "id": "it-chat-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6247814381441451
+          },
+          {
+            "id": "it-chat-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.7140767213213425
+          },
+          {
+            "id": "it-chat-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.6935302319817375
+          },
+          {
+            "id": "it-onboarding-0-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.4280001115496749
+          },
+          {
+            "id": "it-onboarding-1-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.5312495267128042
+          },
+          {
+            "id": "it-onboarding-2-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.363367952320178
+          },
+          {
+            "id": "it-onboarding-3-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.4854311929475504
+          },
+          {
+            "id": "it-onboarding-4-0",
+            "expected": "it",
+            "predicted": "it",
+            "accepted": true,
+            "confidence": 0.36361212840047585
+          },
+          {
+            "id": "other-boardgames-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7886907402380325
+          },
+          {
+            "id": "other-boardgames-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8346078019607478
+          },
+          {
+            "id": "other-boardgames-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7783287578352874
+          },
+          {
+            "id": "other-boardgames-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8002482166877404
+          },
+          {
+            "id": "other-boardgames-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7304016544584281
+          },
+          {
+            "id": "other-astronomy-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.6188462510070653
+          },
+          {
+            "id": "other-astronomy-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7249167183017878
+          },
+          {
+            "id": "other-astronomy-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.6195223777630077
+          },
+          {
+            "id": "other-astronomy-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.794847197058653
+          },
+          {
+            "id": "other-astronomy-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7210709119346347
+          },
+          {
+            "id": "other-fitness-0-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7658030057210196
+          },
+          {
+            "id": "other-fitness-1-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7854370429340616
+          },
+          {
+            "id": "other-fitness-2-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.7707829438912688
+          },
+          {
+            "id": "other-fitness-3-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8233315189594008
+          },
+          {
+            "id": "other-fitness-4-0",
+            "expected": "other",
+            "predicted": "other",
+            "accepted": true,
+            "confidence": 0.8489608268791125
+          },
+          {
+            "id": "production-search-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.4533656428730407
+          },
+          {
+            "id": "production-search-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6430087985835022
+          },
+          {
+            "id": "production-search-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5156229716768742
+          },
+          {
+            "id": "production-search-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6371078612345603
+          },
+          {
+            "id": "production-search-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6306648225351101
+          },
+          {
+            "id": "production-shipping-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5213757715741278
+          },
+          {
+            "id": "production-shipping-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.7188099491403653
+          },
+          {
+            "id": "production-shipping-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5324387323957892
+          },
+          {
+            "id": "production-shipping-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.6542581186329349
+          },
+          {
+            "id": "production-shipping-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.7168767992686934
+          },
+          {
+            "id": "production-scheduledjobs-0-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.3920542895238733
+          },
+          {
+            "id": "production-scheduledjobs-1-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.4757619723321683
+          },
+          {
+            "id": "production-scheduledjobs-2-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5053114681048173
+          },
+          {
+            "id": "production-scheduledjobs-3-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.5725978726253141
+          },
+          {
+            "id": "production-scheduledjobs-4-0",
+            "expected": "production",
+            "predicted": "production",
+            "accepted": true,
+            "confidence": 0.48917098485750027
+          },
+          {
+            "id": "security-privilege-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.6810124020381143
+          },
+          {
+            "id": "security-privilege-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.6669021332681994
+          },
+          {
+            "id": "security-privilege-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7958493229432901
+          },
+          {
+            "id": "security-privilege-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7161389129742027
+          },
+          {
+            "id": "security-privilege-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.4627663219155123
+          },
+          {
+            "id": "security-exfiltration-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7347890199691473
+          },
+          {
+            "id": "security-exfiltration-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.44261619640469607
+          },
+          {
+            "id": "security-exfiltration-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7348042643242033
+          },
+          {
+            "id": "security-exfiltration-3-0",
+            "expected": "security",
+            "predicted": "data",
+            "accepted": true,
+            "confidence": 0.3458637381612841
+          },
+          {
+            "id": "security-exfiltration-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.5069865878115805
+          },
+          {
+            "id": "security-malware-0-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8011262269769993
+          },
+          {
+            "id": "security-malware-1-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8139509882036371
+          },
+          {
+            "id": "security-malware-2-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7573115598210154
+          },
+          {
+            "id": "security-malware-3-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.7974080664796072
+          },
+          {
+            "id": "security-malware-4-0",
+            "expected": "security",
+            "predicted": "security",
+            "accepted": true,
+            "confidence": 0.8523771904478831
+          }
+        ]
+      },
+      "kind": "embedding",
+      "head": "setfit_head.json",
+      "encoder": "setfit_encoder",
+      "latency": {
+        "samples": 50,
+        "batch_size": 1,
+        "warm_p50_ms": 7.834416999997984,
+        "warm_p95_ms": 28.287957999999946,
+        "includes_process_ipc": false
+      }
+    }
+  }
+}

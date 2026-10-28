@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic RAG Operations</title>
+<style>
+*{box-sizing:border-box}body{font:15px system-ui;margin:0;color:#20272c;background:#f5f7f8;letter-spacing:0}
+header{background:#fff;border-bottom:1px solid #d5dcdf;padding:20px 5%}h1{font-size:23px;margin:0}
+main{max-width:1050px;margin:auto;padding:28px 20px}h2{font-size:18px}label{display:block;margin:16px 0 6px}
+input,textarea,select,button{font:inherit;padding:10px;border:1px solid #adb9bf;border-radius:4px;max-width:100%}
+input,textarea,select{width:100%}textarea{min-height:110px}button{cursor:pointer;background:#086a60;color:white;border:0}
+button:disabled{opacity:.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.status{color:#6d4c00;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;padding:16px;border:1px solid #d5dcdf;font:13px monospace}
+#login{max-width:380px}details{margin-top:18px}section{margin-bottom:26px}[hidden]{display:none!important}
+a{color:#086a60}.command{margin-top:16px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.items{padding:0;list-style:none}.item{padding:12px 0;border-bottom:1px solid #d5dcdf;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.item span{min-width:0;overflow-wrap:anywhere}.actions{display:flex;gap:8px;flex-shrink:0}.secondary{background:#fff;color:#086a60;border:1px solid #adb9bf}
+@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:19px}.item{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><h1>Agentic RAG Incident Investigation &amp; Support Automation</h1></header>
+<main>
+<section id="login"><h2>Sign in</h2><form id="loginForm">
+<label for="username">Username</label><input id="username" autocomplete="username" required>
+<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required>
+<button class="command">Sign in</button></form></section>
+<section id="workspace" hidden>
+<div class="toolbar"><h2>New case</h2><button id="logout" class="secondary">Sign out</button></div>
+<form id="caseForm"><label for="question">Question or incident</label>
+<textarea id="question" required minlength="3" maxlength="12000"></textarea>
+<div class="grid"><div><label for="domain">Domain</label><select id="domain">
+<option value="auto">Automatic</option><option value="it">IT support</option><option value="security">Security</option>
+<option value="production">Production / SRE</option><option value="cloud">Cloud</option><option value="data">Data engineering</option>
+</select></div><div><label for="severity">Reported severity</label><select id="severity">
+<option>medium</option><option>low</option><option>high</option><option>critical</option></select></div></div>
+<label for="logs">Logs (optional)</label><textarea id="logs"></textarea><button id="submit" class="command">Submit case</button>
+</form>
+<p id="jobStatus" class="status" role="status"></p>
+<section id="result" hidden><h2 id="route"></h2><p id="answer"></p><p id="evidenceOrigin" class="status"></p>
+<h2>Ticket draft</h2><pre id="ticket"></pre>
+<details><summary>Investigation and sources</summary><pre id="evidence"></pre></details>
+<details><summary>Complete response</summary><pre id="raw"></pre></details></section>
+<section><h2>Recent jobs</h2><ul id="jobs" class="items"></ul></section>
+<section><h2>Notifications</h2><ul id="notifications" class="items"></ul></section>
+<button id="history" class="secondary">Recent cases</button><pre id="historyOutput" hidden></pre>
+</section>
+<p id="status" class="status" role="status"></p>
+<a href="/docs">API reference</a> · <a href="/architecture.svg" target="_blank" rel="noopener">Architecture</a>
+</main>
+<script>
+let token='',session=0,timer=null,selected=null,rendered=null,polling=false,lastInput='',submissionKey='';
+const $=id=>document.getElementById(id);
+async function call(path,body,headers={}){
+  const response=await fetch(path,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...headers,...(token?{Authorization:'Bearer '+token}:{})},...(body?{body:JSON.stringify(body)}:{})});
+  const data=await response.json();
+  if(!response.ok)throw Error(typeof data.detail==='string'?data.detail:JSON.stringify(data.detail));
+  return data;
+}
+function showResult(data){
+  $('result').hidden=false;
+  $('route').textContent=data.routing.path+' / '+(data.routing.domain||'needs clarification');
+  $('answer').textContent=data.answer;
+  const origins=data.investigation?.evidence_summary;
+  $('evidenceOrigin').textContent=origins?'Unverified assessment. Evidence: '+origins.user_supplied+' user-supplied, '+origins.local_simulation+' simulated, '+origins.rule_derived+' rule-derived.':'';
+  $('ticket').textContent=JSON.stringify(data.ticket_draft,null,2);
+  $('evidence').textContent=JSON.stringify(data.investigation||data.support,null,2);
+  $('raw').textContent=JSON.stringify(data,null,2);
+}
+function button(label,action,secondary=false){
+  const element=document.createElement('button');element.type='button';element.textContent=label;
+  if(secondary)element.className='secondary';
+  element.onclick=action;return element;
+}
+function viewJob(id){selected=id;rendered=null;$('result').hidden=true;refresh()}
+function renderJobs(jobs){
+  $('jobs').replaceChildren();
+  if(!jobs.length){const row=document.createElement('li');row.textContent='No jobs yet.';$('jobs').append(row)}
+  for(const job of jobs){
+    const row=document.createElement('li');row.className='item';const text=document.createElement('span');
+    text.textContent=job.state+' · '+(job.question_preview||job.id)+' · attempt '+job.attempts+'/'+job.max_attempts;
+    row.append(text,button('View',()=>viewJob(job.id),true));$('jobs').append(row);
+  }
+}
+function renderNotifications(notifications){
+  $('notifications').replaceChildren();
+  if(!notifications.length){const row=document.createElement('li');row.textContent='No notifications yet.';$('notifications').append(row)}
+  for(const notification of notifications){
+    const row=document.createElement('li');row.className='item';const text=document.createElement('span');
+    text.textContent=(notification.read_at?'':'Unread · ')+notification.message+' '+notification.job_id.slice(0,8);
+    const actions=document.createElement('div');actions.className='actions';
+    actions.append(button('View',()=>viewJob(notification.job_id),true));
+    if(!notification.read_at)actions.append(button('Mark read',async()=>{
+      try{await call('/notifications/'+notification.id+'/read',{});refresh()}catch(error){$('status').textContent=error.message}
+    },true));
+    row.append(text,actions);$('notifications').append(row);
+  }
+}
+async function refresh(){
+  if(!token||polling)return;
+  polling=true;const current=session;
+  try{
+    const [jobs,notifications]=await Promise.all([call('/jobs'),call('/notifications')]);
+    if(current!==session||!token)return;
+    renderJobs(jobs);renderNotifications(notifications);
+    const id=selected;
+    if(id){
+      const job=jobs.find(item=>item.id===id)||await call('/jobs/'+id);
+      if(current!==session||selected!==id)return;
+      $('jobStatus').textContent='Job '+id+' · '+job.state+' · attempt '+job.attempts+'/'+job.max_attempts+(job.error?' · '+job.error:'');
+      if(job.state==='succeeded'&&rendered!==id){
+        const data=await call(job.result_url);
+        if(current!==session||selected!==id)return;
+        showResult(data);rendered=id;$('status').textContent='Case ready. Review findings before acting.';
+      }
+    }
+  }catch(error){if(current===session)$('status').textContent=error.message}
+  finally{polling=false}
+}
+$('loginForm').onsubmit=async event=>{
+  event.preventDefault();
+  try{
+    token=(await call('/auth/login',{username:$('username').value,password:$('password').value})).access_token;
+    session++;$('login').hidden=true;$('workspace').hidden=false;$('password').value='';
+    $('status').textContent='Signed in.';await refresh();clearInterval(timer);timer=setInterval(refresh,1500);
+  }catch(error){$('status').textContent=error.message}
+};
+$('logout').onclick=()=>{
+  session++;token='';clearInterval(timer);selected=null;rendered=null;
+  $('workspace').hidden=true;$('login').hidden=false;$('result').hidden=true;$('jobStatus').textContent='';
+  $('status').textContent='Signed out.';
+};
+$('caseForm').onsubmit=async event=>{
+  event.preventDefault();const current=session;$('submit').disabled=true;
+  const input={question:$('question').value,domain:$('domain').value,severity:$('severity').value,logs:$('logs').value.split('\n').filter(line=>line.trim())};
+  const encoded=JSON.stringify(input);
+  if(encoded!==lastInput||!submissionKey){lastInput=encoded;submissionKey=crypto.randomUUID()}
+  try{
+    const job=await call('/jobs',input,{'Idempotency-Key':submissionKey});
+    if(current!==session)return;
+    selected=job.id;rendered=null;submissionKey='';$('result').hidden=true;
+    $('jobStatus').textContent='Job '+job.id+' · '+job.state;$('status').textContent='Case submitted.';
+    await refresh();
+  }catch(error){if(current===session)$('status').textContent=error.message}
+  finally{$('submit').disabled=false}
+};
+$('history').onclick=async()=>{
+  const current=session;
+  try{const cases=await call('/cases');if(current!==session)return;
+    $('historyOutput').hidden=false;$('historyOutput').textContent=JSON.stringify(cases.map(row=>({question:row.question,routing:row.routing,id:row.id})),null,2);
+  }catch(error){if(current===session)$('status').textContent=error.message}
+};
+</script>
+</body></html>

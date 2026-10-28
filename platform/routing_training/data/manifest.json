@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "seed": 41,
+  "source_sha256": "9cc1613491cba61549008a6fa4619cb136b474d9295ffd6f0e8fd2e0ba051778",
+  "labels": [
+    "cloud",
+    "data",
+    "it",
+    "other",
+    "production",
+    "security"
+  ],
+  "provenance": "Project-authored synthetic scenario families, not real support records; not independently human-reviewed.",
+  "split_method": "Topic-family grouping; all variants and scenarios in a family stay together.",
+  "augmentation": "Two formatting variants per training base scenario; no validation/test augmentation.",
+  "independent_human_review": false,
+  "production_representativeness_established": false,
+  "dataset_sha256": "f7194a89ca600659fea57c6f59b552b0e1331eb046c6c5c8d5e538f2695fd6ca",
+  "audit": {
+    "examples": 1800,
+    "base_scenarios": 720,
+    "topic_families": 144,
+    "split_counts": {
+      "train": 1620,
+      "validation": 90,
+      "test": 90
+    },
+    "class_counts_by_split": {
+      "train": {
+        "cloud": 270,
+        "data": 270,
+        "it": 270,
+        "other": 270,
+        "production": 270,
+        "security": 270
+      },
+      "validation": {
+        "cloud": 15,
+        "data": 15,
+        "it": 15,
+        "other": 15,
+        "production": 15,
+        "security": 15
+      },
+      "test": {
+        "cloud": 15,
+        "data": 15,
+        "it": 15,
+        "other": 15,
+        "production": 15,
+        "security": 15
+      }
+    },
+    "group_overlap": 0,
+    "scenario_overlap": 0,
+    "exact_text_duplicates": 0,
+    "near_duplicate_threshold": 0.85,
+    "near_duplicates_at_threshold": 0,
+    "max_train_heldout_char5_jaccard": 0.4305555555555556,
+    "note": "Lexical checks do not prove absence of semantic leakage or label ambiguity."
+  }
+}

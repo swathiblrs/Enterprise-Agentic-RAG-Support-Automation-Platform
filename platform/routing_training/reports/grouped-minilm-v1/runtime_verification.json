@@ -1,0 +1,6 @@
+{
+  "validation_cases": 90,
+  "mismatches": [],
+  "cold_first_request_ms": 3980.08070801734,
+  "warm_mean_with_ipc_ms": 5.989480842810041
+}

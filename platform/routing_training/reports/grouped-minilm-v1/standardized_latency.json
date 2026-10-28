@@ -1,0 +1,26 @@
+{
+  "tfidf": {
+    "device": "cpu",
+    "samples": 50,
+    "batch_size": 1,
+    "ipc_included": false,
+    "warm_p50_ms": 0.10854199999998926,
+    "warm_p95_ms": 0.15520899999987847
+  },
+  "frozen": {
+    "device": "cpu",
+    "samples": 50,
+    "batch_size": 1,
+    "ipc_included": false,
+    "warm_p50_ms": 6.284167000000451,
+    "warm_p95_ms": 8.359792000000255
+  },
+  "setfit": {
+    "device": "cpu",
+    "samples": 50,
+    "batch_size": 1,
+    "ipc_included": false,
+    "warm_p50_ms": 5.780249999999931,
+    "warm_p95_ms": 7.492000000000054
+  }
+}

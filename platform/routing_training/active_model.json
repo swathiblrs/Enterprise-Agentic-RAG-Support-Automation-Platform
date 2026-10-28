@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "frozen",
+  "kind": "embedding",
+  "head": "routing_training/reports/grouped-minilm-v1/selected_head.json",
+  "head_sha256": "33ad99b400e62c226492f43f13b3b58c4842e683bbde984fddd32e080e8aeac8",
+  "encoder": null,
+  "python": ".venv-support/bin/python",
+  "dataset_sha256": "f7194a89ca600659fea57c6f59b552b0e1331eb046c6c5c8d5e538f2695fd6ca",
+  "selected_on": "validation",
+  "review_status": "synthetic_not_independently_reviewed",
+  "report": "routing_training/reports/grouped-minilm-v1/comparison.json",
+  "encoder_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_seq_length": 64,
+  "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+}

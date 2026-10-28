@@ -1,0 +1,43 @@
+{
+  "status": "trained",
+  "hardware": {
+    "gpu": "Tesla T4",
+    "vram_gib": 14.56317138671875,
+    "torch": "2.11.0+cu130"
+  },
+  "config": {
+    "model_id": "unsloth/Llama-3.2-1B-Instruct",
+    "revision": "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+    "seed": 42,
+    "max_length": 512,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "max_steps": 300,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0001,
+    "domain_only_loss": true,
+    "chat_date": "01 Jan 2025",
+    "minimum_vram_gib": 10,
+    "requires_huggingface_access": false,
+    "benchmark_scope": "previously_inspected_synthetic_benchmark_not_blind_test",
+    "authentication": "anonymous_token_false",
+    "upstream_model": "meta-llama/Llama-3.2-1B-Instruct"
+  },
+  "optimizer_steps": 200,
+  "seconds": 1203.585650308,
+  "trainable_parameters": 3407872,
+  "changed_adapter_tensors": 128,
+  "best_validation_loss": 0.16024020314216614,
+  "peak_gpu_allocated_mib": 2311.72998046875,
+  "peak_gpu_reserved_mib": 2512.0,
+  "train_sha256": "83d00e77f9abd0701f1086aaec04216f99b9cd41f419e254b175a5e5e21fb51a",
+  "validation_sha256": "83d88b993c2f114c5d37a83fcce65d2c8e6585e8e77146111b3ad686b594dfa9"
+}

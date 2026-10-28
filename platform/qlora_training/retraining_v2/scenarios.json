@@ -1,0 +1,414 @@
+{
+  "train": {
+    "security": [
+      [
+        "An employee reports an endless stream of sign-in confirmation prompts while their computer is shut down.",
+        "Someone is repeatedly requesting login confirmation for my account when I am not signing in."
+      ],
+      [
+        "An inbox rule that nobody authorized is silently sending copies of payroll mail outside the company.",
+        "We found an unknown forwarding rule exporting the finance mailbox to an external recipient."
+      ],
+      [
+        "After opening a supplier attachment, an employee noticed encrypted filenames and a payment demand.",
+        "A downloaded document executed commands and locked the user's documents with a ransom message."
+      ],
+      [
+        "A cloud audit trail shows a user granting an unfamiliar application access after a phishing message.",
+        "An unrecognized application received account permissions immediately after a fraudulent login page was visited."
+      ],
+      [
+        "The database export completed successfully but was sent to an outside host by a compromised credential.",
+        "A stolen service token downloaded customer records without an approved request."
+      ],
+      [
+        "A person pretending to be technical support is asking employees to share their recovery codes.",
+        "A caller is impersonating our helpdesk to collect login verification codes."
+      ]
+    ],
+    "cloud": [
+      [
+        "A managed key vault blocks the application's approved network because its endpoint policy references an obsolete subnet.",
+        "The secrets endpoint is inaccessible after an approved subnet change left its network allowlist outdated."
+      ],
+      [
+        "A deployment account cannot provision a virtual machine because its approved role assignment has not propagated.",
+        "An infrastructure automation identity lacks the configured permission to create its scheduled compute instance."
+      ],
+      [
+        "A private endpoint resolves to an old network address after infrastructure migration.",
+        "Cloud DNS still points an approved private service endpoint at the retired network interface."
+      ],
+      [
+        "Container nodes cannot expand because the regional compute quota has been reached.",
+        "The cloud cluster's scale-out request is denied by the project's regional instance limit."
+      ],
+      [
+        "An infrastructure template attaches the storage gateway to the wrong route table.",
+        "Provisioning succeeds but the cloud storage path is broken by a route-table configuration mistake."
+      ],
+      [
+        "A managed certificate failed renewal because the cloud resource ownership validation record is missing.",
+        "The cloud certificate service cannot validate the DNS proof needed to renew our gateway certificate."
+      ]
+    ],
+    "data": [
+      [
+        "The reporting warehouse is stale because the ingestion job stopped advancing its source cursor.",
+        "A source offset is stuck, leaving yesterday's warehouse tables unchanged despite successful app requests."
+      ],
+      [
+        "The data reconciliation job duplicates rows after a source key was renamed.",
+        "A changed business key causes duplicate customer records in the analytics load."
+      ],
+      [
+        "The trained forecasting model consumes features whose units changed from seconds to milliseconds.",
+        "Feature preprocessing changed measurement units and now the analytics model receives the wrong input distribution."
+      ],
+      [
+        "The batch export writes a valid file with truncated transaction history due to a date filter.",
+        "An analytics extraction filter drops earlier purchases even though the export process finishes normally."
+      ],
+      [
+        "A late-arriving event is omitted from the aggregate because the processing watermark closes too early.",
+        "The stream analytics window discards delayed records after an overly short lateness allowance."
+      ],
+      [
+        "A warehouse dimension join drops customers with newly introduced region codes.",
+        "Unmapped region identifiers cause the reporting join to silently exclude recently added customers."
+      ]
+    ],
+    "it": [
+      [
+        "My phone was replaced and I need the helpdesk to transfer my enrolled login authenticator.",
+        "I have a new handset and cannot use the authentication setup from my previous device."
+      ],
+      [
+        "My work mailbox cannot send because it has reached the allowed storage limit.",
+        "Email delivery from my own account is blocked by a full mailbox quota."
+      ],
+      [
+        "I deliberately started a login but its confirmation notification never arrives on my enrolled phone.",
+        "The login prompt I requested is missing on my registered authentication app."
+      ],
+      [
+        "My laptop no longer detects the docking station after a supported operating-system update.",
+        "The office dock's keyboard and monitors stopped connecting to my computer after its update."
+      ],
+      [
+        "The password I changed this morning is not accepted by the remote-work client.",
+        "My remote access program still rejects my newly reset account password."
+      ],
+      [
+        "I need an approved accessibility application installed on my company-issued computer.",
+        "Please help install the authorized screen-reading software on my work laptop."
+      ]
+    ],
+    "production": [
+      [
+        "The image upload endpoint returns server errors because the newly deployed handler dereferences a missing object.",
+        "A regression in the released image-processing code crashes valid customer uploads."
+      ],
+      [
+        "The live checkout service times out after a new lock was added to its order-handling code.",
+        "Customers cannot complete purchases because the latest application release introduced lock contention."
+      ],
+      [
+        "Every subscription renewal request fails in the running billing application after a parser regression.",
+        "A production code change crashes the subscription-renewal handler for otherwise valid requests."
+      ],
+      [
+        "The customer notification service is unhealthy because its connection pool is exhausted.",
+        "The live notification API stops answering when all application database connections remain checked out."
+      ],
+      [
+        "A retry loop in the running service creates duplicate invoices for customers.",
+        "The deployed billing worker replays a successful invoice operation and generates duplicates."
+      ],
+      [
+        "A released configuration flag accidentally disables the customer-facing search endpoint.",
+        "The active application configuration routes all search requests to a disabled handler."
+      ]
+    ],
+    "other": [
+      [
+        "For my novel, suggest a name for a fictional company with a database outage.",
+        "I am writing fiction and want a dramatic name for an imaginary failed analytics company."
+      ],
+      [
+        "Explain what a private cloud is for a classroom presentation; there is no support problem.",
+        "I need a general definition of private cloud computing for homework, not incident troubleshooting."
+      ],
+      [
+        "Write a short poem using the words authentication and firewall.",
+        "I want a creative poem that mentions passwords and network security."
+      ],
+      [
+        "Can you help choose a birthday present for someone who likes programming?",
+        "Suggest a personal gift for a friend who enjoys writing software."
+      ],
+      [
+        "Something is wrong, but I cannot identify an affected system, symptom, or request.",
+        "Please fix it; I have no details about what failed or which service is involved."
+      ],
+      [
+        "Translate the phrase data pipeline into French for a vocabulary exercise.",
+        "For a language class, translate a sentence about a fictional server into French."
+      ]
+    ]
+  },
+  "test": {
+    "security": [
+      [
+        "A meeting assistant extension was installed without approval and now requests access to every mailbox.",
+        "An unauthorized browser add-on wants organization-wide mail access after appearing on staff computers."
+      ],
+      [
+        "A user entered a recovery phrase into a page reached from a fake benefits announcement.",
+        "A fraudulent benefits portal collected an employee's recovery secret."
+      ],
+      [
+        "A scheduled task created by an unknown executable returns after each reboot.",
+        "An unfamiliar program keeps restoring its startup task even after the employee removes it."
+      ],
+      [
+        "A helpdesk impersonator convinced a worker to grant remote desktop control.",
+        "An employee let a caller claiming to be internal support take control of the workstation."
+      ],
+      [
+        "A customer's API token appears in a public code repository and has already been used from an unknown location.",
+        "An exposed application credential was exercised by an unidentified external host."
+      ],
+      [
+        "A trusted application binary has been replaced with a version whose signature no longer matches.",
+        "The installed client executable changed without an approved update and fails signature verification."
+      ],
+      [
+        "A privileged account removed audit records shortly after an unexplained midnight login.",
+        "An administrative identity signed in unexpectedly and then deleted its own access history."
+      ],
+      [
+        "The canary document in our restricted file share was downloaded by an account that should not know it exists.",
+        "An identity unexpectedly accessed a planted decoy file in a confidential share."
+      ],
+      [
+        "Several coworkers received a message asking them to scan a QR code to keep their accounts active.",
+        "A suspicious account-expiration notice directs staff to an unfamiliar QR-code login page."
+      ],
+      [
+        "The developer's terminal sent a secret to an unknown server after a package installation hook ran.",
+        "A dependency's install script transmitted an environment credential to an unrecognized endpoint."
+      ]
+    ],
+    "cloud": [
+      [
+        "A new serverless deployment is rejected because the organization has reached its regional concurrency allocation.",
+        "The cloud function service denies deployment after the account exhausts its allowed regional concurrency."
+      ],
+      [
+        "The approved service identity can no longer read the object bucket after an accidental infrastructure policy edit.",
+        "An intended machine account lost bucket access following a mistaken infrastructure permission change."
+      ],
+      [
+        "A virtual network peering connection remains pending because the second account has not accepted it.",
+        "Two cloud networks cannot communicate while the peer-connection approval is outstanding."
+      ],
+      [
+        "The managed load balancer's backend registration references instances that were removed by an infrastructure rollout.",
+        "Cloud gateway configuration still sends traffic to retired compute instances after reprovisioning."
+      ],
+      [
+        "Our infrastructure plan cannot create a volume because the requested capacity exceeds the storage quota.",
+        "A cloud disk provisioning request is blocked by an account-level storage allocation limit."
+      ],
+      [
+        "The cloud NAT configuration lacks an address pool for the newly approved workload network.",
+        "A new infrastructure subnet has no outbound connectivity because its managed NAT mapping is incomplete."
+      ],
+      [
+        "The managed service endpoint is healthy, but the private DNS zone is not linked to its authorized network.",
+        "An approved virtual network cannot resolve a private cloud endpoint because the zone association is missing."
+      ],
+      [
+        "A cloud project deployment fails because its provider registration was never enabled.",
+        "Infrastructure resources cannot be provisioned until the cloud account registers the required resource provider."
+      ],
+      [
+        "The vault's approved workload identity was detached during an infrastructure migration, preventing key reads.",
+        "A routine resource migration accidentally removed the service identity used to retrieve managed keys."
+      ],
+      [
+        "A compute image cannot launch in the chosen region because that image is not replicated there.",
+        "The infrastructure launch request references a machine image unavailable in the selected cloud region."
+      ]
+    ],
+    "data": [
+      [
+        "The monthly report total is wrong because refunds were assigned the wrong sign during transformation.",
+        "An analytics transformation treats refunded amounts as positive revenue."
+      ],
+      [
+        "The prediction dashboard mixes old and new feature definitions after a feature-store version mismatch.",
+        "The analytics consumer loads a feature version different from the one used by its model."
+      ],
+      [
+        "The reconciliation dataset omits records because an extraction predicate interprets local dates as UTC.",
+        "A timezone mistake in the data export filter excludes transactions from the reconciliation table."
+      ],
+      [
+        "The warehouse customer table shows multiple entries per person because the merge key is no longer unique.",
+        "A broken upsert key duplicates identities in the analytics warehouse."
+      ],
+      [
+        "The ETL pipeline passes string-encoded amounts into a numeric aggregation after a schema change.",
+        "A source schema update makes the reporting pipeline aggregate text instead of numeric values."
+      ],
+      [
+        "A dashboard refresh finished but retained the previous partition because the publish step selected yesterday's dataset.",
+        "Reporting exposes an outdated data partition despite the scheduled refresh completing."
+      ],
+      [
+        "A trained scoring model is accurate offline but receives features in a different order from the feature pipeline.",
+        "The analytics serving input columns no longer match the model's expected feature order."
+      ],
+      [
+        "The ingestion checkpoint advances before records are committed, causing gaps in the warehouse.",
+        "The data loader acknowledges source offsets too early and loses events between batches."
+      ],
+      [
+        "A data retention job removed reference rows still required by the historical reporting join.",
+        "A warehouse cleanup policy deleted dimensions needed to reconstruct old reports."
+      ],
+      [
+        "The BI semantic model computes distinct accounts at the wrong aggregation grain.",
+        "An analytics measure counts account identities incorrectly because its grouping level is wrong."
+      ]
+    ],
+    "it": [
+      [
+        "I need a replacement for the broken security key that I use for my own work login.",
+        "My physical sign-in key is damaged and I need help enrolling an approved replacement."
+      ],
+      [
+        "The conference-room projector is not detected when I connect my managed laptop.",
+        "My work computer cannot display slides through the meeting-room projector."
+      ],
+      [
+        "The company-approved calendar application asks me to sign in again after my password reset.",
+        "My personal work calendar client needs account setup after I changed my password."
+      ],
+      [
+        "I cannot open the authorized shared printer from my workstation after moving offices.",
+        "My employee computer has lost its configured printer since the desk relocation."
+      ],
+      [
+        "The installed work application is missing an entitlement that my manager already approved.",
+        "I need help activating my authorized software license on the company laptop."
+      ],
+      [
+        "My employee account is locked after I repeatedly typed the wrong password myself.",
+        "I accidentally locked my own login with several incorrect password attempts."
+      ],
+      [
+        "I need to recover a work document that I accidentally deleted from my own synchronized folder.",
+        "Please restore a file I mistakenly removed from my employee document folder."
+      ],
+      [
+        "The remote desktop client on my laptop needs the new approved gateway address.",
+        "My personal work computer still has the old remote desktop connection profile."
+      ],
+      [
+        "My office headset microphone is not available to the approved conferencing application.",
+        "The meeting application cannot select the microphone on my work headset."
+      ],
+      [
+        "I initiated account enrollment, but the QR code will not scan in the company authentication app.",
+        "I am setting up my own approved login authenticator and its enrollment code is unreadable."
+      ]
+    ],
+    "production": [
+      [
+        "Customers receive duplicate shipping confirmations because the released event handler is not idempotent.",
+        "The live application sends each shipment notice twice after an event-processing regression."
+      ],
+      [
+        "The deployed account-registration API crashes when an optional field is omitted.",
+        "A production validation bug returns server errors for valid new-account requests."
+      ],
+      [
+        "The customer download service returns corrupted files after the latest streaming implementation change.",
+        "A released response-streaming regression breaks files downloaded through the application."
+      ],
+      [
+        "A deadlock in the active booking service stops customers from confirming reservations.",
+        "The live reservation endpoint hangs because two application locks wait on each other."
+      ],
+      [
+        "The running authentication callback service loops between redirects after a faulty release.",
+        "Customers cannot finish signing in because the deployed callback handler redirects indefinitely."
+      ],
+      [
+        "The production document-rendering worker crashes on valid input after a dependency upgrade.",
+        "An application dependency regression breaks the live document-generation job."
+      ],
+      [
+        "The public product catalog returns the wrong language after a cache-key regression drops the locale.",
+        "A deployed caching defect serves catalog descriptions in the wrong language because the key omits the requested locale."
+      ],
+      [
+        "The public status endpoint is healthy, but the running payment handler fails every refund request.",
+        "A code defect in the live refund handler rejects all customer refunds despite healthy infrastructure."
+      ],
+      [
+        "The production socket server disconnects active customers whenever a new session is established.",
+        "A released connection-management regression drops existing application sessions on each new login."
+      ],
+      [
+        "The deployed recommendation API fails because its application package omits a required runtime file.",
+        "A release artifact is incomplete and the live recommendation handler cannot load its resource file."
+      ]
+    ],
+    "other": [
+      [
+        "I am designing a board game and need a name for a made-up security incident card.",
+        "Suggest a fictional cyber incident title for a tabletop game, not a real support case."
+      ],
+      [
+        "Compare the meanings of latency and throughput for an introductory computing lesson.",
+        "For a class, explain how response delay differs from request rate without diagnosing a system."
+      ],
+      [
+        "Write dialogue for a movie character who discovers a broken server.",
+        "Draft a fictional conversation about an imaginary application failure."
+      ],
+      [
+        "I need a recipe for a vegetarian dinner for four people.",
+        "Suggest a meat-free evening meal for four guests."
+      ],
+      [
+        "Please describe a database using an analogy for a children's book.",
+        "Give a child-friendly metaphor for data storage in an educational story."
+      ],
+      [
+        "How should I organize my weekend hiking itinerary?",
+        "Help me plan a recreational walking trip this weekend."
+      ],
+      [
+        "Please translate a fictional error message into Spanish.",
+        "For a language exercise, translate an invented application warning into Spanish."
+      ],
+      [
+        "It is not working; I cannot say what it is, what happened, or what I need.",
+        "There is a problem, but I have no affected service, symptoms, or context to share."
+      ],
+      [
+        "Give me a crossword clue whose answer is firewall.",
+        "Create a word-puzzle clue about the term firewall, not a technical support response."
+      ],
+      [
+        "Explain the history of the word cloud in computing for an essay.",
+        "I am writing an academic essay about the origin of cloud-computing terminology."
+      ]
+    ]
+  }
+}

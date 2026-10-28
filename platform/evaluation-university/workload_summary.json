@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-10-22T14:57:36.288428+00:00",
+  "mode": "localhost_http_offline_repeated_public_faq",
+  "requested": 65000,
+  "completed": 65000,
+  "concurrency": 16,
+  "distinct_questions": 40,
+  "unique_case_ids": 65000,
+  "elapsed_seconds": 61.47497137496248,
+  "requests_per_second": 1057.3408746062987,
+  "latency_ms": {
+    "p50": 3.064999938942492,
+    "p95": 54.001125041395426,
+    "p99": 202.58829195518047,
+    "max": 2121.786833042279
+  },
+  "counts": {
+    "http_200": 65000,
+    "successful": 65000,
+    "cache_hits": 65000,
+    "support": 65000
+  },
+  "stored_cases_including_cold_run": 65040,
+  "cache_ttl_seconds": 3600,
+  "cache_warmup_excluded": true,
+  "fresh_rag_quality": {
+    "questions": 40,
+    "source_hits": 40,
+    "answer_term_hits": 40,
+    "official_url_hits": 40,
+    "p95_ms": 389.1710840398446
+  },
+  "dataset_sha256": "5f4189549227d9bb6d4aa8715a6ac54bcff84947c9e12f377915f6d0ed6de0a8",
+  "error_examples": [],
+  "limitations": [
+    "Synthetic repetitions of 40 public FAQs; one demo identity, not 65000 users.",
+    "Warm cache delivery reuses earlier RAG output; not 65000 fresh retrievals or LLM calls.",
+    "Local offline server; no external ITSM submissions or production availability claim.",
+    "Term/source presence checks are development checks, not independent semantic evaluation."
+  ]
+}

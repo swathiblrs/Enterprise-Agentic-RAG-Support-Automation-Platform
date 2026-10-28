@@ -1,0 +1,14 @@
+{
+  "status": "verified_existing_tokenizer_only",
+  "rows_checked": {
+    "train.jsonl": 612,
+    "validation.jsonl": 210,
+    "challenge.jsonl": 120
+  },
+  "maximum_completion_tokens": 6,
+  "full_prompt_length_checked": false,
+  "note": "The v1 export omitted chat_template.jinja; full prompts are checked during Colab tokenization.",
+  "model_weights_loaded": false,
+  "network_downloads_enabled": false,
+  "gpu_training_executed": false
+}

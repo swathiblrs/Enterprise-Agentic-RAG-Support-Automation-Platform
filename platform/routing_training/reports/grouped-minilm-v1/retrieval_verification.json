@@ -1,0 +1,10 @@
+{
+  "collection": "support_kb",
+  "chunks": 30,
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "max_abs_embedding_difference": 2.5331974029541016e-07,
+  "matches_original_retrieval_encoder": true,
+  "collection_content_sha256": "b0a5a98ea8f18705e3ab2d99472c2bf641aa4f7fb9e058b77fbe0a5662ff43f7",
+  "note": "Chroma SQLite metadata can change on access; this checks stored content/vectors, not file byte identity."
+}
